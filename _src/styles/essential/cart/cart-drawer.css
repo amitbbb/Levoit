@@ -1,0 +1,16 @@
+.cart-drawer {
+  @apply fixed inset-0 z-50 flex justify-end invisible;
+}
+.cart-drawer.active {
+  @apply visible
+}
+
+.cart-drawer__main {
+  /* @apply opacity-0 duration-500 ease-out */
+  @apply translate-x-full duration-500 ease-out-expo
+}
+
+.cart-drawer.active .cart-drawer__main {
+  /* @apply opacity-100 */
+  @apply translate-x-0
+}

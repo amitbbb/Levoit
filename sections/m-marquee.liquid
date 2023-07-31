@@ -1,0 +1,418 @@
+{%- liquid
+  assign show_header = false
+  assign header_subtitle_size = section.settings.subtitle | size
+  assign header_title_size = section.settings.title | size
+  assign header_desc_size = section.settings.desc | size
+  assign header_size = header_subtitle_size | plus: header_title_size | plus: header_desc_size
+
+  if header_size > 0
+    assign show_header = true
+  endif
+-%}
+
+<div class="{{ section.settings.container }}">
+  {%- if show_header -%}
+    <header id="M-Marquee-Header-{{ section.id }}" class="{{ section.settings.text_position }} mb-12 px-4">
+      {%- if section.settings.subtitle != blank -%}
+        <span id="M-Marquee-HeaderSubTitle-{{ section.id }}" class="block mb-2">
+          {{- section.settings.subtitle -}}
+        </span>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 id="M-Marquee-HeaderTitle-{{ section.id }}" class="m-title-h2">
+          {{ section.settings.title }}
+        </h2>
+      {%- endif -%}
+      {%- if section.settings.desc != blank -%}
+        <p id="M-Marquee-HeaderDesc-{{ section.id }}" class="">{{ section.settings.desc | newline_to_br }}</p>
+      {%- endif -%}
+    </header>
+  {%- endif -%}
+
+  <div class="marquee">
+    <ul class="marquee__content">
+      {%- for block in section.blocks -%}
+        <li style="width: {{ block.settings.image_width }}px;">
+          {%- if block.settings.image != blank -%}
+            {% render 'image',
+              image: block.settings.image,
+              aspect_ratio: block.settings.aspect_ratio,
+              object_fit: block.settings.object_fit,
+              width: 500,
+              widths: '450, 768',
+              height: block.settings.image_height
+            %}
+          {%- else -%}
+            <div class="aspect-square bg-neutral-100"></div>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    <ul class="marquee__content" aria-hidden="true">
+      {%- for block in section.blocks -%}
+        <li style="width: {{ block.settings.image_width }}px;">
+          {%- if block.settings.image != blank -%}
+            {% render 'image',
+              image: block.settings.image,
+              aspect_ratio: block.settings.aspect_ratio,
+              object_fit: block.settings.object_fit,
+              width: 500,
+              widths: '450, 768',
+              height: block.settings.image_height
+            %}
+          {%- else -%}
+            <div class="aspect-square bg-neutral-100"></div>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% style %}
+  {% if section.settings.bg_color != blank %}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.bg_color }};
+    }
+  {% endif %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  #M-Marquee-HeaderSubTitle-{{ section.id }} {
+    color: {{ section.settings.text_color_subtitle }};
+  }
+  [id^="M-Marquee-Block-Subtitle-{{ section.id }}"] {
+    {% if section.settings.convert_to_card %}
+      color: {{ section.settings.card_subtitle_color }};
+    {% else %}
+      color: {{ section.settings.text_color_subtitle }};
+    {% endif %}
+  }
+  #M-Marquee-HeaderTitle-{{ section.id }} {
+    color: {{ section.settings.text_color_title }};
+  }
+  [id^='M-Marquee-Block-Title-{{ section.id }}'] {
+    {% if section.settings.convert_to_card %}
+      color: {{ section.settings.card_title_color }};
+    {% else %}
+      color: {{ section.settings.text_color_title }};
+    {% endif %}
+  }
+  #M-Marquee-HeaderDesc-{{ section.id }} {
+    color: {{ section.settings.text_color_desc }};
+  }
+  [id^='M-Marquee-Block-Desc-{{ section.id }}'] {
+    {% if section.settings.convert_to_card %}
+      color: {{ section.settings.card_desc_color }};
+    {% else %}
+      color: {{ section.settings.text_color_desc }};
+    {% endif %}
+  }
+  #M-Marquee-Header-{{ section.id }} {
+    max-width: 100%;
+    width: 100%;
+    {% render 'get-text-align-style', align: section.settings.text_align, get: 'style' %}
+  }
+
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    #M-Multicolumn-Header-{{ section.id }} {
+      width: {{ section.settings.header_width }}px;
+    }
+
+  }
+
+  .marquee {
+    --gap: 4rem;
+    display: flex;
+    gap: var(--gap);
+    overflow: hidden;
+    user-select: none;
+    color: black;
+  }
+
+  .marquee__content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: var(--gap);
+    animation: scroll 60s linear infinite;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "M —  Marquee",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "paragraph",
+      "content": "Blocks in this section are used to add different types of content to your page. You can add, remove, or reorder content blocks here to customize your page."
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Fresh Air Starts With Innovation."
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Description"
+    },
+    {
+      "type": "textarea",
+      "id": "list",
+      "label": "List",
+      "placeholder": "Item 1\nItem2\nItem3",
+      "info": "Separate each item with a new line"
+    },
+    {
+      "type": "range",
+      "id": "header_width",
+      "min": 400,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Header width (Header)",
+      "default": 680
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align (Header)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text position (Header)",
+      "options": [
+        {
+          "value": "",
+          "label": "Left"
+        },
+        {
+          "value": "mx-auto",
+          "label": "Center"
+        },
+        {
+          "value": "ml-auto",
+          "label": "Right"
+        }
+      ],
+      "default": "mx-auto"
+    },
+    {
+      "type": "header",
+      "content": "Section settings"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container (width)",
+      "options": [
+        {
+          "value": "",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Default"
+        },
+        {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+        },
+        {
+          "value": "container max-w-screen-md",
+          "label": "md"
+        },
+        {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+        },
+        {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+        },
+        {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+        }
+      ],
+      "default": "container max-w-screen-lg"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color_subtitle",
+      "label": "Text color (Subtitle)",
+      "default": "#fe5834"
+    },
+    {
+      "type": "color",
+      "id": "text_color_title",
+      "label": "Text color (Title)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color_desc",
+      "label": "Text color (Desc)",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "button settings"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button bg color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Button border radius",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Absolutely Love"
+        },
+        {
+          "type": "text",
+          "id": "stat",
+          "label": "Stat",
+          "default": "(298)"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 50,
+          "max": 500,
+          "step": 10,
+          "unit": "px",
+          "label": "If set image width is enabled, set width",
+          "default": 100
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "M — Marquee"
+    }
+  ]
+}
+{% endschema %}

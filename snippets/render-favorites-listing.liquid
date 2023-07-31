@@ -1,0 +1,8 @@
+<ul id="Render-Favorites-Listing">
+  {{ favorites }}
+  {%- for productId in favorites -%}
+    {%- assign product = all_products[productId] -%}
+
+    {% render 'card-product', product: product %}
+  {%- endfor -%}
+</ul>

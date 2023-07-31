@@ -1,0 +1,3 @@
+#Pagination a[aria-current="page"] {
+  @apply z-10 border border-neutral-500 bg-white font-medium text-black focus:z-20
+}

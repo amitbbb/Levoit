@@ -1,0 +1,41 @@
+{% # prettier-ignore %}
+{%- capture product_json -%}
+  {
+    "id": "{{ product.id }}",
+    "title": "{{ product.title }}",
+    "handle": "{{ product.handle }}",
+    "url": "{{ product.url | within: collection }}",
+    "price": "{{ product.price | money }}",
+    "featured_image": "{{ product.featured_image | image_url: width: 350 }}",
+    "shop_name": "{{ shop.name }}",
+    "variants": {{ product.variants | json }},
+    "product_options": [
+      {%- for option in product.options_with_values -%}
+        {
+          "name": "{{- option.name -}}",
+          "values": [
+            {%- for value in option.values -%}
+            "{{- value -}}" {%- unless forloop.last -%},{%- endunless -%}
+            {%- endfor -%}
+          ]
+        }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor %}
+    ]
+  }
+{%- endcapture -%}
+
+<add-to-favorites
+  product-json="{{ product_json | escape }}"
+  {% comment %} class="inline-flex items-center" {% endcomment %}
+>
+  <button
+    id="Favorites-Button-{{ variant_id }}"
+    type="button"
+    class="{{ class }}"
+  >
+    {% render 'icons' with 'heart', width: 25, height: 25, class: icon_class %}
+    {%- if label -%}
+      <span class="text-base">{{ label }}</span>
+    {%- endif -%}
+  </button>
+</add-to-favorites>

@@ -1,0 +1,174 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": {
+        "desktop_image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_eaae0c6be0be44279b1de8fa633351c5_1.webp"
+      }
+    },
+    "main": {
+      "type": "p-compliance",
+      "blocks": {
+        "4aa94009-1899-4167-86b9-f045a4c82b35": {
+          "type": "product",
+          "settings": {
+            "title": "CAF-LI401S",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CAF-LI401S_FCC_SDOC_PART15B.pdf?v=1684307204"
+          }
+        },
+        "9e960363-3581-4b5e-8f18-eb97b7fd668e": {
+          "type": "product",
+          "settings": {
+            "title": "CAF-P583S-KUS",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CAF-P583S-KUS_FCC_SDOC_PART15B.pdf?v=1684307816"
+          }
+        },
+        "6530a701-ef11-4b42-90b5-9a3bf1f2bb70": {
+          "type": "product",
+          "settings": {
+            "title": "CO134-AF",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CO134-AF_FCC_SDOC_PART15B.pdf?v=1684307848"
+          }
+        },
+        "884982ba-e834-4366-a0ac-a1abac942474": {
+          "type": "product",
+          "settings": {
+            "title": "CP137-AF",
+            "file_url": ""
+          }
+        },
+        "f2719269-a1c5-4e44-ac1f-e08b72ac0a10": {
+          "type": "product",
+          "settings": {
+            "title": "CP158-AF",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CP158-AF_FCC_SDOC_PART15B.pdf?v=1684308002"
+          }
+        },
+        "272dc43c-b730-4de8-b95d-da703834f623": {
+          "type": "product",
+          "settings": {
+            "title": "CP258-AF, CP237-AF",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CP258-AF_CP237-AF_FCC_SDOC_PART15B.pdf?v=1684308032"
+          }
+        },
+        "9a69b6cd-a7c7-4389-99c6-c194c8aa5659": {
+          "type": "product",
+          "settings": {
+            "title": "CP358-AF",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CP358-AF_FCC_SDOC_PART15B.pdf?v=1684308056"
+          }
+        },
+        "71f030ff-f5c9-4eba-9012-6fec68e9baa3": {
+          "type": "product",
+          "settings": {
+            "title": "CS158-AF",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CS158-AF_FCC_SDOC_PART15B.pdf?v=1684308085"
+          }
+        },
+        "b30a9d02-5a61-45f8-940e-779c1933384f": {
+          "type": "product",
+          "settings": {
+            "title": "CS358-AF",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CS358-AF_FCC_SDOC_PART15B.pdf?v=1684308118"
+          }
+        }
+      },
+      "block_order": [
+        "4aa94009-1899-4167-86b9-f045a4c82b35",
+        "9e960363-3581-4b5e-8f18-eb97b7fd668e",
+        "6530a701-ef11-4b42-90b5-9a3bf1f2bb70",
+        "884982ba-e834-4366-a0ac-a1abac942474",
+        "f2719269-a1c5-4e44-ac1f-e08b72ac0a10",
+        "272dc43c-b730-4de8-b95d-da703834f623",
+        "9a69b6cd-a7c7-4389-99c6-c194c8aa5659",
+        "71f030ff-f5c9-4eba-9012-6fec68e9baa3",
+        "b30a9d02-5a61-45f8-940e-779c1933384f"
+      ],
+      "settings": {
+        "title": "Air Fryers"
+      }
+    },
+    "514478d9-309c-4715-85a6-2237c3104a67": {
+      "type": "p-compliance",
+      "blocks": {
+        "232292f8-6e19-4a8f-8804-9d8c0c91dc18": {
+          "type": "product",
+          "settings": {
+            "title": "CFD-N051-W",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CFD-N051-W_FCC_SDOC_PART15B.pdf?v=1684308147"
+          }
+        }
+      },
+      "block_order": ["232292f8-6e19-4a8f-8804-9d8c0c91dc18"],
+      "settings": {
+        "title": "CS358-AF"
+      }
+    },
+    "a8eb83d5-a09f-48a1-b208-8257098ea07a": {
+      "type": "p-compliance",
+      "blocks": {
+        "1c64f9ae-3dc9-473b-8bd1-1594155586ba": {
+          "type": "product",
+          "settings": {
+            "title": "CAG-A601S-KUS, CAG-A601S-KUSR, CAG-A601-KUSW",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CAG-A601S_FCC_SDOC_PART15B.pdf?v=1684308174"
+          }
+        }
+      },
+      "block_order": ["1c64f9ae-3dc9-473b-8bd1-1594155586ba"],
+      "settings": {
+        "title": "Indoor Grills"
+      }
+    },
+    "5be4baa9-55fd-4eaa-8b54-48a0df9b2264": {
+      "type": "p-compliance",
+      "blocks": {
+        "fee56fdf-a0af-4c82-8265-bffbe19ca54e": {
+          "type": "product",
+          "settings": {
+            "title": "CS108-NK",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CS108-NK_FCC_SDOC_PART15B.pdf?v=1684308209"
+          }
+        }
+      },
+      "block_order": ["fee56fdf-a0af-4c82-8265-bffbe19ca54e"],
+      "settings": {
+        "title": "Kettles"
+      }
+    },
+    "42083c5a-9861-4a19-bb9c-1cb96702ecb7": {
+      "type": "p-compliance",
+      "blocks": {
+        "14469192-adce-40d6-a46f-84787a60fc3d": {
+          "type": "product",
+          "settings": {
+            "title": "CS100-AO",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CS100-AO_FCC_SDOC_PART15B.pdf?v=1684308234"
+          }
+        },
+        "135316e1-d948-431b-bd33-870d2ad3c1a8": {
+          "type": "product",
+          "settings": {
+            "title": "CS130-AO",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CS100-AO_FCC_SDOC_PART15B.pdf?v=1684308234"
+          }
+        }
+      },
+      "block_order": [
+        "14469192-adce-40d6-a46f-84787a60fc3d",
+        "135316e1-d948-431b-bd33-870d2ad3c1a8"
+      ],
+      "settings": {
+        "title": "Oven"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "main",
+    "514478d9-309c-4715-85a6-2237c3104a67",
+    "a8eb83d5-a09f-48a1-b208-8257098ea07a",
+    "5be4baa9-55fd-4eaa-8b54-48a0df9b2264",
+    "42083c5a-9861-4a19-bb9c-1cb96702ecb7"
+  ]
+}

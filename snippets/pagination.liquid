@@ -1,0 +1,61 @@
+{%- if paginate.parts.size > 0 -%}
+  <div class="flex justify-center">
+    <nav aria-label="Page navigation example">
+      <ul class="flex list-style-none">
+        {%- if paginate.previous -%}
+          <li class="page-item">
+            <a
+              class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-800 hover:text-gray-800 focus:shadow-none"
+              href="{{ paginate.previous.url }}{{ anchor }}"
+              aria-label="{{ 'general.pagination.previous' | t }}"
+            >
+              {%- render 'icons' with 'arrow-left' -%}
+            </a>
+          </li>
+        {%- endif -%}
+
+        {%- for part in paginate.parts -%}
+          {%- if part.is_link -%}
+            <li class="page-item">
+              <a
+                class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+                href="{{ part.url }}{{ anchor }}"
+                aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
+              >
+                {{- part.title -}}
+              </a>
+            </li>
+          {%- else -%}
+            {%- if part.title == paginate.current_page -%}
+              <li class="page-item">
+                <a
+                  class="
+                    page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none
+                    underline underline-offset-2
+                  "
+                  href="{{ part.url }}{{ anchor }}"
+                  aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
+                >
+                  {{- part.title -}}
+                </a>
+              </li>
+            {%- else -%}
+              <span class="">...</span>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if paginate.next -%}
+          <li class="page-item">
+            <a
+              class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+              href="{{ paginate.next.url }}{{ anchor }}"
+              aria-label="{{ 'general.pagination.next' | t }}"
+            >
+              {%- render 'icons' with 'arrow-right' -%}
+            </a>
+          </li>
+        {%- endif -%}
+      </ul>
+    </nav>
+  </div>
+{%- endif -%}

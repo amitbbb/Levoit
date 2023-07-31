@@ -1,0 +1,40 @@
+<div class="container text-center text-white text-xs lg:text-sm py-3">
+  {%- if section.settings.announcement != blank -%}
+    {{ section.settings.announcement }}
+  {%- endif -%}
+  {%- if section.settings.link_label != blank -%}
+    <a href="{{ section.settings.link_url }}">{{ section.settings.link_label }}</a>
+  {%- endif -%}
+</div>
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    background-color: var(--theme-accent-1)
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "tag": "aside",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "announcement",
+      "label": "Announcement",
+      "default": "Free Shipping On All Orders."
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link label",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link url"
+    }
+  ]
+}
+{% endschema %}

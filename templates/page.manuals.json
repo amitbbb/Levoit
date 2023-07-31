@@ -1,0 +1,77 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-manuals",
+      "blocks": {
+        "1be1bf6b-d98d-4c68-bb90-7802906dfd65": {
+          "type": "collection",
+          "settings": {
+            "collection": "shop"
+          }
+        },
+        "eb875578-af7a-47ca-b57a-e4d35fe82ed1": {
+          "type": "collection",
+          "settings": {
+            "collection": "air-purifiers"
+          }
+        },
+        "334d1ce7-293a-4202-97db-91b128c94ce8": {
+          "type": "collection",
+          "settings": {
+            "collection": "humidifiers-diffusers"
+          }
+        },
+        "87d8f015-5407-41b0-864e-abeddb039265": {
+          "type": "collection",
+          "settings": {
+            "collection": "air-purifier-filters"
+          }
+        },
+        "5fbb3db1-6d0c-4b99-a23a-25644bef8e49": {
+          "type": "collection",
+          "settings": {
+            "collection": "thermostats"
+          }
+        },
+        "12b4b3a0-e5e2-4a89-b09e-24ba775a487f": {
+          "type": "collection",
+          "settings": {
+            "collection": "tower-fans"
+          }
+        },
+        "0167f218-f4c1-441f-8f25-2a9784da73c3": {
+          "type": "collection",
+          "settings": {
+            "collection": "vacuums"
+          }
+        }
+      },
+      "block_order": [
+        "1be1bf6b-d98d-4c68-bb90-7802906dfd65",
+        "eb875578-af7a-47ca-b57a-e4d35fe82ed1",
+        "334d1ce7-293a-4202-97db-91b128c94ce8",
+        "87d8f015-5407-41b0-864e-abeddb039265",
+        "5fbb3db1-6d0c-4b99-a23a-25644bef8e49",
+        "12b4b3a0-e5e2-4a89-b09e-24ba775a487f",
+        "0167f218-f4c1-441f-8f25-2a9784da73c3"
+      ],
+      "settings": {
+        "collection": "shop",
+        "image": "shopify:\/\/shop_images\/01.00_W1_Levoit_ResourcesBanner.jpg",
+        "title": "Resources",
+        "desc": "User Guides + Manuals"
+      }
+    },
+    "support_image_icons": {
+      "type": "support-with-image-icons",
+      "settings": {
+        "title": "We're here to help",
+        "description": "Get advice or help from our experts Monday - Friday 9am to 5pm PST."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "support_image_icons"
+  ]
+}

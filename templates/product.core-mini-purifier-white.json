@@ -1,0 +1,741 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {
+          }
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {
+          }
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {
+      }
+    },
+    "f12a9a6d-894c-40dc-8767-03559444da4c": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "f8302d23-7cdd-4624-8595-0931f9d2281c": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/core-mini1.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/core-mini.jpg",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "f8302d23-7cdd-4624-8595-0931f9d2281c"
+      ],
+      "settings": {
+        "logo_width": 150,
+        "subtitle": "",
+        "title": "<b>Levoit Core™ Mini Air Purifier<\/b>",
+        "desc": "Keep your personal space clean with our compact air purifier.",
+        "hide_header_image_on_mobile": false,
+        "header_width": 500,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "",
+        "container": "",
+        "header_image_align": "center",
+        "text_align": "center",
+        "text_position": "center_left",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "b2a499d7-ac27-43e7-8b53-6f70ef9bbc85": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "f7dd8cd4-0671-4ec0-a7a9-e0dc7400387d": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_ca82f5f495e34b319d7c1aaf24524325.jpg",
+            "aspect_ratio": "fill",
+            "object_fit": "cover",
+            "image_height": 540
+          }
+        }
+      },
+      "block_order": [
+        "f7dd8cd4-0671-4ec0-a7a9-e0dc7400387d"
+      ],
+      "settings": {
+        "logo_width": 50,
+        "subtitle": "",
+        "title": "Perfect for Small Spaces",
+        "desc": "Enjoy fresh air in minutes in your bedroom or home office.",
+        "header_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_63aa4b6e25be4ddabd25b9da76131bce.webp",
+        "hide_header_image_on_mobile": false,
+        "header_width": 680,
+        "header_image_width": 500,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "",
+        "container": "",
+        "header_image_align": "center",
+        "text_align": "center",
+        "text_position": "center_center",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_header_image_align": "center",
+        "desktop_text_align": "center",
+        "desktop_text_position": "center_center",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "2bd64a56-2c10-4cd1-8873-50bea659eaf8": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "94ff7130-2e73-45fd-a50e-6085af6a3e4e": {
+          "type": "content-app-links",
+          "disabled": true,
+          "settings": {
+            "subtitle": "Air Fryer Collection",
+            "title": "Exceptionally smart. Cooking redefined.",
+            "desc": "Take your kitchen to the next level with COSORI air fryers, designed to elevate the flavors and textures of your favorite meals to new heights.",
+            "app_store_icon_1": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_1f37949218e44d24967fdbf56e3b332d.webp",
+            "app_store_url_1": "#",
+            "app_store_url_2": "",
+            "app_store_url_3": "",
+            "store_icon_widths": 150,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#000000",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "c223d2df-d88a-4f24-a9b4-f978f546432b": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "3 Layers of Defense",
+            "desc": "Levoit's quality 3-Stage Filter provides effective protection against a range of airborne particles.",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#84a7e3",
+            "text_color_desc": "#ffffff",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "c635ab22-3b12-4c33-8122-196c5a4d340e": {
+          "type": "content-list",
+          "disabled": true,
+          "settings": {
+            "subtitle": "Air Fryer Collection",
+            "title": "Exceptionally smart. Cooking redefined.",
+            "desc": "Take your kitchen to the next level with COSORI air fryers, designed to elevate the flavors and textures of your favorite meals to new heights.",
+            "list": "Example 1\nExample 2\nExample 3",
+            "convert_list_to_bullets": false,
+            "button_label": "",
+            "button_url": "",
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#000000",
+            "text_color_desc": "#000000",
+            "text_color_list": "#000000",
+            "list_count_bg_color": "#83a7e4",
+            "list_count_text_color": "#ffffff",
+            "button_bg_color": "#000000",
+            "button_text_color": "#FFFFFF",
+            "button_border_radius": 0,
+            "custom_block_width": 30
+          }
+        },
+        "f3aea8e5-9675-4a7c-9312-0175bf43c9ac": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_5b9dcbe8050748f1b82d5c6f0fee269f.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "4d5c8221-60db-40ee-b2e9-65b24c1fa232": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_ba08e6fb835e48448761c003eca097ef.webp",
+            "image_width": 80,
+            "title": "Pre-Filter",
+            "desc": "Captures large particles such as dust, lint, fibers, hair, and pet fur."
+          }
+        },
+        "e22f1108-5d50-443b-a26b-ef6108a3695c": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_dd2465b4d7994dd6a8398b2e096d96cd.webp",
+            "image_width": 80,
+            "title": "Personal HEPA Filter",
+            "desc": "Traps at least 97% of airborne particles 0.3 microns in size, including fine dust, smoke particles, pollen, and pet dander."
+          }
+        },
+        "77d21fa7-82cc-44a4-9d19-82a0c3d6218e": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_facbb07c1501461a8e6e3405afca5367.webp",
+            "image_width": 80,
+            "title": "Activated Carbon Filter",
+            "desc": "Physically absorbs smoke, odors, and fumes."
+          }
+        }
+      },
+      "block_order": [
+        "94ff7130-2e73-45fd-a50e-6085af6a3e4e",
+        "c223d2df-d88a-4f24-a9b4-f978f546432b",
+        "c635ab22-3b12-4c33-8122-196c5a4d340e",
+        "f3aea8e5-9675-4a7c-9312-0175bf43c9ac",
+        "4d5c8221-60db-40ee-b2e9-65b24c1fa232",
+        "e22f1108-5d50-443b-a26b-ef6108a3695c",
+        "77d21fa7-82cc-44a4-9d19-82a0c3d6218e"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "#14015b",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#83a7e4",
+        "text_color_desc": "#ffffff",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "819a483f-e1cc-4808-9951-9fd900c03df7": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "61c9c94c-98d9-4806-912b-50d377770fa4": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/core-mini3.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/core-mini3-mobile.jpg",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 150
+          }
+        }
+      },
+      "block_order": [
+        "61c9c94c-98d9-4806-912b-50d377770fa4"
+      ],
+      "settings": {
+        "logo_width": 150,
+        "subtitle": "",
+        "title": "<b>VortexAir™ Technology<\/b>",
+        "desc": "The 360° air intake purifies the air in all directions, reducing dust, allergens, and household odors.",
+        "hide_header_image_on_mobile": false,
+        "header_width": 480,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "left",
+        "text_position": "center_left",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "5f5614ca-008d-4ae2-9dd8-b631d931538e": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "c70fd75a-65d7-4a3a-8f22-8c25e039cc90": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_f07dd900b8da42f295f32c46837e42ef.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "1f32080e-588e-4701-a5b4-c09b03f98c38": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "<span style=\"font-size: 3rem;\">One-Touch Operation<\/span>",
+            "desc": "<span style=\"font-size: 1.4rem;\">Cycle through fan speeds and reset the Check Filter Indicator with the Control Button<\/span>",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#83a7e4",
+            "text_color_desc": "#ffffff",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        }
+      },
+      "block_order": [
+        "c70fd75a-65d7-4a3a-8f22-8c25e039cc90",
+        "1f32080e-588e-4701-a5b4-c09b03f98c38"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "#14015b",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "1a385fcf-845f-438e-9c81-effede167d09": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "6a1b6e87-7a95-4fdb-b859-100ccdbed8a3": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_738181fc8b9142ffb0a5790d07dd3843.jpg",
+            "aspect_ratio": "fill",
+            "object_fit": "cover",
+            "image_height": 550
+          }
+        }
+      },
+      "block_order": [
+        "6a1b6e87-7a95-4fdb-b859-100ccdbed8a3"
+      ],
+      "settings": {
+        "logo_width": 150,
+        "subtitle": "",
+        "title": "<b>Compact Design<\/b>",
+        "desc": "Easily move the compact air purifier from room to room, depending on your needs.",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "",
+        "container": "",
+        "header_image_align": "center",
+        "text_align": "center",
+        "text_position": "center_center",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 0,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "833525ba-1594-4ac1-b2dd-23622c5b925a": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "1e804ae7-54c8-4da2-a929-519136aa70ab": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "<b>Added Aromatherapy<\/b>",
+            "desc": "<span style=\"font-size:1.2rem\">Add your favorite essential oils to the air purifier to tailor your atmosphere to your liking.<\/span>",
+            "image_width": 370,
+            "render_image_at_top": false,
+            "enable_content_width": false,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#14015b",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "5ccd819f-5be4-4531-b62e-16bb61936dab": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_5b01e4ef0bc04de79fe64a78c1b465e3.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "1e804ae7-54c8-4da2-a929-519136aa70ab",
+        "5ccd819f-5be4-4531-b62e-16bb61936dab"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": true,
+        "enable_custom_block_widths": false
+      }
+    },
+    "9c117c7f-a496-4dd6-8aff-5339ccef60ce": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "970a33a8-61b7-4d0e-b580-452e88c7fe24": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Group_8.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Frame_4.jpg",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "970a33a8-61b7-4d0e-b580-452e88c7fe24"
+      ],
+      "settings": {
+        "logo_width": 150,
+        "subtitle": "",
+        "title": "Ultra-Quiet",
+        "desc": "QuietKeep™ Technology keeps noise levels as low as 25dB, so you can enjoy fresh air while you sleep.",
+        "header_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_2d8beae698b74da49c91b77e6d0ed366.webp",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "",
+        "container": "container",
+        "header_image_align": "left",
+        "text_align": "left",
+        "text_position": "center_left",
+        "bg_color": "#14015b",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "eb4ad2d5-bfee-48b4-b0d3-a78775eb762f": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "5a2a959c-4b38-4472-939d-2a88ce9373e2": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_2f2f78df9cc74f6bb2a9a13bd88a4aaf.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Frame_5.jpg",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "5a2a959c-4b38-4472-939d-2a88ce9373e2"
+      ],
+      "settings": {
+        "logo_width": 150,
+        "subtitle": "",
+        "title": "<span style=\"font-size:2rem; font-weight: bold\">Safe & Efficient<\/span>",
+        "desc": "<span style=\"font-size:1.2rem\">At Levoit, our goal is to conserve energy as we keep your air clean. Unlike many other personal air purifiers, the Levoit Core™ Mini Air Purifier is Energy Star Certified.<\/span>",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_above",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "center",
+        "text_position": "center_center",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_right",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#14015b",
+        "desktop_text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "77240fd2-6aa7-44eb-b881-dbbd07b2cda9": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:<\/b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href='www.P65Warnings.ca.gov' target='_blank'>www.P65Warnings.ca.gov<\/a><\/p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/reviews-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/rating-summary-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "f12a9a6d-894c-40dc-8767-03559444da4c",
+    "b2a499d7-ac27-43e7-8b53-6f70ef9bbc85",
+    "2bd64a56-2c10-4cd1-8873-50bea659eaf8",
+    "819a483f-e1cc-4808-9951-9fd900c03df7",
+    "5f5614ca-008d-4ae2-9dd8-b631d931538e",
+    "1a385fcf-845f-438e-9c81-effede167d09",
+    "833525ba-1594-4ac1-b2dd-23622c5b925a",
+    "9c117c7f-a496-4dd6-8aff-5339ccef60ce",
+    "eb4ad2d5-bfee-48b4-b0d3-a78775eb762f",
+    "77240fd2-6aa7-44eb-b881-dbbd07b2cda9",
+    "product-recommendations",
+    "reviews"
+  ]
+}

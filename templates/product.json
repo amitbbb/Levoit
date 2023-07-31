@@ -1,0 +1,122 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {
+          }
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {
+          }
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {
+      }
+    },
+    "02d2b2b1-4936-4b2d-a75e-ac0035a08baa": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:<\/b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href='www.P65Warnings.ca.gov' target='_blank'>www.P65Warnings.ca.gov<\/a><\/p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/reviews-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/rating-summary-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "02d2b2b1-4936-4b2d-a75e-ac0035a08baa",
+    "product-recommendations",
+    "reviews"
+  ]
+}

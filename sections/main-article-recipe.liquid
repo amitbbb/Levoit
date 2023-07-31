@@ -1,0 +1,204 @@
+<article class="my-8">
+  <div class="container">
+    {% render 'breadcrumbs' %}
+    <header class="my-4 grid lg:grid-cols-2 items-center text-center lg:text-left">
+      <div class="">
+        {% render 'image',
+          image: article.image,
+          width: 768,
+          sizes: '768, 1280, 1920',
+          class: 'w-full',
+          object_fit: 'cover',
+          aspect_ratio: 'aspect-[4/3]'
+        %}
+      </div>
+      <div class=" p-8">
+        <h1 class="mb-4 text-6xl md:text-6xl lg:text-7xl leading-snug font-display">{{ article.title }}</h1>
+        <span class="mb-10 inline-block text-xl font-semibold uppercase tracking-widest text-neutral-400"
+          >COSORI Original</span
+        >
+        <ul class="flex  flex-nowrap space-x-10 text-center justify-center lg:justify-start">
+          {%- if article.metafields.recipe_article.prep_time != blank -%}
+            <li class="relative after:absolute after:top-1/2 after:-right-6 after:h-2 after:w-2 after:-translate-y-1/2 after:rounded-full after:bg-neutral-300">
+              <p class="mb-1 text-4xl font-light">{{ article.metafields.recipe_article.prep_time }}</p>
+              <span>Prep Time</span>
+            </li>
+          {%- endif -%}
+          {%- if article.metafields.recipe_article.cook_time != blank -%}
+            <li class="relative after:absolute after:top-1/2 after:-right-6 after:h-2 after:w-2 after:-translate-y-1/2 after:rounded-full after:bg-neutral-300">
+              <p class="mb-1 text-4xl font-light">{{ article.metafields.recipe_article.cook_time }}</p>
+              <span>Cook Time</span>
+            </li>
+          {%- endif -%}
+          {%- if article.metafields.recipe_article.servings != blank -%}
+            <li class="">
+              <p class="mb-1 text-4xl font-light">{{ article.metafields.recipe_article.servings }}</p>
+              <span>Servings</span>
+            </li>
+          {%- endif -%}
+        </ul>
+      </div>
+    </header>
+
+    <div class="lg:hidden">
+      {% render 'image',
+        image: article.image,
+        width: 768,
+        sizes: '768, 1280, 1920',
+        class: 'w-full',
+        object_fit: 'cover',
+        aspect_ratio: 'h-[450px] md:h-[450px] lg:h-[70vh]'
+      %}
+    </div>
+
+    <div class="flex flex-col gap-8 lg:flex-row">
+      <div class="order-2 flex flex-1 flex-col gap-8 lg:order-1">
+        {%- if article.metafields.recipe_article.featured_video != blank -%}
+          {% liquid
+            assign video_id = article.metafields.recipe_article.featured_video | split: '/' | last
+          %}
+
+          <defer-embed-video>
+            <iframe
+              data-src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&autoplay=1"
+              class="js-youtube aspect-video w-full h-full"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+              title="{{ section.settings.description | escape }}"
+            ></iframe>
+          </defer-embed-video>
+        {%- endif -%}
+
+        <section class="prose prose-neutral max-w-none lg:py-16 prose-ol:pl-0">
+          <h2 class="text-5xl lg:text-7xl font-display font-normal">Directions</h2>
+          <ol class="list-none ">
+            {%- for step in article.metafields.recipe_article.recipe_directions.value -%}
+              <li class="mb-12">
+                <h3 class="text-xl uppercase font-bold">{{ step.step.value }}</h3>
+                <div>{{ step.description | metafield_tag }}</div>
+              </li>
+            {%- endfor -%}
+          </ol>
+        </section>
+      </div>
+
+      <aside class="order-1 w-full lg:order-2 lg:max-w-sm">
+        <div class="">
+          <ul class="flex flex-col gap-4 ">
+            <li>
+              <div class="flex flex-col gap-8 bg-neutral-100 p-8">
+                <div>
+                  <h2 class="mb-3 text-2xl font-bold">Ingredients</h2>
+                  <ul class="list-plus ml-8 flex flex-col space-y-2">
+                    {% for ingredient in article.metafields.recipe_article.recipe_ingredients.value %}
+                      <li>{{ ingredient }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+
+                {%- if article.metafields.recipe_article.recipe_items_needed.size > 0 -%}
+                  <div>
+                    <h3 class="mb-3 text-lg font-bold">Items needed</h3>
+                    <ul class="list-plus  ml-8 flex flex-col  space-y-2">
+                      {%- for item in article.metafields.recipe_article.recipe_items_needed.value -%}
+                        <li>{{- item -}}</li>
+                      {%- endfor -%}
+                    </ul>
+                  </div>
+                {%- endif -%}
+              </div>
+            </li>
+            <li>
+              <div>
+                <h2 class="mb-2 uppercase tracking-widest font-bold text-lg">Equipment Used</h2>
+                <ul class="grid grid-cols-2 gap-4">
+                  {%- for product in article.metafields.recipe_article.recipe_equipment_used.value -%}
+                    <li class="">
+                      {% comment %}
+                        {% render 'card-product',
+                          product: product,
+                          aspect_ratio: 'aspect-[4/5]',
+                          show_secondary_image: true,
+                          object_fit: 'object-contain',
+                          show_compare: false,
+                          show_favorite: true
+                        %}
+                      {% endcomment %}
+
+                      {%
+                        render 'card-product-quick-add', 
+                        product: product, 
+                        aspect_ratio: 'aspect-square',
+                        show_secondary_image: true,
+                        object_fit: 'object-contain',
+                        show_reviews: true
+                      %}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</article>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Recipe",
+    "articleBody": {{ article.content | strip_html | json }},
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": {{ request.origin | append: page.url | json }}
+    },
+    "headline": {{ article.title | json }},
+    {% if article.excerpt != blank %}
+      "description": {{ article.excerpt | strip_html | json }},
+    {% endif %}
+    {% if article.image %}
+      "image": [
+        {{ article | image_url: width: 1920 | prepend: "https:" | json }}
+      ],
+    {% endif %}
+    "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "dateCreated": {{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "author": {
+      "@type": "Person",
+      "name": {{ article.author | json }}
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": {{ shop.name | json }}
+    },
+    {% if article.metafields.recipe_article.prep_time != blank %}
+      "prepTime": {{ article.metafields.recipe_article.prep_time | json }},
+    {% endif %}
+    {% if article.metafields.recipe_article.cook_time != blank %}
+      "cookTime": {{ article.metafields.recipe_article.cook_time | json }},
+    {% endif %}
+    {% if article.metafields.recipe_article.servings != blank %}
+      "servings": {{ article.metafields.recipe_article.servings | json }},
+    {% endif %}
+    {% if article.metafields.recipe_article.recipe_ingredients != blank %}
+      "ingredients": [
+        {% for ingredient in article.metafields.recipe_article.recipe_ingredients.value %}
+          {{ ingredient | json }} {% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ],
+    {% endif %}
+    {% if article.metafields.recipe_article.recipe_directions != blank %}
+      "directions": [
+        {%- for step in article.metafields.recipe_article.recipe_directions.value -%}
+          {
+            "@type": "InstructionStep",
+            "name": {{ step.step.value | json }},
+            "text": {{ step.description | metafield_tag | strip_html | json }}
+          } {% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ]
+    {% endif %}
+  }
+</script>

@@ -1,0 +1,315 @@
+{% liquid
+  if section.settings.layout == 'logo_left'
+    assign logo_layout = 'order-1'
+  else
+    assign logo_layout = 'lg:order-2'
+  endif
+%}
+
+<store-header class="store-header z-40 min-h-[50px] bg-white border-b text-sm relative">
+  <div class="store-header__main flex items-center h-full container">
+    <div class=" w-full h-full">
+      <nav class="flex justify-between items-center h-full gap-8 py-3">
+        <ul class="inline-flex lg:hidden gap-2 items-center flex-1">
+          <li>
+            {% render 'header-drawer',
+              logo: section.settings.logo,
+              logo_width: section.settings.logo_width,
+              mobile_menu_footer: section.settings.mobile_menu_footer
+            %}
+          </li>
+          <li>{% render 'search-drawer', logo: section.settings.logo, logo_width: section.settings.logo_width %}</li>
+        </ul>
+
+        {%- if request.page_type == 'index' -%}
+          <h1 class="{{logo_layout}} lg:min-w-fit	">
+        {%- endif -%}
+        <a href="{{ routes.root_url }}" class="lg:min-w-fit	 text-xl font-semibold font-serif {{logo_layout}}">
+          {%- if section.settings.logo != blank -%}
+            {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
+            {%- assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+
+            {{
+              section.settings.logo
+              | image_url: width: section.settings.width
+              | image_tag:
+                class: 'header__heading-logo py-2',
+                widths: '50, 100, 150, 200, 250, 300, 400, 500',
+                height: logo_height,
+                width: section.settings.logo_width,
+                alt: logo_alt
+            }}
+
+          {%- else -%}
+            {{ shop.name }}
+          {%- endif -%}
+        </a>
+        {%- if request.page_type == 'index' -%}
+          </h1>
+        {%- endif -%}
+
+        {%- if section.settings.menu != blank -%}
+          {% render 'mega-menu', menu: section.settings.menu, class: 'order-1 flex-1' %}
+        {%- endif -%}
+
+        <ul class="flex-1 lg:flex-none order-3 flex gap-x-4  leading-none justify-end items-center">
+          <li class="hidden xl:inline-block w-60">
+            {%- render 'search-component',
+              aside_class: 'absolute top-full left-0 right-0 h-auto bg-white p-4 border rounded-md h-96 overflow-y-auto',
+              limit: 8
+            -%}
+          </li>
+          <li class="hidden lg:inline-block xl:hidden">
+            {% render 'search-drawer', logo: section.settings.logo, logo_width: section.settings.logo_width %}
+          </li>
+          <li>
+            <li>
+              <a href="/pages/favorites">
+                {% render 'icons' with 'heart', width: 25, height: 25 %}
+              </a>
+            </li>
+            <a href="/cart" id="cart-icon-bubble" class="inline-flex items-start justify-center">
+              {% render 'icons' with 'cart' %}
+              {%- if cart != empty -%}
+                <div class="cart-count-bubble bg-accent text-white text-xs h-5 w-5 rounded-full inline-flex items-center justify-center">
+                  {%- if cart.item_count < 100 -%}
+                    <span aria-hidden="true">{{ cart.item_count }}</span>
+                  {%- endif -%}
+                  <span class="sr-only">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                </div>
+              {%- else -%}
+                <div class="cart-count-bubble bg-accent text-white h-4 w-4 rounded-full inline-flex items-center justify-center">
+                  <span class="sr-only">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                </div>
+              {%- endif -%}
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</store-header>
+
+{%- if settings.cart_type == 'notification' -%}
+  {%- render 'cart-notification' -%}
+{%- endif -%}
+
+<script>
+  document.documentElement.style.setProperty(
+    '--header-height',
+    document.getElementById('shopify-section-{{ section.id }}').clientHeight + 'px'
+  );
+</script>
+
+<style>
+  #shopify-section-header {
+    {%- if request.page_type == 'index' and section.settings.enable_transparent_header == true -%}
+      position: fixed;
+      top: var(--announcement-bar-height);
+      left: 0;
+      right: 0;
+      z-index: 20;
+    {%- else -%}
+      position: sticky;
+      top: var(--announcement-bar-height);
+      left: 0;
+      right: 0;
+      z-index: 20;
+    {%- endif -%}
+  }
+  .store-header__main {
+    height: var(--header-height);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "header",
+  "class": "shopify-section--header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 250,
+      "step": 10,
+      "default": 100,
+      "unit": "px",
+      "label": "Logo width"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "Menu"
+    },
+    {
+      "type": "link_list",
+      "id": "mobile_menu_footer",
+      "label": "Mobile menu (footer)"
+    },
+    {
+      "type": "header",
+      "content": "layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "logo_left",
+          "label": "Logo left"
+        },
+        {
+          "value": "logo_center",
+          "label": "Logo center"
+        }
+      ],
+      "default": "logo_left"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mega_menu",
+      "name": "Mega menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Menu item",
+          "info": "Enter menu item to apply a mega menu dropdown."
+        },
+        {
+          "type": "header",
+          "content": "Links"
+        },
+        {
+          "type": "text",
+          "id": "shop_all_label",
+          "label": "Shop all label",
+          "default": "Shop all"
+        },
+        {
+          "type": "url",
+          "id": "shop_all_link",
+          "label": "Shop all link"
+        },
+        {
+          "type": "text",
+          "id": "user_manuals_label",
+          "label": "User manuals label",
+          "default": "User Guides & Manuals"
+        },
+        {
+          "type": "url",
+          "id": "user_manuals_link",
+          "label": "User Guides & Manuals link"
+        },
+        {
+          "type": "header",
+          "content": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_1_title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "image_1_link_label",
+          "label": "Link Label"
+        },
+        {
+          "type": "url",
+          "id": "image_1_link",
+          "label": "Link"
+        },
+        {
+          "type": "header",
+          "content": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_2_title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "image_2_link_label",
+          "label": "Link Label"
+        },
+        {
+          "type": "url",
+          "id": "image_2_link",
+          "label": "Link"
+        },
+        {
+          "type": "header",
+          "content": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_3_title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "image_3_link_label",
+          "label": "Link Label"
+        },
+        {
+          "type": "url",
+          "id": "image_3_link",
+          "label": "Link"
+        },
+        {
+          "type": "header",
+          "content": "Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_4_title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "image_4_link_label",
+          "label": "Link Label"
+        },
+        {
+          "type": "url",
+          "id": "image_4_link",
+          "label": "Link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

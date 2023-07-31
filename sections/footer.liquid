@@ -1,0 +1,138 @@
+<div class="container  py-16 text-white">
+  <section class="mb-4 flex flex-col flex-wrap gap-8 lg:mb-28 lg:flex-row lg:gap-16">
+    {%- for block in section.blocks -%}
+      <ul class="flex flex-1 flex-col gap-2 {% if forloop.first %}text-2xl{% else %}text-sm md:text-base{% endif %}">
+        {% for link in block.settings.menu.links %}
+          <li>
+            {%- if link.url == '#js_open_chat' -%}
+              <open-chatbox-button class="inline-block py-1 lg:py-2 cursor-pointer">{{ link.title }}</open-chatbox-button>
+            {%- else -%}
+              <a href="{{ link.url }}" class="inline-block py-1 lg:py-2">{{ link.title }}</a>
+            {%- endif -%}
+          </li>
+        {% endfor %}
+      </ul>
+    {%- endfor -%}
+    <div class="flex flex-col gap-3">
+      {% comment %} <h2 class="text-2xl">Let's keep in touch</h2>
+      <p class="mb-4">Subscribe to receive the latest news and updates</p> {% endcomment %}
+      <div class="klaviyo-form-XW86k4"></div>
+      {% comment %} {% render 'newsletter-form', class: 'text-black' %} {% endcomment %}
+
+      <div class=""> 
+        {% render 'socials', class: 'flex gap-x-4 my-4', height: '16', width: '16' %}  
+      </div>
+      
+
+      {%- if settings.shop_tagline != blank -%}
+        <h2 class="text-2xl">{{ settings.shop_tagline }}</h2>
+      {%- endif -%}
+      <ul class="inline-flex gap-6">
+        {%- if settings.shop_hashtag_1 != blank -%}
+          <li>{{ settings.shop_hashtag_1 }}</li>
+        {%- endif -%}
+        {%- if settings.shop_hashtag_2 != blank -%}
+          <li>{{ settings.shop_hashtag_2 }}</li>
+        {%- endif -%}
+      </ul>
+    </div>
+  </section>
+  <section class="mt-16 text-base">
+    <a href="{{ routes.root_url }}" class="font-serif text-xl font-semibold {{ logo_layout }}">
+      {%- if section.settings.logo != blank -%}
+        {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
+        {%- assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+
+        {{
+          section.settings.logo
+          | image_url: width: section.settings.width
+          | image_tag:
+            class: 'header__heading-logo py-2 invert-100',
+            widths: '50, 100, 150, 200, 250, 300, 400, 500',
+            height: logo_height,
+            width: section.settings.logo_width,
+            alt: logo_alt
+        }}
+      {%- else -%}
+        {{ shop.name }}
+      {%- endif -%}
+    </a>
+
+    <div class="mt-4 flex flex-col gap-4 lg:flex-row lg:gap-8 ">
+      <span>© {{ 'now' | date: '%Y' }} Arovast Corporation. All rights reserved.</span>
+
+      <ul class="flex flex-row gap-4 whitespace-nowrap lg:gap-8">
+        {%- for link in section.settings.policies_menu.links -%}
+          <li>
+            <a href="{{ link.url }}" class="">{{ link.title }}</a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+</div>
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    /* background-color: var(--theme-accent-4); */
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Footer",
+  "tag": "footer",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#14015b"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 250,
+      "step": 10,
+      "default": 100,
+      "unit": "px",
+      "label": "Logo width"
+    },
+    {
+      "type": "link_list",
+      "id": "policies_menu",
+      "label": "Policies menu",
+      "info": "Displays only top-level menu items"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+          "info": "Displays only top-level menu items"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

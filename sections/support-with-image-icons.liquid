@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="mt-16 bg-neutral-100">
+    <div class="grid lg:grid-cols-12">
+      <header class="text-center lg:col-span-9 lg:text-left p-8 md:p-16 lg:p-24">
+        <h2 class="mb-2 text-2xl font-normal md:text-2xl lg:text-4xl">{{ section.settings.title }}</h2>
+        <p class="mb-12 text-xl">{{ section.settings.description }}</p>
+
+        <ul class="flex flex-col gap-8 text-center lg:flex-row lg:gap-16">
+          <li>
+            <a href="tel:{{ settings.phone_number }}"></a>
+            <img
+              src="{{ 'phone.png' | asset_img_url }}"
+              alt="{{ shop.name }} support phone number"
+              class="mx-auto mb-2 h-16 w-16 object-contain"
+              loading="lazy"
+              width="80"
+              height="80"
+            >
+
+            <p class="text-lg font-semibold">{{ settings.phone_number }}</p>
+          </li>
+          <li>
+            <img
+              src="{{ 'plane.png' | asset_img_url }}"
+              alt="{{ shop.name }} support phone number"
+              class="mx-auto mb-2 h-16 w-16 object-contain"
+              loading="lazy"
+              width="80"
+              height="80"
+            >
+            <p class="text-lg font-semibold">Chat</p>
+          </li>
+          <li>
+            <a href="mailto:{{ settings.email }}">
+              <img
+                src="{{ 'chat.png' | asset_img_url }}"
+                alt="{{ shop.name }} support phone number"
+                class="mx-auto mb-2 h-16 w-16 object-contain"
+                loading="lazy"
+                width="80"
+                height="80"
+              >
+              <p class="text-lg font-semibold">{{ settings.email }}</p>
+            </a>
+          </li>
+        </ul>
+      </header>
+      <div class="lg:col-span-3">
+        {% render 'image', image: section.settings.image, aspect_ratio: 'aspect-square', object_fit: 'contain', class: 'w-full h-full max-w-[350px] mx-auto' %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "S | Image & Icons",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "We’re here to help."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Get advice or help from our experts Monday - Friday 9am to 5pm PST."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "S | Image & Icons"
+    }
+  ]
+}
+{% endschema %}

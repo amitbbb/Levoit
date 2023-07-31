@@ -1,0 +1,222 @@
+<div class="section-{{ section.id }} mb-16">
+  {% comment %}
+    <div class="container">
+      {% render 'breadcrumbs' %}
+    </div>
+  {% endcomment %}
+
+  {%- if section.settings.collection_links != blank -%}
+    <nav class="my-4 flex  justify-start bg-neutral-100 lg:hidden lg:justify-center">
+      <ul class="flex flex-nowrap gap-x-4 overflow-x-auto px-4 py-4">
+        {%- for link in section.settings.collection_links.links -%}
+          <li>
+            <a
+              href="{{ link.url }}"
+              class="whitespace-nowrap"
+              {% if link.active %}
+                aria-current="page"
+              {% endif %}
+            >
+              {{ link.title }}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  {%- endif -%}
+  <div class="container">
+    <div class="flex flex-col gap-8 lg:flex-row lg:gap-12">
+      <div class="hidden w-72 max-w-full lg:block">
+        {% comment %} {% render 'filters-collection' %} {% endcomment %}
+        <div
+          aria-labelledby="verticalTitle"
+          class="facets-wrapper divide-y"
+          id="main-collection-filters"
+          data-id="{{ section.id }}"
+        >
+          {% render 'facets',
+            results: collection,
+            enable_filtering: section.settings.enable_filtering,
+            enable_sorting: section.settings.enable_sorting,
+            filter_type: section.settings.filter_type,
+            paginate: paginate
+          %}
+          {%- if collection.products.size > 0 -%}
+            <div>
+              <a href="/pages/compare?collection={{ collection.handle }}" class="block py-6 font-semibold">Compare</a>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="flex-1">
+        <div
+          id="vertical-filter-sort-container"
+          class="mb-8 "
+        >
+          <div class="flex items-center justify-between rounded-md border lg:border-none">
+            <div class="order-2 block flex-1 lg:hidden">
+              {%- render 'filter-drawer', results: collection, -%}
+            </div>
+            {% comment %} <span>{{ collection.filters.active_values }}</span> {% endcomment %}
+            {%- render 'filters-sort-and-active-values', class: 'order-1 lg:order-2 border-r lg:border-r-0' -%}
+          </div>
+        </div>
+
+        <div id="ProductGridContainer">
+          <p class="product-count__text mb-4 text-center text-sm lg:hidden">
+            <span id="ProductCountDesktop" class="whitespace-nowrap">
+              {%- if collection.results_count -%}
+                {{
+                  'templates.search.results_with_count'
+                  | t: terms: collection.terms, count: collection.results_count
+                }}
+              {%- elsif collection.products_count == collection.all_products_count -%}
+                {{ 'products.facets.product_count_simple' | t: count: collection.products_count }}
+              {%- else -%}
+                {{
+                  'products.facets.product_count'
+                  | t: product_count: collection.products_count, count: collection.all_products_count
+                }}
+              {%- endif -%}
+            </span>
+          </p>
+
+          {%- paginate collection.products by section.settings.products_per_page -%}
+            {%- if collection.products.size == 0 -%}
+              <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
+                <div class="loading-overlay gradient"></div>
+                <div class="title-wrapper center">
+                  <h2 class="title title--primary">
+                    {{ 'sections.collection_template.empty' | t -}}
+                    <br>
+                    {{
+                      'sections.collection_template.use_fewer_filters_html'
+                      | t: link: collection.url, class: 'underlined-link link'
+                    }}
+                  </h2>
+                </div>
+              </div>
+            {%- else -%}
+              <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
+                <div class="loading-overlay gradient"></div>
+                <ul
+                  id="product-grid"
+                  data-id="{{ section.id }}"
+                  class="grid grid-cols-2 gap-6 md:gap-8 lg:grid-cols-3 lg:gap-10 2xl:grid-cols-4"
+                >
+                  {%- for product in collection.products limit: 15 -%}
+                    {% assign lazy_load = false %}
+                    {%- if forloop.index > 2 -%}
+                      {%- assign lazy_load = true -%}
+                    {%- endif -%}
+
+                    {%- assign mod = forloop.index | modulo: 5 -%}
+
+                    {%- if collection.metafields.plp.product_loop_banner -%}
+                      {%- if forloop.index != 0 and mod == 0 -%}
+                        {%- if forloop.index == 5 -%}
+                          <li class="relative col-span-2 flex flex-col items-center overflow-hidden rounded-lg text-white md:col-span-2 md:h-full 2xl:col-span-3">
+                            <div class="relative h-full w-full">
+                              <lazy-image class="block h-full  w-full overflow-hidden">
+                                <picture>
+                                  <source
+                                    media="(max-width: 767px)"
+                                    srcset="
+                                      {%- if collection.metafields.plp.product_loop_banner.value.image_mobile != blank -%}{{ collection.metafields.plp.product_loop_banner.value.image_mobile | image_url: width: 1024, format: 'pjpg' }}
+                                      {%- else -%}{{ collection.image | image_url: width: 1024, format: 'pjpg' }}{%- endif -%}
+                                    "
+                                  >
+                                  <source
+                                    media="(min-width: 768px)"
+                                    srcset="{{ collection.metafields.plp.product_loop_banner.value.image_desktop | image_url: width: 1280, format: 'pjpg' }}"
+                                  >
+                                  <source
+                                    media="(min-width: 1440px)"
+                                    srcset="{{ collection.metafields.plp.product_loop_banner.value.image_desktop | image_url: width: 1920, format: 'pjpg' }}"
+                                  >
+                                  <img
+                                    src="{{ collection.metafields.plp.product_loop_banner.value.image_desktop | image_url: width: 1080, format: 'pjpg' }}"
+                                    alt="{{ collection.title }}"
+                                    width="1920"
+                                    height="1080"
+                                    class="
+                                      absolute
+                                      inset-0 h-full
+                                      w-full object-cover
+                                    "
+                                    {%- if forloop.index > 1 -%}
+                                      loading="lazy"
+                                    {%- endif -%}
+                                  >
+                                </picture>
+                              </lazy-image>
+                              <div class="absolute inset-0 flex max-w-full items-center justify-center p-4 xl:p-16">
+                                <div>
+                                  {%- if collection.metafields.plp.product_loop_banner.value.title != blank -%}
+                                    <h3 class="mb-4 text-xl xl:text-2xl">
+                                      {{ collection.metafields.plp.product_loop_banner.value.title }}
+                                    </h3>
+                                  {%- endif -%}
+
+                                  {%- if collection.metafields.plp.product_loop_banner.value.description != blank -%}
+                                    <p>
+                                      {{ collection.metafields.plp.product_loop_banner.value.description }}
+                                    </p>
+                                  {%- endif -%}
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        {%- endif -%}
+                      {%- endif -%}
+                    {%- endif -%}
+
+                    <li class="h-full">
+                      {%- render 'card-product',
+                        product: product,
+                        collection: collection,
+                        lazy_load: lazy_load,
+                        section_id: section.id,
+                        aspect_ratio: 'aspect-[4/5]',
+                        show_secondary_image: true,
+                        object_fit: 'object-contain'
+                      -%}
+                    </li>
+                  {%- endfor %}
+                </ul>
+              </div>
+
+              {%- if paginate.pages > 1 -%}
+                {% render 'pagination', paginate: paginate, anchor: '' %}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endpaginate -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} {%- render 'comparisons-bar', collection: collection.handle -%} {% endcomment %}
+{% schema %}
+{
+  "name": "Product Grid",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "default": 16,
+      "label": "Products per page"
+    },
+    {
+      "type": "link_list",
+      "id": "collection_links",
+      "label": "Collection links (scrolling bar)"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,480 @@
+{% style %}
+  {% if section.settings.bg_color != blank %}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.bg_color }};
+    }
+  {% endif %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  #PDP-Slider-Content-{{ section.id }} {
+    {% render 'get-text-align-style', align: section.settings.header_text_align, get: 'style' %}
+  }
+  [id^='PDP-Slider-Heading-{{ section.id }}'] {
+    color: {{ section.settings.text_color_heading }};
+  }
+  [id^='PDP-Slider-Desc-{{ section.id }}'] {
+    color: {{ section.settings.text_color_desc }};
+  }
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    [id^='PDP-Slider-Heading-{{ section.id }}'] {
+      color: {{ section.settings.text_color_heading }};
+    }
+    [id^='PDP-Slider-Desc-{{ section.id }}'] {
+      color: {{ section.settings.text_color_desc }};
+    }
+  }
+{% endstyle %}
+
+{% # prettier-ignore %}
+{%- capture slider_config -%}
+  { 
+    "slides": { "perView": 1, "spacing": 0 }
+  }
+{%- endcapture -%}
+
+<div class="{{ section.settings.container }}">
+  <header id="PDP-Slider-Content-{{ section.id }}" class="mb-12 max-w-screen-md mx-auto">
+    <h2 id="PDP-Slider-Heading-{{ section.id }}" class="title m-title">{{ section.settings.title }}</h2>
+    <p id="PDP-Slider-Desc-{{ section.id }}" class="desc m-desc">{{ section.settings.desc }}</p>
+  </header>
+  
+  <keen-slider class="block" slider-config="{{ slider_config | escape }}" {% if section.blocks.size > 1 %}navigation="dots"{% endif %} {% if section.settings.enable_autoplay %}autoplay='{{ section.settings.autoplay_interval }}'{% endif %}>
+    <ul id="PDP-Slider-{{ section.id }}" class="keen-slider">
+      {%- for block in section.blocks -%}
+        {% style %}
+          #PDP-SliderSlide-{{ section.id }}-{{ block.id }} {
+            display: grid; grid-template-columns: repeat(1, minmax(0, 1fr));
+          }
+          #PDP-SliderTextBox-{{ section.id }}-{{ block.id }} {
+            text-align: center;
+          }
+          @media (min-width: 1024px) { 
+            #PDP-SliderSlide-{{ section.id }}-{{ block.id }} {
+              /* {% render 'get-textbox-position-style', get: 'container', position: block.settings.textbox_position %} */
+            }
+            #PDP-SliderTextBox-{{ section.id }}-{{ block.id }} {
+              {% render 'get-text-position-style', position: block.settings.text_position, get: 'style' %}
+              {% render 'get-text-align-style', align: block.settings.text_align, get: 'style' %}
+            }
+          }
+        {% endstyle %}
+
+        {%- case block.type -%}
+          {%- when 'slide' -%}
+            <li class="keen-slider__slide">
+              <div id="PDP-SliderSlide-{{ section.id }}-{{ block.id }}" class="h-full">
+                {%- if block.settings.title != blank or block.settings.desc != blank -%}
+                  <div id="PDP-SliderTextBox-{{ section.id }}-{{ block.id }}" class="flex-1 flex p-4 md:p-8 lg:p-12" >
+                    <div class="max-w-screen-md">
+                      {%- if block.settings.title != blank -%}
+                        <h2 id="PDP-Slider-Heading-{{ section.id }}-{{ block.id }}" class="m-title">{{ block.settings.title }}</h2>
+                      {%- endif -%}
+                      {%- if block.settings.desc != blank -%}
+                        <p class="m-desc">{{ block.settings.desc }}</p>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                {%- endif -%}
+                <div id="PDP-SliderImage-{{ section.id }}-{{ block.id }}" class="flex-1 h-full w-full bg-white">
+                  {% render 'picture',
+                    image_desktop: block.settings.desktop_image`,
+                    image_mobile: block.settings.mobile_image,
+                    aspect_ratio: '',
+                    width: 1080,
+                    sizes: '1440, 1920',
+                    object_fit: 'contain'
+                  %}
+                </div>
+              </div>
+            </li>
+          {%- when 'video_embed' -%}
+            {%- liquid
+              assign video_id = block.settings.video_url.id
+              assign poster = block.settings.video_url.preview_image | default: block.settings.cover_image
+            -%}
+            <li class="keen-slider__slide">
+              {%- if block.settings.video_url.type == 'youtube' -%}
+                <iframe
+                  src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&autoplay=1{{ loop }}"
+                  class="js-youtube aspect-video w-full h-full"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  title="{{ block.settings.description | escape }}"
+                ></iframe>
+              {%- else -%}
+                <iframe
+                  src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1{{ loop }}"
+                  class="js-vimeo aspect-video w-full h-full"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  title="{{ block.settings.description | escape }}"
+                ></iframe>
+              {%- endif -%}
+            </li>
+          {%- when 'video_inline' -%}
+            <li class="keen-slider__slide">
+              <lazy-slide-video class="relative aspect-video">
+                <video autoplay muted playsinline loop class='w-full h-full object-cover'>
+                  {%- for source in block.settings.video.sources -%}
+                    <source src="{{ source.url }}" type="{{ source.mime_type }}" >
+                  {%- endfor -%}
+                </video>
+                <button
+                  type="button"
+                  sound-button
+                  class="absolute z-10 top-4 right-4 h-12 w-12 bg-white flex items-center justify-center rounded-full drop-shadow-md"
+                >
+                  {% render 'icons' with 'sound-on' %}
+                </button>
+              </lazy-slide-video>
+              
+            </li>
+        {%- endcase -%}
+
+        
+      {%- endfor -%}
+    </ul>
+
+    {%- if section.blocks.size > 1 -%}
+      <div id="dots" class="dots my-4"></div>
+    {%- endif -%}
+  </keen-slider>
+</div>
+
+{% schema %}
+{
+  "name": "PDP | Picture Slider",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "<b>MAKE THE IMPOSSIBLE</b>"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Description",
+      "default": "<span class='font-slab'>Some dishes are just impossible to make in an air fryer-but with dual heating elements, you can do the impossible. Whip up anything from sunny-side-up eggs to pancakes and meringues using the different cooking functions.</span>"
+    },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        {
+          "value": "",
+          "label": "none"
+        },
+        {
+          "value": "container",
+          "label": "default"
+        },
+        {
+          "value": "container max-w-screen-sm",
+          "label": "SM"
+        },
+        {
+          "value": "container max-w-screen-md",
+          "label": "MD"
+        },
+        {
+          "value": "container max-w-screen-lg",
+          "label": "LG"
+        },
+        {
+          "value": "container max-w-screen-xl",
+          "label": "XL"
+        },
+        {
+          "value": "container max-w-screen-2xl",
+          "label": "2XL"
+        }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color_heading",
+      "label": "Text color (Heading)",
+      "default": "#003339"
+    },
+    {
+      "type": "color",
+      "id": "text_color_desc",
+      "label": "Text color (Desc)",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "header_text_align",
+      "label": "Text align (Header)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Settings"
+    },
+    {
+      "type": "range",
+      "id": "height_desktop",
+      "min": 18,
+      "max": 60,
+      "step": 1,
+      "unit": "rem",
+      "label": "Height (Desktop)",
+      "default": 38
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_image_first",
+      "label": "Image first (Mobile)",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "height_mobile",
+      "min": 18,
+      "max": 60,
+      "step": 1,
+      "unit": "rem",
+      "label": "Height (Mobile)",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "Slider settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "Enable autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_interval",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay interval",
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Image",
+      "settings": [
+        
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Image (desktop)"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Image (mobile)"
+        },
+        {
+          "type": "header",
+          "content": "Content",
+          "info": "If left blank, image will just render"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "default": "<b>Juicy chicken every time</b>"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Desc",
+          "default": "Effortlessly make your favorites with a variety of customizable one-touch cooking functions. With this much versatility, you can make cooking as simple or personalized as you'd like"
+        },
+        {
+          "type": "header",
+          "content": "Settings"
+        },
+        {
+          "type": "select",
+          "id": "textbox_position",
+          "label": "Textbox position",
+          "options": [
+            {
+              "value": "text_top",
+              "label": "text_top"
+            },
+            {
+              "value": "text_left",
+              "label": "text_left"
+            },
+            {
+              "value": "text_right",
+              "label": "text_right"
+            }
+          ],
+          "default": "text_top",
+          "info": "Where the textbox is positioned"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "top_left",
+              "label": "Top left"
+            },
+            {
+              "value": "top_center",
+              "label": "Top center"
+            },
+            {
+              "value": "top_right",
+              "label": "Top right"
+            },
+            {
+              "value": "center_left",
+              "label": "Center left"
+            },
+            {
+              "value": "center_center",
+              "label": "Center center"
+            },
+            {
+              "value": "center_right",
+              "label": "Center right"
+            },
+            {
+              "value": "bottom_left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom_center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "bottom_right",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "center_center"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        }
+      ]
+    },
+    {
+      "type": "video_inline",
+      "name": "Video (Inline)",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "A Shopify-hosted video"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP | Picture Slider"
+    }
+  ]
+}
+{% endschema %}
+{% comment %} {
+  "type": "video_embed",
+  "name": "Video (Embed)",
+  "settings": [
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "Video",
+      "accept": ["youtube", "vimeo"],
+      "default": "https://youtu.be/7HXo7IQwTH8"
+    }
+  ]
+}, {% endcomment %}
+

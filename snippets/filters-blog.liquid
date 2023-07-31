@@ -1,0 +1,149 @@
+{% liquid
+  for tag in blog.all_tags
+    if tag contains 'Filter'
+      assign tag_remove_filter_string = tag | remove: 'Filter | '
+      assign tag_parts = tag_remove_filter_string | split: ': '
+      unless filter_groups contains tag_parts.first
+        assign filter_groups = filter_groups | append: '+' | append: tag_parts.first
+      endunless
+    endif
+  endfor
+
+  assign filter_groups = filter_groups | slice: 1, filter_groups.size | split: '+'
+%}
+
+<blog-filter-drawer class="block lg:hidden">
+  <details id="Details-Blog-Filter-Drawer">
+    <summary class='details__summary font-bold text-lg'>Filters +</summary>
+    <aside class="z-40 fixed top-0 bottom-0 left-0 bg-white w-[40rem] max-w-[calc(100vw-3rem)] transition-all ease-out-expo duration-300">
+      <div class="flex flex-col overflow-y-auto gap-4 p-4 h-full">
+        <header class="relative flex justify-center">
+          <button type='button' close class="drawer__close absolute top-1/2 -translate-y-1/2 right-0">
+            {%- render 'icons' with 'close' -%}
+          </button>
+          <h2 class="font-bold text-lg uppercase tracking-wide">Filter</h2>
+        </header>
+
+        <blog-filter>
+          {% comment %} loop through main filter groups {% endcomment %}
+          <form id="Blog-Filter" class="space-y-2">
+            {%- for tag in filter_groups -%}
+              <details
+                class="overflow-hidden rounded border border-gray-300 [&_summary::-webkit-details-marker]:hidden"
+              >
+                <summary
+                  class="flex items-center justify-between gap-2 p-4 text-gray-900 transition cursor-pointer"
+                >
+                  <span class="text-sm font-medium">{{ tag }} </span>
+        
+                  <span class="transition group-open:-rotate-180">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                      />
+                    </svg>
+                  </span>
+                </summary>
+        
+                <div class="bg-white border-t border-gray-200">
+                  <ul class="p-4 space-y-1 border-t border-gray-200 grid">
+                    {%- for filter_group_item in blog.all_tags -%}
+                      {% assign filter_group_item_remove_filter = filter_group_item | remove: 'Filter | ' %}
+                      {% assign filter_group_item_parts = filter_group_item_remove_filter | split: ': ' %}
+                      {%- if tag == filter_group_item_parts.first -%}
+                        <li>
+                          <label
+                            for="Filter-{{ filter_group_item_parts.first }}--{{ filter_group_item_parts.last }}"
+                            class="inline-flex items-center gap-2"
+                          >
+                            <input
+                              type="checkbox"
+                              id="Filter-{{ filter_group_item_parts.first }}--{{ filter_group_item_parts.last }}"
+                              class="w-5 h-5 border-gray-300 rounded"
+                              value="{{ filter_group_item | handleize }}"
+                            >
+        
+                            <span class="text-sm font-medium text-gray-700"> {{ filter_group_item_parts.last }}</span>
+                          </label>
+                        </li>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              </details>
+            {%- endfor -%}
+          </form>
+        </blog-filter>
+      </div>
+    </aside>
+  </details>
+</blog-filter-drawer>
+
+<blog-filter class="hidden lg:block">
+  {% comment %} loop through main filter groups {% endcomment %}
+  <form id="Blog-Filter" class="space-y-2">
+    {%- for tag in filter_groups -%}
+      <details
+        class="overflow-hidden rounded border border-gray-300 [&_summary::-webkit-details-marker]:hidden"
+      >
+        <summary
+          class="flex items-center justify-between gap-2 p-4 text-gray-900 transition cursor-pointer"
+        >
+          <span class="text-sm font-medium">{{ tag }} </span>
+
+          <span class="transition group-open:-rotate-180">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-4 h-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </span>
+        </summary>
+
+        <div class="bg-white border-t border-gray-200">
+          <ul class="p-4 space-y-1 border-t border-gray-200 grid">
+            {%- for filter_group_item in blog.all_tags -%}
+              {% assign filter_group_item_remove_filter = filter_group_item | remove: 'Filter | ' %}
+              {% assign filter_group_item_parts = filter_group_item_remove_filter | split: ': ' %}
+              {%- if tag == filter_group_item_parts.first -%}
+                <li>
+                  <label
+                    for="Filter-{{ filter_group_item_parts.first }}--{{ filter_group_item_parts.last }}"
+                    class="inline-flex items-center gap-2"
+                  >
+                    <input
+                      type="checkbox"
+                      id="Filter-{{ filter_group_item_parts.first }}--{{ filter_group_item_parts.last }}"
+                      class="w-5 h-5 border-gray-300 rounded"
+                      value="{{ filter_group_item | handleize }}"
+                    >
+
+                    <span class="text-sm font-medium text-gray-700"> {{ filter_group_item_parts.last }}</span>
+                  </label>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+      </details>
+    {%- endfor -%}
+  </form>
+</blog-filter>

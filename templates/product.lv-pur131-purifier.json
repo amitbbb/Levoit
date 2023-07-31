@@ -1,0 +1,556 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {
+          }
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {
+          }
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {
+      }
+    },
+    "1aa000b6-fc68-4292-a23c-9819bf950f4c": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "c0812121-ddf5-4ccc-bf06-da36f72d8d2a": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_a92d922032dc4cad8717fb60a6541eae.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "c0812121-ddf5-4ccc-bf06-da36f72d8d2a"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Real-Time Air Quality Indicator<\/b>",
+        "desc": "Equipped with AirSight Technology™, the air purifier’s indicator light changes color to update you on your air quality in real time.",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "left",
+        "text_position": "center_right",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_right",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#14015b",
+        "desktop_text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "2cfc8ac3-21a4-49a2-8abe-ba4cb6f20c81": {
+      "type": "m-video-embed",
+      "settings": {
+        "video_url": "https:\/\/youtu.be\/FhuTfF-wf-s",
+        "subtitle": "",
+        "title": "<b>A Breath of Fresh Air<\/b>",
+        "desc": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "9976afa7-df6e-4ef9-9591-6ce04e048768": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "8ef85a92-5ba7-4bfb-95f8-26ef3dda3e1f": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_034f4781b0854e418bdc697948da6e71.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Absorbs odors",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 300
+          }
+        },
+        "896b0240-2f4d-4bf5-bf4a-125b802b5e12": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_ec6b75ebaaeb42fe919ab72e77546fa5.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Chemically decomposes pollutants",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 230
+          }
+        },
+        "e2cb1bee-5735-426f-a1c9-76f4cc9d7d60": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_b69799681fc54df89a8e8067d8c38adc.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Locks pollutants in the filter",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 230
+          }
+        }
+      },
+      "block_order": [
+        "8ef85a92-5ba7-4bfb-95f8-26ef3dda3e1f",
+        "896b0240-2f4d-4bf5-bf4a-125b802b5e12",
+        "e2cb1bee-5735-426f-a1c9-76f4cc9d7d60"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Patented ARC Formula<\/b>",
+        "desc": "The patented Air ReComposition Formula in the Activated Carbon Filter improves deodorant ability by 60% by chemically decomposing unpleasant odors without creating secondhand pollution.",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 1.5,
+        "tablet_items_per_row": 1.5,
+        "desktop_items_per_row": 3,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "center"
+      }
+    },
+    "5ab199fc-4f58-42ac-85a9-5fb502d17d2e": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "8d5c584e-cb9e-41c3-a8d8-59812db57473": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "<b>High-Efficiency Activated Carbon Filter<\/b>",
+            "desc": "The Activated Carbon Filter’s unique honeycomb structure adsorbs cooking odors and smoke better than other brand models.",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#14015b",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "776b32ab-1953-4673-9d88-0a655856b557": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Screenshot_2023-07-26_at_3.53.46_PM.png",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "8d5c584e-cb9e-41c3-a8d8-59812db57473",
+        "776b32ab-1953-4673-9d88-0a655856b557"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "f8cafaf1-e6c1-4066-a2c5-c0815ace1755": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109727154327__f8cafaf1-e6c1-4066-a2c5-c0815ace1755-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_cd42360a35314aca834eba7c4a3f2894.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109727154327__f8cafaf1-e6c1-4066-a2c5-c0815ace1755-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>3-Stage Filtration<\/b>",
+        "desc": "The air purifier features a Fine Preliminary Filter, an H13 True HEPA Filter, and a High-Efficiency Activated Carbon Filter to reduce the spread of common allergens and pollutants.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "reverse_on_mobile": false
+      }
+    },
+    "54dddb00-dcda-4cf6-8c82-a3ae435e6559": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "b579341b-e3a3-40fa-b61b-aec9580a9f7e": {
+          "type": "image-text",
+          "settings": {
+            "hide_image_placeholder": true,
+            "subtitle": "",
+            "title": "Pet Fur & Household Dust",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "6d61c805-a75a-4292-86fd-7a9e9d2786c3": {
+          "type": "image-text",
+          "settings": {
+            "hide_image_placeholder": true,
+            "subtitle": "",
+            "title": "Smoke, Pollen, & Allergens",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "b86d096a-f6be-4961-b9fe-5a6ffd55fa2a": {
+          "type": "image-text",
+          "settings": {
+            "hide_image_placeholder": true,
+            "subtitle": "",
+            "title": "Odors & VOCs",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "b579341b-e3a3-40fa-b61b-aec9580a9f7e",
+        "6d61c805-a75a-4292-86fd-7a9e9d2786c3",
+        "b86d096a-f6be-4961-b9fe-5a6ffd55fa2a"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-md",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "disable_slider": "disabled",
+        "mobile_items_per_row": 1,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 3,
+        "gap": 1.5,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "center"
+      }
+    },
+    "b0cc6c75-c204-495f-8c8b-7cf5f40f78e9": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109727154327__b0cc6c75-c204-495f-8c8b-7cf5f40f78e9-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_a09f47b859064f768f2712ecf9bda318.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109727154327__b0cc6c75-c204-495f-8c8b-7cf5f40f78e9-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Sleep Soundly<\/b>",
+        "desc": "Turn on Sleep Mode and turn off the LED display to create a relaxing environment as the LV-PUR131 quietly humidifies at just 27dB.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "2b546bd8-e14f-4538-bb39-71fac645d34d": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "b93ac1b2-61d5-4628-b7f7-38771732fb93": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_8ffda11769b34edd92fbfca98cffba64.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "b93ac1b2-61d5-4628-b7f7-38771732fb93"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Refresh Large Rooms<\/b>",
+        "desc": "The wide effective range of up to 360 ft² \/ 33 m² provides your family fresh air, even in large spaces.",
+        "hide_header_image_on_mobile": false,
+        "header_width": 380,
+        "header_image_width": 200,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "left",
+        "text_position": "center_left",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#14015b",
+        "desktop_text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "5409a3f5-9dc9-44fc-af3a-41b0bfc7b59b": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:<\/b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href='www.P65Warnings.ca.gov' target='_blank'>www.P65Warnings.ca.gov<\/a><\/p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/reviews-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/rating-summary-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1aa000b6-fc68-4292-a23c-9819bf950f4c",
+    "2cfc8ac3-21a4-49a2-8abe-ba4cb6f20c81",
+    "9976afa7-df6e-4ef9-9591-6ce04e048768",
+    "5ab199fc-4f58-42ac-85a9-5fb502d17d2e",
+    "f8cafaf1-e6c1-4066-a2c5-c0815ace1755",
+    "54dddb00-dcda-4cf6-8c82-a3ae435e6559",
+    "b0cc6c75-c204-495f-8c8b-7cf5f40f78e9",
+    "2b546bd8-e14f-4538-bb39-71fac645d34d",
+    "product-recommendations",
+    "5409a3f5-9dc9-44fc-af3a-41b0bfc7b59b",
+    "reviews"
+  ]
+}

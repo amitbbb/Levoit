@@ -1,0 +1,281 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "0b0c8e4a-0377-49f3-9a1b-049c1f0610d4": {
+      "type": "m-media",
+      "blocks": {
+        "template--16111789310103__0b0c8e4a-0377-49f3-9a1b-049c1f0610d4-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Module_1_10_2556f84d-d8a7-4fc9-93f2-53f5fdf9d8ba.png",
+            "mobile_image": "shopify:\/\/shop_images\/Module_1_11.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16111789310103__0b0c8e4a-0377-49f3-9a1b-049c1f0610d4-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "",
+        "button_url": "",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "reverse_on_mobile": false
+      }
+    },
+    "2ae517f7-f043-4af9-a91d-1e068b062d2c": {
+      "type": "m-media",
+      "blocks": {
+        "template--16111789310103__2ae517f7-f043-4af9-a91d-1e068b062d2c-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Module_2.png",
+            "mobile_image": "shopify:\/\/shop_images\/Module_2_2.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16111789310103__2ae517f7-f043-4af9-a91d-1e068b062d2c-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "",
+        "button_url": "",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 1,
+        "reverse_on_mobile": false
+      }
+    },
+    "2580d22c-b757-4373-9acf-8880fcdf79e6": {
+      "type": "m-media",
+      "blocks": {
+        "template--16111789310103__2580d22c-b757-4373-9acf-8880fcdf79e6-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/full-ban-red.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16111789310103__2580d22c-b757-4373-9acf-8880fcdf79e6-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "SHOP NOW",
+        "button_url": "shopify:\/\/products\/core-red-400s-smart-true-hepa-air-purifier",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#aa182c",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "reverse_on_mobile": false
+      }
+    },
+    "bfa538ee-b339-4a10-b3d4-3255a254e515": {
+      "type": "m-media",
+      "blocks": {
+        "template--16111789310103__bfa538ee-b339-4a10-b3d4-3255a254e515-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Group_5.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 150
+          }
+        }
+      },
+      "block_order": [
+        "template--16111789310103__bfa538ee-b339-4a10-b3d4-3255a254e515-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "header_width": 420,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "",
+        "button_url": "",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-sm",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "e3eb0c2f-bd71-45f6-a5d1-d8cdbe1c3c7f": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "bce9c1da-29c7-4f8f-abcb-b99ed53d17cc": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "<b>What is (RED)? <\/b>",
+            "desc": "Founded by Bono & Bobby Shriver in 2006 to fight AIDS, (RED) partners with the world’s most iconic brands and people to create products and experiences that raise money, heat and urgency for global health crises. Every action you take with (RED) saves lives. All money generated by (RED) goes to the Global Fund, one of the world's largest funders of global health. To date, (RED) has generated over $700 million for the Global Fund, helping more than 245 million people.",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#aa182c",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "17b23aa7-43f2-4a53-bce6-38f9100feea9": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "<b>Why is Levoit partnering with (RED)?<\/b>",
+            "desc": "From planting trees to supporting educational pursuits, Levoit has always strived to use our platform to help others. (RED)’s values align with Levoit’s pursuit of inclusivity and equity in the charities we support, helping to fund the global fight against AIDS and COVID-19.<br> <br><b>To date, (RED) has generated over $700 million for the Global Fund, its largest private sector contributor.<\/b>",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#aa182c",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "4a8e1e9c-f81b-4d17-b4de-facaafe265e7": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "<b>How do (RED) and the Global Fund work together?<\/b>",
+            "desc": "(RED) exists to bring private sector funding to the Global Fund. Prior to (RED)’s founding, businesses had contributed just $5 million to the Global Fund, which put the Global Fund’s public-private charter under threat. To date, (RED) has generated over $700 million, more than any other business initiative among Global Fund donors. (RED) continues to work closely with the Global Fund to drive private sector contributions and awareness in support of the fight against global pandemics.",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#aa182c",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        }
+      },
+      "block_order": [
+        "bce9c1da-29c7-4f8f-abcb-b99ed53d17cc",
+        "17b23aa7-43f2-4a53-bce6-38f9100feea9",
+        "4a8e1e9c-f81b-4d17-b4de-facaafe265e7"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#aa182c",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 2,
+        "mobile_padding_y": 1,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "0b0c8e4a-0377-49f3-9a1b-049c1f0610d4",
+    "2ae517f7-f043-4af9-a91d-1e068b062d2c",
+    "2580d22c-b757-4373-9acf-8880fcdf79e6",
+    "bfa538ee-b339-4a10-b3d4-3255a254e515",
+    "e3eb0c2f-bd71-45f6-a5d1-d8cdbe1c3c7f"
+  ]
+}

@@ -1,0 +1,24 @@
+{%- comment -%}
+  {%- liquid
+    if cart == empty
+    render 'icon-cart-empty'
+    else
+    render 'icon-cart'
+    endif
+  -%}
+{%- endcomment -%}
+
+<span class="sr-only">{{ 'templates.cart.cart' | t }}</span>
+<span>{% render 'icons' with 'cart' %}</span>
+{%- if cart != empty -%}
+  <div class="cart-count-bubble bg-secondary text-white text-xs h-5 w-5 rounded-full inline-flex items-center justify-center">
+    {%- if cart.item_count < 100 -%}
+      <span aria-hidden="true">{{ cart.item_count }}</span>
+    {%- endif -%}
+    <span class="sr-only">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+  </div>
+{%- else -%}
+  <div class="cart-count-bubble bg-secondary text-white h-4 w-4 rounded-full inline-flex items-center justify-center">
+    <span class="sr-only">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+  </div>
+{%- endif -%}

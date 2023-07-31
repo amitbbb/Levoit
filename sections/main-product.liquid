@@ -1,0 +1,209 @@
+<style>
+  .prose h3 {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgb(243 244 246);
+
+    /* @apply mb-1 pb-2 border-b border-gray-200; */
+  }
+
+  .prose iframe {
+    width: 100%;
+    margin-top: 1.5rem;
+    aspect-ratio: 16 / 9;
+    border-radius: 0.75rem;
+
+    /* @apply w-full aspect-video mt-6 rounded-xl; */
+  }
+</style>
+
+<section class="relative py-4 lg:py-12">
+  <div class="relative max-w-screen-xl md:container">
+    {% comment %} {{ product.featured_image | image_url: width: 600 | image_tag: preload: true }} {% endcomment %}
+    {% render 'breadcrumbs', class: 'px-4 lg:px-0 mb-4' %}
+    <div class="lg:grid  lg:grid-cols-10 lg:items-start">
+      <div class="h-full lg:col-span-6">
+        <div class="">
+          {% render 'pdp-gallery-slider', product: product %}
+          {% render 'pdp-zoom-gallery', product: product %}
+        </div>
+      </div>
+
+      <aside class="main-product__aside col-span-4 h-full lg:pl-12">
+        <div class="sticky top-[calc(var(--announcement-bar-height)+var(--header-height))]">
+          <div class="px-4 lg:px-0">
+            {%- render 'product-form', product: product -%}
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="container max-w-screen-lg">
+    <div id="MainProduct-ComplementaryProducts-{{ section.id }}">
+      {% # prettier-ignore %}
+      {%- capture slider_config -%}
+          {
+            "slidesPerView": 2,
+            "spaceBetween": 24,
+            "slidesPerGroup": 2,
+            "breakpoints": {
+              "768": {
+                "slidesPerView": 3,
+                "slidesPerGroup": 3
+              },
+              "1024": {
+                "slidesPerView": 3,
+                "slidesPerGroup": 3
+              }
+            }
+          }
+        {%- endcapture -%}
+      <product-recommendations
+        class=""
+        complementary-products-contains-quick-add
+        data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=3&intent=complementary"
+        slider-config="{{ slider_config | escape }}"
+        load-when-in-view
+      >
+        {%- if recommendations.performed and recommendations.products_count > 0 -%}
+          <h3 class="text-2xl mb-8 mt-8 text-center lg:text-left">Pairs with</h3>
+
+          <div class="swiper">
+            <ul class="swiper-wrapper">
+              {%- for product in recommendations.products limit: 3 -%}
+                <li class="swiper-slide">
+                  {% render 'card-product-quick-add',
+                    product: product,
+                    aspect_ratio: 'aspect-[4/5]',
+                    show_secondary_image: true,
+                    object_fit: 'object-contain',
+                    btn: 'outline'
+                  %}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      </product-recommendations>
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .main-product__aside {
+    top: calc(var(--announcement-bar-height) + var(--header-height) + var(--top-bar-height));
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Main",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "price",
+      "name": "Price",
+      "limit": 1
+    },
+    {
+      "type": "quantity_selector",
+      "name": "Quantity selector",
+      "limit": 1
+    },
+    {
+      "type": "variant_picker",
+      "name": "Variant picker",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "buy_buttons",
+      "name": "Buy buttons",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_dynamic_checkout",
+          "label": "Show dynamic checkout button",
+          "info": "Each customer will see their preferred payment method from those available on your store, such as PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "product_title",
+      "name": "Product title",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Will automatically populate. Use this block only for arrangement."
+        }
+      ]
+    },
+    {
+      "type": "model_number",
+      "name": "Model number",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Will automatically populate based on metafields. Use this block only for arrangement."
+        }
+      ]
+    },
+    {
+      "type": "checkmarks",
+      "name": "checkmarks",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Will automatically populate based on metafields. Use this block only for arrangement."
+        }
+      ]
+    },
+    {
+      "type": "accordions",
+      "name": "Accordions",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Will automatically populate based on metafields. Use this block only for arrangement."
+        }
+      ]
+    },
+    {
+      "type": "liquid",
+      "name": "Custom Liquid",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "liquid",
+          "label": "Liquid",
+          "info": "Add app snippets or other Liquid code to create advanced customizations."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

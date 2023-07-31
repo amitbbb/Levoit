@@ -1,0 +1,225 @@
+<account-register-form class="customer container">
+  <div class="my-4 flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
+    <div id="LoginImage" class="md:w-1/2 ">
+      {%- if section.settings.image != blank -%}
+        {%-
+          render 'image',
+          image: section.settings.image,
+          aspect_ratio: 'aspect-square',
+          object-fit: 'object-cover',
+        -%}
+      {%- else -%}
+        <div class="aspect-square bg-neutral-100"></div>
+      {%- endif -%}
+    </div>
+    <div id="LoginForm" class="md:w-1/2">
+      <div class="flex h-full w-full items-center justify-center bg-neutral-100">
+        <div class="w-full md:max-w-md ">
+          <aside class="">
+            <div class="p-8">
+              <div class="mb-4">
+                <h1 class="text-2xl uppercase">
+                  {{ 'customer.register.title' | t }}
+                </h1>
+              </div>
+              {% comment %}
+                {% form 'create_customer', novalidate: 'novalidate' %}
+                {% endform %}
+              {% endcomment %}
+              {% form 'create_customer', id: 'Form-create-account' %}
+                {%- if form.errors -%}
+                  <div id="Register-ErrorMsg" class="mb-4">
+                    <h2 class="inline-flex items-center gap-x-1" tabindex="-1" autofocus>
+                      {% render 'icons' with 'alert', width: '1.25rem', height: '1.25rem' %}
+                      {{ 'templates.contact.form.error_heading' | t }}
+                    </h2>
+                    <ul class="ml-6 list-disc text-sm">
+                      {%- for field in form.errors -%}
+                        <li>
+                          {%- if field == 'form' -%}
+                            {{ form.errors.messages[field] }}
+                          {%- else -%}
+                            <a href="#RegisterForm-{{ field }}">
+                              {{ form.errors.translated_fields[field] | capitalize }}
+                              {{ form.errors.messages[field] }}
+                            </a>
+                          {%- endif -%}
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  </div>
+                {%- endif -%}
+
+                <div class="grid gap-4">
+                  <div class="field">
+                    <label for="RegisterForm-firstname" class="mb-2 block">First name* </label>
+                    <input
+                      type="text"
+                      name="customer[first_name]"
+                      id="RegisterForm-firstname"
+                      {% if form.first_name %}
+                        value="{{ form.first_name }}"
+                      {% endif %}
+                      aria-required="true"
+                      {% if form.errors contains 'first_name' %}
+                        aria-invalid="true"
+                        aria-describedby="RegisterForm-firstname-error"
+                      {% endif %}
+                      autocomplete="given-name"
+                      placeholder="First name"
+                      class="block w-full border border-neutral-300 bg-gray-50  p-2.5 text-neutral-900 focus:border-neutral-600 focus:ring-neutral-600 sm:text-sm"
+                      required
+                    >
+                  </div>
+                  <div class="field">
+                    <label for="RegisterForm-LastName" class="mb-2 block"> Last name </label>
+                    <input
+                      type="text"
+                      name="customer[last_name]"
+                      id="RegisterForm-LastName"
+                      {% if form.last_name %}
+                        value="{{ form.last_name }}"
+                      {% endif %}
+                      autocomplete="family-name"
+                      placeholder="Last name"
+                      class="block w-full border border-neutral-300 bg-gray-50  p-2.5 text-neutral-900 focus:border-neutral-600 focus:ring-neutral-600 sm:text-sm"
+                    >
+                  </div>
+                  <div class="field">
+                    <label for="RegisterForm-email" class="mb-2 block">Email* </label>
+                    <input
+                      type="email"
+                      name="customer[email]"
+                      id="RegisterForm-email"
+                      {% if form.email %}
+                        value="{{ form.email }}"
+                      {% endif %}
+                      spellcheck="false"
+                      autocapitalize="off"
+                      autocomplete="email"
+                      aria-required="true"
+                      {% if form.errors contains 'email' %}
+                        aria-invalid="true"
+                        aria-describedby="RegisterForm-email-error"
+                      {% endif %}
+                      placeholder="Email"
+                      class="block w-full border border-neutral-300 bg-gray-50  p-2.5 text-neutral-900 focus:border-neutral-600 focus:ring-neutral-600 sm:text-sm"
+                      required
+                    >
+                  </div>
+                  {%- if form.errors contains 'email' -%}
+                    <span id="RegisterForm-email-error" class="inline-flex items-center gap-x-1 text-sm">
+                      {% render 'icons' with 'alert', width: '1.25rem', height: '1.25rem' %}
+                      {{ form.errors.translated_fields.email | capitalize }}
+                      {{ form.errors.messages.email }}.
+                    </span>
+                  {%- endif -%}
+
+                  <div class="field">
+                    <label for="RegisterForm-password" class="mb-2 block"> Password* </label>
+
+                    <input
+                      type="password"
+                      name="customer[password]"
+                      id="RegisterForm-password"
+                      aria-required="true"
+                      {% if form.errors contains 'password' %}
+                        aria-invalid="true"
+                        aria-describedby="RegisterForm-password-error"
+                      {% endif %}
+                      class="block w-full border border-neutral-300 bg-gray-50  p-2.5 text-neutral-900 focus:border-neutral-600 focus:ring-neutral-600 sm:text-sm"
+                      required
+                    >
+                  </div>
+
+                  {%- if form.errors contains 'password' -%}
+                    <span id="RegisterForm-password-error" class="inline-flex items-center gap-x-1 text-sm">
+                      {% render 'icons' with 'alert', width: '1.25rem', height: '1.25rem' %}
+                      {{ form.errors.translated_fields.password | capitalize }}
+                      {{ form.errors.messages.password }}.
+                    </span>
+                  {%- endif -%}
+                </div>
+
+                <ul class="py-4">
+                  <li>
+                    {% comment %} <input type="hidden" name="customer[accepts_marketing]" value="false"> {% endcomment %}
+                    <label
+                      for="MainRegister-subscribe"
+                      class="peer inline-flex cursor-pointer items-center gap-2"
+                    >
+                      <input
+                        type="checkbox"
+                        id="MainRegister-subscribe"
+                        name="customer[accepts_marketing]"
+                        class="text-primary focus:ring-primary h-5 w-5 rounded border-gray-300"
+                        checked
+                      >
+
+                      <span class="text-sm  text-gray-700"> Subscribe to our newsletters</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label
+                      for="MainRegister-terms"
+                      class="inline-flex cursor-pointer items-center gap-2 "
+                    >
+                      <input
+                        type="checkbox"
+                        id="MainRegister-terms"
+                        class="text-primary focus:ring-primary h-5 w-5 rounded border-gray-300"
+                        value="terms"
+                        required
+                      >
+
+                      <span class="text-sm  text-gray-700"
+                        >I agree to {{ shop.name }}'s <a href="">Terms of Use Policy</a></span
+                      >
+                    </label>
+                  </li>
+                  <li>
+                    <label
+                      for="MainRegister-privacy"
+                      class="inline-flex cursor-pointer items-center gap-2"
+                    >
+                      <input
+                        type="checkbox"
+                        id="MainRegister-privacy"
+                        class="text-primary focus:ring-primary h-5 w-5 rounded border-gray-300"
+                        value="privacy"
+                        required
+                      >
+
+                      <span class="text-sm  text-gray-700"
+                        >I agree to {{ shop.name }}'s <a href="">Privacy Policy</a></span
+                      >
+                    </label>
+                  </li>
+                </ul>
+                <button type="submit" class="btn-primary mt-4">Submit</button>
+              {% endform %}
+
+              <ul class="mt-4">
+                <li class="">
+                  <a href="{{ routes.account_login_url }}"> I have an account </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</account-register-form>
+{% schema %}
+{
+  "name": "t:sections.main-register.name",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}

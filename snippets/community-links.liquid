@@ -1,0 +1,12 @@
+<ul class="{{ class }}">
+  <li>
+    <a href="https://www.facebook.com/CosoriCooks" target="_blank" class="rounded-lg border-2 border-primary inline-flex items-center px-4 py-2 gap-x-5 hover:bg-primary hover:text-white group duration-300 ease-out-quint transition-colors">
+      {% render 'icons' with 'facebook-circle', width: 20, height: 20, class: 'fill-primary group-hover:fill-white' %} 
+      <span class="font-bold text-sm uppercase">Join The COSORI Community</span>
+    </a>
+  </li>
+  <li>
+    <p>We're here too!</p>
+    {% render 'socials', class: 'inline-flex gap-x-2', width: 15, height: 15, icon_class: 'bg-primary ' %}
+  </li>
+</ul>

@@ -1,0 +1,55 @@
+{% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+{%- if predictive_search.performed -%}
+  <div id="predictive-search-results">
+    <ul
+      id="predictive-search-results-list"
+      class="predictive-search__results-list grid grid-cols-2 gap-6 md:gap-8 lg:grid-cols-4 lg:gap-12 2xl:grid-cols-4"
+      role="listbox"
+      aria-labelledby="predictive-search-products"
+    >
+      {%- for product in predictive_search.resources.products -%}
+        <li
+          id="predictive-search-option-{{ forloop.index }}"
+          class="predictive-search__list-item py-3"
+          role="option"
+          aria-selected="false"
+        >
+          {% render 'card-manuals', product: product %}
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    {% comment %}
+       <div class="predictive-search__loading-state" aria-hidden="true">
+        {% render 'icons' with 'spinner' %}
+      </div>
+    {% endcomment %}
+  </div>
+
+  <span class="sr-only" data-predictive-search-live-region-count-value>
+    {%- if search.results_count == 0 -%}
+      {{ 'templates.search.no_results' | t: terms: predictive_search.terms }}
+    {%- else -%}
+      {{
+        'templates.search.results_with_count'
+        | t: terms: predictive_search.terms, count: predictive_search.resources.products.size
+      }}
+    {%- endif -%}
+  </span>
+
+  <div id="PredictiveSearch-Footer" class="">
+    {% comment %} count: {{ predictive_search.resources.products.size }} {% endcomment %}
+    {%- if predictive_search.resources.products.size > 0 -%}
+      <button
+        class="predictive-search__item predictive-search__item--term mt-4 flex w-full items-center justify-between"
+        tabindex="-1"
+      >
+        Search for "{{ predictive_search.terms }}"
+        {% comment %} {{ 'templates.search.search_for' | t: terms: predictive_search.terms }} {% endcomment %}
+        {% render 'icons' with 'arrow-right' %}
+      </button>
+    {%- else -%}
+      <p>No results found for "{{ predictive_search.terms }}"</p>
+    {%- endif -%}
+  </div>
+{%- endif -%}

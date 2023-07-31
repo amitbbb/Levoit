@@ -1,0 +1,79 @@
+<div class="container max-w-screen-lg py-24">
+  <nav>
+    <ul class="flex flex-col md:flex-row justify-center gap-8 text-center">
+      {%- for block in section.blocks -%}
+        <li class="flex-1">
+          <a href="{{ block.settings.url }}">
+            <div class="mb-8">
+              {% render 'image',
+                image: block.settings.image,
+                aspect_ratio: 'aspect-square',
+                width: 200,
+                sizes: '200, 200, 200',
+                class: 'w-28 mx-auto',
+                object_fit: 'contain'
+              %}
+            </div>
+            <p class="font-bold uppercase">{{ block.settings.title }}</p>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </nav>
+</div>
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    /* background-color: var(--theme-accent-4); */
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    {% if template.name != "index" %}
+      display: none;
+    {% endif %}
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Footer top bar",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#84a7e3"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image (SVG preferred)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "User Guides & Manuals"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,17 @@
+.quick-add-modal {
+  @apply fixed inset-0 bg-black/20 invisible opacity-0 transition-all duration-300 ease-out
+}
+.quick-add-modal[open] {
+  @apply opacity-100 visible z-[100]
+}
+
+.quick-add-modal details {
+  @apply w-full min-w-fit
+}
+
+.quick-add-modal .product__media-grid-item:not(:first-child) {
+  @apply hidden
+}
+.quick-add-modal .product__media-grid {
+  @apply grid-cols-1
+}

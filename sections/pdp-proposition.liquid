@@ -1,0 +1,92 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+
+  @media (min-width: 1024px){
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+  }
+{% endstyle %}
+
+<div class="container">
+  <modal-component>
+    <details class="has-popup" aria-haspopup="dialog">
+    <summary class="border-2 border-red-500 rounded-xl px-8 py-4 cursor-pointer">
+      <h2>{{ section.settings.title }}</h2>
+    </summary>
+    <aside class="z-50 fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-white rounded-xl overflow-hidden max-w-[calc(100%-2rem)] w-[768px]" role="dialog" aria-modal="true" aria-label="{{ section.settings.title | strip_html }}">
+      <div class="relative p-4 md:p-8 lg:p-12">
+        <button close-button type="button" class="absolute top-4 right-4" title="Close modal" aria-label="Close modal">{% render 'icons' with 'close', width: 25, height: 25 %}</button>
+        <h3 class="text-xl lg:text-2xl font-bold mb-4 w-[calc(100%-30px)]">{{ section.settings.modal_title }}</h3>
+        <div class="prose max-w-none">{{ section.settings.modal_desc }}</div>
+      </div>
+      
+    </aside>
+  </details>
+  </modal-component>
+</div>
+
+{% schema %}
+  {
+    "name": "PDP | Proposition",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Button title",
+        "default": "<b>WARNING:</b> California's Proposition 65"
+      },
+      {
+        "type": "header",
+        "content": "Modal Content"
+      },
+      {
+        "type": "text",
+        "id": "modal_title",
+        "label": "Modal Title",
+        "default": "Proposition 65 Warning for California Consumers"
+      },
+      {
+        "type": "richtext",
+        "id": "modal_desc",
+        "label": "Modal Desc",
+        "default": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href='www.P65Warnings.ca.gov' target='_blank'>www.P65Warnings.ca.gov</a></p>"
+      },
+      {
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "range",
+        "id": "desktop_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Desktop Padding (Y)",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "mobile_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Mobile Padding (Y)",
+        "default": 2
+      }
+    ],
+    "presets": [
+      {
+        "name": "PDP | Proposition"
+      }
+    ]
+  }
+{% endschema %}

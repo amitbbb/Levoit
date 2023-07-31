@@ -1,0 +1,68 @@
+{% form 'customer', class: 'newsletter-form flex-1' %}
+  <input type="hidden" name="contact[tags]" value="newsletter">
+  <div class="newsletter-form__field-wrapper">
+    <div class="field flex flex-row">
+      <input
+        id="NewsletterForm--{{ section.id }}"
+        type="email"
+        name="contact[email]"
+        class="
+          mt-0
+          block
+          w-full
+          border-0
+          bg-white
+          px-2
+          py-4
+          text-sm
+          {{ class }}
+          placeholder:font-sans placeholder:tracking-wider
+          placeholder:text-neutral-400 focus:border-black focus:ring-0
+        "
+        value="{{ form.email }}"
+        aria-required="true"
+        autocorrect="off"
+        autocapitalize="off"
+        autocomplete="email"
+        {% if form.errors %}
+          autofocus aria-invalid="true"aria-describedby="Newsletter-error--{{ section.id }}"
+        {% elsif form.posted_successfully? %}
+          aria-describedby="Newsletter-success--{{ section.id }}"
+        {% endif %}
+        placeholder="Enter your email"
+        required
+      >
+      <label class="field__label sr-only" for="NewsletterForm--{{ section.id }}">
+        {{ 'newsletter.label' | t }}
+      </label>
+      <button
+        type="submit"
+        class="btn-primary !rounded-none"
+        name="commit"
+        id="Subscribe"
+        aria-label="{{ 'newsletter.button_label' | t }}"
+      >
+        <span class="">Submit</span>
+      </button>
+    </div>
+    {%- if form.errors -%}
+      <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+        {% comment %} {%- render 'icon-error' -%} {% endcomment %}
+        {{- form.errors.translated_fields.email | capitalize }}
+        {{ form.errors.messages.email -}}
+      </small>
+    {%- endif -%}
+  </div>
+  {%- if form.posted_successfully? -%}
+    Success!
+    <h3
+      class="newsletter-form__message newsletter-form__message--success form__message"
+      id="Newsletter-success--{{ section.id }}"
+      tabindex="-1"
+      autofocus
+    >
+      {% render 'icons' with 'checkmark' -%}
+      {{- 'newsletter.success' | t }}
+    </h3>
+  {%- endif -%}
+{% endform %}

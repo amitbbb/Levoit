@@ -1,0 +1,748 @@
+{
+  "sections": {
+    "0f22d777-4c74-40b8-9125-5e5e631702b5": {
+      "type": "m-anchor-links",
+      "blocks": {
+        "10dcd568-bf43-4a11-9bd9-23b71aa5ec5f": {
+          "type": "link",
+          "settings": {
+            "title": "A Concerning Issue",
+            "section_id": "shopify-section-template--16111386951831__f9dee3f8-44f5-4401-bab7-a9c315094f12"
+          }
+        },
+        "6828fddb-4596-4783-983b-f53edaf5c010": {
+          "type": "link",
+          "settings": {
+            "title": "Ways to Protect Your Home",
+            "section_id": "shopify-section-template--16111386951831__07a1c03e-393b-4d9d-a0e7-7249679de0cf"
+          }
+        },
+        "8ebe7d76-059a-4e5c-8906-d8a755be2ebe": {
+          "type": "link",
+          "settings": {
+            "title": "Benefits of an Air Purifier",
+            "section_id": "shopify-section-template--16111386951831__d1565355-35a7-4caa-84c3-d0b04386bcc7"
+          }
+        },
+        "541c83ef-3e19-46d5-96de-5fa47bd857ce": {
+          "type": "link",
+          "settings": {
+            "title": "What to Look for",
+            "section_id": "shopify-section-template--16111386951831__8cd2c2e2-7b87-46b1-b906-be7f0d77e9a0"
+          }
+        },
+        "f96c2fd0-aa85-42b3-82e7-21af586a4e30": {
+          "type": "link",
+          "settings": {
+            "title": "The Levoit Core® Series",
+            "section_id": "shopify-section-template--16111386951831__d856e3c5-db7c-4da2-90cc-de250a7d18a9"
+          }
+        },
+        "1e2f112d-f28a-4f3c-8b9f-154a76a6487b": {
+          "type": "link",
+          "settings": {
+            "title": "VeSync App Support",
+            "section_id": "shopify-section-template--16111386951831__6b5f8d3d-c10d-4e93-babc-df3122acb17a"
+          }
+        },
+        "3a860b41-3b72-448d-a348-103dc9e1d33c": {
+          "type": "link",
+          "settings": {
+            "title": "Why Levoit?",
+            "section_id": "shopify-section-template--16111386951831__8ef7d255-bf24-461e-bceb-9b574027190e"
+          }
+        }
+      },
+      "block_order": [
+        "10dcd568-bf43-4a11-9bd9-23b71aa5ec5f",
+        "6828fddb-4596-4783-983b-f53edaf5c010",
+        "8ebe7d76-059a-4e5c-8906-d8a755be2ebe",
+        "541c83ef-3e19-46d5-96de-5fa47bd857ce",
+        "f96c2fd0-aa85-42b3-82e7-21af586a4e30",
+        "1e2f112d-f28a-4f3c-8b9f-154a76a6487b",
+        "3a860b41-3b72-448d-a348-103dc9e1d33c"
+      ],
+      "settings": {
+      }
+    },
+    "f9dee3f8-44f5-4401-bab7-a9c315094f12": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "b64cb132-15c4-4a56-a0c9-1bfd3ab2f2cf": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_6f2fde4b0c4549129569932dd2a0dcb7.jpg",
+            "aspect_ratio": "fill",
+            "object_fit": "cover",
+            "image_height": 360
+          }
+        }
+      },
+      "block_order": [
+        "b64cb132-15c4-4a56-a0c9-1bfd3ab2f2cf"
+      ],
+      "settings": {
+        "logo_width": 150,
+        "subtitle": "",
+        "title": "How to Prepare for\n<strong>Wildfire Season<\/strong>",
+        "desc": "",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "Shop Air Purifiers",
+        "button_url": "shopify:\/\/collections\/air-purifiers-for-wildfire-smoke",
+        "enable_mobile_stack": "",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "center",
+        "text_position": "center_center",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "center",
+        "desktop_text_position": "center_center",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "2b856ece-f62b-4ceb-8cc7-fb78ca7b739d": {
+      "type": "m-media",
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>A Concerning Issue<\/strong>",
+        "desc": "In 2021, the U.S. experienced <strong>58,733 wildfires<\/strong>, burning a total of <strong>7,139,713 acres<\/strong> across the country. It takes a lot of manpower to keep our lands safe. Every year, the U.S. Forest Service sends over 10,000 firefighters to help protect our homes and natural habitats. While not all of us can fight the fires directly, we can <strong>take steps to help keep ourselves safe and healthy<\/strong> throughout wildfire season, which is usually June–August.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "",
+        "button_url": "",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "07a1c03e-393b-4d9d-a0e7-7249679de0cf": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "9d08d9d0-21b8-4972-80a6-1b109218e9b2": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_f37dada6996548d1a15ea0fa31260487.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Stay Informed",
+            "desc": "The internet offers countless resources to help you stay informed. You can also use the free VeSync app to receive alerts about local wildfires.",
+            "button_label": "Wildfire Dangers",
+            "button_url": "#",
+            "button_label_2": "Download the VeSync App",
+            "button_url_2": "#",
+            "is_logo": true,
+            "if_logo_set_width": 200
+          }
+        },
+        "e2195afb-d6b2-418f-8b83-bf2faa1d04f3": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_4e60e287f407457c9fd02b5a23415d90.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Stay Prepared",
+            "desc": "Download our wildfire preparedness checklist below to make sure you have the right supplies during the wildfire season.",
+            "button_label": "Shop Air Purifiers",
+            "button_url": "shopify:\/\/collections\/air-purifiers",
+            "button_label_2": "Download Your Checklist",
+            "button_url_2": "https:\/\/cdn.shopify.com\/s\/files\/1\/0497\/0273\/1927\/files\/01.01_GP5_0422WildfireSeason_Infographic_Checklist-compressed_c4809bb3-7c30-4e88-b070-39fc9a6e17cf.pdf?v=1690584414",
+            "is_logo": true,
+            "if_logo_set_width": 200
+          }
+        },
+        "2a378cc6-92f2-4201-b293-c77aa41fd4c9": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_76705723561045ae888cfc2e3f6c6b1a.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Stay Up to Date",
+            "desc": "Regularly change your HVAC and air purifier filters for maximum efficiency and protection.",
+            "button_label": "Shop Air Purifiers Filters",
+            "button_url": "shopify:\/\/collections\/air-purifier-filters",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 200
+          }
+        }
+      },
+      "block_order": [
+        "9d08d9d0-21b8-4972-80a6-1b109218e9b2",
+        "e2195afb-d6b2-418f-8b83-bf2faa1d04f3",
+        "2a378cc6-92f2-4201-b293-c77aa41fd4c9"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Ways to Protect Your Home<\/strong>",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "#509d8c",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "button_bg_color": "#ffffff",
+        "button_text_color": "#509d8c",
+        "button_border_radius": 6,
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 1,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 3,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "center",
+        "convert_to_card": false,
+        "card_bg_color": "",
+        "card_subtitle_color": "",
+        "card_title_color": "",
+        "card_desc_color": "",
+        "card_border_radius": 0
+      }
+    },
+    "d1565355-35a7-4caa-84c3-d0b04386bcc7": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "ebd57361-2415-4d16-b5d0-4eeed9f1e284": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify:\/\/files\/videos\/assets_5c5a2dfbd0b84138938c43351f003dd8_56d277c98e394f68ad614e4088e663b0_compressed (1)_3.mp4",
+            "show_unmute_button": false,
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "5508351d-af20-41aa-8742-ced16178bf0e": {
+          "type": "content-list",
+          "settings": {
+            "subtitle": "",
+            "title": "<strong>The Benefits of an Air Purifier<\/strong>",
+            "desc": "While these steps will ensure you are ready in case of an emergency, air purifiers offer even greater security and peace of mind, refreshing your air with powerful fan speeds and high-quality filtration. Purchasing the right model is essential for protecting your home from wildfire smoke. Home air purifiers can quickly filter a wide variety of airborne contaminants, cleaning the air in your home before pollutants can negatively impact your health.\n\n<strong>Among other things, air purifiers<\/strong>",
+            "list": "Filter hazardous materials like soot or ash in the air\nHelp relieve asthma symptoms\nReduce the transmission of airborne diseases\nHelp neutralize unpleasant household odors",
+            "convert_list_to_bullets": true,
+            "button_label": "Learn more",
+            "button_url": "#",
+            "enable_content_width": false,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#000000",
+            "text_color_desc": "#000000",
+            "text_color_list": "#000000",
+            "list_count_bg_color": "#83a7e4",
+            "list_count_text_color": "#ffffff",
+            "button_bg_color": "#509d8c",
+            "button_text_color": "#ffffff",
+            "button_border_radius": 6,
+            "custom_block_width": 30
+          }
+        }
+      },
+      "block_order": [
+        "ebd57361-2415-4d16-b5d0-4eeed9f1e284",
+        "5508351d-af20-41aa-8742-ced16178bf0e"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 3,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "8cd2c2e2-7b87-46b1-b906-be7f0d77e9a0": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "2847a44a-b9d8-4434-a6ef-673fc3e89e6c": {
+          "type": "default-video",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/4083c52dbd2645348d90f0f1f7a6d49f.SD-480p-1.2Mbps-16711288_2.mp4",
+            "subtitle": "",
+            "title": "<strong>True HEPA Filtration<\/strong>",
+            "desc": "H13 True HEPA Filters offer medical grade filtration, capturing at least 99.97% of airborne particles 0.3 microns in size. These fiberglass filters protect you from smoke particles like ash and soot.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": ""
+          }
+        },
+        "c130a6bf-d3f3-4788-a9ed-416125dbd038": {
+          "type": "default-video",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/assets_5c5a2dfbd0b84138938c43351f003dd8_bde58cdfa6414db985860ca482ed40c8_compressed (2)_1.mp4",
+            "subtitle": "",
+            "title": "<strong>High-Efficiency Activated Carbon Filters<\/strong>",
+            "desc": "While a standard carbon filter offers some protection against smoke, High-Efficiency Activated Carbon Filters are significantly more capable at filtering harmful compounds spread by wildfires. The high concentration of carbon pellets offers more effective filtration over a longer period of time.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": ""
+          }
+        },
+        "b89d8194-dbf5-45e0-84bf-6237e9346052": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_4c1c6f076f9b4f499c3fb9c97675e8dd.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<strong>Clean Air Delivery Rate<\/strong>",
+            "desc": "CADR is an important metric when assessing an air purifier’s ability to filter hazardous materials in smoke. Results are typically measured in cubic meters per hour (m³\/h). The higher the number, the quicker the air purifier can refresh the air in the room.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "2847a44a-b9d8-4434-a6ef-673fc3e89e6c",
+        "c130a6bf-d3f3-4788-a9ed-416125dbd038",
+        "b89d8194-dbf5-45e0-84bf-6237e9346052"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>What to Look For<\/strong>",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "#509d8c",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 1,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 3,
+        "gap": 2,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "center",
+        "convert_to_card": true,
+        "card_bg_color": "#ffffff",
+        "card_subtitle_color": "",
+        "card_title_color": "#000000",
+        "card_desc_color": "#393939",
+        "card_border_radius": 12
+      }
+    },
+    "d856e3c5-db7c-4da2-90cc-de250a7d18a9": {
+      "type": "m-media",
+      "blocks": {
+        "template--16111367258263__d856e3c5-db7c-4da2-90cc-de250a7d18a9-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_c4c530bb39c14c5f86fe8add938b3aa1_1.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16111367258263__d856e3c5-db7c-4da2-90cc-de250a7d18a9-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "WILDFIRE SMOKE COLLECTION",
+        "button_url": "shopify:\/\/collections\/air-purifiers-for-wildfire-smoke",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#509d8c",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 6,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "6b5f8d3d-c10d-4e93-babc-df3122acb17a": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "1a5d7970-d16f-44ab-839c-4b3b9caf7dac": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_a1a3f1a67d3f45e3a880f3834fbc806b.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Remotely control your air purifier. <\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "13e2d691-c869-4835-b529-7f3ec4a12576": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_8d3c590fab6a4832bfedcadc40a98eb6.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Receive instant wildfire alerts.<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "66043cd6-eab5-462a-bd5b-0e9632867d32": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_df725d28c184459199b41f3015b9695b.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Review PM2.5 particulate data.<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "f7e199ef-1910-43f4-9f6c-62613f0d4f9b": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_36b041bd40c748c896bec90235ab5d00.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Monitor temperature, humidity, and other environmental data.<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "1a5d7970-d16f-44ab-839c-4b3b9caf7dac",
+        "13e2d691-c869-4835-b529-7f3ec4a12576",
+        "66043cd6-eab5-462a-bd5b-0e9632867d32",
+        "f7e199ef-1910-43f4-9f6c-62613f0d4f9b"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>VeSync App Support<\/strong>",
+        "desc": "VeSync app offers wildfire support, enabling you to monitor air quality, stay updated on wildfires, and receive notifications about your surrounding area. With VeSync, you are always in the know and ready, whether you’re at home or away.",
+        "footer_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_d669941a12dc4cdb94cc1778fe8dab99_1.webp",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-xl",
+        "bg_color": "#f7f7f7",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 4,
+        "gap": 3.1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "center",
+        "convert_to_card": false,
+        "card_bg_color": "",
+        "card_subtitle_color": "",
+        "card_title_color": "",
+        "card_desc_color": "",
+        "card_border_radius": 0
+      }
+    },
+    "8ef7d255-bf24-461e-bceb-9b574027190e": {
+      "type": "m-media",
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Why Levoit?<\/strong>",
+        "desc": "Home is more than a space, it’s a feeling. At Levoit, we pay attention to every detail of your environment, from the ground you walk on to the air you breathe. Through customizable technology and award-winning home wellness products, we look to promote awareness and provide solutions that fit seamlessly into your daily routine. As our collection continues to grow, the guiding principle remains the same: you aren’t home until you feel at home.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "",
+        "button_url": "",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "42d51731-e599-4be2-be5e-5f56728387fe": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "8aa52d81-152d-4f00-ad33-44f776cfd8f9": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_dd4be1a7318b4a648aa9bd57fd70e270.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "32018663-66db-4bef-9aa8-304679322975": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_fb3cb2d370cc4f3e8d92a588e567447f.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "f6f74327-cf4c-4d28-a5f2-76adfa4349ae": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_dd977de6de6341cb917f5645352b9b7f.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "18101280-a5c9-41ce-b220-5b7b468fc988": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_db724dd38a50402da287ec0407995d7c.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 120
+          }
+        },
+        "e486cde9-75c5-4f03-9819-6e6bdc157c5a": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_07d38dfc8e74479486b114f6dca5bacd.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 80
+          }
+        }
+      },
+      "block_order": [
+        "8aa52d81-152d-4f00-ad33-44f776cfd8f9",
+        "32018663-66db-4bef-9aa8-304679322975",
+        "f6f74327-cf4c-4d28-a5f2-76adfa4349ae",
+        "18101280-a5c9-41ce-b220-5b7b468fc988",
+        "e486cde9-75c5-4f03-9819-6e6bdc157c5a"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Awards<\/strong>",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "#f7f7f7",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "disable_slider": "disabled",
+        "mobile_items_per_row": 3,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 5,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "contain",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "center",
+        "convert_to_card": false,
+        "card_bg_color": "",
+        "card_subtitle_color": "",
+        "card_title_color": "",
+        "card_desc_color": "",
+        "card_border_radius": 0
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "0f22d777-4c74-40b8-9125-5e5e631702b5",
+    "f9dee3f8-44f5-4401-bab7-a9c315094f12",
+    "2b856ece-f62b-4ceb-8cc7-fb78ca7b739d",
+    "07a1c03e-393b-4d9d-a0e7-7249679de0cf",
+    "d1565355-35a7-4caa-84c3-d0b04386bcc7",
+    "8cd2c2e2-7b87-46b1-b906-be7f0d77e9a0",
+    "d856e3c5-db7c-4da2-90cc-de250a7d18a9",
+    "6b5f8d3d-c10d-4e93-babc-df3122acb17a",
+    "8ef7d255-bf24-461e-bceb-9b574027190e",
+    "42d51731-e599-4be2-be5e-5f56728387fe",
+    "main"
+  ]
+}

@@ -1,0 +1,60 @@
+{% comment %}
+  {%- if product.metafields.pdp.filters_new_arrivals != blank -%}
+    <span
+      class="absolute bg-transparent border-[1px] border-[#00519448] top-2 left-2 z-20 flex h-[42px] w-[42px] rounded-full items-center justify-center whitespace-nowrap text-xs font-bold uppercase text-white"
+    >
+      <span class="bg-[#005194] h-[38px] w-[38px] inline-flex rounded-full items-center justify-center  leading-none uppercase"
+        >New</span
+      >
+    </span>
+  {%- endif -%}
+
+  {%- if product.metafields.pdp.filters_best_sellers -%}
+    {% comment %} <li class="px-2 py-1 border whitespace-nowrap">Best Seller</li> {% endcomment %}
+
+    <span
+      class="absolute bg-transparent border-[1px] border-[#00519448] top-2 right-2 z-20 flex h-[42px] w-[42px] rounded-full items-center justify-center whitespace-nowrap text-xs font-bold uppercase text-white"
+    >
+      <span class="bg-[#005194] h-[38px] w-[38px] inline-flex rounded-full items-center justify-center  leading-none uppercase"
+        >Best Sellers</span
+      >
+    </span>
+  {%- endif -%}
+{% endcomment %}
+
+{%- if product.metafields.pdp.filters_new_arrivals == true
+  or product.metafields.pdp.filters_best_sellers == true
+  or product.metafields.pdp.filters_sale == true
+-%}
+  <div class="inline-flex absolute top-2 left-2 z-20 gap-2">
+    {%- if product.metafields.pdp.filters_new_arrivals == true -%}
+      <span
+        class="bg-transparent border-[1px] border-[#00519448] flex h-[46px] w-[46px] rounded-full items-center justify-center whitespace-nowrap text-[8px] font-medium  uppercase text-white"
+      >
+        <span class="bg-[#005194] h-[42px] w-[42px] inline-flex rounded-full items-center justify-center  leading-none uppercase text-center"
+          >New</span
+        >
+      </span>
+    {%- endif -%}
+
+    {%- if product.metafields.pdp.filters_best_sellers == true -%}
+      <span
+        class="bg-transparent border-[1px] border-[#84A7E3] flex h-[46px] w-[46px] rounded-full items-center justify-center  text-[8px] font-medium uppercase text-black"
+      >
+        <span class="bg-[#84A7E3] h-[42px] w-[42px] inline-flex rounded-full items-center justify-center  leading-none uppercase text-center"
+          >Best Sellers</span
+        >
+      </span>
+    {%- endif -%}
+
+    {%- if product.metafields.pdp.filters_sale == true -%}
+      <span
+        class="bg-transparent border-[1px] border-[#F2EBC2] flex h-[46px] w-[46px] rounded-full items-center justify-center  text-[8px] font-medium uppercase text-black"
+      >
+        <span class="bg-[#F2EBC2] h-[42px] w-[42px] inline-flex rounded-full items-center justify-center  leading-none uppercase text-center"
+          >Sale</span
+        >
+      </span>
+    {%- endif -%}
+  </div>
+{%- endif -%}

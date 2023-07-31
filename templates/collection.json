@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_position": "",
+        "text_align": ""
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "collection_links": "collection-quick-links"
+      }
+    },
+    "comparisons_bar": {
+      "type": "comparisons-bar",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "comparisons_bar"
+  ]
+}

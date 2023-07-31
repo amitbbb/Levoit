@@ -1,0 +1,143 @@
+<div class="container">
+  {% render 'breadcrumbs', class: 'py-8' %}
+  <section class="mb-16">
+    <header class="relative">
+      {% comment %} <div class="mb-8 h-[400px] bg-neutral-100"></div> {% endcomment %}
+      {% render 'image', image: section.settings.image, object_fit: 'cover', aspect_ratio: 'h-[400px]', width: 1280, sizes: '768, 1440, 1920' %}
+      <div class="absolute z-20 inset-0 py-4 lg:py-20 px-8 md:px-16 lg:px-32 flex items-center text-white">
+        <div class="container">
+          <h1 class="text-4xl mb-4 font-bold">{{ section.settings.title }}</h1>
+          <p class="max-w-sm text-xl">{{ section.settings.desc }}</p>
+        </div>
+      
+      </div>
+    </header>
+  </section>
+
+  <user-manuals-section data-loading-text="{{ 'accessibility.loading' | t }}" limit="16">
+    <header class="mb-16 ">
+      <div class="">
+        <h1 class="mb-4 text-4xl font-light">Find your product by name, model number or browsing our categories.</h1>
+
+        <form action="{{ routes.search_url }}" method="get" role="search" search-form>
+          <label class="relative">
+            <input
+              type="search"
+              name="q"
+              value="{{ search.terms | escape }}"
+              placeholder="Enter your product name or model number here..."
+              aria-label="Enter your product name or model number here..."
+              role="combobox"
+              aria-expanded="false"
+              aria-owns="predictive-search-results-list"
+              aria-controls="predictive-search-results-list"
+              aria-haspopup="listbox"
+              aria-autocomplete="list"
+              autocorrect="off"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              class="
+                block
+                w-full
+                rounded-md
+                border-transparent
+                bg-gray-100 p-4
+                text-base placeholder-black/40 placeholder:text-sm
+                focus:border-gray-500 focus:ring-0
+              "
+            >
+            <button type="submit" class="absolute top-1/2 right-4 -translate-y-1/2">
+              {% render 'icons' with 'search' %}
+            </button>
+          </label>
+        </form>
+      </div>
+    </header>
+
+    <fieldset class="mb-16 flex flex-wrap justify-center gap-4" button-group>
+      {%- for block in section.blocks -%}
+        <label
+          for="UserManuals-{{ block.settings.collection.handle }}-{{ forloop.index0 }}"
+          class="block cursor-pointer"
+        >
+          <input
+            type="radio"
+            name="user-manuals-group"
+            id="UserManuals-{{ block.settings.collection.handle }}-{{ forloop.index0 }}"
+            value="{{ block.settings.collection.handle }}"
+            title="{{ block.settings.collection.handle }}"
+            class="peer sr-only"
+            {%- if forloop.first -%}
+              checked="checked"
+            {%- endif -%}
+          >
+          <span class="peer-checked:bg-primary inline-block rounded-lg bg-neutral-100 px-4 py-2 peer-checked:text-white">
+            {{ block.settings.collection.title -}}
+          </span>
+        </label>
+      {%- endfor -%}
+    </fieldset>
+
+    <span class="predictive-search-status sr-only block py-4" role="status" aria-hidden="true"></span>
+
+    <div
+      id="Manuals-Results"
+      product-list
+      tabindex="-1"
+    >
+      <ul class="grid grid-cols-2 gap-6 md:gap-8 lg:grid-cols-4 lg:gap-12 2xl:grid-cols-4">
+        {%- for product in section.settings.collection.products -%}
+          <li>
+            {% render 'card-manuals', product: product %}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </user-manuals-section>
+</div>
+
+{% schema %}
+{
+  "name": "Manuals",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection",
+      "info": "Select collection"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Resources"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Desc",
+      "default": "User Guides + Manuals"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection",
+          "info": "Select collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

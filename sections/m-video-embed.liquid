@@ -1,0 +1,326 @@
+{%- liquid
+  assign video_id = section.settings.video_url.id
+  assign video_alt = section.settings.video_url.alt
+  assign poster = section.settings.video_url.preview_image
+
+  assign show_header = false
+  assign header_subtitle_size = section.settings.subtitle | size
+  assign header_title_size = section.settings.title | size
+  assign header_desc_size = section.settings.desc | size
+  assign header_size = header_subtitle_size | plus: header_title_size | plus: header_desc_size
+
+  if header_size > 0
+    assign show_header = true
+  endif
+-%}
+
+<div class="{{ section.settings.container }}">
+  {%- if show_header -%}
+    <header id="M-VideoEmbed-Header-{{ section.id }}" class="mb-12 {{ section.settings.text_position }}">
+      {%- if section.settings.subtitle != blank -%}
+        <span id="M-VideoEmbed-HeaderSubTitle-{{ section.id }}" class="block mb-2">
+          {{- section.settings.subtitle -}}
+        </span>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 id="M-VideoEmbed-HeaderTitle-{{ section.id }}" class="m-title-h2">
+          {{ section.settings.title }}
+        </h2>
+      {%- endif -%}
+      {%- if section.settings.desc != blank -%}
+        <p id="M-VideoEmbed-HeaderDesc-{{ section.id }}" class="">{{ section.settings.desc }}</p>
+      {%- endif -%}
+    </header>
+  {%- endif -%}
+  {%- if section.settings.video_url != blank -%}
+    <defer-embed-video>
+      {%- if section.settings.video_url.type == 'youtube' -%}
+        <iframe
+          data-src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1{%- if section.settings.video_autoplay -%}&autoplay=1{%- endif -%}"
+          class="js-youtube aspect-video w-full h-full"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+          title="{{ section.settings.description | escape }}"
+        ></iframe>
+      {%- else -%}
+        <iframe
+          data-src="
+            https://player.vimeo.com/video/{{ video_id }}?title=false&portrait=false&byline=false{%- if block.settings.video_autoplay -%}&autoplay=1{%- endif -%}
+          "
+          class="js-vimeo aspect-video w-full h-full"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+          title="{{ section.settings.description | escape }}"
+        ></iframe>
+      {%- endif -%}
+    </defer-embed-video>
+  {%- else -%}
+    <div class="aspect-video bg-neutral-100"></div>
+  {%- endif -%}
+
+  {%- if section.settings.footer_content != blank or section.settings.footer_image != blank -%}
+    <div id="M-VideoEmbed-Footer-{{ section.id }}" class="mt-8 {{ section.settings.text_position }}">
+      {%- if section.settings.footer_content != blank -%}
+        <div class="">
+          {{ section.settings.footer_content }}
+        </div>
+      {%- endif -%}
+      {%- if section.settings.footer_image != blank -%}
+        {%- assign footer_image_dpr2x = section.settings.footer_image_width | times: 2 -%}
+        {%- assign footer_image_widths = '{{ section.settings.footer_image_width }}, {{ footer_image_dpr2x }}' -%}
+        <div class="mx-auto max-w-full" style="width: {{ section.settings.footer_image_width }}px">
+          {%
+            render 'image',
+            image: section.settings.footer_image,
+            aspect_ratio: 'natural',
+            object_fit: 'cover',
+            width: footer_image_dpr2x,
+            widths: '{{ footer_image_dpr2x }}'
+          %}
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{%- style -%}
+  {% if section.settings.bg_color != blank %}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.bg_color }};
+    }
+  {% endif %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  #M-VideoEmbed-HeaderSubTitle-{{ section.id }} {
+    color: {{ section.settings.text_color_subtitle }};
+  }
+  #M-VideoEmbed-HeaderTitle-{{ section.id }} {
+    color: {{ section.settings.text_color_title }};
+  }
+  #M-VideoEmbed-HeaderDesc-{{ section.id }}, #M-VideoEmbed-Footer-{{ section.id }} {
+    color: {{ section.settings.text_color_desc }};
+  }
+  #M-VideoEmbed-Header-{{ section.id }} {
+    max-width: 100%;
+    width: 100%;
+    {% render 'get-text-align-style', align: section.settings.text_align, get: 'style' %}
+  }
+  #M-VideoEmbed-Footer-{{ section.id }}{
+    max-width: 100%;
+    width: 100%;
+    {% render 'get-text-align-style', align: section.settings.footer_text_align, get: 'style' %}
+  }
+
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    #M-VideoEmbed-Header-{{ section.id }} {
+      width: {{ section.settings.header_width }}px;
+    }
+    #M-VideoEmbed-Footer-{{ section.id }} {
+      width: {{ section.settings.footer_width }}px;
+    }
+
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "M — Video Embed",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "Video URL",
+      "accept": ["youtube", "vimeo"]
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Fresh Air Starts With Innovation."
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Description"
+    },
+    {
+      "type": "range",
+      "id": "header_width",
+      "min": 400,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Header width (Header)",
+      "default": 680
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align (Header)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text position (Header)",
+      "options": [
+        {
+          "value": "",
+          "label": "Left"
+        },
+        {
+          "value": "mx-auto",
+          "label": "Center"
+        },
+        {
+          "value": "ml-auto",
+          "label": "Right"
+        }
+      ],
+      "default": "mx-auto"
+    },
+    {
+      "type": "header",
+      "content": "Footer"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_content",
+      "label": "Footer Content"
+    },
+    {
+      "type": "range",
+      "id": "footer_width",
+      "min": 400,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Footer width (px)",
+      "default": 680
+    },
+    {
+      "type": "header",
+      "content": "Section settings"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container (width)",
+      "options": [
+        {
+          "value": "",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Default"
+        },
+        {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+        },
+        {
+          "value": "container max-w-screen-md",
+          "label": "md"
+        },
+        {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+        },
+        {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+        },
+        {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+        }
+      ],
+      "default": "container max-w-screen-lg"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color_subtitle",
+      "label": "Text color (Subtitle)",
+      "default": "#fe5834"
+    },
+    {
+      "type": "color",
+      "id": "text_color_title",
+      "label": "Text color (Title)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color_desc",
+      "label": "Text color (Desc)",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    }
+  ],
+  "presets": [
+    {
+      "name": "M — Video Embed"
+    }
+  ]
+}
+{% endschema %}

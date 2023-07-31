@@ -1,0 +1,888 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {}
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {}
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {}
+    },
+    "4693f5c0-9925-4cb6-9ada-16c217834964": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "17f9f3e6-135a-4697-9e0d-bed3feec3795": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Group_20.jpg",
+            "mobile_image": "shopify://shop_images/Group_18.jpg",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        },
+        "565f8d05-5b8c-4861-b34a-1b5ad2edbe32": {
+          "type": "list-item",
+          "settings": {
+            "title": "H13 True HEPA Filtration",
+            "desc": "Traps at least 99.97% of 0.3-micron airborne particles"
+          }
+        },
+        "48f41c8b-99da-477b-bb23-27f2b64723b8": {
+          "type": "list-item",
+          "settings": {
+            "title": "Washable Pre-Filter",
+            "desc": "Helps extend the lifespan of the filtration system"
+          }
+        },
+        "8396520f-cac1-4cff-a821-05e954accc65": {
+          "type": "list-item",
+          "settings": {
+            "title": "Large Room Coverage",
+            "desc": "Refreshes a 380 ft2 space in just 12 minutes"
+          }
+        },
+        "25937fae-e3df-46ec-add7-304dc084eac5": {
+          "type": "list-item",
+          "settings": {
+            "title": "Real-Time Air Quality",
+            "desc": "Check your room's air quality on the display"
+          }
+        }
+      },
+      "block_order": [
+        "17f9f3e6-135a-4697-9e0d-bed3feec3795",
+        "565f8d05-5b8c-4861-b34a-1b5ad2edbe32",
+        "48f41c8b-99da-477b-bb23-27f2b64723b8",
+        "8396520f-cac1-4cff-a821-05e954accc65",
+        "25937fae-e3df-46ec-add7-304dc084eac5"
+      ],
+      "settings": {
+        "logo": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_947d9306bfd84454bdfae9e54ace1516.webp",
+        "logo_width": 60,
+        "subtitle": "",
+        "title": "<strong>Vital 200s</strong>",
+        "desc": "SMART TRUE HEPA AIR PURIFIER",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_below",
+        "container": "",
+        "header_image_align": "center",
+        "text_align": "center",
+        "text_position": "center_center",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#14015b",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_right",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#14015b",
+        "desktop_text_color_desc": "#14015b",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#83a7e4",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#14015b",
+        "list_item_desc_color": "#14015b",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#14015b",
+        "desktop_list_item_desc_color": "#14015b",
+        "mobile_items_per_row": 1,
+        "tablet_items_per_row": 1,
+        "desktop_items_per_row": 1,
+        "gap": 1
+      }
+    },
+    "ccb04ed0-4d27-4121-820b-b94252126b82": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "0e36ccf9-86d4-491a-9706-fdcc74a88b79": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_f1e5df1010224a83807e7326c6c81eb3.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "965c17c5-bfda-4809-9978-894b614e08b7": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_9f1fcac3069f4311ba71030dcbc0368e_1.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "7d2111a6-8f80-481f-aa9f-27cfd0ad9f6f": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_c8fd4276451a4da4b59701ac3b0573ea.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "0e36ccf9-86d4-491a-9706-fdcc74a88b79",
+        "965c17c5-bfda-4809-9978-894b614e08b7",
+        "7d2111a6-8f80-481f-aa9f-27cfd0ad9f6f"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Keep the Moments Fresh</strong>",
+        "desc": "We designed the Vital 200S for those who want to keep life both fun and clean. Perfect for pet owners, this air purifier’s large U-shaped air inlet helps prevent fur clogs so the filtration system can always do its job efficiently. Simply tap Pet Mode in the free VeSync app and the Vital 200S will alternate between medium and high fan speeds, keeping your home fresh and more energy-efficient.",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#84a7e3",
+        "text_color_desc": "#14015b",
+        "disable_slider": "disabled",
+        "mobile_items_per_row": 1,
+        "tablet_items_per_row": 2.9,
+        "desktop_items_per_row": 3,
+        "gap": 0,
+        "aspect_ratio": "square",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "left"
+      }
+    },
+    "0211140d-63c9-47e7-a9d5-bd70598597f9": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109755039895__0211140d-63c9-47e7-a9d5-bd70598597f9-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Screenshot_2023-07-26_at_9.08.16_PM.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109755039895__0211140d-63c9-47e7-a9d5-bd70598597f9-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "reverse_on_mobile": false
+      }
+    },
+    "af623929-4d50-47e2-aea5-b28d161b5abb": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "9f7f6027-5367-46f8-afaa-236d723b425b": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_248e0e2371f34abbbd533be0fb8ca80d.webp",
+            "figcaption": "",
+            "aspect_ratio": "square",
+            "object_fit": "contain",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "64e760db-497c-40dc-a829-65ef10d3ac48": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_633e395ad74947f2b235f9f4749be420.webp",
+            "figcaption": "",
+            "aspect_ratio": "square",
+            "object_fit": "contain",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "9f7f6027-5367-46f8-afaa-236d723b425b",
+        "64e760db-497c-40dc-a829-65ef10d3ac48"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Check Your Air Quality</strong>",
+        "desc": "With a glance at the display’s air quality indicator rings, you can gauge the general health of your air and make informed fan speed adjustments.",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-md",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#84a7e3",
+        "text_color_desc": "#14015b",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "12858f1a-f14d-4f69-8bf8-0363b4cf8541": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "570c7d9e-e8eb-4f42-bcbe-9651179ee98c": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_35c65b0549464e5ebaf212d322043f82_1.webp",
+            "mobile_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_372bfafd9f2041a98e72d15895118d7e.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": ["570c7d9e-e8eb-4f42-bcbe-9651179ee98c"],
+      "settings": {
+        "logo_width": 150,
+        "subtitle": "",
+        "title": "<strong>How Does It Work?</strong>",
+        "desc": "The infrared sensor scans surrounding air for pollutants, enabling Auto Mode to accurately adjust the fan speed and eliminate guesswork for you.\n\n<strong>How the Infrared Sensor Works with Auto Mode</strong>",
+        "header_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_ee40f00c0b48405388b1c0d7e73b6fca.webp",
+        "hide_header_image_on_mobile": false,
+        "header_width": 380,
+        "header_image_width": 380,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_above",
+        "container": "",
+        "header_image_align": "center",
+        "text_align": "center",
+        "text_position": "center_center",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#84a7e3",
+        "text_color_desc": "#14015b",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_right",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#84a7e3",
+        "desktop_text_color_desc": "#14015b",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#EEEEEE",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#EEEEEE",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "c521432a-3a67-46bd-a79b-5f7899ee4d8a": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109755039895__c521432a-3a67-46bd-a79b-5f7899ee4d8a-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_5ff4959f9a2c43fa98cfb134c3f1ff58_1.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109755039895__c521432a-3a67-46bd-a79b-5f7899ee4d8a-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Powerful Air Circulation</strong>",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "<small>The high fan speed rotation and large U-shaped air inlet work together to quickly filter pollutants and release fresh air into your space.</small>",
+        "footer_width": 480,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#84a7e3",
+        "text_color_desc": "#14015b",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "0abdfbfb-9737-4732-a0ac-447ae8769fe1": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "d1c9dcba-4ae6-4863-bd4c-e7e227405a7d": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_0c5de03cd4e34c32b0ef3ad500f3c50d.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<strong>Morning</strong>",
+            "desc": "Wake up refreshed after sleeping in a room with pristine air quality.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "327fa641-460d-4ac1-bb16-e667d341af25": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_5865fea04cd7495c840ee6332fc05e82.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<strong>Afternoon</strong>",
+            "desc": "Let Auto Mode take care of your air throughout the day so you don’t have to lift a finger.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "11ad28f5-1797-4877-bef7-0e0a552fc484": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_49b20c3db5044ea18a51bf75934ae58b.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<strong>Evening</strong>",
+            "desc": "The Light Detection feature, along with Auto Mode, limits fan noise and turns off display lights for you.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "483455ea-cf81-42df-b238-280fcc49a0b3": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_2bccabb8423c47d3a0f5d39ea6e7c9b7.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<strong>Repeat</strong>",
+            "desc": "Create a customized sleep schedule to make fresh air a regular part of your routine.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "d1c9dcba-4ae6-4863-bd4c-e7e227405a7d",
+        "327fa641-460d-4ac1-bb16-e667d341af25",
+        "11ad28f5-1797-4877-bef7-0e0a552fc484",
+        "483455ea-cf81-42df-b238-280fcc49a0b3"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#84a7e3",
+        "text_color_desc": "#14015b",
+        "disable_slider": "disabled",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 4,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "center"
+      }
+    },
+    "e2199573-66a9-49b4-b301-3b4eb40eebd3": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "1509cdc2-a507-43a9-b63b-39d9db7dc83c": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_e56c091225dd43fea4bb23540ca1c9d4.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "8f3511c2-dc64-46ab-bccf-0fa238c1059e": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_ac78c2fbb0074b43add7b8455e6f4059.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "1956c80c-0d8c-4688-999b-e14439f63a00": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_8bbbf74db98143358d75d282407f5166_1.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "9177240e-9343-480a-adc2-abd811f93241": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_296d620d81614e53818e604b971c02b0_1.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "1509cdc2-a507-43a9-b63b-39d9db7dc83c",
+        "8f3511c2-dc64-46ab-bccf-0fa238c1059e",
+        "1956c80c-0d8c-4688-999b-e14439f63a00",
+        "9177240e-9343-480a-adc2-abd811f93241"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Smart Control</strong>",
+        "desc": "With the free VeSync app, you can control settings, check your home’s air quality, and create schedules—even when you’re not at home.",
+        "footer_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_6a6a8ed52bae4b21afc19e1a90fb0d37_1.webp",
+        "footer_width": 400,
+        "footer_image_width": 250,
+        "footer_desc": "<small>Google and Google Play are trademarks of Google LLC.\nApp Store® is a trademark of Apple Inc.</small>",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "#c5e3ff",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#84a7e3",
+        "text_color_desc": "#14015b",
+        "disable_slider": "disabled",
+        "mobile_items_per_row": 4,
+        "tablet_items_per_row": 4,
+        "desktop_items_per_row": 4,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "left"
+      }
+    },
+    "590ecaba-a456-41fb-b2f3-2625b902a9d8": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "61692d85-8bf6-427a-8f06-40b2911ad2e7": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_378f8a0a2e2a4f0396f438a30c90e467.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": ["61692d85-8bf6-427a-8f06-40b2911ad2e7"],
+      "settings": {
+        "logo_width": 150,
+        "subtitle": "",
+        "title": "<strong>Voice Command</strong>",
+        "desc": "Cozy in bed? Connect the Vital 200S to Amazon Alexa or Google Assistant™ through the VeSync app, so you can stay in control even when the air purifier’s out of reach.",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_above",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "center",
+        "text_position": "center_center",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#84a7e3",
+        "text_color_desc": "#14015b",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#84a7e3",
+        "desktop_text_color_desc": "#14015b",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#EEEEEE",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#EEEEEE",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "efa1bcfd-7108-42ee-8de7-a7f38e3e9913": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "e7e5ec5b-c029-417a-be1b-100022b8a6e5": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_361cbb20a3f74c8e82ec1f85c1f5d1f1.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": ["e7e5ec5b-c029-417a-be1b-100022b8a6e5"],
+      "settings": {
+        "logo_width": 150,
+        "subtitle": "",
+        "title": "<strong>Sleep Soundly</strong>",
+        "desc": "Purified air can make a world of difference. By filtering the pollutants out of your air, you can experience reduced nightly congestion and allergy symptoms.",
+        "header_image": "shopify://shop_images/Group_17.png",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 120,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_above",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "center",
+        "text_position": "center_center",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#84a7e3",
+        "text_color_desc": "#14015b",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#EEEEEE",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#EEEEEE",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "23a9567f-07d1-4d75-a6f8-5d9dfd95493f": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "50418280-26dd-46b7-895d-f3eec78b246e": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_9652a140fc1340e48d9e30bb64d5c7e8_3.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "cfd453ad-1345-4d22-9e76-885b714b8e9f": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_f2304c7e7613488ba479769d1fa3d224_2.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "0ec852d6-b2c6-428d-8a3b-c7ea5d3adfa0": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_f6627edb6cbe49a7a635ef3e95d3b3d1_1.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "2acdeb8f-1f4f-467c-a6a6-d0532b473034": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_50bab5c166ce42f9ab1a7759b806f0af_2.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "50418280-26dd-46b7-895d-f3eec78b246e",
+        "cfd453ad-1345-4d22-9e76-885b714b8e9f",
+        "0ec852d6-b2c6-428d-8a3b-c7ea5d3adfa0",
+        "2acdeb8f-1f4f-467c-a6a6-d0532b473034"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Certifications</strong>",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#84a7e3",
+        "text_color_desc": "#000000",
+        "disable_slider": "disabled",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 4,
+        "desktop_items_per_row": 4,
+        "gap": 1.4,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "left"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "41a93915-5c1a-410e-8f4c-347ca7360761": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:</b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href='www.P65Warnings.ca.gov' target='_blank'>www.P65Warnings.ca.gov</a></p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/reviews-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/rating-summary-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "4693f5c0-9925-4cb6-9ada-16c217834964",
+    "ccb04ed0-4d27-4121-820b-b94252126b82",
+    "0211140d-63c9-47e7-a9d5-bd70598597f9",
+    "af623929-4d50-47e2-aea5-b28d161b5abb",
+    "12858f1a-f14d-4f69-8bf8-0363b4cf8541",
+    "c521432a-3a67-46bd-a79b-5f7899ee4d8a",
+    "0abdfbfb-9737-4732-a0ac-447ae8769fe1",
+    "e2199573-66a9-49b4-b301-3b4eb40eebd3",
+    "590ecaba-a456-41fb-b2f3-2625b902a9d8",
+    "efa1bcfd-7108-42ee-8de7-a7f38e3e9913",
+    "23a9567f-07d1-4d75-a6f8-5d9dfd95493f",
+    "product-recommendations",
+    "41a93915-5c1a-410e-8f4c-347ca7360761",
+    "reviews"
+  ]
+}

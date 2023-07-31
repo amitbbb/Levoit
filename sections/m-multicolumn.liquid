@@ -1,0 +1,1306 @@
+{%- liquid
+  assign show_header = false
+  assign header_subtitle_size = section.settings.subtitle | size
+  assign header_title_size = section.settings.title | size
+  assign header_desc_size = section.settings.desc | size
+  assign header_size = header_subtitle_size | plus: header_title_size | plus: header_desc_size
+
+  if header_size > 0
+    assign show_header = true
+  endif
+
+  assign mobile_item_width = 100 | divided_by: section.settings.mobile_items_per_row | append: '%'
+  assign tablet_item_width = 100 | divided_by: section.settings.tablet_items_per_row | append: '%'
+  assign desktop_item_width = 100 | divided_by: section.settings.desktop_items_per_row | append: '%'
+-%}
+
+{% # prettier-ignore %}
+{%- capture slider_config -%}
+  {
+    "slidesPerView": {{ section.settings.mobile_items_per_row }},
+    "spaceBetween": {{ section.settings.gap | times: 16 }},
+    "enabled": true
+    {% if section.settings.disable_slider == 'enabled' %}
+      ,"breakpoints": {
+        "768": {
+          "slidesPerView": {{ section.settings.tablet_items_per_row }}
+        },
+        "1024": {
+          "slidesPerView": {{ section.settings.desktop_items_per_row }}
+        }
+      }
+    {% endif %}
+    {% if section.settings.disable_slider == 'on_desktop' %}
+      ,"breakpoints": {
+        "768": {
+          "slidesPerView": {{ section.settings.tablet_items_per_row }}
+        }
+      }
+    {% endif %}
+  }
+{%- endcapture -%}
+
+<div class="{{ section.settings.container }}">
+  {%- if show_header -%}
+    <header id="M-Multicolumn-Header-{{ section.id }}" class="mb-12 px-4 {{ section.settings.text_position }}">
+      {%- if section.settings.subtitle != blank -%}
+        <span id="M-Multicolumn-HeaderSubTitle-{{ section.id }}" class="block mb-2">
+          {{- section.settings.subtitle -}}
+        </span>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 id="M-Multicolumn-HeaderTitle-{{ section.id }}" class="m-title-h2">
+          {{ section.settings.title }}
+        </h2>
+      {%- endif -%}
+      {%- if section.settings.desc != blank -%}
+        <p id="M-Multicolumn-HeaderDesc-{{ section.id }}" class="">{{ section.settings.desc | newline_to_br }}</p>
+      {%- endif -%}
+    </header>
+  {%- endif -%}
+
+  <swiper-slider
+    slider-config="{{ slider_config | escape }}"
+    {% if section.settings.disable_slider == 'on_desktop' %}
+      disable-on-breakpoint="1024"
+    {% endif %}
+    {% if section.settings.disable_slider == 'on_tablet' %}
+      disable-on-breakpoint="768"
+    {% endif %}
+    {% if section.settings.disable_slider == 'disabled' %}
+      disable-on-breakpoint="0"
+    {% endif %}
+  >
+    <div class="swiper">
+      <ul
+        id="M-Multicolumn-Swiper-{{ section.id }}"
+        class="swiper-wrapper {% if section.settings.disable_slider == 'on_tablet' %}md:flex md:flex-wrap md:justify-center{% endif %}{% if section.settings.disable_slider == 'on_desktop' %}lg:flex lg:flex-wrap lg:justify-center{% endif %}{% if section.settings.disable_slider == 'disabled' %}flex flex-wrap justify-center{% endif %} {% render 'get-text-align-style', align: section.settings.block_text_align %}"
+      >
+        {%- for block in section.blocks -%}
+          {% style %}
+            {% if section.settings.convert_to_card %}
+                #M-Multicolumn-Slide-{{ section.id }}-{{ block.id }} {
+                  background-color: {{ section.settings.card_bg_color }};
+                  color: {{ section.settings.card_text_color }};
+                  border-radius: {{ section.settings.card_border_radius }}px;
+                  overflow: hidden;
+                }
+            {% endif %}
+          {% endstyle %}
+          {%- case block.type -%}
+            {%- when 'image-text' -%}
+              <li
+                id="M-Multicolumn-Slide-{{ section.id }}-{{ block.id }}"
+                class="swiper-slide"
+              >
+                {%- unless block.settings.hide_image_placeholder -%}
+                  {%- if block.settings.image != blank -%}
+                    {%- if block.settings.is_logo -%}
+                      <div
+                        class="flex items-center justify-center "
+                        {% comment %} class="flex items-center justify-center w-full h-full" {% endcomment %}
+                      >
+                      <div
+                        style="width: {{ block.settings.if_logo_set_width }}px;"
+                      >
+                    {%- endif -%}
+                    {% render 'image',
+                      image: block.settings.image,
+                      aspect_ratio: section.settings.aspect_ratio,
+                      object_fit: section.settings.object_fit,
+                      width: 150,
+                      widths: '320, 425',
+                      height: section.settings.image_height
+                    %}
+                    {%- if block.settings.is_logo -%}
+                      </div>
+                      </div>
+                    {%- endif -%}
+                  {%- else -%}
+                    <div class="aspect-square bg-neutral-100"></div>
+                  {%- endif -%}
+                {%- endunless -%}
+
+                <div
+                  id="M-Multicolumn-Block-Header-{{ section.id }}-{{ block.id }}"
+                  class="flex gap-4 {% unless section.settings.convert_to_card %}mt-4{% endunless %}"
+                >
+                  {%- if section.settings.show_count -%}
+                    <span
+                      class="flex w-8 h-8 items-center justify-center rounded-full "
+                      style="background-color: {{ section.settings.count_bg_color }}; color: {{ section.settings.count_text_color }};"
+                    >
+                      {{ forloop.index }}
+                    </span>
+                  {%- endif -%}
+                  <div class="flex-1">
+                    {%- if block.settings.subtitle != blank -%}
+                      <span id="M-Multicolumn-Block-Subtitle-{{ section.id }}-{{ block.id }}" class="block mb-2">
+                        {{- block.settings.subtitle -}}
+                      </span>
+                    {%- endif -%}
+                    {%- if block.settings.title != blank -%}
+                      <h2 id="M-Multicolumn-Block-Title-{{ section.id }}-{{ block.id }}" class="m-title-h5 ">
+                        {{ block.settings.title }}
+                      </h2>
+                    {%- endif -%}
+                    {%- if block.settings.desc != blank -%}
+                      <div id="M-Multicolumn-Block-Desc-{{ section.id }}-{{ block.id }}" class="leading-snug">
+                        {{ block.settings.desc | newline_to_br }}
+                      </div>
+                    {%- endif -%}
+
+                    {%- if block.settings.button_url != blank -%}
+                      <a
+                        href="{{ block.settings.button_url }}"
+                        class="btn-dynamic mx-2 mt-6"
+                        style="background-color: {{ section.settings.button_bg_color }}; color: {{ section.settings.button_text_color }}; border-radius: {{ section.settings.button_border_radius }}px;"
+                      >
+                        {{- block.settings.button_label -}}
+                      </a>
+                    {%- endif -%}
+                    {%- if block.settings.button_url_2 != blank -%}
+                      <a
+                        href="{{ block.settings.button_url_2 }}"
+                        class="btn-dynamic mx-2 mt-2"
+                        style="background-color: {{ section.settings.button_bg_color }}; color: {{ section.settings.button_text_color }}; border-radius: {{ section.settings.button_border_radius }}px;"
+                      >
+                        {{- block.settings.button_label_2 -}}
+                      </a>
+                    {%- endif -%}
+                  </div>
+                </div>
+              </li>
+            {%- when 'default-video' -%}
+              {%- assign media_id = 'M-Multicolumn-Media-' | append: section.id | append: '-' | append: block.id -%}
+
+              <li
+                id="M-Multicolumn-Slide-{{ section.id }}-{{ block.id }}"
+                class="swiper-slide"
+              >
+                <div class="flex flex-col {% unless section.settings.convert_to_card %}gap-4{% endunless %}">
+                  {%- if block.settings.video != blank -%}
+                    {% render 'video',
+                      desktop_video: block.settings.video,
+                      aspect_ratio: section.settings.aspect_ratio,
+                      object_fit: section.settings.object_fit,
+                      id: media_id,
+                      type: 'default'
+                    %}
+                  {%- else -%}
+                    <div class="aspect-video bg-neutral-100"></div>
+                  {%- endif -%}
+
+                  <div id="M-Multicolumn-Block-Header-{{ section.id }}-{{ block.id }}">
+                    {%- if block.settings.subtitle != blank -%}
+                      <span id="M-Multicolumn-Block-Subtitle-{{ section.id }}-{{ block.id }}" class="block mb-2">
+                        {{- block.settings.subtitle -}}
+                      </span>
+                    {%- endif -%}
+                    {%- if block.settings.title != blank -%}
+                      <h2 id="M-Multicolumn-Block-Title-{{ section.id }}-{{ block.id }}" class="m-title-h5 ">
+                        {{ block.settings.title }}
+                      </h2>
+                    {%- endif -%}
+                    {%- if block.settings.desc != blank -%}
+                      <div id="M-Multicolumn-Block-Desc-{{ section.id }}-{{ block.id }}" class="leading-snug">
+                        {{ block.settings.desc | newline_to_br }}
+                      </div>
+                    {%- endif -%}
+                  </div>
+                </div>
+              </li>
+            {%- when 'collection' -%}
+              {%- liquid
+                if block.settings.image != blank
+                  assign collection_image = block.settings.image
+                else
+                  assign collection_image = block.settings.collection.image
+                endif
+              -%}
+              {% style %}
+                #M-Multicolumn-Slide-Title-{{ section.id }}-{{ block.id }} {
+                  color: {{ block.settings.text_color }}
+                }
+              {% endstyle %}
+              <li
+                id="M-Multicolumn-Slide-{{ section.id }}-{{ block.id }}"
+                class="swiper-slide shadow-xl border hover:shadow-none transition-shadow duration-300 ease-in-out"
+                {% comment %} class="swiper-slide w-[calc(50%-2.5rem)] md:w-[calc(50%-2.5rem)] lg:w-[calc(33.33%-2.5rem)] shadow-xl border hover:shadow-none transition-shadow duration-300 ease-in-out" {% endcomment %}
+              >
+                <a href="{{ block.settings.collection.url }}" class="block w-full h-full p-5">
+                  <div class="flex flex-col items-center justify-center ">
+                    {% render 'image',
+                      image: collection_image,
+                      aspect_ratio: section.settings.aspect_ratio,
+                      object_fit: section.settings.object_fit,
+                      width: 500,
+                      widths: '425, 768',
+                      height: section.settings.image_height
+                    %}
+
+                    <h3
+                      id="M-Multicolumn-Slide-Title-{{ section.id }}-{{ block.id }}"
+                      class="mt-2 font-medium text-gray-900"
+                    >
+                      {{ block.settings.title | default: block.settings.collection.title }}
+                    </h3>
+                  </div>
+                </a>
+              </li>
+            {%- when 'room' -%}
+              <li
+                id="M-Multicolumn-Slide-{{ section.id }}-{{ block.id }}"
+                class="swiper-slide relative group"
+              >
+                {% comment %} <li class="swiper-slide group md:flex-1"> {% endcomment %}
+                <a
+                  href="{{ block.settings.url }}"
+                  class="flex flex-col items-center group-hover:opacity-75 transition-opacity duration-150 ease-in-out-quint"
+                >
+                  {% render 'image',
+                    image: block.settings.image,
+                    aspect_ratio: section.settings.aspect_ratio,
+                    object_fit: section.settings.object_fit,
+                    width: 500,
+                    widths: '425, 768',
+                    height: section.settings.image_height
+                  %}
+                  {% comment %}
+                    {% render 'image',
+                      image: block.settings.image,
+                      width: 500,
+                      sizes: '500, 500, 500',
+                      object_fit: 'cover',
+                      class: 'w-full h-64 group-hover:opacity-75 transition-opacity duration-150 ease-in-out-quint'
+                    %}
+                  {% endcomment %}
+                  <div class="absolute left-0 bottom-0 right-0 p-1 text-center bg-neutral-100/80">
+                    <h3 class="font-bold text-lg">{{ block.settings.title }}</h3>
+                  </div>
+                </a>
+              </li>
+            {%- when 'article' -%}
+              <li
+                id="M-Multicolumn-Slide-{{ section.id }}-{{ block.id }}"
+                class="swiper-slide relative"
+              >
+                <a
+                  href="{{ block.settings.article.url }}"
+                  class="flex flex-col items-center group-hover:opacity-75 transition-opacity duration-150 ease-in-out-quint"
+                >
+                  {% render 'image',
+                    image: block.settings.article.image,
+                    aspect_ratio: section.settings.aspect_ratio,
+                    object_fit: section.settings.object_fit,
+                    width: 500,
+                    widths: '425, 768',
+                    height: section.settings.image_height
+                  %}
+                  <div class="mt-2">
+                    <p class="text-lg font-semibold leading-tight mb-2">{{ block.settings.article.title }}</p>
+                    <p class="text-sm">
+                      {%- if block.settings.article.excerpt.size > 0 -%}
+                        {{ block.settings.article.excerpt | strip_html | truncatewords: 15 }}
+                      {%- else -%}
+                        {{ block.settings.article.content | strip_html | truncatewords: 15 }}
+                      {%- endif -%}
+                    </p>
+                  </div>
+                </a>
+              </li>
+            {%- when 'product' -%}
+              {%- liquid
+                assign product_image = block.settings.image | default: block.settings.product.featured_image
+                assign product_title = block.settings.title | default: block.settings.product.title
+                assign product_desc = block.settings.desc | default: block.settings.product.description
+                assign button_url = block.settings.button_url | default: block.settings.product.url
+                assign tags = block.settings.tags | split: ', '
+              -%}
+              <li
+                id="M-Multicolumn-Slide-{{ section.id }}-{{ block.id }}"
+                class="swiper-slide relative"
+              >
+                {%- if block.settings.product != blank or block.settings.image != blank -%}
+                  {% render 'image',
+                    image: product_image,
+                    aspect_ratio: section.settings.aspect_ratio,
+                    object_fit: section.settings.object_fit,
+                    width: 500,
+                    widths: '425, 768',
+                    height: section.settings.image_height
+                  %}
+                {%- else -%}
+                  <div class="aspect-square bg-neutral-100"></div>
+                {%- endif -%}
+                <div>
+                  {%- if block.settings.tags != blank -%}
+                    <ul class="inline-flex gap-2 mb-4">
+                      {%- for tag in tags -%}
+                        <li class="border px-1 lg:px-3 text-sm whitespace-nowrap">{{ tag }}</li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+
+                  <p class="text-lg font-bold mb-2">{{ product_title }}</p>
+                  <p>{{ product_desc | newline_to_br }}</p>
+
+                  <a
+                    href="{{ button_url }}"
+                    class="btn-dynamic mt-6"
+                    style="background-color: {{ section.settings.button_bg_color }}; color: {{ section.settings.button_text_color }}; border-radius: {{ section.settings.button_border_radius }}px;"
+                  >
+                    {{- block.settings.button_label | default: 'Shop now' -}}
+                  </a>
+                </div>
+              </li>
+          {%- endcase -%}
+        {%- endfor -%}
+      </ul>
+      <nav
+        class="flex justify-center mt-8 {% unless section.settings.disable_slider == 'enabled' %}hidden{% endunless %}"
+        {% comment %} tabindex="-1" {% endcomment %}
+        swiper-nav
+      >
+        <div class="inline-flex gap-x-4 items-center bg-white rounded-xl overflow-hidden shadow-xs border border-opacity-50">
+          <button swiper-button-prev class="flex items-center justify-center h-12 w-12 bg-white" tabindex="-1">
+            {% render 'icons' with 'arrow-left' %}
+          </button>
+          <div
+            swiper-pagination
+            class="bg-white h-12 !w-12 rounded-full flex items-center justify-center tracking-[0.35rem] text-xs"
+          ></div>
+          <button swiper-button-next class="flex items-center justify-center h-12 w-12 bg-white" tabindex="-1">
+            {% render 'icons' with 'arrow-right' %}
+          </button>
+        </div>
+      </nav>
+    </div>
+  </swiper-slider>
+
+  {%- if section.settings.footer_image != blank or section.settings.footer_desc != blank -%}
+    <div id="M-Multicolumn-Footer-{{ section.id }}" class="mt-8 {{ section.settings.text_position }}">
+      {%- if section.settings.footer_image != blank -%}
+        {%- assign footer_image_dpr2x = section.settings.footer_image_width | times: 2 -%}
+        {%- assign footer_image_widths = '{{ section.settings.footer_image_width }}, {{ footer_image_dpr2x }}' -%}
+        <div class="mx-auto max-w-full" style="width: {{ section.settings.footer_image_width }}px">
+          {%
+            render 'image',
+            image: section.settings.footer_image,
+            aspect_ratio: 'natural',
+            object_fit: 'cover',
+            width: footer_image_dpr2x,
+            widths: '{{ footer_image_dpr2x }}'
+          %}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.footer_desc != blank -%}
+        <div class="mt-4">
+          {{ section.settings.footer_desc }}
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{%- style -%}
+  {% if section.settings.bg_color != blank %}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.bg_color }};
+    }
+  {% endif %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  #M-Multicolumn-HeaderSubTitle-{{ section.id }} {
+    color: {{ section.settings.text_color_subtitle }};
+  }
+  [id^="M-Multicolumn-Block-Subtitle-{{ section.id }}"] {
+    {% if section.settings.convert_to_card %}
+      color: {{ section.settings.card_subtitle_color }};
+    {% else %}
+      color: {{ section.settings.text_color_subtitle }};
+    {% endif %}
+  }
+  #M-Multicolumn-HeaderTitle-{{ section.id }} {
+    color: {{ section.settings.text_color_title }};
+  }
+  [id^='M-Multicolumn-Block-Title-{{ section.id }}'] {
+    {% if section.settings.convert_to_card %}
+      color: {{ section.settings.card_title_color }};
+    {% else %}
+      color: {{ section.settings.text_color_title }};
+    {% endif %}
+  }
+  #M-Multicolumn-HeaderDesc-{{ section.id }} {
+    color: {{ section.settings.text_color_desc }};
+  }
+  [id^='M-Multicolumn-Block-Desc-{{ section.id }}'] {
+    {% if section.settings.convert_to_card %}
+      color: {{ section.settings.card_desc_color }};
+    {% else %}
+      color: {{ section.settings.text_color_desc }};
+    {% endif %}
+  }
+  #M-Multicolumn-Header-{{ section.id }} {
+    max-width: 100%;
+    width: 100%;
+    {% render 'get-text-align-style', align: section.settings.text_align, get: 'style' %}
+  }
+
+  {% if section.settings.convert_to_card %}
+    [id^='M-Multicolumn-Block-Header-{{ section.id }}'] {
+      padding: 1.25rem;
+    }
+  {% endif %}
+
+  {% if section.settings.disable_slider == 'disabled' %}
+    #M-Multicolumn-Swiper-{{ section.id }}  {
+      gap: {{ section.settings.gap }}rem;
+    }
+    [id^='M-Multicolumn-Slide-{{ section.id }}'] {
+      width: calc({{ mobile_item_width }} - {{ section.settings.gap }}rem);
+    }
+  {% endif %}
+
+  #M-Multicolumn-Footer-{{ section.id }} {
+    max-width: 100%;
+    width: {{ section.settings.footer_width }}px;
+    {% render 'get-text-align-style', align: section.settings.text_align, get: 'style' %}
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    #M-Multicolumn-Header-{{ section.id }} {
+      width: {{ section.settings.header_width }}px;
+    }
+    /* {% unless section.settings.disable_slider == 'enabled' %}
+      {% unless section.settings.disable_slider == 'on_tablet' %}
+        #M-Multicolumn-Swiper-{{ section.id }}  {
+          gap: {{ section.settings.gap }}rem;
+        }
+      {% endunless %}
+    {% endunless %} */
+    {% if section.settings.disable_slider == 'on_tablet' or section.settings.disable_slider == 'disabled' %}
+      #M-Multicolumn-Swiper-{{ section.id }}  {
+        gap: {{ section.settings.gap }}rem;
+      }
+      [id^='M-Multicolumn-Slide-{{ section.id }}'] {
+        width: calc({{ tablet_item_width }} - {{ section.settings.gap }}rem);
+      }
+    {% endif %}
+  }
+  @media (min-width: 1024px) {
+    {% if section.settings.disable_slider == 'on_desktop' or section.settings.disable_slider == 'on_tablet' or section.settings.disable_slider == 'disabled' %}
+      #M-Multicolumn-Swiper-{{ section.id }}  {
+        gap: {{ section.settings.gap }}rem;
+      }
+      [id^='M-Multicolumn-Slide-{{ section.id }}'] {
+        width: calc({{ desktop_item_width }} - {{ section.settings.gap }}rem);
+      }
+    {% endif %}
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "M — Multicolumn",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Air Quality Readings"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Description",
+      "default": "Choose what you’d like to see on the display, such as PM1.0, PM2.5, or PM10 readings, or your overall clean air percentage, so you can know your indoor atmosphere like an expert."
+    },
+    {
+      "type": "header",
+      "content": "Footer"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_image",
+      "label": "Footer image"
+    },
+    {
+      "type": "range",
+      "id": "footer_width",
+      "min": 400,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Footer width (px)",
+      "default": 680
+    },
+    {
+      "type": "range",
+      "id": "footer_image_width",
+      "min": 50,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "label": "Footer image width (px)",
+      "default": 250
+    },
+    {
+      "type": "textarea",
+      "id": "footer_desc",
+      "label": "Footer desc"
+    },
+    {
+      "type": "range",
+      "id": "header_width",
+      "min": 400,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Header width (px)",
+      "default": 700
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text position",
+      "options": [
+        {
+          "value": "",
+          "label": "Left"
+        },
+        {
+          "value": "mx-auto",
+          "label": "Center"
+        },
+        {
+          "value": "ml-auto",
+          "label": "Right"
+        }
+      ],
+      "default": "mx-auto"
+    },
+    {
+      "type": "header",
+      "content": "Section settings"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container (width)",
+      "options": [
+        {
+          "value": "",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Default"
+        },
+        {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+        },
+        {
+          "value": "container max-w-screen-md",
+          "label": "md"
+        },
+        {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+        },
+        {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+        },
+        {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+        }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color_subtitle",
+      "label": "Text color (Subtitle)",
+      "default": "#fe5834"
+    },
+    {
+      "type": "color",
+      "id": "text_color_title",
+      "label": "Text color (Title)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color_desc",
+      "label": "Text color (Desc)",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "button settings"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button bg color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Button border radius",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "select",
+      "id": "disable_slider",
+      "label": "Disable slider",
+      "options": [
+        {
+          "value": "enabled",
+          "label": "Enabled"
+        },
+        {
+          "value": "on_desktop",
+          "label": "Disable on desktop"
+        },
+        {
+          "value": "on_tablet",
+          "label": "Disable on tablet"
+        },
+        {
+          "value": "disabled",
+          "label": "Disabled"
+        }
+      ],
+      "default": "on_desktop"
+    },
+    {
+      "type": "header",
+      "content": "Grid settings"
+    },
+    {
+      "type": "range",
+      "id": "mobile_items_per_row",
+      "min": 1,
+      "max": 10,
+      "step": 0.1,
+      "label": "Items per row (mobile)",
+      "default": 2.2
+    },
+    {
+      "type": "range",
+      "id": "tablet_items_per_row",
+      "min": 1,
+      "max": 10,
+      "step": 0.1,
+      "label": "Items per row (tablet)",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "desktop_items_per_row",
+      "min": 1,
+      "max": 10,
+      "step": 0.1,
+      "label": "Items per row (desktop)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Gap (rem)",
+      "info": "mutliply by base font size (16px) to get in px",
+      "default": 1
+    },
+    {
+      "type": "header",
+      "content": "Media settings"
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Aspect ratio",
+      "options": [
+        {
+          "value": "natural",
+          "label": "Natural"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        },
+        {
+          "value": "fill",
+          "label": "Fill"
+        }
+      ],
+      "default": "natural"
+    },
+    {
+      "type": "select",
+      "id": "object_fit",
+      "label": "Image Object Fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "cover"
+        },
+        {
+          "value": "contain",
+          "label": "contain"
+        }
+      ],
+      "default": "cover",
+      "info": "Control how the image displays inside the container. See https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit for more info."
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "min": 150,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Image height (px)",
+      "default": 250,
+      "info": "Only applicable for 'fill' aspect ratio"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Count settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_count",
+      "label": "Show count",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "count_bg_color",
+      "label": "Count bg color",
+      "default": "#83a7e4"
+    },
+    {
+      "type": "color",
+      "id": "count_text_color",
+      "label": "Count text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Block settings"
+    },
+    {
+      "type": "select",
+      "id": "block_text_align",
+      "label": "Block text align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "convert_to_card",
+      "label": "Convert to card",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card bg color"
+    },
+    {
+      "type": "color",
+      "id": "card_subtitle_color",
+      "label": "Card subtitle color"
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "Card title color"
+    },
+    {
+      "type": "color",
+      "id": "card_desc_color",
+      "label": "Card desc color"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Card border radius",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image-text",
+      "name": "Default — Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_image_placeholder",
+          "label": "Hide image placeholder",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Learn more"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button url"
+        },
+        {
+          "type": "text",
+          "id": "button_label_2",
+          "label": "Button label 2",
+          "default": "Learn more"
+        },
+        {
+          "type": "url",
+          "id": "button_url_2",
+          "label": "Button url 2"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_logo",
+          "label": "Is logo",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "if_logo_set_width",
+          "min": 50,
+          "max": 500,
+          "step": 10,
+          "unit": "px",
+          "label": "If Logo, set width",
+          "default": 100
+        }
+      ]
+    },
+    {
+      "type": "default-video",
+      "name": "Default - Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Learn more"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button url"
+        },
+        {
+          "type": "text",
+          "id": "button_label_2",
+          "label": "Button label 2",
+          "default": "Learn more"
+        },
+        {
+          "type": "url",
+          "id": "button_url_2",
+          "label": "Button url 2"
+        },
+        {
+          "type": "header",
+          "content": "settings"
+        }
+      ]
+    },
+    {
+      "type": "room",
+      "name": "Room",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "placeholder": "Small"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "BG color",
+          "default": "#f2f2f2"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Aspect ratio settings"
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Aspect ratio",
+          "options": [
+            {
+              "value": "natural",
+              "label": "Natural"
+            },
+            {
+              "value": "square",
+              "label": "Square"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            },
+            {
+              "value": "fill",
+              "label": "Fill"
+            }
+          ],
+          "default": "natural"
+        },
+        {
+          "type": "select",
+          "id": "object_fit",
+          "label": "Media Object Fit",
+          "options": [
+            {
+              "value": "cover",
+              "label": "cover"
+            },
+            {
+              "value": "contain",
+              "label": "contain"
+            }
+          ],
+          "default": "cover",
+          "info": "Control how media will display inside the container. See https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit for more info."
+        },
+        {
+          "type": "range",
+          "id": "media_height",
+          "min": 200,
+          "max": 1000,
+          "step": 10,
+          "unit": "px",
+          "label": "Media height (px)",
+          "default": 650,
+          "info": "Only applicable for 'fill' aspect ratio"
+        }
+      ]
+    },
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Will use default collection image if not set"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "placeholder": "Air Purifiers"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Aspect ratio settings"
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Aspect ratio",
+          "options": [
+            {
+              "value": "natural",
+              "label": "Natural"
+            },
+            {
+              "value": "square",
+              "label": "Square"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            },
+            {
+              "value": "fill",
+              "label": "Fill"
+            }
+          ],
+          "default": "natural"
+        },
+        {
+          "type": "select",
+          "id": "object_fit",
+          "label": "Media Object Fit",
+          "options": [
+            {
+              "value": "cover",
+              "label": "cover"
+            },
+            {
+              "value": "contain",
+              "label": "contain"
+            }
+          ],
+          "default": "cover",
+          "info": "Control how media will display inside the container. See https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit for more info."
+        },
+        {
+          "type": "range",
+          "id": "media_height",
+          "min": 200,
+          "max": 1000,
+          "step": 10,
+          "unit": "px",
+          "label": "Media height (px)",
+          "default": 650,
+          "info": "Only applicable for 'fill' aspect ratio"
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Will use default article image if not set"
+        }
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Will use default product image if not set"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "Will use default product title if not set"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "info": "Will use default product description if not set"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button url",
+          "info": "Will use default product url if not set"
+        },
+        {
+          "type": "textarea",
+          "id": "tags",
+          "label": "Tags",
+          "info": "Comma separated list. See placeholder for example",
+          "placeholder": "One, Two, Three"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "M — Multicolumn"
+    }
+  ]
+}
+{% endschema %}

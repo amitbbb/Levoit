@@ -1,0 +1,50 @@
+<div class="container">
+  <sticky-nav-anchor-links class="block">
+    <nav class="overflow-x-auto">
+      <ul class="flex flex-nowrap whitespace-nowrap gap-x-8 md:gap-x-8 lg:gap-x-12">
+        {%- for block in section.blocks -%}
+          <li>
+            <button data-target="{{ block.settings.section_id | escape }}" class="">
+              {{ block.settings.title | escape }}
+            </button>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  </sticky-nav-anchor-links>
+</div>
+
+{% schema %}
+{
+  "name": "M — Anchor Links",
+  "class": "section",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Link"
+        },
+        {
+          "type": "text",
+          "id": "section_id",
+          "label": "Section ID",
+          "default": "#",
+          "info": "Using chrome inspector, find the section ID you want to link to."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "M — Anchor Links"
+    }
+  ]
+}
+{% endschema %}

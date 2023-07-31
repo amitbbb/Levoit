@@ -1,0 +1,54 @@
+{%- liquid
+  assign mod = index | modulo: 5
+  assign loop_banner = collection.metafields.plp.product_loop_banner
+-%}
+
+{%- if current_page == 1 -%}
+  {%- if loop_banner -%}
+    {%- if mod == 0 and index == 5 -%}
+      <li class="relative col-span-2 flex flex-col items-center text-white md:col-span-2 md:h-full ">
+        <a
+          href="{{ loop_banner.value.url }}"
+          class="block relative max-h-full w-full h-[275px] md:h-[400px] overflow-hidden rounded-lg"
+        >
+          {%- if loop_banner.value.media.value.media_type == 'image' -%}
+            {{
+              loop_banner.value.media.value
+              | image_url: width: 768
+              | image_tag: widths: '768', sizes: '(min-width: 400px) 768, 100vw', class: 'w-full h-full object-cover'
+            }}
+          {%- else -%}
+            {{
+              loop_banner.value.media.value
+              | video_tag:
+                image_size: '768x',
+                loop: true,
+                controls: false,
+                muted: true,
+                autoplay: true,
+                playsinline: true,
+                loading: 'lazy',
+                class: 'w-full h-full object-cover'
+            }}
+          {%- endif -%}
+
+          <div class="absolute inset-0 flex w-[425px] max-w-full items-center justify-center p-4 xl:p-16">
+            <div>
+              {%- if loop_banner.value.title != blank -%}
+                <h3 class="mb-4 text-xl xl:text-3xl font-bold">
+                  {{ loop_banner.value.title }}
+                </h3>
+              {%- endif -%}
+
+              {%- if loop_banner.value.description != blank -%}
+                <p>
+                  {{ loop_banner.value.description }}
+                </p>
+              {%- endif -%}
+            </div>
+          </div>
+        </a>
+      </li>
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}

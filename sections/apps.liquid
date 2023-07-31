@@ -1,0 +1,161 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  #AppWrapper-Content-{{ section.id }} {
+    {% render 'get-text-align-style', align: section.settings.header_text_align, get: 'style' %}
+  }
+  #AppWrapper-Heading-{{ section.id }} {
+    color: {{ section.settings.text_color_heading }};
+  }
+  #AppWrapper-Desc-{{ section.id }} {
+    color: {{ section.settings.text_color_desc }};
+  }
+
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+  }
+{% endstyle %}
+
+<header id="AppWrapper-Content-{{ section.id }}" class="text-center max-w-screen-lg mx-auto mb-12">
+  <h2 id="AppWrapper-Heading-{{ section.id }}" class="title m-title">{{ section.settings.title }}</h2>
+  <p id="AppWrapper-Desc-{{ section.id }}" class="desc m-desc">{{ section.settings.desc }}</p>
+</header>
+
+{% for block in section.blocks %}
+  {% comment %} {% style %}
+    #AppWrapper-{{ section.id }}{{ block.id }} {
+      padding-top: {{ section.settings.mobile_padding_y }}rem;
+    }
+    @media (min-width: 1024px) {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+    }
+  {% endstyle %} {% endcomment %}
+  <div id="AppWrapper-{{ section.id }}{{ block.id }}" class="{{ section.settings.container }}">
+     {% render block %}
+  </div>
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "App wrapper",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "desc",
+        "label": "Description"
+      },
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "color",
+        "id": "text_color_heading",
+        "label": "Text color (Heading)",
+        "default": "#003339"
+      },
+      {
+        "type": "color",
+        "id": "text_color_desc",
+        "label": "Text color (Desc)",
+        "default": "#000000"
+      },
+      {
+        "type": "select",
+        "id": "header_text_align",
+        "label": "Text align (Header)",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center"
+      },
+      {
+        "type": "select",
+        "id": "container",
+        "label": "Container (width)",
+        "options": [
+          {
+          "value": "",
+          "label": "Full width"
+          },
+          {
+          "value": "container",
+          "label": "Default"
+          },
+          {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+          },
+          {
+          "value": "container max-w-screen-md",
+          "label": "md"
+          },
+          {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+          },
+          {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+          },
+          {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+          }
+        ],
+        "default": "container"
+      },
+      {
+        "type": "range",
+        "id": "desktop_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Desktop Padding (Y)",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "mobile_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Mobile Padding (Y)",
+        "default": 2
+      }
+    ],
+    "blocks": [
+      {
+        "type": "@app"
+      }
+    ],
+    "presets": [
+      {
+        "name": "App wrapper"
+      }
+    ]
+  }
+{% endschema %}

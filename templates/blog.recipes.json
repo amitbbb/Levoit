@@ -1,0 +1,52 @@
+{
+  "sections": {
+    "featured_articles": {
+      "type": "main-blog-featured-articles",
+      "blocks": {
+        "article_1": {
+          "type": "featured-article",
+          "settings": {
+            "article": "recipes\/pressure-cooker-orange-curd-mousse"
+          }
+        },
+        "666c7a06-3c32-4158-a1bb-13b96cd38922": {
+          "type": "featured-article",
+          "settings": {
+            "article": "recipes\/air-fryer-mothers-luncheon-chicken-salad"
+          }
+        },
+        "82da040f-fb6e-4f15-9c98-8511b5342b4a": {
+          "type": "featured-article",
+          "settings": {
+            "article": "recipes\/air-fryer-italian-pastries-creamy-semolina-filing"
+          }
+        },
+        "f8accca4-8992-499e-b2e2-3238e2b9b38f": {
+          "type": "featured-article",
+          "settings": {
+            "article": "recipes\/air-fryer-spicy-filled-portobello-mushrooms"
+          }
+        }
+      },
+      "block_order": [
+        "article_1",
+        "666c7a06-3c32-4158-a1bb-13b96cd38922",
+        "82da040f-fb6e-4f15-9c98-8511b5342b4a",
+        "f8accca4-8992-499e-b2e2-3238e2b9b38f"
+      ],
+      "settings": {
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "title": "",
+        "desc": ""
+      }
+    }
+  },
+  "order": [
+    "featured_articles",
+    "main"
+  ]
+}

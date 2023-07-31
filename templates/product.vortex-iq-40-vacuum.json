@@ -1,0 +1,826 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {}
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {}
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {}
+    },
+    "bcacd394-15ea-41a3-bf1b-a7eeec58c0d3": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109755072663__bcacd394-15ea-41a3-bf1b-a7eeec58c0d3-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_bd28db3ab80d496daf57b3751abd8e8e_f2f934e0-5a1c-4a8f-bdf3-8e962b9756ad.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109755072663__bcacd394-15ea-41a3-bf1b-a7eeec58c0d3-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "reverse_on_mobile": false
+      }
+    },
+    "27b94d5c-af53-4fa6-af18-8f811eec8073": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "0c824907-f305-40aa-849a-f884657b75c4": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify://files/videos/assets_5c5a2dfbd0b84138938c43351f003dd8_519df48edd8c45e7971c75f7ea7e0d0e_compressed_2.mp4",
+            "show_unmute_button": false,
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "167dc1cf-db85-4890-85c3-5bb57aabca49": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "<strong>The Strength Test</strong>",
+            "desc": "With 100,000 RPM (Revolutions Per Minute) and 130AW / 23kPa suction power, this vacuum can lift a 6 lb weight.\n\n<small>Note: This demonstration is for illustrative purposes only and was performed under controlled conditions. Results may vary. Do not attempt this at home.</small>",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#83a7e4",
+            "text_color_desc": "#14015b",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        }
+      },
+      "block_order": [
+        "0c824907-f305-40aa-849a-f884657b75c4",
+        "167dc1cf-db85-4890-85c3-5bb57aabca49"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 730,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "057783c6-4318-482b-ad58-09eaef64497f": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "b20af12a-34fb-4052-8272-940fae3f8356": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "<strong>Spotless Results</strong>",
+            "desc": "Deep clean your floors—removing dust, pollen, pet dander, pet fur, crumbs, and more with one pass.",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#83a7e4",
+            "text_color_desc": "#14015b",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "596b7c34-9e1d-4c40-b831-0b45a87d639f": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_2ad8530d74364dbda5f72f4870bfe5a3.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "b20af12a-34fb-4052-8272-940fae3f8356",
+        "596b7c34-9e1d-4c40-b831-0b45a87d639f"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "a531ec27-dd47-4866-9e53-e3180f818ed5": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109755072663__a531ec27-dd47-4866-9e53-e3180f818ed5-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_3c3e39c697b84271a76678848de04c76.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109755072663__a531ec27-dd47-4866-9e53-e3180f818ed5-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Auto Mode Knows What To Do</strong>",
+        "desc": "With an infrared sensor to detect debris, Auto Mode makes automatic suction power adjustments, so you don’t have to worry about which power level to use.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#83a7e4",
+        "text_color_desc": "#14015b",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "c10ef32b-97e6-4b03-93e8-f3bf1d31e0a4": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "b1217026-e945-4d6d-a890-5266341aa8a6": {
+          "type": "content-image",
+          "disabled": true,
+          "settings": {
+            "subtitle": "",
+            "title": "<strong>4-Stage HEPA Filtration</strong>",
+            "desc": "Trapping 99.99% of particles 0.3 microns in size, including pollen, dust, and pet dander — the system captures what you can't see.",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#ffffff",
+            "text_color_desc": "#ffffff",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "e005c8fe-1b9e-438b-a166-2947e7db0b94": {
+          "type": "content-list",
+          "settings": {
+            "subtitle": "",
+            "title": "<strong>4-Stage HEPA Filtration</strong>",
+            "desc": "Trapping 99.99% of particles 0.3 microns in size, including pollen, dust, and pet dander — the system captures what you can't see.",
+            "list": "Strong Cyclone Effect\nMetal Filter\nHEPA-Type Pre-Filter\nHEPA-Tpe Main Filter",
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#ffffff",
+            "text_color_desc": "#ffffff",
+            "text_color_list": "#ffffff",
+            "list_count_bg_color": "#ffffff",
+            "list_count_text_color": "#000000",
+            "custom_block_width": 30
+          }
+        },
+        "538076c8-fc93-4b92-a8b7-3283b6952d9e": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify://files/videos/assets_5c5a2dfbd0b84138938c43351f003dd8_60fcb9478c3042dc9c644655554e5e47_compressed_2.mp4",
+            "show_unmute_button": false,
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "061f49e9-1cfe-456a-b067-809430b1e13f": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "image_width": 60,
+            "title": "Strong Cyclone Effect",
+            "desc": ""
+          }
+        },
+        "541b228d-4253-44d0-a360-096661638a58": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "image_width": 60,
+            "title": "Pre-Filter",
+            "desc": "Captures large particles such as dust, lint, fibers, hair, and pet fur."
+          }
+        },
+        "844edb68-8d2e-4e1e-a09d-7b6800828d3f": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "image_width": 60,
+            "title": "Pre-Filter",
+            "desc": "Captures large particles such as dust, lint, fibers, hair, and pet fur."
+          }
+        },
+        "3f952d7e-6e54-45f5-b9c9-16899e37f4cc": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "image_width": 60,
+            "title": "Pre-Filter",
+            "desc": "Captures large particles such as dust, lint, fibers, hair, and pet fur."
+          }
+        }
+      },
+      "block_order": [
+        "b1217026-e945-4d6d-a890-5266341aa8a6",
+        "e005c8fe-1b9e-438b-a166-2947e7db0b94",
+        "538076c8-fc93-4b92-a8b7-3283b6952d9e",
+        "061f49e9-1cfe-456a-b067-809430b1e13f",
+        "541b228d-4253-44d0-a360-096661638a58",
+        "844edb68-8d2e-4e1e-a09d-7b6800828d3f",
+        "3f952d7e-6e54-45f5-b9c9-16899e37f4cc"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "#000000",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "f4f3aa7f-8ce5-40f6-a282-672ac64ca96c": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "6dbf2e74-be76-4271-94ef-bd2909115e49": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_c01eebe8fed044a49394c421f95aa20f.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Simple to Store & Charge</small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "cde898f8-17f6-4673-95cb-a6f23d0a26cb": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_0bcbec531b604f068604775afc8ca89a.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>2 Easy Ways to Empty</small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "ccbd1452-48e7-4ef1-9a1d-b53c82915523": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_90b30612b47a4038a25998d7fe1bb5be.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Washable HEPA Filters</small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "8df5d85a-f891-4916-be1d-0ebb8a70c396": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_68b5053ab87541b8b5de94457cdd7ff5.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>One-Press Start</small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "2d57e24e-b90d-4f98-b51b-b5eb86e4fcd8": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_643687d738084027a8694e1e12fae201.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Ultralightweight</small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "bc8b33a9-c75a-4289-ab1b-b2a1dab2ecb9": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_0ed11fbc23cb471a93c0e1901e6fd893.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>2-in-1 Dusting Brush</small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "637bb690-51bc-4550-972b-ca1718cecce8": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_3c92ffdb494a4465af2666e0be969b5f.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Telescopic Crevice Tool</small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "e289c134-18ec-4499-b44b-3671f5204d33": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_5dddf4e52fc14a30b1a3483ac270ad51.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>LED Headlights</small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "6dbf2e74-be76-4271-94ef-bd2909115e49",
+        "cde898f8-17f6-4673-95cb-a6f23d0a26cb",
+        "ccbd1452-48e7-4ef1-9a1d-b53c82915523",
+        "8df5d85a-f891-4916-be1d-0ebb8a70c396",
+        "2d57e24e-b90d-4f98-b51b-b5eb86e4fcd8",
+        "bc8b33a9-c75a-4289-ab1b-b2a1dab2ecb9",
+        "637bb690-51bc-4550-972b-ca1718cecce8",
+        "e289c134-18ec-4499-b44b-3671f5204d33"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#14015b",
+        "disable_slider": "disabled",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 4,
+        "desktop_items_per_row": 4,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "center"
+      }
+    },
+    "f276d913-a926-4bdb-8ea2-07b580ba17f3": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "cb04854a-a074-4229-8c82-7b8ee54ab94a": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Screenshot_2023-07-27_at_12.23.09_AM.png",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "e57b9e37-fde4-46be-be39-baaf5fcf3291": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Screenshot_2023-07-27_at_12.23.04_AM.png",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "cb04854a-a074-4229-8c82-7b8ee54ab94a",
+        "e57b9e37-fde4-46be-be39-baaf5fcf3291"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>What's in the Box</strong>",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-md",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#83a7e4",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "a074811f-4ebe-4e46-8d50-770904f191af": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "fda5294d-e1be-4977-93dc-cdff27927d0d": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_fd0718cca1a64e908376530e2f21da34.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "<small>*Source: The NPD Group / Retail Tracking Service, US unit sales, 24 months ending December 2021. According to Amazon sales.</small>",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "dafe92bc-33ce-4472-86ac-7d628fb138ad": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_8274e453503149c693a1c26a5f62839f.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "b23c50b5-a674-4c98-a008-a5f7d430bbb7": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_eae3268c0bf041baabc3e6667830fc39.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "cfdfa749-cb9e-49fa-9486-ecef069068f7": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_304f2862ac934e31bc4619ca5f7fa2a6.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "6a2ddeca-117a-4620-a504-8802a0630410": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_329b99410cf7480f9317aeedaf992027.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "ba7f1578-234a-405d-bd24-230a875c47b5": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_0d535ba4ae99413dae354fe8b0609dfc.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "11348be2-a3b0-46d0-8654-b13439b555ec": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_88164947cced4d4da1bb3bdad99a880e.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "16a6c48c-114a-4567-813b-119433491cb9": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_8a7a3900011c4fc7a4b717e173cdf77e.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "c8054c3f-ca48-4b8c-a6c6-33f4468a1bd4": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_8761ab7afeef43eeac3f1fae8b3e058a.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "4b92220b-3cef-4b89-8da8-fad2153ab2b9": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_70cbd07a684141b88051f237dbd28208.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "fda5294d-e1be-4977-93dc-cdff27927d0d",
+        "dafe92bc-33ce-4472-86ac-7d628fb138ad",
+        "b23c50b5-a674-4c98-a008-a5f7d430bbb7",
+        "cfdfa749-cb9e-49fa-9486-ecef069068f7",
+        "6a2ddeca-117a-4620-a504-8802a0630410",
+        "ba7f1578-234a-405d-bd24-230a875c47b5",
+        "11348be2-a3b0-46d0-8654-b13439b555ec",
+        "16a6c48c-114a-4567-813b-119433491cb9",
+        "c8054c3f-ca48-4b8c-a6c6-33f4468a1bd4",
+        "4b92220b-3cef-4b89-8da8-fad2153ab2b9"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Levoit Awards & Certifications</strong>",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "#eeeeee",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#83a7e4",
+        "text_color_desc": "#000000",
+        "disable_slider": "disabled",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 4,
+        "desktop_items_per_row": 6,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "left"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "db53290a-b9ad-40aa-b7e8-b6c49c3b0039": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:</b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href='www.P65Warnings.ca.gov' target='_blank'>www.P65Warnings.ca.gov</a></p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/reviews-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/rating-summary-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "bcacd394-15ea-41a3-bf1b-a7eeec58c0d3",
+    "27b94d5c-af53-4fa6-af18-8f811eec8073",
+    "057783c6-4318-482b-ad58-09eaef64497f",
+    "a531ec27-dd47-4866-9e53-e3180f818ed5",
+    "c10ef32b-97e6-4b03-93e8-f3bf1d31e0a4",
+    "f4f3aa7f-8ce5-40f6-a282-672ac64ca96c",
+    "f276d913-a926-4bdb-8ea2-07b580ba17f3",
+    "a074811f-4ebe-4e46-8d50-770904f191af",
+    "product-recommendations",
+    "db53290a-b9ad-40aa-b7e8-b6c49c3b0039",
+    "reviews"
+  ]
+}

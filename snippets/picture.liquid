@@ -1,0 +1,127 @@
+{%- comment -%}
+  /snippets/picture.liquid to be migrated to this (TBD)
+
+  pass in:
+    - desktop_image
+    - mobile_image
+    - aspect_ratio
+    - object_fit
+    - id
+    - lazyload
+    - width
+    - widths
+    - figcaption
+{%- endcomment -%}
+
+{%- liquid
+  if mobile_image
+    assign mobile_image = mobile_image
+  else
+    assign mobile_image = desktop_image
+  endif
+
+  if desktop_image
+    assign desktop_image = desktop_image
+  else
+    assign desktop_image = mobile_image
+  endif
+
+  case aspect_ratio
+    when 'square'
+      assign mobile_aspect_ratio_style = 'padding-bottom: 100%;'
+    when 'video'
+      assign mobile_aspect_ratio_style = 'padding-bottom: 56.25%;'
+    when 'natural'
+      assign desktop_natural_aspect_ratio = 1 | divided_by: desktop_image.aspect_ratio | times: 100
+      assign desktop_aspect_ratio_style = 'padding-bottom:' | append: desktop_natural_aspect_ratio | append: '%;'
+      assign mobile_natural_aspect_ratio = 1 | divided_by: mobile_image.aspect_ratio | times: 100
+      assign mobile_aspect_ratio_style = 'padding-bottom:' | append: mobile_natural_aspect_ratio | append: '%;'
+    when 'fill'
+      assign mobile_aspect_ratio_style = 'height:' | append: height | append: 'px;'
+  endcase
+
+  case object_fit
+    when 'cover'
+      assign object_fit_class = 'absolute inset-0 object-cover w-full h-full'
+    when 'contain'
+      assign object_fit_class = 'absolute inset-0 object-contain w-full h-full'
+  endcase
+
+  assign widths = widths | default: '425, 768, 1024, 1280, 1560, 1920'
+  assign widths_arr = widths | split: ', '
+  assign widths_arr_size = widths_arr | size
+-%}
+
+{%- capture style -%}
+  {% if aspect_ratio %}
+    {{- mobile_aspect_ratio_style -}} @media (min-width: 1024px) { {{- desktop_aspect_ratio_style -}} }
+  {% endif %}
+{%- endcapture -%}
+
+{% style %}
+  #{{ id }} {
+    {{ style }}
+  }
+{% endstyle %}
+
+{% capture sources %}
+  {%- for s in widths_arr -%}
+    {%- if forloop.first -%}
+      {%- assign DPR2X = s | times: 1.5 -%}
+      <source 
+        media="(min-width: 0px) and (max-width: {{- s | minus: 1 -}}px)"
+        srcset="{{ mobile_image | image_url: width: s }} 1x, {{ mobile_image | image_url: width: DPR2X }} 2x"
+      >
+    {%- endif -%}
+
+    {%- if widths_arr_size > 2 -%}
+      {%- unless forloop.first or forloop.last -%}
+        {%- assign s_int = s | plus: 0 -%}
+        {%- assign DPR2X = s | times: 1.25 -%}
+        {%- assign prev_item_index = forloop.index0 | minus: 1 -%}
+        {%- assign prev_item = widths_arr[prev_item_index ] -%}
+        {%- if s_int <= 1024 -%}
+          <source 
+          media="(min-width: {{- prev_item -}}px) and (max-width: {{- s | minus: 1 -}}px)"
+          srcset="{{ mobile_image | image_url: width: s }} 1x, {{ mobile_image | image_url: width: DPR2X }} 2x"
+        >
+        {%- else -%}
+          <source 
+          media="(min-width: {{- prev_item -}}px) and (max-width: {{- s | minus: 1 -}}px)"
+          srcset="{{ desktop_image | image_url: width: s }} 1x, {{ desktop_image | image_url: width: DPR2X }} 2x"
+        >
+        {%- endif -%}
+        
+      {%- endunless -%}
+      
+    {%- endif -%}
+    
+    {%- if forloop.last -%}
+      {%- assign prev_item_index = forloop.index0 | minus: 1 -%}
+      {%- assign prev_item = widths_arr[prev_item_index ] -%}
+      {%- assign DPR2X = s | times: 1.25 -%}
+      <source 
+        media="(min-width: {{- prev_item -}}px)"
+        srcset="{{ desktop_image | image_url: width: s }} 1x, {{ desktop_image | image_url: width: DPR2X }} 2x"
+      >
+    {%- endif -%}
+  {%- endfor -%}
+{% endcapture %}
+
+<figure>
+  <picture id="{{ id }}" class="block relative overflow-hidden group">
+    {{ sources }}
+    {{ desktop_image | image_url: width: 1080 | image_tag: widths: widths, class: object_fit_class }}
+    {% comment %}
+      {{
+        desktop_image
+        | image_url: width: 1080
+        | image_tag:
+          widths: widths,
+          sizes: '(min-width: 1560px) 100vw, (min-width: 1280px) 100vw, (min-width: 768px) 100vw, 1080px',
+          class: 'absolute inset-0 object-cover w-full h-full'
+      }}
+    {% endcomment %}
+  </picture>
+  <figcaption class="sr-only">{{ figcaption }}</figcaption>
+</figure>

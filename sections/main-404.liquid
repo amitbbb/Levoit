@@ -1,0 +1,148 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    {% if section.settings.bg_color != blank %}
+      background-color: {{ section.settings.bg_color }};
+    {% endif %}
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+
+  #Main404-Title-{{ section.id }} {
+    {% if section.settings.title_color != blank %}
+      color: {{ section.settings.title_color }};
+    {% endif %}
+  }
+  #Main404-Desc-{{ section.id }} {
+    {% if section.settings.desc_color != blank %}
+      color: {{ section.settings.desc_color }};
+    {% endif %}
+  }
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+  }
+{% endstyle %}
+<div class="container">
+  <h1 id="Main404-Title-{{ section.id }}" class="text-5xl md:text-5xl lg:text-9xl uppercase font-black">{{ section.settings.title | newline_to_br }}</h1>
+
+  <ul class="grid lg:grid-cols-2 gap-12">
+    <li class=''>
+      <div class="aspect-square">
+        {% render 'image',
+          image: section.settings.image,
+          width: 992,
+          sizes: '768, 992, 992',
+          apsect_ratio: 'aspect-square',
+          object_fit: 'contain',
+          class: 'w-full h-full'
+        %}
+      </div>
+      
+    </li>
+    <li class="">
+      <p id="Main404-Desc-{{ section.id }}" class="text-xl lg:text-3xl font-semibold mb-12 mt-12">{{ section.settings.desc | newline_to_br }}</p>
+      
+      <h2 class="text-2xl lg:text-2xl mb-4">Check these out:</h2>
+      <nav class='inline-flex flex-wrap gap-x-8 uppercase font-black text-primary text-3xl mb-8 whitespace-nowrap'>
+        {%- for block in section.blocks -%}
+          <a href="{{ block.settings.url }}">{{ block.settings.title }}</a>
+        {%- endfor -%}
+      </nav>
+
+      <h2 class="text-2xl mb-4">Looking for something in particular?</h2>
+      {% render 'search-component', limit: 4 %}
+    </li>
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "404",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "That was\nunexpected"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Desc",
+      "default": "We can't find the page You're looking for.\nMaybe we need a better recipe."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color",
+      "default": "#f2f2f2"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#005e6e"
+    },
+    {
+      "type": "color",
+      "id": "desc_color",
+      "label": "Desc color",
+      "default": "#000000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "url",
+      "name": "url",
+      "settings": [
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

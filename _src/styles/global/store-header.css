@@ -1,0 +1,19 @@
+.store-header {
+  @apply block transition-colors duration-300;
+}
+.store-header.is-filled {
+  @apply bg-[#fafaf9] text-black
+}
+
+.store-header #LogoPrimary {
+  @apply opacity-100 transition-all visible duration-150 ease-out;
+}
+.store-header.is-filled #LogoPrimary {
+  @apply opacity-0 invisible transition-all 
+}
+.store-header #LogoSecondary {
+  @apply opacity-0 transition-all invisible duration-150 ease-out;
+}
+.store-header.is-filled #LogoSecondary {
+  @apply opacity-100 transition-all  visible
+}

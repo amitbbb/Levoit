@@ -1,0 +1,75 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.mobile_padding_y }}rem;
+      padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+  }
+{% endstyle %}
+
+<div class=" justify-center hidden lg:flex">
+  <nav class="bg-neutral-100 rounded-full overflow-hidden inline-flex py-4 px-8 gap-4 ">
+    {%- for block in section.blocks -%}
+      <a href="{{ block.settings.url }}" class="relative hover:after:absolute hover:after:-bottom-2 hover:after:left-0 hover:after:right-0 hover:after:h-1 hover:after:bg-primary">{{ block.settings.title }}</a>
+    {%- endfor -%}
+  </nav>
+</div>
+
+
+{% schema %}
+  {
+    "name": "NPM | Anchor Links",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "range",
+        "id": "desktop_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Desktop Padding (Y)",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "mobile_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Mobile Padding (Y)",
+        "default": 2
+      }
+    ],
+    "blocks": [
+      {
+        "type": "link",
+        "name": "Link",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Url"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,30 @@
+<div class="container">
+  {% render 'breadcrumbs', class: 'my-4' %}
+
+  {%- if section.settings.desktop_image != blank -%}
+    {% render 'picture', image_desktop: section.settings.desktop_image, image_mobile: section.settings.mobile_image, width: 768, sizes: '1440, 1920', object_fit: 'contain', figcaption: section.settings.figcaption %}    
+  {%- endif -%}
+
+
+  <h1 class="text-3xl lg:text-6xl mt-12 text-center">{{ page.title }}</h1>
+</div>
+
+{% schema %}
+  {
+    "name": "Page Header",
+    "class": "section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "desktop_image",
+        "label": "Image (Desktop)"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Image (Mobile)",
+        "info": "Desktop image used if left blank"
+      }
+    ]
+  }
+{% endschema %}

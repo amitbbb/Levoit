@@ -1,0 +1,100 @@
+{%- comment -%}
+  pass in:
+    - image
+    - aspect_ratio
+    - object_fit
+    - id
+{%- endcomment -%}
+
+{%- liquid
+  case aspect_ratio
+    when 'square'
+      assign aspect_ratio_style = 'padding-bottom: 100%;'
+    when 'video'
+      assign aspect_ratio_style = 'padding-bottom: 56.25%;'
+    when 'natural'
+      assign natural_aspect_ratio = 1 | divided_by: image.aspect_ratio | times: 100
+      assign aspect_ratio_style = 'padding-bottom:' | append: natural_aspect_ratio | append: '%;'
+    when 'fill'
+      assign aspect_ratio_style = 'height:' | append: height | append: 'px;'
+    else
+
+  endcase
+
+  case object_fit
+    when 'cover'
+      assign object_fit_class = 'absolute inset-0 object-cover w-full h-full'
+    when 'contain'
+      assign object_fit_class = 'absolute inset-0 object-contain w-full h-full'
+  endcase
+
+  assign img_src = image | image_url: width: width
+  assign widths_arr = widths | split: ', '
+-%}
+
+{%- capture srcset -%}
+  {%- for i in widths_arr -%}
+    {{ image | image_url: width: i }} {{ i }}w{%- unless forloop.last -%},{%- endunless -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- capture style -%}
+  {% if aspect_ratio %}
+    {{ aspect_ratio_style }}
+  {% endif %}
+  {% if image_width %}
+    width: {{ image_width }}px;
+  {% else %}
+    width: 100%;
+  {% endif %}
+{%- endcapture -%}
+
+<lazy-image
+  class="block relative overflow-hidden group"
+  style="{{ style }}"
+>
+  <img
+    src="{{ image | image_url: width: width }}"
+    srcset="{{ srcset }}"
+    loading="lazy"
+    class="{{ object_fit_class }}"
+  >
+</lazy-image>
+
+{% comment %}
+  {%- liquid
+    if object_fit == 'natural'
+      assign img_class = 'w-full h-auto'
+    elsif object_fit == 'cover'
+      assign img_class = 'absolute inset-0 object-cover h-full w-full'
+    elsif object_fit == 'contain'
+      assign img_class = 'absolute inset-0 object-contain h-full w-full'
+    endif
+
+    assign srcset = sizes | split: ', '
+  -%}
+
+  <figure class="relative {{ aspect_ratio }} group overflow-hidden {{ class }}">
+    {%- assign img_src = image.src | image_url: width: width -%}
+    {%- capture img_srcset -%}
+      {{ image.src | image_url: width: srcset[0] }} 320w,
+      {{ image.src | image_url: width: srcset[1] }} 768w,
+      {{ image.src | image_url: width: srcset[2] }} 1024w
+    {%- endcapture -%}
+    <lazy-image class="block h-full w-full overflow-hidden  {{ optional_img_class }} ">
+      <img
+        src="{{ image | image_url: width: width }}"
+        alt="{{ collection.title }} - {{ image.alt }}"
+        width="600"
+        height="800"
+        data-src="{{ img_src }}"
+        loading="lazy"
+        srcset="{{ img_srcset }}"
+        class="{{ img_class }}  {% if hover %}hover:scale-110 {% endif %}"
+      >
+    </lazy-image>
+    {%- if figcaption -%}
+      <figcaption class="sr-only">{{ figcaption }}</figcaption>
+    {%- endif -%}
+  </figure>
+{% endcomment %}

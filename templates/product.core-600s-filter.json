@@ -1,0 +1,446 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {}
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {}
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {}
+    },
+    "869d292c-70a7-4057-9209-7872c82d98e2": {
+      "type": "m-media",
+      "blocks": {
+        "4b74ee81-3ec6-4b45-ab28-4592b1ae00b2": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify://files/videos/600s-filter_1.mp4",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250,
+            "show_unmute_button": false
+          }
+        }
+      },
+      "block_order": ["4b74ee81-3ec6-4b45-ab28-4592b1ae00b2"],
+      "settings": {
+        "subtitle": "",
+        "title": "Replacing Your Filter",
+        "desc": "Changing out your air purifier's filter is quick and easy.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#84a7e3",
+        "text_color_desc": "#14015b",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "49578de2-4042-4106-9906-a1a58dc8c74c": {
+      "type": "m-accordion",
+      "blocks": {
+        "043c13cc-1b00-43ca-96f4-37eb031d7e9f": {
+          "type": "accordion-item",
+          "settings": {
+            "title": "Why is replacing my filter important?",
+            "desc": "In order for your air purifier to continue to cpature contaminants, it's important for you to replace the filter every 6-12 months."
+          }
+        },
+        "efda70f5-70b7-40b6-95cb-360811f24002": {
+          "type": "accordion-item",
+          "settings": {
+            "title": "How should I store my extra filters?",
+            "desc": "Keep extra filters in the plastic packaging and store them in a dark room where they will stay dry. Do not place heavy objects no the filters."
+          }
+        },
+        "e42edec2-03d7-437d-b403-7904d144661e": {
+          "type": "accordion-item",
+          "settings": {
+            "title": "Why Levoit?",
+            "desc": "Levoit is well known for our high-quality filtration and award-winning air purifiers. To protect your product and maintain effective performance, always use genuine Levoit replacement filters."
+          }
+        }
+      },
+      "block_order": [
+        "043c13cc-1b00-43ca-96f4-37eb031d7e9f",
+        "efda70f5-70b7-40b6-95cb-360811f24002",
+        "e42edec2-03d7-437d-b403-7904d144661e"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Common Questions",
+        "desc": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-md",
+        "bg_color": "#84a7e3",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#ffffff",
+        "text_color_desc": "#14015b",
+        "accordion_text_align": "left",
+        "accordion_title_color": "#ffffff",
+        "accordion_desc_color": "#14015b",
+        "accordion_accent_color": "#ffffff",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "bd6b0043-44f6-45fd-8977-a540b23650f4": {
+      "type": "m-media",
+      "blocks": {
+        "template--16108571623575__bd6b0043-44f6-45fd-8977-a540b23650f4-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_e0e111eb114543b7a7e3a9ad3bb77f47.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16108571623575__bd6b0043-44f6-45fd-8977-a540b23650f4-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<span class=\"text-white\">3-Stage Filtration</span> keeps your air clean from a wide variety of airborne particles.",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "#14015b",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#84a7e3",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "173eb7a6-aeac-4c74-a89e-87e8c4c36973": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "cca90038-5bda-4c4d-9494-6e9154c4dd34": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_f5dcbbd42b204e799deac2e0cff0ba4f.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Washable Pre-Filter",
+            "desc": "Captures large particles such as lint, fibers, hair, and pet fur, and maximizes the HEPA filter's life by protecting it.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "fbe6a695-66f4-49fa-8013-1552cefa05db": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_29f98cf68d9048baa77806e882c3e3c8.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "H13 True HEPA Filter",
+            "desc": "Filters small particles such as fine dust, smoke particles, and allergens such as pollen and pet dander. HEPASmart Technology uses statically charged fibers that help trap viruses and bacteria.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "ee2cda32-3ba9-4488-908e-2aaf5ec646be": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_91c20615fb574ce088905c42160eeef3.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Custom High-Efficiency Activated Carbon Filter",
+            "desc": "Filters odors, smoke, and compounds such as formaldehyde, benzene, ammonia, hydrogen sulfide, and VOCs.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "cca90038-5bda-4c4d-9494-6e9154c4dd34",
+        "fbe6a695-66f4-49fa-8013-1552cefa05db",
+        "ee2cda32-3ba9-4488-908e-2aaf5ec646be"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "#14015b",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#ffffff",
+        "text_color_desc": "#83a7e4",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 2.3,
+        "desktop_items_per_row": 3,
+        "gap": 1.9,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "center"
+      }
+    },
+    "103fcf9e-bc56-435a-b744-c094274042b0": {
+      "type": "m-media",
+      "blocks": {
+        "template--16108571623575__103fcf9e-bc56-435a-b744-c094274042b0-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_41c246c4902244e0aa55905506adfa90.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        },
+        "a4d52f89-b54e-4719-ab7e-1cd81a0eb671": {
+          "type": "icon-with-text",
+          "settings": {
+            "title": "",
+            "image_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "template--16108571623575__103fcf9e-bc56-435a-b744-c094274042b0-picture-1",
+        "a4d52f89-b54e-4719-ab7e-1cd81a0eb671"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "reverse_on_mobile": false
+      }
+    },
+    "97a6392b-5755-4a10-bf00-2d042a353a23": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "73d1ac2d-d22e-407f-8e64-2f7bbb3bad86": {
+          "type": "image-text",
+          "settings": {
+            "hide_image_placeholder": true,
+            "subtitle": "",
+            "title": "Capture fine dust and other small particles as they enter your home.",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "01bd8948-ba47-4699-a53a-dc20791ba2f8": {
+          "type": "image-text",
+          "settings": {
+            "hide_image_placeholder": true,
+            "subtitle": "",
+            "title": "Trap pet dander and fur to reduce allergy symptoms.",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "672c4c2b-b034-4c8e-9c8a-f39baf89d467": {
+          "type": "image-text",
+          "settings": {
+            "hide_image_placeholder": true,
+            "subtitle": "",
+            "title": "Neutralize cooking odors to keep your kitchen smelling fresh.",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "73d1ac2d-d22e-407f-8e64-2f7bbb3bad86",
+        "01bd8948-ba47-4699-a53a-dc20791ba2f8",
+        "672c4c2b-b034-4c8e-9c8a-f39baf89d467"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "#84a7e3",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#ffffff",
+        "text_color_desc": "#000000",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 2.2,
+        "desktop_items_per_row": 3,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "center"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "5889b290-a67f-4c10-880d-4c81a7be62fd": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:</b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href='www.P65Warnings.ca.gov' target='_blank'>www.P65Warnings.ca.gov</a></p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/reviews-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/rating-summary-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "869d292c-70a7-4057-9209-7872c82d98e2",
+    "49578de2-4042-4106-9906-a1a58dc8c74c",
+    "bd6b0043-44f6-45fd-8977-a540b23650f4",
+    "173eb7a6-aeac-4c74-a89e-87e8c4c36973",
+    "103fcf9e-bc56-435a-b744-c094274042b0",
+    "97a6392b-5755-4a10-bf00-2d042a353a23",
+    "product-recommendations",
+    "5889b290-a67f-4c10-880d-4c81a7be62fd",
+    "reviews"
+  ]
+}

@@ -1,0 +1,6 @@
+[stagger-item] {
+  @apply invisible
+}
+[stagger-item].animated {
+  @apply visible
+}

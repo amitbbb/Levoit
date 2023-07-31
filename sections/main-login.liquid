@@ -1,0 +1,173 @@
+{%- form 'recover_customer_password' -%}
+  {%- if form.posted_successfully? -%}
+    {%- assign is_recover_posted_successfully = true -%}
+  {%- else -%}
+    {%- assign is_recover_posted_successfully = false -%}
+  {%- endif -%}
+{%- endform -%}
+
+<main-login recovery-success="{{ is_recover_posted_successfully }}">
+  <div class="customer container">
+    <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 my-4">
+      <div id="LoginImage" class="md:w-1/2 ">
+        {%- if section.settings.image != blank -%}
+          {%-
+            render 'image',
+            image: section.settings.image,
+            aspect_ratio: 'aspect-square',
+            object-fit: 'object-cover',
+          -%}
+        {%- else -%}
+          <div class="bg-neutral-100 aspect-square"></div>
+        {%- endif -%}
+      </div>
+      <div id="LoginForm" class="md:w-1/2">
+        <div class="bg-neutral-100 flex items-center justify-center w-full h-full">
+          <div class="w-full md:max-w-md ">
+            <aside class="">
+              <div class="p-8">
+                <div id="main-login">
+                  <div class="mb-4">
+                    <h1 id="login" tabindex="-1" class="text-2xl uppercase">
+                      {{ 'customer.login_page.title' | t }}
+                    </h1>
+                  </div>
+
+                  {%- form 'customer_login', class: 'grid gap-4' -%}
+                    {{ form.errors | default_errors }}
+
+                    <div>
+                      <label for="customerEmail" class="block mb-2">Email*</label>
+                      <input
+                        type="email"
+                        name="customer[email]"
+                        id="customerEmail"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        autocomplete="email"
+                        placeholder="Email"
+                        class="bg-white text-neutral-900 sm:text-sm  border-none focus:ring-neutral-800 focus:border-neutral-800 block w-full p-4"
+                      >
+                    </div>
+                    <div>
+                      <label for="customerPassword" class="block mb-2">Password*</label>
+                      <input
+                        type="password"
+                        name="customer[password]"
+                        id="customerPassword"
+                        placeholder="Password"
+                        class="bg-white  text-neutral-900 sm:text-sm border-none focus:ring-neutral-800 focus:border-neutral-800 block w-full p-4"
+                      >
+                    </div>
+
+                    <input type="submit" value="Sign In" class="btn-primary">
+                  {%- endform -%}
+
+                  <ul class="mt-4">
+                    <li class="">
+                      <a
+                        href="{{ routes.account_register_url }}"
+                        class=""
+                      >
+                        {{ 'customer.login_page.create_account' | t }}
+                      </a>
+                    </li>
+                    <li class="">
+                      <a href="#recovery" id="recovery-trigger" class="">
+                        {{ 'customer.login_page.forgot_password' | t -}}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div id="main-login-guest">
+                  <!--
+                    If accounts are set as optional, the following will be shown as an option when coming from checkout, not on the default /login page.
+                  -->
+                  {%- if shop.checkout.guest_login -%}
+                    {%- form 'guest_login' -%}
+                      <input type="submit" value="Continue as Guest" class="btn-primary">
+                    {%- endform -%}
+                  {%- endif -%}
+                </div>
+
+                <div id="main-login-recovery" class="hidden">
+                  <div class="mb-4">
+                    <h2 id="recover" tabindex="-1" class="text-2xl uppercase mb-2">
+                      {{ 'customer.recover_password.title' | t }}
+                    </h2>
+                    <p>{{ 'customer.recover_password.subtext' | t }}. Please check your inbox or spam folder.</p>
+                  </div>
+
+                  <div>
+                    {%- form 'recover_customer_password', class: 'grid gap-4' -%}
+                      <div>
+                        <label for="RecoverEmail" class="block mb-2"> {{ 'customer.login_page.email' | t }}* </label>
+                        <input
+                          type="email"
+                          name="email"
+                          id="RecoverEmail"
+                          autocorrect="off"
+                          autocapitalize="off"
+                          autocomplete="email"
+                          {% if form.errors %}
+                            aria-invalid="true"
+                            aria-describedby="RecoverEmail-email-error"
+                            autofocus
+                          {% endif %}
+                          placeholder="{{ 'customer.login_page.email' | t }}"
+                          class="bg-gray-50 border border-neutral-300 text-neutral-900 sm:text-sm  focus:ring-neutral-600 focus:border-neutral-600 block w-full p-2.5"
+                        >
+                      </div>
+                      {%- if form.errors -%}
+                        <small id="RecoverEmail-email-error">
+                          {% render 'icons', with 'alert' %}
+                          {{ form.errors.messages.form }}
+                        </small>
+                      {%- endif -%}
+
+                      {%- if form.form.posted_successfully? -%}
+                        <small role="status"> We've sent you an email with a link to update your password. </small>
+                      {%- endif -%}
+
+                      <button class="btn-primary">
+                        {{ 'customer.login_page.submit' | t }}
+                      </button>
+
+                      <ul class="mt-4">
+                        <li class="">
+                          <a href="#login" id="login-trigger"> I have an account </a>
+                        </li>
+                        <li class="">
+                          <a
+                            href="{{ routes.account_register_url }}"
+                            class=""
+                          >
+                            {{ 'customer.login_page.create_account' | t }}
+                          </a>
+                        </li>
+                      </ul>
+                    {%- endform -%}
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main-login>
+
+{% schema %}
+{
+  "name": "t:sections.main-login.name",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}

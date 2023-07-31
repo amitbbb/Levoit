@@ -1,0 +1,9 @@
+card-product-quick-add {
+  details[open][aria-haspopup] > summary::before {
+    @apply fixed inset-0 z-10 block bg-transparent content-[''];
+  }
+
+  details[open] aside {
+    @apply visible
+  }
+}

@@ -1,0 +1,6 @@
+.smcx-embed {
+  height: 100% !important;
+  > .smcx-iframe-container {
+    height: 100% !important;
+  }
+}

@@ -1,0 +1,353 @@
+{%- liquid
+  assign show_header = false
+  assign header_subtitle_size = section.settings.subtitle | size
+  assign header_title_size = section.settings.title | size
+  assign header_desc_size = section.settings.desc | size
+  assign header_size = header_subtitle_size | plus: header_title_size | plus: header_desc_size
+
+  if header_size > 0
+    assign show_header = true
+  endif
+-%}
+
+<div class="{{ section.settings.container }}">
+  {%- if show_header -%}
+    <div class="container">
+      <header
+        id="M-Accordion-Header-{{ section.id }}"
+        class="mb-12 {{ section.settings.text_position }} {% if section.settings.reverse_on_mobile %}mt-4{% endif %}"
+      >
+        {%- if section.settings.subtitle != blank -%}
+          <span id="M-Accordion-HeaderSubTitle-{{ section.id }}" class="block mb-2">
+            {{- section.settings.subtitle -}}
+          </span>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+          <h2 id="M-Accordion-HeaderTitle-{{ section.id }}" class="m-title-h2">
+            {{ section.settings.title }}
+          </h2>
+        {%- endif -%}
+        {%- if section.settings.desc != blank -%}
+          <p id="M-Accordion-HeaderDesc-{{ section.id }}" class="">{{ section.settings.desc | newline_to_br }}</p>
+        {%- endif -%}
+      </header>
+    </div>
+  {%- endif -%}
+
+  <accordion-component class="block divide-y-2">
+    {%- for block in section.blocks -%}
+      <details
+        id="Accordion-AccordionItem-{{ section.id }}-{{ block.id }}"
+        class="{% if forloop.first %}open{% endif %}"
+        style="border-color: {{ section.settings.accordion_accent_color }};"
+        {% if forloop.first %}
+          open
+        {% endif %}
+      >
+        <summary
+          id="M-Accordion-AccordionItem-Title-{{ section.id }}-{{ block.id }}"
+          class="m-title-h4 cursor-pointer p-4 flex items-center justify-between"
+        >
+          {{ block.settings.title }}
+          {% render 'icons' with 'chevron-right', fill: section.settings.accordion_accent_color %}
+        </summary>
+        <aside
+          id="M-Accordion-AccordionItem-Desc-{{ section.id }}-{{ block.id }}"
+          class="content px-4 pb-4 {% if forloop.first %}open{% endif %}"
+        >
+          <div>{{ block.settings.desc | newline_to_br }}</div>
+        </aside>
+      </details>
+    {%- endfor -%}
+  </accordion-component>
+</div>
+
+{%- style -%}
+  {% if section.settings.bg_color != blank %}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.bg_color }};
+    }
+  {% endif %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  #M-Accordion-HeaderSubTitle-{{ section.id }} {
+    color: {{ section.settings.text_color_subtitle }};
+  }
+  #M-Accordion-HeaderTitle-{{ section.id }} {
+    color: {{ section.settings.text_color_title }};
+  }
+  #M-Accordion-HeaderDesc-{{ section.id }} {
+    color: {{ section.settings.text_color_desc }};
+  }
+  #M-Accordion-Header-{{ section.id }} {
+    max-width: 100%;
+    width: 100%;
+    {% render 'get-text-align-style', align: section.settings.text_align, get: 'style' %}
+  }
+
+  [id^='M-Accordion-AccordionItem-Title-{{ section.id }}'] {
+    color: {{ section.settings.accordion_title_color }};
+  }
+  [id^='M-Accordion-AccordionItem-Desc-{{ section.id }}'] {
+    color: {{ section.settings.accordion_desc_color }};
+  }
+
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    #M-Accordion-Header-{{ section.id }} {
+      width: {{ section.settings.header_width }}px;
+    }
+
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "M — Accordion",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Can be used as an accordion or list"
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Common Questions"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Description"
+    },
+    {
+      "type": "range",
+      "id": "header_width",
+      "min": 400,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Header width (Header)",
+      "default": 680
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align (Header)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text position (Header)",
+      "options": [
+        {
+          "value": "",
+          "label": "Left"
+        },
+        {
+          "value": "mx-auto",
+          "label": "Center"
+        },
+        {
+          "value": "ml-auto",
+          "label": "Right"
+        }
+      ],
+      "default": "mx-auto"
+    },
+    {
+      "type": "header",
+      "content": "Section settings"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container (width)",
+      "options": [
+        {
+          "value": "",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Default"
+        },
+        {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+        },
+        {
+          "value": "container max-w-screen-md",
+          "label": "md"
+        },
+        {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+        },
+        {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+        },
+        {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+        }
+      ],
+      "default": "container max-w-screen-md"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color_subtitle",
+      "label": "Text color (Subtitle)",
+      "default": "#fe5834"
+    },
+    {
+      "type": "color",
+      "id": "text_color_title",
+      "label": "Text color (Title)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color_desc",
+      "label": "Text color (Desc)",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Accordion Block Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "For accordion item settings"
+    },
+    {
+      "type": "select",
+      "id": "accordion_text_align",
+      "label": "Text align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Accordion item colors"
+    },
+    {
+      "type": "color",
+      "id": "accordion_title_color",
+      "label": "Accordion title color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "accordion_desc_color",
+      "label": "Accordion description color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "accordion_accent_color",
+      "label": "Accordion accent color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion-item",
+      "name": "Accordion item",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "default": "Why is replacing my filter important?"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "default": "In order for your air purifier to continue to cpature contaminants, it's important for you to replace the filter every 6-12 months."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "M — Accordion"
+    }
+  ]
+}
+{% endschema %}

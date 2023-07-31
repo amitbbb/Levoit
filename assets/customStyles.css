@@ -1,0 +1,8 @@
+/* mainly for additional style edits to 3rd party or unique configurations */
+
+.ps-disabled {
+  display: none !important; /*to hide price spider button on pdp when no other retailers are setup for that product*/
+}
+
+@media (min-width: 1280px) {
+}

@@ -1,0 +1,170 @@
+{%- comment -%}
+  pass in:
+  - type
+  - desktop_video
+  - mobile_video
+  - aspect_ratio
+  - object_fit
+  - id
+  - lazyload
+{%- endcomment -%}
+
+{%- liquid
+  assign type = type | default: 'sources'
+
+  if mobile_video
+    assign mobile_video = mobile_video
+  else
+    assign mobile_video = desktop_video
+  endif
+
+  if desktop_video
+    assign desktop_video = desktop_video
+  else
+    assign desktop_video = mobile_video
+  endif
+
+  for source in mobile_video.sources
+    unless source.mime_type == 'application/x-mpegURL'
+      assign mobile_source = source
+    endunless
+  endfor
+
+  for source in desktop_video.sources
+    unless source.mime_type == 'application/x-mpegURL'
+      assign desktop_source = source
+    endunless
+  endfor
+
+  case aspect_ratio
+    when 'square', 'aspect-square'
+      assign mobile_aspect_ratio_style = 'padding-bottom: 100%;'
+    when 'video', 'aspect-video'
+      assign mobile_aspect_ratio_style = 'padding-bottom: 56.25%;'
+    when 'natural'
+      assign desktop_natural_aspect_ratio = 1 | divided_by: desktop_video.aspect_ratio | times: 100
+      assign desktop_aspect_ratio_style = 'padding-bottom:' | append: desktop_natural_aspect_ratio | append: '%;'
+      assign mobile_natural_aspect_ratio = 1 | divided_by: mobile_video.aspect_ratio | times: 100
+      assign mobile_aspect_ratio_style = 'padding-bottom:' | append: mobile_natural_aspect_ratio | append: '%;'
+    when 'fill'
+      assign mobile_aspect_ratio_style = 'height:' | append: height | append: 'px;'
+  endcase
+
+  case object_fit
+    when 'cover'
+      assign object_fit_class = 'absolute inset-0 object-cover w-full h-full'
+    when 'contain'
+      assign object_fit_class = 'absolute inset-0 object-contain w-full h-full'
+  endcase
+-%}
+
+{%- capture style -%}
+  {% if aspect_ratio %}
+    {{- mobile_aspect_ratio_style -}} @media (min-width: 768px) { {{- desktop_aspect_ratio_style -}} }
+  {% endif %}
+{%- endcapture -%}
+
+{% style %}
+  #{{ id }} {
+    {{ style }}
+  }
+{% endstyle %}
+
+{%- case type -%}
+  {%- when 'sources' -%}
+    <lazy-video-sources
+      lazyload
+      desktop-src="{{ desktop_source.url }}"
+      desktop-mime="{{ desktop_source.mime_type }}"
+      desktop-poster="{{ desktop_video.preview_image.src | image_url: width: 1440 }}"
+      mobile-src="{{ mobile_source.url }}"
+      mobile-mime="{{ mobile_source.mime_type }}"
+      mobile-poster="{{ mobile_video.preview_image | image_url: width: 768 }}"
+      id="{{ id }}"
+      class="relative block w-full overflow-hidden"
+
+      style="{{ aspect_ratio_style }}"
+    >
+      {%- if show_unmute_button -%}
+        <button
+          type="button"
+          sound-button
+          class="absolute z-10 top-4 right-4 h-12 w-12 bg-white flex items-center justify-center rounded-full drop-shadow-md"
+        >
+          <span icon-sound-on>{% render 'icons' with 'sound-on', width: 16, height: 16 %}</span>
+          <span icon-sound-off class="hidden">{% render 'icons' with 'sound-off', width: 16, height: 16 %}</span>
+        </button>
+      {%- endif -%}
+
+      <video playsinline muted loop class="{{ object_fit_class }}"></video>
+      {% comment %}
+        {{
+          desktop_video
+          | video_tag:
+            image_size: '1080x',
+            autoplay: true,
+            loop: true,
+            muted: true,
+            playsinline: true,
+            class: 'absolute inset-0 object-cover w-full h-full'
+        }}
+      {% endcomment %}
+    </lazy-video-sources>
+
+  {%- when 'default' -%}
+    <lazy-video
+      class="block relative"
+      id="{{ id }}"
+      style="{{ aspect_ratio_style }}"
+      data-src="{{ desktop_source.url }}"
+    >
+      <video
+        muted
+        playsinline
+        loop
+        {% comment %} poster="{{ poster | image_url: width: 768 }}" {% endcomment %}
+        poster="//levoitstore.myshopify.com/cdn/shop/files/preview_images/0f22aca04b544e1e9bc121dba6cc91ec.thumbnail.0000000000_1080x.jpg?v=1690586236"
+        class="{{ object_fit_class }}"
+      >
+        <img src="//levoitstore.myshopify.com/cdn/shop/files/preview_images/0f22aca04b544e1e9bc121dba6cc91ec.thumbnail.0000000000_1080x.jpg?v=1690586236">
+        {% comment %} <source data-src="{{ desktop_source.url }}" type="{{ source.mime_type }}"> {% endcomment %}
+        {% comment %}
+          {%- for source in desktop_video.sources -%}
+            <source data-src="{{ source.url }}" type="{{ source.mime_type }}">
+          {%- endfor -%}
+        {% endcomment %}
+      </video>
+    </lazy-video>
+
+    {% comment %}
+      {{
+        desktop_video
+        | video_tag:
+          image_size: '1080x',
+          autoplay: true,
+          loop: true,
+          muted: true,
+          playsinline: true,
+          id: id,
+          style: aspect_ratio_style
+      }}
+    {% endcomment %}
+{%- endcase -%}
+
+{% comment %}
+  {%- case aspect_ratio -%}
+    {%- when 'natural' -%}
+      <lazy-video>
+        <video autoplay muted playsinline loop poster="{{ poster | image_url: width: 768 }}" class="{{ object_fit }} h-full w-full">
+          <source data-src="{{ video }}" type="video/mp4">
+        </video>
+      </lazy-video>
+
+    {%- else -%}
+      <lazy-video class="block relative {{ aspect_ratio }}">
+        <video autoplay muted playsinline loop poster="{{ poster | image_url: width: 768 }}" class="absolute inset-0 h-full w-full {{ object_fit }}">
+          <source data-src="{{ video }}" type="video/mp4">
+        </video>
+      </lazy-video>
+  {%- endcase -%}
+{% endcomment %}

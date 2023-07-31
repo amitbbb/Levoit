@@ -1,0 +1,83 @@
+{% style %}
+  #MainNewsroom-Header-{{ section.id }} {
+    background-image: url('{{ section.settings.bg_image | image_url: width: 768 }}');
+    background-position: top center;
+    background-size: cover;
+    height: 25vh;
+  }
+  @media (min-width: 768px) {
+    #MainNewsroom-Header-{{ section.id }} {
+      background-image: url('{{ section.settings.bg_image | image_url: width: 1280 }}');
+    }
+  }
+  @media (min-width: 1024px) {
+    #MainNewsroom-Header-{{ section.id }} {
+      background-image: url('{{ section.settings.bg_image | image_url: width: 1920 }}');
+    }
+  }
+{% endstyle %}
+
+<header id="MainNewsroom-Header-{{ section.id }}" class="flex items-center justify-center text-center text-white">
+  <h1 class="text-6xl uppercase font-bold">{{ blog.title }}</h1>
+</header>
+
+<div class="container max-w-screen-lg my-16">
+  <h2 class="font-bold text-4xl mb-12 text-center uppercase">Featured Articles</h2>
+  {%- paginate blog.articles by 16 -%}
+    <ul class="flex-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
+      {%- for article in blog.articles -%}
+        {% liquid
+          assign article_parts = article.title | split: '|'
+          assign article_title = article_parts[0]
+          assign article_source = article_parts[1]
+          assign article_url = article.content | strip_html
+        %}
+        <li>
+          <article class="rounded-xl shadow-lg overflow-hidden border">
+            <a href="{{ article_url }}" target="_blank">
+              {%- render 'image',
+                image: article.image,
+                aspect_ratio: 'aspect-video',
+                border_radius: '',
+                object-fit: 'object-cover',
+                class: ''
+              -%}
+              <div class="p-4 text-center">
+                <p class="text-xl uppercase font-bold" role="heading">{{ article_title }}</p>
+                <ul class="inline-flex divide-x uppercase mt-4">
+                  <li class="pr-4">{{ article.published_at | date: "%B %d, %Y" }}</li>
+                  <li class="pl-4">{{ article_source }}</li>
+                </ul>
+              </div>
+              
+            </a>
+          </article>
+        </li>
+      {%- endfor -%}
+    </ul>
+    {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate -%}
+    {%- endif -%}
+  {%- endpaginate -%}
+
+  <div class="text-2xl text-center mt-16">
+    <p>For any media or press inquiries please contact us at</p>
+    <a href="mailto:PR@vesync.com" rel="noopener noreferrer" style="color:rgba(254,88,52,1);" aria-label="send an email to PR@vesync.com"><strong>PR@Vesync.com</strong></a>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Newsroom",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "BG Image"
+      }
+    ]
+  }
+{% endschema %}

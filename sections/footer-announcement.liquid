@@ -1,0 +1,21 @@
+<div class="bg-primary py-4">
+  <div class="container">
+    <div class="prose max-w-none text-center prose-p:text-white prose-a:text-white prose-a:underline prose-a:underline-offset-2">
+      {{ section.settings.content }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Footer announcement",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    }
+  ]
+}
+{% endschema %}

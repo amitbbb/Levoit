@@ -1,0 +1,7 @@
+.underline-hover:hover {
+  @apply after:scale-100 after:origin-bottom-left
+
+  /* before:opacity-0 */
+  /* transform: scaleX(1);
+  transform-origin: bottom left; */
+}

@@ -1,0 +1,520 @@
+{
+  "sections": {
+    "88079e20-9fec-496b-9c76-5e00e77e90ba": {
+      "type": "m-slideshow",
+      "blocks": {
+        "ce8f06ea-8799-41b4-8087-54f5c8693875": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/home-banner.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/home-banner-mob.jpg",
+            "subtitle": "",
+            "title": "<strong>Discover the Levoit Difference<\/strong>",
+            "desc": "",
+            "button_label": "SHOP NOW",
+            "button_url": "shopify:\/\/collections\/air-purifiers",
+            "header_width": 450,
+            "bg_color": "",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#14015b",
+            "text_color_desc": "#ffffff",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "media_height": 650,
+            "desktop_text_align": "left",
+            "desktop_text_position": "center_left",
+            "mobile_text_align": "center",
+            "mobile_text_position": "top_center"
+          }
+        }
+      },
+      "block_order": [
+        "ce8f06ea-8799-41b4-8087-54f5c8693875"
+      ],
+      "settings": {
+        "enable_autoplay": false,
+        "autoplay_interval": 3,
+        "show_pagination": true,
+        "show_navigation": true,
+        "container": "",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0
+      }
+    },
+    "8b4580bf-a149-41e5-b236-1f3a4459a2d5": {
+      "type": "m-featured-collections",
+      "disabled": true,
+      "blocks": {
+        "735c61c5-088f-4054-9a91-ea453c551158": {
+          "type": "collection",
+          "settings": {
+            "collection": "air-purifiers",
+            "title": "",
+            "image": "shopify:\/\/shop_images\/featured-collection__air-purifiers.webp"
+          }
+        },
+        "11eddb3a-d2e1-4dc2-a372-fdddd5d3905d": {
+          "type": "collection",
+          "settings": {
+            "collection": "humidifiers-diffusers",
+            "title": "",
+            "image": "shopify:\/\/shop_images\/Humidifiers.webp"
+          }
+        },
+        "59a8c427-319b-4c5b-a2b3-8af0131a827b": {
+          "type": "collection",
+          "settings": {
+            "collection": "tower-fans",
+            "title": "",
+            "image": "shopify:\/\/shop_images\/Tower_Fans.webp"
+          }
+        },
+        "784b6200-ae06-43f6-b636-6cbdef28578a": {
+          "type": "collection",
+          "settings": {
+            "collection": "vacuums",
+            "title": "",
+            "image": "shopify:\/\/shop_images\/Vacuums.webp"
+          }
+        },
+        "40d88105-b434-41ad-9e9d-07fb0013a252": {
+          "type": "collection",
+          "settings": {
+            "collection": "air-purifier-filters",
+            "title": "",
+            "image": "shopify:\/\/shop_images\/Humidifiers.webp"
+          }
+        },
+        "07268b12-7549-48b1-bd4e-bc81ab14963d": {
+          "type": "collection",
+          "settings": {
+            "collection": "thermostats",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "735c61c5-088f-4054-9a91-ea453c551158",
+        "11eddb3a-d2e1-4dc2-a372-fdddd5d3905d",
+        "59a8c427-319b-4c5b-a2b3-8af0131a827b",
+        "784b6200-ae06-43f6-b636-6cbdef28578a",
+        "40d88105-b434-41ad-9e9d-07fb0013a252",
+        "07268b12-7549-48b1-bd4e-bc81ab14963d"
+      ],
+      "settings": {
+        "title": "Shop by Category",
+        "bg_color": "#fff1eb",
+        "container": "container max-w-screen-md",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "4f202a21-580d-4d0d-8914-84e993cfd49e": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "b5334569-028e-4867-a20c-740c11da48a6": {
+          "type": "collection",
+          "settings": {
+            "collection": "air-purifiers",
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_e2f5218fd5b74ed9ab425bf12581c8ce.webp",
+            "title": "",
+            "text_color": "#000000",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "media_height": 650
+          }
+        },
+        "cae6eeee-1459-47a7-a13b-ed680350a06f": {
+          "type": "collection",
+          "settings": {
+            "collection": "humidifiers-diffusers",
+            "image": "shopify:\/\/shop_images\/oasismist-homempage-category-n.jpg",
+            "title": "",
+            "text_color": "#000000",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "media_height": 650
+          }
+        },
+        "e6c0d7c6-b920-4f69-9ffc-cd84d355e479": {
+          "type": "collection",
+          "settings": {
+            "collection": "vacuums",
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_2be085dcef6b4e2793cdba9243cb749b.webp",
+            "title": "Vacuums",
+            "text_color": "#000000",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "media_height": 650
+          }
+        },
+        "dbef9c71-9416-4496-9169-f1827b4a51f5": {
+          "type": "collection",
+          "settings": {
+            "collection": "tower-fans",
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_dce3978af16743dcb3a2323ff0517441.webp",
+            "title": "",
+            "text_color": "#000000",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "media_height": 650
+          }
+        },
+        "bc64fe7e-9017-42bc-978f-fda49b436935": {
+          "type": "collection",
+          "settings": {
+            "collection": "air-purifier-filters",
+            "image": "shopify:\/\/shop_images\/400s-filter-homepage-n.jpg",
+            "title": "",
+            "text_color": "#000000",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "media_height": 650
+          }
+        },
+        "d6311c12-742c-4b6e-a9ed-b277c9b4cbab": {
+          "type": "collection",
+          "settings": {
+            "collection": "thermostats",
+            "image": "shopify:\/\/shop_images\/01.00_WA1_0422LTM-A401S-WUS_01.webp",
+            "title": "",
+            "text_color": "#000000",
+            "aspect_ratio": "square",
+            "object_fit": "cover",
+            "media_height": 650
+          }
+        }
+      },
+      "block_order": [
+        "b5334569-028e-4867-a20c-740c11da48a6",
+        "cae6eeee-1459-47a7-a13b-ed680350a06f",
+        "e6c0d7c6-b920-4f69-9ffc-cd84d355e479",
+        "dbef9c71-9416-4496-9169-f1827b4a51f5",
+        "bc64fe7e-9017-42bc-978f-fda49b436935",
+        "d6311c12-742c-4b6e-a9ed-b277c9b4cbab"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Shop by Category<\/strong>",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "disable_slider": "enabled",
+        "mobile_items_per_row": 1.5,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 4,
+        "gap": 2,
+        "aspect_ratio": "square",
+        "object_fit": "contain",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "left",
+        "convert_to_card": false,
+        "card_bg_color": "",
+        "card_subtitle_color": "",
+        "card_title_color": "",
+        "card_desc_color": "",
+        "card_border_radius": 0
+      }
+    },
+    "e1eb699d-109d-4dd2-b1ac-97f28474a649": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "37e2adfd-0a67-4e81-bc74-55816b399367": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_0c6da3d545cc45f7a0ce8025673918d1_1.webp",
+            "mobile_image": "shopify:\/\/shop_images\/Frame_16.jpg",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "37e2adfd-0a67-4e81-bc74-55816b399367"
+      ],
+      "settings": {
+        "logo_width": 150,
+        "subtitle": "",
+        "title": "<strong>KEEP YOUR <i>COOL<\/i><\/strong>",
+        "desc": "Meet the new <strong>Levoit Classic 42-Inch Tower Fan<\/strong>, featuring even more customization than our original and beloved Levoit Classic 36-Inch Tower Fan.",
+        "hide_header_image_on_mobile": false,
+        "header_width": 450,
+        "header_image_width": 300,
+        "button_label": "SHOP NOW",
+        "button_url": "shopify:\/\/products\/levoit-classic-42-inch-tower-fan",
+        "enable_mobile_stack": "stack_content_above",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "center",
+        "text_position": "top_center",
+        "bg_color": "rgba(0,0,0,0)",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "5096736f-43d3-469e-97a3-cfbf8f1c4662": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "89adaa2c-5a49-48c8-b066-bd1bbf2ad64b": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/sm-room-size-homepage_a51783cf-863b-4e52-9167-e96a327e4c5c.jpg",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Small Room",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "shopify:\/\/collections\/air-purifiers-for-small-spaces-up-to-200-sq-ft",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "7fb76b50-88fe-4b06-baf4-f7800fff5764": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/md-room-size-homepage.jpg",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Medium Room",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "shopify:\/\/collections\/air-purifiers-for-medium-spaces-200-300-sq-ft",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "ab5a8c61-5dae-454a-ad34-25192933de7b": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/lg-room-size-homepage.jpg",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Large Room",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "shopify:\/\/collections\/air-purifier-for-large-spaces-300-sq-ft",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "89adaa2c-5a49-48c8-b066-bd1bbf2ad64b",
+        "7fb76b50-88fe-4b06-baf4-f7800fff5764",
+        "ab5a8c61-5dae-454a-ad34-25192933de7b"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Shop Air Purifiers by Room Size<\/b>",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#14015b",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 3,
+        "gap": 2,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "left",
+        "convert_to_card": false,
+        "card_bg_color": "",
+        "card_subtitle_color": "",
+        "card_title_color": "",
+        "card_desc_color": "",
+        "card_border_radius": 0
+      }
+    },
+    "06b78db5-e3d9-4cd9-8bcf-99922de3d5f0": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "c4fd4c25-e3c7-4412-979c-6f10f2ea8008": {
+          "type": "article",
+          "settings": {
+            "article": "levoit-blog\/know-the-dangers-of-wildfire-smoke"
+          }
+        },
+        "6196da74-cd45-4bcc-a085-4e43a158bb5c": {
+          "type": "article",
+          "settings": {
+            "article": "levoit-blog\/how-to-keep-airborne-pollution-out-of-your-home"
+          }
+        },
+        "c2ad6e27-1740-4a22-896c-6062a32d1ee8": {
+          "type": "article",
+          "settings": {
+            "article": "levoit-blog\/do-air-purifiers-benefit-families-with-pets"
+          }
+        },
+        "cd547dc6-ae1b-4b39-8edb-47844694908d": {
+          "type": "article",
+          "settings": {
+            "article": "levoit-blog\/benefits-of-owning-a-humidifier"
+          }
+        },
+        "a5d0bdd1-7852-4592-af13-ff7ef1fe455e": {
+          "type": "article",
+          "settings": {
+            "article": "levoit-blog\/how-many-humidifiers-do-you-need"
+          }
+        },
+        "7390258a-41ac-40be-94b9-7bf9d8ba38d3": {
+          "type": "article",
+          "settings": {
+            "article": "levoit-blog\/keep-your-winter-symptoms-to-a-minimum"
+          }
+        }
+      },
+      "block_order": [
+        "c4fd4c25-e3c7-4412-979c-6f10f2ea8008",
+        "6196da74-cd45-4bcc-a085-4e43a158bb5c",
+        "c2ad6e27-1740-4a22-896c-6062a32d1ee8",
+        "cd547dc6-ae1b-4b39-8edb-47844694908d",
+        "a5d0bdd1-7852-4592-af13-ff7ef1fe455e",
+        "7390258a-41ac-40be-94b9-7bf9d8ba38d3"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Explore our Blogs<\/strong>",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 1,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 3,
+        "gap": 2,
+        "aspect_ratio": "video",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "left",
+        "convert_to_card": false,
+        "card_bg_color": "",
+        "card_subtitle_color": "",
+        "card_title_color": "",
+        "card_desc_color": "",
+        "card_border_radius": 0
+      }
+    },
+    "16905854174352a586": {
+      "type": "apps",
+      "blocks": {
+        "1b87c11d-5232-4ec4-8ace-a151cd275a43": {
+          "type": "shopify:\/\/apps\/instafeed-instagram-feed-app\/blocks\/app-block\/5c329ba9-407e-40ec-a145-431c886f5df9",
+          "settings": {
+            "heading_font": "helvetica_n4",
+            "heading_size": 20,
+            "heading_alignment": "center",
+            "feed_width": 100,
+            "section_top_padding": 0,
+            "section_bottom_padding": 0,
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "1b87c11d-5232-4ec4-8ace-a151cd275a43"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "88079e20-9fec-496b-9c76-5e00e77e90ba",
+    "8b4580bf-a149-41e5-b236-1f3a4459a2d5",
+    "4f202a21-580d-4d0d-8914-84e993cfd49e",
+    "e1eb699d-109d-4dd2-b1ac-97f28474a649",
+    "5096736f-43d3-469e-97a3-cfbf8f1c4662",
+    "06b78db5-e3d9-4cd9-8bcf-99922de3d5f0",
+    "16905854174352a586"
+  ]
+}

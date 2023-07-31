@@ -1,0 +1,24 @@
+/* .product-card-favorites {
+  @apply flex flex-row gap-8 py-6;
+  &__image {
+    @apply w-44 bg-neutral-100 p-8 aspect-square;
+  }
+  &__main {
+    @apply flex-1;
+    &-shop-name {
+      @apply inline-block mb-5;
+    }
+    &-product-title {
+      @apply text-xl mb-2;
+    }
+    &-product-price {
+      @apply text-2xl font-semibold inline-block;
+    }
+  }
+  &__actions {
+    @apply flex flex-col gap-6 max-w-full w-48;
+    &-middle {
+      @apply text-center flex flex-col;
+    }
+  }
+} */

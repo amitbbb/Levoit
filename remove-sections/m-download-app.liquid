@@ -1,0 +1,202 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  [id^='M-DownloadApp-Title-{{ section.id }}'] {
+    color: {{ section.settings.text_color_heading }};
+  }
+  [id^='M-DownloadApp-Desc-{{ section.id }}'] {
+    color: {{ section.settings.text_color_desc }};
+  }
+  #M-DownloadApp-Content-{{ section.id }} {
+    {% render 'get-text-align-style', align: section.settings.text_align, get: 'style' %}
+  }
+
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    #M-DownloadApp-Content-{{ section.id }} {
+      {% render 'get-text-align-style', align: section.settings.text_align, get: 'style' %}
+    }
+  }
+{% endstyle %}
+
+<div class="{{ section.settings.container }}">
+  {%- if section.settings.title or section.settings.desc != blank -%}
+    <header id="M-DownloadApp-Content-{{ section.id }}" class="mb-4 lg:mb-12">
+      {%- if section.settings.title != blank -%}
+        <h2 id="M-DownloadApp-Title-{{ section.id }}" class="m-title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.desc != blank -%}
+        <p id="M-DownloadApp-Desc-{{ section.id }}" class="m-desc font-slab">{{ section.settings.desc }}</p>
+      {%- endif -%}
+    </header>  
+  {%- endif -%}
+
+  <div class="max-w-full w-56 mx-auto mb-8">
+    {% render 'picture', image_desktop: section.settings.vesync_app, image_mobile: section.settings.mobile_image, width: 768, sizes: '768, 768', object_fit: 'contain', figcaption: section.settings.figcaption %}
+  </div>
+  <ul class="flex max-w-full w-96 mx-auto">
+    <li class="flex-1">
+      <a href="{{ section.settings.app_store_url }}">
+        {% render 'picture', image_desktop: section.settings.app_store, image_mobile: section.settings.mobile_image, width: 400, sizes: '400, 400', object_fit: 'contain', figcaption: section.settings.figcaption %}
+      </a>
+    </li>
+    <li class="flex-1">
+      <a href="{{ section.settings.play_store_url }}">
+        {% render 'picture', image_desktop: section.settings.play_store, image_mobile: section.settings.mobile_image, width: 400, sizes: '400, 400', object_fit: 'contain', figcaption: section.settings.figcaption %}
+      </a>
+    </li>
+</div>
+
+
+{% schema %}
+  {
+    "name": "M | Download App",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title",
+        "default": "<b>Download the App</b>"
+      },
+      {
+        "type": "textarea",
+        "id": "desc",
+        "label": "Desc",
+        "default": "Join a community of over 1 million connected devices."
+      },
+      {
+        "type": "image_picker",
+        "id": "vesync_app",
+        "label": "Vesync app"
+      },
+      {
+        "type": "image_picker",
+        "id": "app_store",
+        "label": "App Store (apple)"
+      },
+      {
+        "type": "url",
+        "id": "app_store_url",
+        "label": "App Store URL"
+      },
+      {
+        "type": "image_picker",
+        "id": "play_store",
+        "label": "Play Store (google)"
+      },
+      {
+        "type": "url",
+        "id": "play_store_url",
+        "label": "Play Store URL"
+      },
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "select",
+        "id": "container",
+        "label": "Container (width)",
+        "options": [
+          {
+          "value": "",
+          "label": "Full width"
+          },
+          {
+          "value": "container",
+          "label": "Default"
+          },
+          {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+          },
+          {
+          "value": "container max-w-screen-md",
+          "label": "md"
+          },
+          {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+          },
+          {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+          },
+          {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+          }
+        ],
+        "default": "container"
+      },
+      {
+        "type": "color",
+        "id": "text_color_heading",
+        "label": "Text color (Heading)",
+        "default": "#003339"
+      },
+      {
+        "type": "color",
+        "id": "text_color_desc",
+        "label": "Text color (Desc)",
+        "default": "#000000"
+      },
+      {
+        "type": "select",
+        "id": "text_align",
+        "label": "Text align",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center"
+      },
+      {
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "range",
+        "id": "desktop_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Desktop Padding (Y)",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "mobile_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Mobile Padding (Y)",
+        "default": 2
+      }
+    ],
+    "presets": [
+      {
+        "name": "M | Download App"
+      }
+    ]
+  }
+{% endschema %}

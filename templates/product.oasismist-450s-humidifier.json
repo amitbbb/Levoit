@@ -1,0 +1,895 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {
+          }
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {
+          }
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {
+      }
+    },
+    "3c35c8e4-126f-4f90-8744-da61c4d6cd2c": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "1b14ccb5-594c-4327-9676-337d025bc5f4": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_c52abf088a89472cab3c93498052ff31.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_7ed3c118d619413c96e98442609d79fe.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        },
+        "4eb852f7-e564-4b30-a8c0-e4514dc027d5": {
+          "type": "list-item",
+          "settings": {
+            "title": "Ultrasonic Warm & Cool Mist",
+            "desc": "Great for dry months during summer or winter."
+          }
+        },
+        "1d52f6a1-75a2-4eaf-aff4-982e0d8b0e0d": {
+          "type": "list-item",
+          "settings": {
+            "title": "Wide Coverage",
+            "desc": "Humidify a 215–430 ft² bedroom or living room with ease."
+          }
+        },
+        "e36cb516-e6bf-4eed-9862-241b89ca016d": {
+          "type": "list-item",
+          "settings": {
+            "title": "4.5-Liter Tank",
+            "desc": "Enjoy up to 45 hours of continuous mist and fewer refills."
+          }
+        },
+        "17aa06a2-209d-4778-a03a-112684f6193b": {
+          "type": "list-item",
+          "settings": {
+            "title": "Top-Fill Design",
+            "desc": "The wide opening makes the tank easy to clean and refill."
+          }
+        }
+      },
+      "block_order": [
+        "1b14ccb5-594c-4327-9676-337d025bc5f4",
+        "4eb852f7-e564-4b30-a8c0-e4514dc027d5",
+        "1d52f6a1-75a2-4eaf-aff4-982e0d8b0e0d",
+        "e36cb516-e6bf-4eed-9862-241b89ca016d",
+        "17aa06a2-209d-4778-a03a-112684f6193b"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Levoit OasisMist™",
+        "desc": "SMART HUMIDIFIER",
+        "hide_header_image_on_mobile": false,
+        "header_width": 450,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_below",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "center",
+        "text_position": "center_left",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#004683",
+        "text_color_desc": "#004683",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_right",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#FFFFFF",
+        "desktop_text_color_desc": "#FFFFFF",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#EEEEEE",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#004683",
+        "list_item_desc_color": "#004683",
+        "desktop_list_divider_border_color": "#EEEEEE",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#FFFFFF",
+        "desktop_list_item_desc_color": "#FFFFFF",
+        "mobile_items_per_row": 1,
+        "tablet_items_per_row": 1,
+        "desktop_items_per_row": 1,
+        "gap": 1
+      }
+    },
+    "f247974c-fb8a-4427-a79d-6d13792d6f1d": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "1b1d6286-a8be-4c39-b53d-e21a55f6f81d": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_a74386c4196d436aaa2b4e79e056d4fe.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "At-Home Spa",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 50
+          }
+        },
+        "ef947b49-fcd1-4159-8cfa-44f0461d38c2": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_b6e483bcfb81441d814f99987f7ad447.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Tropical Haven",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 50
+          }
+        },
+        "ee5afb0a-70fb-4f7f-86db-4b8c73a1a9e9": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_44a8f892050340b6bc3142c602d051a7.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Meditation Space with Aromatherapy",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "1b1d6286-a8be-4c39-b53d-e21a55f6f81d",
+        "ef947b49-fcd1-4159-8cfa-44f0461d38c2",
+        "ee5afb0a-70fb-4f7f-86db-4b8c73a1a9e9"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Create Your Own Oasis",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "#b9d9eb",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#004683",
+        "text_color_desc": "#004683",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 3,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "center"
+      }
+    },
+    "d75053d4-2e8c-444c-b805-d3cfa15f0575": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "6bfe3fb1-073e-4b4e-96b2-207f40e4b4bd": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_e16627d275754633ab507cae8e2c6543.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Smart Control",
+            "desc": "Control settings, create schedules, customize Auto Mode, and more.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "d69319f2-38d7-400c-9cd6-ef1438b3509d": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_47a055d0c13f40af88773f6a15a3d9a9.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "High Mist Height",
+            "desc": "Quickly and evenly humidify large rooms with powerful mist output.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "47b322ff-4d08-4548-9281-f04e2ca43701": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_ebfb10b98352432bb0fdf57f2109e153.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Aromatherapy",
+            "desc": "Enjoy your favorite aromas by adding essential oils to the aroma pad.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "52a182ff-e107-4eba-9180-494ef1776c95": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_cfb6539ad9f946fe81c660e84d022f1c.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Dual 360° Nozzles",
+            "desc": "Customize the mist output and send mist in two different directions.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "6bfe3fb1-073e-4b4e-96b2-207f40e4b4bd",
+        "d69319f2-38d7-400c-9cd6-ef1438b3509d",
+        "47b322ff-4d08-4548-9281-f04e2ca43701",
+        "52a182ff-e107-4eba-9180-494ef1776c95"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#004683",
+        "text_color_desc": "#004683",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 4,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "center"
+      }
+    },
+    "0d9f4f38-c711-421a-a351-c1774f027a8c": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109378470039__0d9f4f38-c711-421a-a351-c1774f027a8c-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Screenshot_2023-07-26_at_9.46.56_AM.png",
+            "mobile_image": "shopify:\/\/shop_images\/Screenshot_2023-07-26_at_9.48.17_AM.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109378470039__0d9f4f38-c711-421a-a351-c1774f027a8c-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "reverse_on_mobile": false
+      }
+    },
+    "beda1712-e462-4411-95ac-40a7936da03f": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "4acfea22-9a90-4bdc-b636-0db421242bf2": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_64902da63dee4905a96599f23fa56e80.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "Control Settings",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "21466a51-8e39-49c4-aaef-3657d1d63cbb": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_7eb2ec31f30f450fb79f131a0cbc6b50.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "Monitor humidity levels",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "800d08b3-d8fa-4489-bdb5-1d4fc0b08b5a": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_5b6c5cad12394486a77b9c7daf9859cb.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "Set target humidity levels",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "f1880bd1-640d-4ff8-9406-3847bc511f9d": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_55b4ad82116b46ba9ec011f3cba7b74a.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "Set schedules & timers",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "4acfea22-9a90-4bdc-b636-0db421242bf2",
+        "21466a51-8e39-49c4-aaef-3657d1d63cbb",
+        "800d08b3-d8fa-4489-bdb5-1d4fc0b08b5a",
+        "f1880bd1-640d-4ff8-9406-3847bc511f9d"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Smart Control",
+        "desc": "Refresh your home from anywhere with the free VeSync app.",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#004683",
+        "text_color_desc": "#004683",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 4,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "center"
+      }
+    },
+    "4490512f-9287-4888-a0ea-59a009b6d0ac": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "6dc8f77d-72f8-430c-b511-1a21c5d5a461": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Group_12.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Group_13.jpg",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "6dc8f77d-72f8-430c-b511-1a21c5d5a461"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Voice Control",
+        "desc": "Connect to third-party voice assistants through VeSync for hands-free control when your hands are full.",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_below",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "center",
+        "text_position": "center_center",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#004683",
+        "text_color_desc": "#004683",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "right",
+        "desktop_text_position": "bottom_right",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#004683",
+        "desktop_text_color_desc": "#004683",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#EEEEEE",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#EEEEEE",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "d24a57c4-b4f0-4375-ab5e-f8a7dbece7fb": {
+      "type": "m-media-text-row",
+      "disabled": true,
+      "blocks": {
+        "c4daa8be-f836-438d-b7e8-c4acabfbed12": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Frame_7.jpg",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 500,
+            "lazyload": true
+          }
+        },
+        "898e4afe-8b29-4cac-9d66-0a9077545714": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "Create Your Own Greenhouse",
+            "desc": "Help your indoor plants thrive with our new feature on the VeSync app. With automated scheduling, you can take care of your plants with ease—no green thumb required.",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#ffffff",
+            "text_color_desc": "#ffffff"
+          }
+        },
+        "31fb0648-b18c-4501-9380-08ef5cb1999b": {
+          "type": "icon-with-text",
+          "settings": {
+            "image_width": 60,
+            "title": "Plant species identification",
+            "desc": ""
+          }
+        },
+        "7b008b59-c591-49ee-953e-fb2f024a8b99": {
+          "type": "icon-with-text",
+          "settings": {
+            "image_width": 60,
+            "title": "Watering schedules",
+            "desc": ""
+          }
+        },
+        "13e3a45d-8586-4103-ae6a-3552a8304c12": {
+          "type": "icon-with-text",
+          "settings": {
+            "image_width": 60,
+            "title": "Fertilizing schedules",
+            "desc": ""
+          }
+        },
+        "cfd5a7d6-4a85-4c4c-96d2-94754cfdfee6": {
+          "type": "icon-with-text",
+          "settings": {
+            "image_width": 60,
+            "title": "Care reminders",
+            "desc": ""
+          }
+        }
+      },
+      "block_order": [
+        "c4daa8be-f836-438d-b7e8-c4acabfbed12",
+        "898e4afe-8b29-4cac-9d66-0a9077545714",
+        "31fb0648-b18c-4501-9380-08ef5cb1999b",
+        "7b008b59-c591-49ee-953e-fb2f024a8b99",
+        "13e3a45d-8586-4103-ae6a-3552a8304c12",
+        "cfd5a7d6-4a85-4c4c-96d2-94754cfdfee6"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "",
+        "bg_color": "#004683",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#FFFFFF",
+        "text_color_desc": "#ffffff",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "gap": 1,
+        "reverse_row_on_mobile": false
+      }
+    },
+    "953509bb-09fc-4d3a-b0b8-2570266e25d6": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "62a5353b-44de-4bf9-8039-c3ae2bf75aa5": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "Refreshing Mist, All Night Long",
+            "desc": "",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#004683",
+            "text_color_desc": "#000000"
+          }
+        },
+        "1ccf6d43-f5fc-43ad-9bf9-3bb6c3db27d3": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify:\/\/files\/videos\/assets_5c5a2dfbd0b84138938c43351f003dd8_329723fdb9124f25a96703272b0ce5cb_compressed_1.mp4",
+            "show_unmute_button": false,
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "lazyload": true
+          }
+        },
+        "6fd1bd1d-aa0d-4fdb-b8b6-ec4a2d8c2118": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_30f19780eff340afb749990432755e61.webp",
+            "image_width": 50,
+            "title": "Humidity at Night",
+            "desc": "Helps reduce nightly congestion."
+          }
+        },
+        "f68fd355-2c10-46ee-90c4-d9db4972660d": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_34f46949f1d242f3b10cae3b3ea7b7f0.webp",
+            "image_width": 50,
+            "title": "Sleep Mode",
+            "desc": "Keeps your space humidified, dark, and quiet at the lowest mist level."
+          }
+        },
+        "a450f7f7-e035-4181-aafe-cd721e0f1cbb": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_a92a4400ad7745ce9fe7d08171d7516f.webp",
+            "image_width": 50,
+            "title": "Auto Shutoff",
+            "desc": "Turns the humidifier off when the tank runs out of water."
+          }
+        }
+      },
+      "block_order": [
+        "62a5353b-44de-4bf9-8039-c3ae2bf75aa5",
+        "1ccf6d43-f5fc-43ad-9bf9-3bb6c3db27d3",
+        "6fd1bd1d-aa0d-4fdb-b8b6-ec4a2d8c2118",
+        "f68fd355-2c10-46ee-90c4-d9db4972660d",
+        "a450f7f7-e035-4181-aafe-cd721e0f1cbb"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-xl",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#004683",
+        "text_color_desc": "#004683",
+        "desktop_padding_y": 2,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false
+      }
+    },
+    "e67dba69-8020-45ac-8425-5b8c87dabe1a": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109378470039__e67dba69-8020-45ac-8425-5b8c87dabe1a-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Screenshot_2023-07-26_at_9.53.20_AM.png",
+            "mobile_image": "shopify:\/\/shop_images\/Screenshot_2023-07-26_at_9.53.53_AM.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109378470039__e67dba69-8020-45ac-8425-5b8c87dabe1a-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "reverse_on_mobile": false
+      }
+    },
+    "83a79746-2793-44f4-8e2b-ae98ef59372e": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "d2029eb3-4daa-4711-a726-e4c114731095": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_95028a153f00439cbfce6037ecf58ff2.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "fe5c8e69-0570-43d5-b9b0-9334689f2dac": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_9652a140fc1340e48d9e30bb64d5c7e8_1.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "d2e33d07-0dd9-4e16-9eca-8685d7dc1671": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_21ea58ed25634442b9b968fda3a82d95.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "ff9c4e57-f866-49ef-b2d6-9c2574a68e54": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_50bab5c166ce42f9ab1a7759b806f0af.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "d2029eb3-4daa-4711-a726-e4c114731095",
+        "fe5c8e69-0570-43d5-b9b0-9334689f2dac",
+        "d2e33d07-0dd9-4e16-9eca-8685d7dc1671",
+        "ff9c4e57-f866-49ef-b2d6-9c2574a68e54"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Awards & Certifications",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#004683",
+        "text_color_desc": "#000000",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 4,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "left"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "3ab3734c-a7f6-4456-ac0f-11a3631b4876": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:<\/b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href='www.P65Warnings.ca.gov' target='_blank'>www.P65Warnings.ca.gov<\/a><\/p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/reviews-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/rating-summary-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "3c35c8e4-126f-4f90-8744-da61c4d6cd2c",
+    "f247974c-fb8a-4427-a79d-6d13792d6f1d",
+    "d75053d4-2e8c-444c-b805-d3cfa15f0575",
+    "0d9f4f38-c711-421a-a351-c1774f027a8c",
+    "beda1712-e462-4411-95ac-40a7936da03f",
+    "4490512f-9287-4888-a0ea-59a009b6d0ac",
+    "d24a57c4-b4f0-4375-ab5e-f8a7dbece7fb",
+    "953509bb-09fc-4d3a-b0b8-2570266e25d6",
+    "e67dba69-8020-45ac-8425-5b8c87dabe1a",
+    "83a79746-2793-44f4-8e2b-ae98ef59372e",
+    "product-recommendations",
+    "3ab3734c-a7f6-4456-ac0f-11a3631b4876",
+    "reviews"
+  ]
+}

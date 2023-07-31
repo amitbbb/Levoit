@@ -1,0 +1,424 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {
+          }
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {
+          }
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {
+      }
+    },
+    "ca6330c5-9130-4d62-a49c-19a2f4ffe44f": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "05b2063f-5282-4d82-aac1-f20ef9a19d38": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_b4d231eb23a6423c9148a1eb99af5c67.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "b9208cb8-db1b-46ab-8620-e7d003e96e75": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "Long-Lasting <b>Humidification<\/b>",
+            "desc": "<span style=\"font-size:1.2rem;\">Humidify a <b>215-505ft²<\/b> for <b>up to 60 hours<\/b> without refilling the 6-liter tank.<\/span>",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "center",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#005195",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        }
+      },
+      "block_order": [
+        "05b2063f-5282-4d82-aac1-f20ef9a19d38",
+        "b9208cb8-db1b-46ab-8620-e7d003e96e75"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Levoit Classic 300<\/b>",
+        "desc": "Lite Ultrasonic Cool Mist Humidifier",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#005195",
+        "text_color_desc": "#005195",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "2b11d84b-d695-4550-8b0e-8cffd2eb0c3d": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "5c31c34a-9510-4860-8937-b802b0129f12": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "<b>360°<\/b> Nozzle",
+            "desc": "<span style=\"font-size:1.2rem;\">The <b>direction of the mist output is up to you<\/b>, so you can turn it towards plants or away from walls.<\/span>",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "center",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#005195",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "84af2d9c-bad0-4336-8e3b-1328adcf0d1e": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_d01b0eb4475245ba91dd521f27f00c47.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "5c31c34a-9510-4860-8937-b802b0129f12",
+        "84af2d9c-bad0-4336-8e3b-1328adcf0d1e"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": true,
+        "enable_custom_block_widths": false
+      }
+    },
+    "49a02482-cb6c-4adf-9f1f-f652f93c8305": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "d7fb31a5-b444-40fb-9376-f496e271af29": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_f6a0362b62da435f85afd7178a2a526b.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "0448a913-efa4-4433-9ffc-b0d118f6a976": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "Simple <b>Control<\/b>",
+            "desc": "<span style=\"font-size:1.2rem;\">Turn the humidifier on or off and adjust mist lvels with one knob, so you can <b>control your humidity level with precision.<\/b><\/span>",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "center",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#005195",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        }
+      },
+      "block_order": [
+        "d7fb31a5-b444-40fb-9376-f496e271af29",
+        "0448a913-efa4-4433-9ffc-b0d118f6a976"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "99cd17f9-d2f3-4439-a5c5-5bfaeb0cc9b1": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "ecdf4abc-bf17-4d95-9f71-60d35b47467a": {
+          "type": "video-embed",
+          "settings": {
+            "video_url": "https:\/\/player.vimeo.com\/video\/701031972?h=50c8d16968&app_id=122963&byline=0&badge=0&portrait=0&title=0",
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "003191d3-c1b9-4efa-979f-784686652dc3": {
+          "type": "content-list",
+          "settings": {
+            "subtitle": "",
+            "title": "How to <b>Refill<\/b>",
+            "desc": "This top-fill design doesn't have to be flipped over—<b>less hassle, less spilling.<\/b>",
+            "list": "Remove the tank cover.\nLife the tank from the base.\nFill the tank with purified or distilled water.\nReplace the tank cover and place the tank back on the base.",
+            "convert_list_to_bullets": false,
+            "button_label": "",
+            "button_url": "",
+            "enable_content_width": false,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#ffffff",
+            "text_color_desc": "#ffffff",
+            "text_color_list": "#ffffff",
+            "list_count_bg_color": "#ffffff",
+            "list_count_text_color": "#005195",
+            "button_bg_color": "#000000",
+            "button_text_color": "#FFFFFF",
+            "button_border_radius": 0,
+            "custom_block_width": 30
+          }
+        }
+      },
+      "block_order": [
+        "ecdf4abc-bf17-4d95-9f71-60d35b47467a",
+        "003191d3-c1b9-4efa-979f-784686652dc3"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "",
+        "bg_color": "#005195",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": true,
+        "enable_custom_block_widths": false
+      }
+    },
+    "e566802b-fc61-4af0-8f5b-bb25aeba4e3c": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "c416f6a7-5c81-41c4-a9da-89a330e7da66": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_20f7b4deda1143a7b7be218337a150c8.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "654f856c-e61d-4c43-a648-5f084bfa9953": {
+          "type": "content-app-links",
+          "settings": {
+            "subtitle": "",
+            "title": "<b>Safe & Certified<\/b>",
+            "desc": "<small>*Source: Stackline data for U.S. Amazon Sales, February 2019 to September 2021.<\/small>",
+            "app_store_icon_1": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_ec1b77a57f1a479a9afe59c5e7102305.webp",
+            "app_store_url_1": "#",
+            "app_store_icon_2": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_ab540703f8d248ed931f78e3898ffabf.webp",
+            "app_store_url_2": "#",
+            "app_store_url_3": "",
+            "store_icon_widths": 120,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "center",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#005195",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        }
+      },
+      "block_order": [
+        "c416f6a7-5c81-41c4-a9da-89a330e7da66",
+        "654f856c-e61d-4c43-a648-5f084bfa9953"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#005195",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "104fde46-24da-4956-8f24-8f89c3b7083c": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:<\/b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href=\"www.P65Warnings.ca.gov\" target=\"_blank\">www.P65Warnings.ca.gov<\/a><\/p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/reviews-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/rating-summary-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ca6330c5-9130-4d62-a49c-19a2f4ffe44f",
+    "2b11d84b-d695-4550-8b0e-8cffd2eb0c3d",
+    "49a02482-cb6c-4adf-9f1f-f652f93c8305",
+    "99cd17f9-d2f3-4439-a5c5-5bfaeb0cc9b1",
+    "e566802b-fc61-4af0-8f5b-bb25aeba4e3c",
+    "104fde46-24da-4956-8f24-8f89c3b7083c",
+    "product-recommendations",
+    "reviews"
+  ]
+}

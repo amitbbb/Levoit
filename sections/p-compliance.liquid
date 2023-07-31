@@ -1,0 +1,74 @@
+<div class="container">
+  {%- if section.settings.title != blank -%}
+    <h2 class="text-2xl font-bold mb-4">{{ section.settings.title }}</h2>
+  {%- endif -%}
+
+  <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10">
+    {%- for block in section.blocks -%}
+      <li class="inline-block text-center">
+        {%- if block.settings.file_url != blank -%}
+          <a href="{{ block.settings.file_url }}" target="_blank" class="inline-block">          
+        {%- endif -%}
+
+        {%- if block.settings.Image != blank -%}
+        {% render 'picture', image_desktop: block.settings.Image, width: 350, sizes: '350, 350', object_fit: 'contain' %}    
+        {%- endif -%}
+
+          {%- if block.settings.title != blank -%}
+            <h3>{{ block.settings.title }}</h3>
+          {%- endif -%}
+
+        {%- if block.settings.file_url != blank -%}
+          </a>          
+        {%- endif -%}
+       
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "P | Compliance",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Air Fryers"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "Image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Model number"
+          },
+          {
+            "type": "url",
+            "id": "file_url",
+            "label": "File URL"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "P | Compliance"
+      }
+    ]
+  }
+{% endschema %}

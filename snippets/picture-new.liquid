@@ -1,0 +1,86 @@
+{%- comment -%}
+  /snippets/picture.liquid to be migrated to this (TBD)
+
+  pass in:
+    - desktop_image
+    - mobile_image
+    - aspect_ratio
+    - object_fit
+    - id
+    - lazyload
+    - width
+    - srcset
+{%- endcomment -%}
+
+{%- liquid
+  assign srcset = sizes | split: ', '
+
+  assign desktop_aspect_ratio = 1 | divided_by: desktop_image.aspect_ratio | times: 100
+  assign mobile_aspect_ratio = 1 | divided_by: mobile_image.aspect_ratio | times: 100
+
+  if object_fit == 'cover'
+    assign img_class = 'absolute inset-0 object-cover w-full h-full'
+  elsif object_fit == 'contain'
+    assign img_class = 'absolute inset-0 object-contain w-full h-auto'
+  endif
+-%}
+
+{%- case aspect_ratio -%}
+  {%- when 'natural' -%}
+    {%- assign aspect_ratio = '' -%}
+    {% style %}
+      #{{ id }} {
+        position: relative;
+        width: 100%;
+        padding-bottom: {% if mobile_aspect_ratio %}{{ mobile_aspect_ratio }}%{% else %}{{ desktop_aspect_ratio }}%{% endif %};
+        display: block;
+        overflow: hidden;
+      }
+      @media (min-width: 768px) {
+        #{{ id }} {
+          padding-bottom: {{ desktop_aspect_ratio }}%;
+        }
+      }
+    {% endstyle %}
+  {%- when 'fill' -%}
+    {%- assign aspect_ratio = '' -%}
+    {% style %}
+      #{{ id }} {
+        position: relative;
+        width: 100%;
+        height: {{ height }}px;
+        display: block;
+        overflow: hidden;
+      }
+    {% endstyle %}
+  {%- else -%}
+    {%- assign aspect_ratio = aspect_ratio -%}
+{%- endcase -%}
+
+<figure id="{{ id }}" class="block relative overflow-hidden {{ aspect_ratio }}">
+  <picture>
+    <source
+      media="(min-width: 768px) and (max-width: 1023px)"
+      srcset="{{ desktop_image | image_url: width: srcset[0] }}"
+    >
+    <source
+      media="(min-width: 1024px) and (max-width: 1439px)"
+      srcset="{{ desktop_image | image_url: width: srcset[1] }}"
+    >
+    <source
+      media="(min-width: 1440px)"
+      srcset="{{ desktop_image | image_url: width: srcset[2] }}"
+    >
+    <img
+      src="{% if mobile_image %}{{ mobile_image | image_url: width: width }}{% else %}{{ desktop_image | image_url: width: width }}{% endif %}"
+      sizes="(min-width: 1440px) 100vw, (min-width: 768px) 100vw, 100vw"
+      alt="{{ desktop_image.alt }}"
+      width="1920"
+      height="1080"
+      class="{{ img_class }}"
+    >
+  </picture>
+  {%- if figcaption -%}
+    <figcaption class="sr-only">{{ figcaption }}</figcaption>
+  {%- endif -%}
+</figure>

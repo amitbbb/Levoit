@@ -1,0 +1,43 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "blocks": {
+        "15556039-169d-4bf5-964a-4eb85253c6ea": {
+          "type": "url",
+          "settings": {
+            "url": "shopify:\/\/blogs\/blog",
+            "title": "Blog"
+          }
+        },
+        "a57de396-342a-40b9-b672-3b5c3a368cea": {
+          "type": "url",
+          "settings": {
+            "url": "shopify:\/\/pages\/user-manuals",
+            "title": "Product Support"
+          }
+        },
+        "0b2385a6-df0e-4cdd-97e5-dd26723e883f": {
+          "type": "url",
+          "settings": {
+            "url": "shopify:\/\/pages\/contact-us",
+            "title": "Contact Us"
+          }
+        }
+      },
+      "block_order": [
+        "15556039-169d-4bf5-964a-4eb85253c6ea",
+        "a57de396-342a-40b9-b672-3b5c3a368cea",
+        "0b2385a6-df0e-4cdd-97e5-dd26723e883f"
+      ],
+      "settings": {
+        "title": "That was \nunexpected",
+        "desc": "We can't find the page You're looking for. \nMaybe we need a better recipe.",
+        "image": "shopify:\/\/shop_images\/404-cosori.png"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

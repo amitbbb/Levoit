@@ -1,0 +1,479 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {
+          }
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {
+          }
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {
+      }
+    },
+    "8baa987d-b81d-49fb-9422-c91559955cbc": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "c3e99e38-8e3a-43ab-9fe3-11d351c6247e": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/levoit-36-fan-intro-header.png",
+            "mobile_image": "shopify:\/\/shop_images\/towerfan-mob.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "c3e99e38-8e3a-43ab-9fe3-11d351c6247e"
+      ],
+      "settings": {
+        "logo_width": 150,
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_below",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "left",
+        "text_position": "center_left",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#14015b",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_right",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "59082611-0f34-4820-aba3-69a92828a79b": {
+      "type": "m-media",
+      "blocks": {
+        "template--16107816026263__59082611-0f34-4820-aba3-69a92828a79b-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_60024e18317144288d2822df56d6ae9d.webp",
+            "mobile_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_5227ed3724274decb455a01a07021a16.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16107816026263__59082611-0f34-4820-aba3-69a92828a79b-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Temperature Responsive<\/b>",
+        "desc": "Using a built-in sensor, the tower fan makes automatic fan speed adjustments based on room temperature*.\n\n<small>*This feature only operates when Auto Mode, Advanced Sleep Mode, or Turbo Mode is selected.<\/small>",
+        "list": "",
+        "header_width": 780,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "",
+        "button_url": "",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#14015b",
+        "button_bg_color": "#000000",
+        "button_text_color": "#FFFFFF",
+        "button_border_radius": 0,
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "reverse_on_mobile": true
+      }
+    },
+    "530fe398-fdc6-43da-8953-ad62e352ff71": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "f4562116-9b6e-4492-bce8-296687bce31e": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_a74e4cd75cc048fab1f2548cfd11f0eb.webp",
+            "mobile_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_b7e8730895bf41018115ca2c120eca74.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "f4562116-9b6e-4492-bce8-296687bce31e"
+      ],
+      "settings": {
+        "logo_width": 150,
+        "subtitle": "",
+        "title": "<b>Your Personal Summer Breeze<\/b>",
+        "desc": "The powerful motor produces a maximum wind speed of 25 feet per second and noise levels as low as 28dB.",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_below",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "left",
+        "text_position": "center_left",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#14015b",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "dc14f099-38c5-4976-8551-6459d432ed06": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "6aa95e73-33af-4236-8869-dfea68ed99f0": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "<b>Four Modes to\nFit Your Needs<\/b>",
+            "desc": "<b class=\"text-lg\">Normal Mode<\/b>\nGives you manual control.\n\n<b class=\"text-lg\">Auto Mode<\/b>\nAutomatically adjusts fan speed based on room temperature.\n\n<b class=\"text-lg\">Advanced Sleep Mode<\/b>\nDisplay off from the start, auto-adjusting speeds and oscillating after 1 hour for a cool and tranquil night.\n\n<b class=\"text-lg\">Turbo Mode<\/b>\nRapid cooling with 90-degree oscillation and automatic speed adjustments based on ambient temperature changes.",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#ffffff",
+            "text_color_desc": "#ffffff",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "28a944a6-d22f-4578-8e2d-b8fbded04bc4": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Screenshot_2023-07-24_at_5.56.04_PM.png",
+            "figcaption": "",
+            "aspect_ratio": "square",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "6aa95e73-33af-4236-8869-dfea68ed99f0",
+        "28a944a6-d22f-4578-8e2d-b8fbded04bc4"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "",
+        "bg_color": "#14015b",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "ca5bbc8f-6930-4a72-a29b-85c0b10223fe": {
+      "type": "m-media",
+      "blocks": {
+        "template--16107816026263__ca5bbc8f-6930-4a72-a29b-85c0b10223fe-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_d33a3d6642ce43a5a80ee85c0117e5d5.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16107816026263__ca5bbc8f-6930-4a72-a29b-85c0b10223fe-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Stress-Free Cleaning<\/b>",
+        "desc": "Easily remove the washable back cover and wipe down the inside of the fan.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "",
+        "button_url": "",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#14015b",
+        "button_bg_color": "#000000",
+        "button_text_color": "#FFFFFF",
+        "button_border_radius": 0,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "b539ba19-a764-4dc9-91f1-f5e29504ca08": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "b164fa71-ed42-4a2e-ab30-33c7a0235180": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_a25fe0ab47c749b5a517586817f6cf95.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "90° Oscillation",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "5da60e78-89e1-4d6e-b7ea-51ae1cdab521": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_4b665e2552bc45adadf3953c5d95b2b1.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "1–12-Hour Timer",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "c9465fcc-4992-4562-a550-4d885ffc9570": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_286902749cfc4d79a0bd1289b8e3befd.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "5 Fan Speeds",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "b164fa71-ed42-4a2e-ab30-33c7a0235180",
+        "5da60e78-89e1-4d6e-b7ea-51ae1cdab521",
+        "c9465fcc-4992-4562-a550-4d885ffc9570"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Convenient Features<\/b>",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#14015b",
+        "button_bg_color": "#000000",
+        "button_text_color": "#FFFFFF",
+        "button_border_radius": 0,
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 3,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "center",
+        "convert_to_card": false,
+        "card_bg_color": "",
+        "card_subtitle_color": "",
+        "card_title_color": "",
+        "card_desc_color": "",
+        "card_border_radius": 0
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/reviews-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/rating-summary-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "8baa987d-b81d-49fb-9422-c91559955cbc",
+    "59082611-0f34-4820-aba3-69a92828a79b",
+    "530fe398-fdc6-43da-8953-ad62e352ff71",
+    "dc14f099-38c5-4976-8551-6459d432ed06",
+    "ca5bbc8f-6930-4a72-a29b-85c0b10223fe",
+    "b539ba19-a764-4dc9-91f1-f5e29504ca08",
+    "product-recommendations",
+    "reviews"
+  ]
+}

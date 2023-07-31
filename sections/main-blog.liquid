@@ -1,0 +1,41 @@
+{%- paginate blog.articles by 15 -%}
+<div class="container py-16">
+  <h2 class="font-bold text-5xl mb-4">{{ section.settings.title }}</h2>
+  <p class="text-3xl">{{ section.settings.desc }}</p>
+  <div class="flex flex-col lg:flex-row gap-8 my-16">
+    <aside class="max-w-full w-64">
+      {% render 'filters-blog' %}
+      <div class="klaviyo-form-UrkdeK"></div>
+    </aside>
+      <ul class="flex-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5">
+        {%- for article in blog.articles -%}
+          <li>{%- render 'card-article', article: article -%}</li>
+        {%- endfor -%}
+      </ul>
+  </div>
+  {%- if paginate.pages > 1 -%}
+    {%- render 'pagination', paginate: paginate -%}
+  {%- endif -%}
+</div>
+{%- endpaginate -%}
+
+
+{% schema %}
+{
+  "name": "Main blog",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Desc"
+    }
+  ]
+}
+{% endschema %}
+

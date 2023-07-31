@@ -1,0 +1,7 @@
+.drawer {
+  @apply fixed z-30 w-[400px] bg-[#fafaf9]
+}
+
+.drawer--left {
+  @apply top-0 left-0 bottom-0;
+}

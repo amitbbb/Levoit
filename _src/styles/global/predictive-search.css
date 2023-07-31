@@ -1,0 +1,43 @@
+/** DEFAULT STATE */
+predictive-search {
+  aside {
+    @apply invisible opacity-0;
+  }
+  .predictive-search__loading-state {
+    @apply hidden;
+  }
+  .predictive-search__results-list {
+    @apply flex
+  }
+}
+
+/** LOADING STATE */
+predictive-search {
+  &[loading] {
+    .predictive-search__loading-state {
+      @apply flex justify-center;
+    }
+    .predictive-search__results-list {
+      @apply hidden;
+    }
+    .predictive-search-title {
+      @apply hidden;
+    }
+    #PredictiveSearch-Footer {
+      @apply hidden;
+    }
+  }
+}
+
+/** OPEN STATE */
+predictive-search[open] {
+  aside {
+    @apply visible opacity-100;
+  }
+}
+
+
+/** IF INSIDE HEADER DRAWER */
+header-drawer predictive-search[open] aside {
+  @apply !static;
+}

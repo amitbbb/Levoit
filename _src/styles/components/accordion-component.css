@@ -1,0 +1,35 @@
+accordion-component {
+  @keyframes open {
+    0% {
+      /* opacity: 0%; */
+      /* transform: translateY(-10px); */
+      grid-template-rows: 0fr;
+    }
+    100% {
+      /* opacity: 100%; */
+      /* transform: translateY(0px); */
+      grid-template-rows: 1fr;
+    }
+  }
+  summary svg {
+    @apply transition-transform duration-150 ease-in-out;
+  }
+
+  details.open {
+    summary {
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+    aside {
+      div {
+        @apply overflow-hidden
+      }
+      display: grid;
+      animation-name: open;
+      animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);
+      animation-duration: 0.3s;
+      animation-fill-mode: forwards;
+    }
+  }
+}

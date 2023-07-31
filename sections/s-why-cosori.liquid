@@ -1,0 +1,252 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+  }
+{% endstyle %}
+
+<div class="container max-w-screen-lg py-12">
+  <header id="PDP-WhyCosori-Content-{{ section.id }}" class="text-center">
+    <h2 id="PDP-WhyCosori-Heading-{{ section.id }}" class="m-title uppercase font-bold">Why Cosori</h2>      
+  </header>
+
+  <ul class="flex flex-row flex-wrap justify-center text-center">
+      <li class="w-1/2 p-4 lg:flex-1">
+        <div class="mx-auto mb-4 h-24 w-24">
+          <img src="{{ 'icon-customer-service.webp' | asset_url }}" alt="" width="100" height="100" loading="lazy">
+        </div>
+        <p>U.S.-Based Customer Service</p>
+      </li>
+      <li class="w-1/2 p-4 lg:flex-1">
+        <div class="mx-auto mb-4 h-24 w-24">
+          <img src="{{ 'icon-community.webp' | asset_url }}" alt="" width="100" height="100" loading="lazy">
+        </div>
+        <p>Social Media Community</p>
+      </li>
+      <li class="w-1/2 p-4 lg:flex-1">
+        <div class="mx-auto mb-4 h-24 w-24">
+          <img src="{{ 'icon-chef.webp' | asset_url }}" alt="" width="100" height="100" loading="lazy">
+        </div>
+        <p>Direct Chef Assistance</p>
+      </li>
+      <li class="w-1/2 p-4 lg:flex-1">
+        <div class="mx-auto mb-4 h-24 w-24">
+          <img src="{{ 'icon-app.webp' | asset_url }}" alt="" width="100" height="100" loading="lazy">
+        </div>
+        <p>Free VeSync App</p>
+      </li>
+      <li class="w-1/2 p-4 lg:flex-1">
+        <div class="mx-auto mb-4 h-24 w-24">
+          <img src="{{ 'icon-shipping.webp' | asset_url }}" alt="" width="100" height="100" loading="lazy">
+        </div>
+        <p>Free Shipping & Returns</p>
+      </li>
+      <li class="w-1/2 p-4 lg:flex-1">
+        <div class="mx-auto mb-4 h-24 w-24">
+          <img src="{{ 'icon-warranty.webp' | asset_url }}" alt="" width="100" height="100" loading="lazy">
+        </div>
+        <p>2-Year Warranty</p>
+      </li>
+  </ul>
+
+</div>
+{% comment %} 
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+  }
+  #PDP-WhyCosori-Content-{{ section.id }} {
+    {% render 'get-text-align-style', align: section.settings.header_text_align, get: 'style' %}
+  }
+  #PDP-WhyCosori-Heading-{{ section.id }} {
+    color: {{ section.settings.text_color_heading }};
+  }
+
+<div class="container max-w-screen-lg py-12">
+  <header id="PDP-WhyCosori-Content-{{ section.id }}" class="">
+    {%- if section.settings.title != blank -%}
+      <h2 id="PDP-WhyCosori-Heading-{{ section.id }}" class="m-title">{{ section.settings.title }}</h2>      
+    {%- endif -%}
+  </header>
+
+  <ul class="flex flex-row flex-wrap justify-center text-center">
+    {%- for block in section.blocks -%}
+      <li class="w-1/2 p-4 lg:flex-1">
+        <div class="mx-auto mb-4 h-24 w-24">
+          {% render 'image',
+            image: block.settings.icon,
+            aspect_ratio: 'aspect-square',
+            object_fit: 'contain',
+            width: 150,
+            sizes: '100, 100, 100'
+          %}
+        </div>
+
+        {%- if block.settings.title -%}
+          <p>{{ block.settings.title }}</p>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+
+</div> 
+
+  {
+    "name": "S | Why Cosori",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title",
+        "default": "<b class='uppercase'>Why COSORI</b>"
+      },
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "BG Color",
+        "default": "#f2f2f2"
+      },
+      {
+        "type": "color",
+        "id": "text_color_heading",
+        "label": "Text color (Heading)",
+        "default": "#003339"
+      },
+      {
+        "type": "color",
+        "id": "text_color_desc",
+        "label": "Text color (Desc)",
+        "default": "#000000"
+      },
+      {
+        "type": "select",
+        "id": "header_text_align",
+        "label": "Text align (Header)",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center"
+      },
+      {
+        "type": "header",
+        "content": "Column settings"
+      },
+      {
+        "type": "select",
+        "id": "columns_text_align",
+        "label": "Text align (Columns)",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "col",
+        "name": "Column",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "U.S.-Based Customer Service"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "S | Why Cosori"
+      }
+    ]
+  }
+
+
+{% endcomment %}
+
+
+
+{% schema %}
+  {
+    "name": "S | Why Cosori",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "BG Color",
+        "default": "#f2f2f2"
+      },
+      {
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "range",
+        "id": "desktop_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Desktop Padding (Y)",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "mobile_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Mobile Padding (Y)",
+        "default": 2
+      }
+    ],
+    "presets": [
+      {
+        "name": "S | Why Cosori"
+      }
+    ]
+  }
+{% endschema %}

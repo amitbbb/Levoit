@@ -1,0 +1,171 @@
+{
+  "sections": {
+    "1dd88eeb-94a8-4bd5-ad88-13eb6a0f4f41": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "60a3092d-d437-445f-a2b8-9e3366ff3be4": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_a4252d69ae5b429e84387ff91b63a503.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "<span class=\"font-bold\" style=\"color:#88a9e0\">Click</span> Get Code below and sign in to your VerifyPass account.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 60
+          }
+        },
+        "0949dc54-2cd1-4ec2-8e4e-9dae0b8779f5": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_11ed42cce2d34164855c0608c0d3765d.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "<span class=\"font-bold\" style=\"color:#88a9e0\">Receive</span>  a one-time discount code to apply during checkout.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "0cea3863-530e-42cd-90b3-7cf32fdaa36c": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_f31b13db0e0b409bbbf933b69e760a24.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "<span class=\"font-bold\" style=\"color:#88a9e0\">Repeat</span>  steps 1 and 2 for every purchase. You can receive only 1 discount code every 24 hours.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 60
+          }
+        }
+      },
+      "block_order": [
+        "60a3092d-d437-445f-a2b8-9e3366ff3be4",
+        "0949dc54-2cd1-4ec2-8e4e-9dae0b8779f5",
+        "0cea3863-530e-42cd-90b3-7cf32fdaa36c"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Get Your Discount</strong>",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 3,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 3,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "center",
+        "convert_to_card": false,
+        "card_bg_color": "",
+        "card_subtitle_color": "",
+        "card_title_color": "#393939",
+        "card_desc_color": "",
+        "card_border_radius": 0
+      }
+    },
+    "main": {
+      "type": "main-verify-pass",
+      "settings": {}
+    },
+    "3a0490ce-988e-4f71-afab-3b562841a5d5": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "c4300ff8-ccd6-4499-addb-5120fbe42241": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_b7f63aaac496472f84c18fa6254d3b43.png",
+            "mobile_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_ad54603be4874d74ae32bcc0ae8ebfab.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": ["c4300ff8-ccd6-4499-addb-5120fbe42241"],
+      "settings": {
+        "logo_width": 150,
+        "subtitle": "",
+        "title": "<strong>Levoit Community Discounts</strong>",
+        "desc": "Every day, extraordinary people put others before themselves—teaching the next generation, keeping our loves ones healthy, or putting their lives on the line. We're now offering special discounts for these members of our community through VerifyPass.",
+        "hide_header_image_on_mobile": false,
+        "header_width": 530,
+        "header_image_width": 300,
+        "button_label": "Shop now",
+        "button_url": "shopify://collections/shop",
+        "enable_mobile_stack": "stack_content_below",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "center",
+        "text_position": "center_center",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "mobile_button_bg_color": "#84a7e3",
+        "mobile_button_text_color": "#FFFFFF",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_right",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#14015b",
+        "desktop_text_color_desc": "#000000",
+        "desktop_button_bg_color": "#84a7e3",
+        "desktop_button_text_color": "#FFFFFF",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    }
+  },
+  "order": [
+    "1dd88eeb-94a8-4bd5-ad88-13eb6a0f4f41",
+    "main",
+    "3a0490ce-988e-4f71-afab-3b562841a5d5"
+  ]
+}

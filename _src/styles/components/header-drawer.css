@@ -1,0 +1,23 @@
+header-drawer {
+  .menu-drawer__menu-item {
+    @apply transition-all duration-500 ease-out-expo  
+  }
+  /* .menu-drawer__inner-submenu {
+    @apply pt-8
+  }
+  .menu-drawer__submenu has-submenu {
+    @apply mt-8
+  } */
+  /* .menu-drawer__close-button {
+    @apply mb-4 mt-8 relative transition-all duration-500 ease-out-expo  p-4 rounded-md after:bg-black after:h-px after:absolute after:-bottom-2 after:left-0 after:right-0
+  } */
+}
+
+/* .drawer__close {
+  @apply absolute top-4 left-5 z-50 h-10 w-10 inline-flex justify-center items-center rounded-md
+  transition-all duration-500 ease-out-expo  
+}
+
+.drawer__close--right {
+  @apply right-0 left-auto top-0
+} */

@@ -1,0 +1,217 @@
+{%- liquid
+  if media.alt contains '|'
+    assign alt = media.alt | split: '|' | last | strip
+    assign img_fit = media.alt | split: '|' | first | strip
+
+    if alt == blank
+      assign alt = shop.name | append: ' — ' | append: product.title | strip
+    else
+      assign alt = alt
+    endif
+  else
+    if media.alt == blank
+      assign alt = shop.name | append: ' — ' | append: product.title
+    else
+      assign alt = media.alt
+    endif
+  endif
+
+  if img_fit == 'fill'
+    assign img_class = 'object-cover aspect-[4/5] bg-neutral-100 w-full h-full'
+  elsif img_fit == 'natural'
+    assign img_class = ''
+
+  else
+    assign img_class = 'aspect-[4/5] object-contain bg-neutral-100 w-full h-full ' | append: padding
+  endif
+-%}
+
+{%- case media.media_type -%}
+  {%- when 'image' -%}
+    {%- case type -%}
+      {%- when 'main' -%}
+        {%- capture srcset -%}
+          {{ media | image_url: width: 768 }} 320w,
+          {{ media | image_url: width: 768 }} 768w,
+          {{ media | image_url: width: 768 }} 1024w
+        {%- endcapture -%}
+        {%- capture sizes -%}
+          (max-width: 767px) 768px,
+          (min-width: 768px) 768px,
+          (min-width: 1024px) 768px,
+          {% comment %} (min-width: 1024px) 1024px,
+          (min-width: 1536) 1920px, {% endcomment %}
+        {%- endcapture -%}
+
+        {% comment %} Main - {{ index }} - {{ lazy_load }} {% endcomment %}
+        {{
+          media
+          | image_url: width: 768
+          | image_tag: widths: '768', sizes: '768px', preload: true, class: img_class, fetchpriority: high
+        }}
+
+        {% comment %}
+          <img
+            src="{{ media | image_url: width: 320 }}"
+            alt="{{ alt }}"
+            width="600"
+            height="800"
+            srcset="{{ srcset }}"
+            sizes="{{ sizes }}"
+            class="{{ img_class }}"
+            {% if lazy_load %}
+              loading="lazy"
+            {% else %}
+              fetchpriority="high"
+            {% endif %}
+          >
+        {% endcomment %}
+        {% comment %}
+          {% if lazy_load %}
+            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+          {%- endif -%}
+        {% endcomment %}
+      {%- when 'thumbs' -%}
+        {% comment %}
+          {%- liquid
+            assign lazy_load = false
+            if index > 4
+              assign lazy_load = true
+            endif
+          -%}
+        {% endcomment %}
+        {% comment %} thumbs - {{ index }} - {{ lazy_load }} {% endcomment %}
+
+        {{
+          media
+          | image_url: width: 150
+          | image_tag: widths: '150', preload: true, class: img_class, fetchpriority: high
+        }}
+
+        {% comment %}
+          <img
+            src="{{ media | image_url: width: 150 }}"
+            alt="{{ product.title }} - {{ media.alt }}"
+            width="150"
+            height="150"
+            class="
+              object-contain
+              bg-neutral-100 w-full h-full {{ padding }}
+            "
+            {% if lazy_load %}
+              loading="lazy"
+            {% else %}
+              fetchpriority="high"
+            {% endif %}
+          >
+          {% if lazy_load %}
+            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+          {%- endif -%}
+        {% endcomment %}
+
+      {%- when 'modal' -%}
+        {% comment %}
+          {%- capture srcset -%}
+              {{ media | image_url: width: 768 }} 320w,
+              {{ media | image_url: width: 1080 }} 768w
+            {%- endcapture -%}
+          {%- capture sizes -%}
+              (max-width: 767px) 768px,
+              (min-width: 768px) 1080px
+            {%- endcapture -%}
+
+          <img
+            src="{{ media | image_url: width: 320 }}"
+            alt="{{ product.title }} - {{ media.alt }}"
+            width="1080"
+            height="1080"
+            srcset="{{ srcset }}"
+            sizes="{{ sizes }}"
+            class="object-contain bg-neutral-100 w-full h-full {{ padding }}"
+            loading="lazy"
+          >
+        {% endcomment %}
+
+        {{
+          media
+          | image_url: width: 1080
+          | image_tag:
+            widths: '768, 992, 1080',
+            sizes: '(min-width: 768px) 992px, (min-width: 992px) 1080, 768px',
+            preload: true,
+            class: 'object-contain bg-neutral-100 w-full h-full'
+        }}
+        {% comment %}
+          {{
+            media
+            | image_url: width: 992
+            | image_tag:
+              widths: '640, 768, 992',
+              sizes: '(max-width: 767px) 640px, (min-width: 768px) 640px',
+              preload: true,
+              class: 'object-contain bg-neutral-100 w-full h-full'
+          }}
+        {% endcomment %}
+        {% comment %}
+          {{
+            media
+            | image_url: width: 992
+            | image_tag:
+              widths: '768, 992',
+              sizes: '(max-width: 767px) 768px, (min-width: 768px) 992px',
+              loading: 'lazy',
+              class: 'object-contain bg-neutral-100 w-full h-full'
+          }}
+        {% endcomment %}
+
+        {% comment %} <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div> {% endcomment %}
+    {%- endcase -%}
+
+  {%- when 'external_video' -%}
+    {{ media | external_video_tag }}
+  {%- when 'video' -%}
+    {%- case type -%}
+      {%- when 'thumbs' -%}
+        <div class="relative w-full h-full">
+          {{
+            media.preview_image
+            | image_url: width: 180
+            | image_tag: loading: lazy, class: 'object-cover w-full h-full'
+          }}
+          <span class="absolute z-10 top-2 right-2 h-6 w-6 bg-white flex items-center justify-center rounded-full drop-shadow-md">
+            {% render 'icons' with 'play' %}
+          </span>
+        </div>
+      {%- when 'main' -%}
+        <lazy-slide-video class="relative flex">
+          {{ media | video_tag: class: 'w-full h-full object-cover', image_size: '1000x', loop: true, muted: true }}
+          <button
+            type="button"
+            sound-button
+            class="absolute z-30 top-4 right-4 h-12 w-12 bg-white flex items-center justify-center rounded-full drop-shadow-md"
+            tabindex="-1"
+          >
+            <span icon-sound-on> {% render 'icons' with 'sound-off', width: 16, height: 16 %}</span>
+            <span icon-sound-off class="hidden">{% render 'icons' with 'sound-on', width: 16, height: 16 %}</span>
+          </button>
+        </lazy-slide-video>
+      {%- when 'modal' -%}
+        <lazy-slide-video class="relative flex  mx-auto ">
+          {{ media | video_tag: class: 'w-full h-full object-contain', image_size: '1000x', loop: true, muted: true }}
+          <button
+            type="button"
+            sound-button
+            class="absolute z-10 top-4 right-4 h-12 w-12 bg-white flex items-center justify-center rounded-full drop-shadow-md"
+            tabindex="-1"
+          >
+            <span icon-sound-on> {% render 'icons' with 'sound-off', width: 16, height: 16 %}</span>
+            <span icon-sound-off class="hidden">{% render 'icons' with 'sound-on', width: 16, height: 16 %}</span>
+          </button>
+        </lazy-slide-video>
+    {%- endcase -%}
+
+  {%- when 'model' -%}
+    {{ media | model_viewer_tag }}
+  {%- else -%}
+    {{ media | media_tag }}
+{%- endcase -%}

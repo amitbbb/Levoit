@@ -1,0 +1,5 @@
+pdp-zoom-gallery {
+  &.is-active {
+    @apply visible opacity-100 pointer-events-auto scale-100;
+  }
+}

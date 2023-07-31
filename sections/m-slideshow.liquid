@@ -1,0 +1,909 @@
+{%- liquid
+  assign container = section.settings.container
+  assign content_title = section.settings.title
+
+  if section.settings.height == 'setHeight'
+    assign height = section.settings.heightValue | append: 'vh'
+  else
+    assign height = 'natural'
+  endif
+-%}
+
+{% # prettier-ignore %}
+{%- capture slider_config -%}
+  { 
+    "autoHeight": true,
+    "slidesPerView": 1,
+    "spaceBetween": 0
+    {% if section.settings.enable_autoplay %}
+      ,"autoplay": {
+        "delay": {{ section.settings.autoplay_interval | times: 1000 }},
+        "disableOnInteraction": true
+      }  
+    {% endif %}
+  }
+{%- endcapture -%}
+
+<div class="{{ section.settings.container }}">
+  <swiper-slider
+    slider-config="{{ slider_config | escape }}"
+    modules="Navigation, Pagination, Autoplay, A11y"
+    slides-length="{{ section.blocks.size }}"
+  >
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign id = 'Slide-' | append: section.id | append: '-' | append: block.id
+            assign media_id = 'M-Slideshow-Media-' | append: section.id | append: '-' | append: block.id
+          -%}
+
+          {%- style -%}
+            #M-Slideshow-BlockSlide-SubTitle-{{ section.id }}-{{ block.id }} {
+              color: {{ block.settings.text_color_subtitle }};
+            }
+            #M-Slideshow-BlockSlide-Title-{{ section.id }}-{{ block.id }} {
+              color: {{ block.settings.text_color_title }};
+            }
+            #M-Slideshow-BlockSlide-Desc-{{ section.id }}-{{ block.id }} {
+              color: {{ block.settings.text_color_desc }};
+            }
+            #M-Slideshow-BlockSlide-Header-{{ section.id }}-{{ block.id }} {
+              {%- render 'get-text-position-style', get: 'style', position: block.settings.mobile_text_position -%}
+              {%- render 'get-text-align-style', get: 'style', align: block.settings.mobile_text_align -%}
+            }
+            #M-Slideshow-BlockSlide-HeaderContainer-{{ section.id }}-{{ block.id }} {
+              max-width: 100%;
+            }
+            @media (min-width: 1024px) {
+              #M-Slideshow-BlockSlide-Header-{{ section.id }}-{{ block.id }} {
+                {%- render 'get-text-position-style', get: 'style', position: block.settings.desktop_text_position -%}
+                {%- render 'get-text-align-style', get: 'style', align: block.settings.desktop_text_align -%}
+              }
+              #M-Slideshow-BlockSlide-HeaderContainer-{{ section.id }}-{{ block.id }} {
+                width: {{ block.settings.header_width }}px;
+              }
+            }
+          {%- endstyle -%}
+
+          {%- case block.type -%}
+            {%- when 'image' -%}
+              <div class="swiper-slide">
+                <div class="relative">
+                  {%- if block.settings.desktop_image != blank or block.settings.mobile_image != blank -%}
+                    {% comment %}
+                      {% render 'picture',
+                        desktop_image: block.settings.desktop_image,
+                        mobile_image: block.settings.mobile_image,
+                        aspect_ratio: 'natural',
+                        object_fit: 'cover',
+                        id: id,
+                        width: 1280,
+                        widths: '768, 1024, 1560, 1920'
+                      %}
+                    {% endcomment %}
+                    {% render 'picture',
+                      desktop_image: block.settings.desktop_image,
+                      mobile_image: block.settings.mobile_image,
+                      aspect_ratio: block.settings.aspect_ratio,
+                      object_fit: block.settings.object_fit,
+                      figcaption: block.settings.figcaption,
+                      height: block.settings.media_height,
+                      width: 768,
+                      widths: '768, 1024, 1280, 1560, 1920',
+                      id: media_id
+                    %}
+                  {%- else -%}
+                    <div class="bg-neutral-100 aspect-video"></div>
+                  {%- endif -%}
+
+                  <div
+                    id="M-Slideshow-BlockSlide-Header-{{ section.id }}-{{ block.id }}"
+                    class="absolute inset-0 p-4 md:p-8 lg:p-16 flex max-w-screen-2xl mx-auto"
+                  >
+                    <div
+                      id="M-Slideshow-BlockSlide-HeaderContainer-{{ section.id }}-{{ block.id }}"
+                      style="width: {{ block.settings.header_width }}px"
+                    >
+                      {%- if block.settings.subtitle != blank -%}
+                        <span id="M-Slideshow-BlockSlide-SubTitle-{{ section.id }}-{{ block.id }}" class="block mb-2">
+                          {{- block.settings.subtitle -}}
+                        </span>
+                      {%- endif -%}
+                      {%- if block.settings.title != blank -%}
+                        <h2 id="M-Slideshow-BlockSlide-Title-{{ section.id }}-{{ block.id }}" class="m-title-h2">
+                          {{ block.settings.title }}
+                        </h2>
+                      {%- endif -%}
+                      {%- if block.settings.desc != blank -%}
+                        <div id="M-Slideshow-BlockSlide-Desc-{{ section.id }}-{{ block.id }}" class="mt-4">
+                          {{ block.settings.desc | newline_to_br }}
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.button_url != blank -%}
+                        <div id="M-Slideshow-BlockSlide-Button-{{ section.id }}-{{ block.id }}" class="mt-6">
+                          <a href="{{ block.settings.button_url }}" class="btn-primary">
+                            {{ block.settings.button_label }}
+                          </a>
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            {%- when 'video' -%}
+              <div class="swiper-slide">
+                <div class="relative">
+                  {%- if block.settings.desktop_video != blank or block.settings.mobile_video != blank -%}
+                    {% render 'video',
+                      desktop_video: block.settings.desktop_video,
+                      mobile_video: block.settings.mobile_video,
+                      aspect_ratio: block.settings.aspect_ratio,
+                      object_fit: block.settings.object_fit,
+                      height: block.settings.media_height,
+                      lazyload: false,
+                      show_unmute_button: block.settings.show_unmute_button,
+                      id: media_id
+                    %}
+                  {%- else -%}
+                    <div class="bg-neutral-100 aspect-video"></div>
+                  {%- endif -%}
+
+                  <div
+                    id="M-Slideshow-BlockSlide-Header-{{ section.id }}-{{ block.id }}"
+                    class="absolute inset-0 py-4 container flex"
+                  >
+                    <div id="M-Slideshow-BlockSlide-HeaderContainer-{{ section.id }}-{{ block.id }}">
+                      {%- if block.settings.subtitle != blank -%}
+                        <span id="M-Slideshow-BlockSlide-SubTitle-{{ section.id }}-{{ block.id }}" class="block mb-2">
+                          {{- block.settings.subtitle -}}
+                        </span>
+                      {%- endif -%}
+                      {%- if block.settings.title != blank -%}
+                        <h2 id="M-Slideshow-BlockSlide-Title-{{ section.id }}-{{ block.id }}" class="m-title-h2">
+                          {{ block.settings.title }}
+                        </h2>
+                      {%- endif -%}
+                      {%- if block.settings.desc != blank -%}
+                        <div id="M-Slideshow-BlockSlide-Desc-{{ section.id }}-{{ block.id }}" class="mt-4">
+                          {{ block.settings.desc | newline_to_br }}
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.button_url != blank -%}
+                        <div id="M-Slideshow-BlockSlide-Button-{{ section.id }}-{{ block.id }}" class="mt-6">
+                          <a href="{{ block.settings.button_url }}" class="btn-small bg-white">
+                            {{ block.settings.button_label }}
+                          </a>
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+      {%- if section.blocks.size > 1 -%}
+        {%- if section.settings.show_autoplay_progress -%}
+          {% comment %}
+            <div class="autoplay-progress">
+              <svg viewBox="0 0 48 48">
+                <circle cx="24" cy="24" r="20"></circle>
+              </svg>
+              <span></span>
+            </div>
+          {% endcomment %}
+        {%- endif -%}
+
+        {% comment %}
+          {%- if section.settings.show_pagination -%}
+            <div class="swiper-pagination"></div>
+          {%- endif -%}
+
+          {%- if section.settings.show_navigation -%}
+            <div class="swiper-button-prev">{% render 'icons' with 'arrow-left' %}</div>
+            <div class="swiper-button-next">{% render 'icons' with 'arrow-right' %}</div>
+          {%- endif -%}
+        {% endcomment %}
+
+        <nav
+          class="flex justify-center mt-8 absolute bottom-4 left-1/2 -translate-x-1/2 z-20"
+          {% comment %} class="flex justify-center mt-8 absolute bottom-4 left-1/2 -translate-x-1/2 z-20" {% endcomment %}
+          swiper-nav
+        >
+          <div class="inline-flex gap-x-4 items-center bg-white rounded-xl overflow-hidden shadow-xs border border-opacity-50">
+            <button swiper-button-prev class="flex items-center justify-center h-12 w-12 bg-white" tabindex="-1">
+              {% render 'icons' with 'arrow-left' %}
+            </button>
+            <div
+              swiper-pagination
+              class="bg-white h-12 !w-12 rounded-full flex items-center justify-center tracking-[0.35rem] text-xs"
+            ></div>
+            <button swiper-button-next class="flex items-center justify-center h-12 w-12 bg-white" tabindex="-1">
+              {% render 'icons' with 'arrow-right' %}
+            </button>
+          </div>
+        </nav>
+      {%- endif -%}
+    </div>
+  </swiper-slider>
+</div>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "M — Slideshow",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "Enable autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_interval",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "sec",
+      "label": "Autoplay interval",
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show pagination",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show navigation",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container (width)",
+      "options": [
+        {
+          "value": "",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Default"
+        },
+        {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+        },
+        {
+          "value": "container max-w-screen-md",
+          "label": "md"
+        },
+        {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+        },
+        {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+        },
+        {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+        }
+      ],
+      "default": ""
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "header",
+          "content": "Header"
+        },
+        {
+          "type": "textarea",
+          "id": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "default": "<strong>YOUR PURE AIR HERO</strong>"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "default": "Don't let wildfire smoke infiltrate your home.\nProtect it with a Levoit Smart True HEPA Air Purifier."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "SHOP NOW"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button url",
+          "info": "Enter URL to show button"
+        },
+        {
+          "type": "range",
+          "id": "header_width",
+          "min": 100,
+          "max": 800,
+          "step": 10,
+          "unit": "px",
+          "label": "Header width (Header)",
+          "default": 450
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "BG Color"
+        },
+        {
+          "type": "color",
+          "id": "text_color_subtitle",
+          "label": "Text color (Subtitle)",
+          "default": "#fe5834"
+        },
+        {
+          "type": "color",
+          "id": "text_color_title",
+          "label": "Text color (Title)",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "text_color_desc",
+          "label": "Text color (Desc)",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Aspect ratio settings"
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Aspect ratio",
+          "options": [
+            {
+              "value": "natural",
+              "label": "Natural"
+            },
+            {
+              "value": "square",
+              "label": "Square"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            },
+            {
+              "value": "fill",
+              "label": "Fill"
+            }
+          ],
+          "default": "natural"
+        },
+        {
+          "type": "select",
+          "id": "object_fit",
+          "label": "Media Object Fit",
+          "options": [
+            {
+              "value": "cover",
+              "label": "cover"
+            },
+            {
+              "value": "contain",
+              "label": "contain"
+            }
+          ],
+          "default": "cover",
+          "info": "Control how media will display inside the container. See https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit for more info."
+        },
+        {
+          "type": "range",
+          "id": "media_height",
+          "min": 200,
+          "max": 1000,
+          "step": 10,
+          "unit": "px",
+          "label": "Media height (px)",
+          "default": 650,
+          "info": "Only applicable for 'fill' aspect ratio"
+        },
+        {
+          "type": "header",
+          "content": "Desktop settings"
+        },
+        {
+          "type": "select",
+          "id": "desktop_text_align",
+          "label": "Text align (Header)",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "desktop_text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "top_left",
+              "label": "Top left"
+            },
+            {
+              "value": "top_center",
+              "label": "Top center"
+            },
+            {
+              "value": "top_right",
+              "label": "Top right"
+            },
+            {
+              "value": "center_left",
+              "label": "Center left"
+            },
+            {
+              "value": "center_center",
+              "label": "Center center"
+            },
+            {
+              "value": "center_right",
+              "label": "Center right"
+            },
+            {
+              "value": "bottom_left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom_center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "bottom_right",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "center_left"
+        },
+        {
+          "type": "header",
+          "content": "Mobile settings"
+        },
+        {
+          "type": "select",
+          "id": "mobile_text_align",
+          "label": "Text align (Header)",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "mobile_text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "top_left",
+              "label": "Top left"
+            },
+            {
+              "value": "top_center",
+              "label": "Top center"
+            },
+            {
+              "value": "top_right",
+              "label": "Top right"
+            },
+            {
+              "value": "center_left",
+              "label": "Center left"
+            },
+            {
+              "value": "center_center",
+              "label": "Center center"
+            },
+            {
+              "value": "center_right",
+              "label": "Center right"
+            },
+            {
+              "value": "bottom_left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom_center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "bottom_right",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "center_left"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "desktop_video",
+          "label": "Desktop video",
+          "info": "If only one video, use 'Desktop video'"
+        },
+        {
+          "type": "video",
+          "id": "mobile_video",
+          "label": "Mobile video"
+        },
+        {
+          "type": "header",
+          "content": "Header"
+        },
+        {
+          "type": "textarea",
+          "id": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "default": "Fresh Air Starts With Innovation."
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "SHOP NOW"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button url",
+          "info": "Enter URL to show button"
+        },
+        {
+          "type": "range",
+          "id": "header_width",
+          "min": 100,
+          "max": 800,
+          "step": 10,
+          "unit": "px",
+          "label": "Header width (Header)",
+          "default": 450
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "BG Color"
+        },
+        {
+          "type": "color",
+          "id": "text_color_subtitle",
+          "label": "Text color (Subtitle)",
+          "default": "#fe5834"
+        },
+        {
+          "type": "color",
+          "id": "text_color_title",
+          "label": "Text color (Title)",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "text_color_desc",
+          "label": "Text color (Desc)",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Aspect ratio settings"
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Aspect ratio",
+          "options": [
+            {
+              "value": "natural",
+              "label": "Natural"
+            },
+            {
+              "value": "square",
+              "label": "Square"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            },
+            {
+              "value": "fill",
+              "label": "Fill"
+            }
+          ],
+          "default": "natural"
+        },
+        {
+          "type": "select",
+          "id": "object_fit",
+          "label": "Media Object Fit",
+          "options": [
+            {
+              "value": "cover",
+              "label": "cover"
+            },
+            {
+              "value": "contain",
+              "label": "contain"
+            }
+          ],
+          "default": "cover",
+          "info": "Control how media will display inside the container. See https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit for more info."
+        },
+        {
+          "type": "range",
+          "id": "media_height",
+          "min": 200,
+          "max": 1000,
+          "step": 10,
+          "unit": "px",
+          "label": "Media height (px)",
+          "default": 650,
+          "info": "Only applicable for 'fill' aspect ratio"
+        },
+        {
+          "type": "header",
+          "content": "Desktop settings"
+        },
+        {
+          "type": "select",
+          "id": "desktop_text_align",
+          "label": "Text align (Header)",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "desktop_text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "top_left",
+              "label": "Top left"
+            },
+            {
+              "value": "top_center",
+              "label": "Top center"
+            },
+            {
+              "value": "top_right",
+              "label": "Top right"
+            },
+            {
+              "value": "center_left",
+              "label": "Center left"
+            },
+            {
+              "value": "center_center",
+              "label": "Center center"
+            },
+            {
+              "value": "center_right",
+              "label": "Center right"
+            },
+            {
+              "value": "bottom_left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom_center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "bottom_right",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "center_left"
+        },
+        {
+          "type": "header",
+          "content": "Mobile settings"
+        },
+        {
+          "type": "select",
+          "id": "mobile_text_align",
+          "label": "Text align (Header)",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "mobile_text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "top_left",
+              "label": "Top left"
+            },
+            {
+              "value": "top_center",
+              "label": "Top center"
+            },
+            {
+              "value": "top_right",
+              "label": "Top right"
+            },
+            {
+              "value": "center_left",
+              "label": "Center left"
+            },
+            {
+              "value": "center_center",
+              "label": "Center center"
+            },
+            {
+              "value": "center_right",
+              "label": "Center right"
+            },
+            {
+              "value": "bottom_left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom_center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "bottom_right",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "center_left"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "M — Slideshow"
+    }
+  ]
+}
+{% endschema %}

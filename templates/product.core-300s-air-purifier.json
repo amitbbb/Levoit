@@ -1,0 +1,730 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {
+          }
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {
+          }
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {
+      }
+    },
+    "59beb5cb-7868-4004-87d3-749b484e89be": {
+      "type": "m-title",
+      "settings": {
+        "title": "Connect Your Home to Fresh Air",
+        "des": "",
+        "header_width": 680,
+        "header_image_width": 100,
+        "container": "",
+        "text_align": "center",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 2
+      }
+    },
+    "c7e4a8b0-1e13-4e80-b8ff-a0228988533f": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "956ed849-8594-4559-9397-3ef8fb668fd2": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "",
+            "desc": "AirSight™ Plus Technology scans surrounding air and provides real-time air quality updates.",
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_3d26615dc45e4bfcb7eb39da80b6a256.webp",
+            "image_width": 350,
+            "render_image_at_top": true,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#ffffff",
+            "text_color_desc": "#ffffff",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "582d1e3e-5d45-483e-9bf4-f4a5c7f7377a": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_c97a456032534eec82fda496b0d72654.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "956ed849-8594-4559-9397-3ef8fb668fd2",
+        "582d1e3e-5d45-483e-9bf4-f4a5c7f7377a"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "#21145f",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "b27dd132-8e27-46b0-9ebd-ad24c08f1268": {
+      "type": "m-media",
+      "blocks": {
+        "template--16107944968343__b27dd132-8e27-46b0-9ebd-ad24c08f1268-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Screenshot_2023-07-24_at_11.48.46_PM.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16107944968343__b27dd132-8e27-46b0-9ebd-ad24c08f1268-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "header_width": 630,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "",
+        "button_url": "",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "reverse_on_mobile": false
+      }
+    },
+    "7cc782f3-4faa-4cf0-afb7-5f55c0511b55": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "85166902-cc31-4cdb-8de8-efcf3a681b25": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_20b836f9895a4ce4b87edaaea152b174.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Dust<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "2b4eef91-4c96-4604-b8f5-a0970ce752b9": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_ed6656dc1469445390c8d09c99a6a375.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Pollen<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "651be1f0-96ab-4a6c-8317-4a76cfe195d5": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_bfa4633e336944a28bb1b34f04fda231.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Bacteria<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "9214521b-cb35-44bd-aad5-1bbf9fcd9215": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_9ef4ad0733434fac8045b37735b73464.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Mold<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "ca0a51f8-4f03-405d-8f48-0db773801811": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_8ff8b54a6a9642718df44c36174c47cc.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Viruses<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "bea315cb-aca0-4a69-93ae-9af4cfe7170d": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_3a275a862e2248eb84c0ab9bf608983d.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Pet Dander<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "2b82444d-926b-49b1-991a-a04f4d2b3c36": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_0f1ad3bada86440d838a010d04a5bcc3.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Pet Fur<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "87a06475-cd67-4660-b542-1e255ae0acfe": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_761dac0e6aab4371ba7e98d3a23764dd.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Household Odors<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "36c67ca0-4281-4645-b50f-1d93453f90dc": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_a106cc0e1db0455ca274ec89013c1230.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>VOCs<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "85166902-cc31-4cdb-8de8-efcf3a681b25",
+        "2b4eef91-4c96-4604-b8f5-a0970ce752b9",
+        "651be1f0-96ab-4a6c-8317-4a76cfe195d5",
+        "9214521b-cb35-44bd-aad5-1bbf9fcd9215",
+        "ca0a51f8-4f03-405d-8f48-0db773801811",
+        "bea315cb-aca0-4a69-93ae-9af4cfe7170d",
+        "2b82444d-926b-49b1-991a-a04f4d2b3c36",
+        "87a06475-cd67-4660-b542-1e255ae0acfe",
+        "36c67ca0-4281-4645-b50f-1d93453f90dc"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Breathe Clean Air<\/b>",
+        "desc": "<p style=\"font-size:1.2rem;\">Upgraded 3-stage filtration traps particles such as<\/p>",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#1f155f",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#FFFFFF",
+        "button_border_radius": 0,
+        "disable_slider": "disabled",
+        "mobile_items_per_row": 3,
+        "tablet_items_per_row": 4,
+        "desktop_items_per_row": 5,
+        "gap": 2,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "center",
+        "convert_to_card": false,
+        "card_bg_color": "",
+        "card_subtitle_color": "",
+        "card_title_color": "",
+        "card_desc_color": "",
+        "card_border_radius": 0
+      }
+    },
+    "32080d47-e758-4550-965c-492b33cb4176": {
+      "type": "m-media",
+      "blocks": {
+        "99b52250-0229-4bd2-bf99-5508d01ed530": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify:\/\/files\/videos\/01.00_Core300S_RCB_06.mp4",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250,
+            "show_unmute_button": false
+          }
+        },
+        "ff2e03af-9f31-4317-a303-c2c91c892576": {
+          "type": "app-link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_39baadba02974724a29581c6bde3b06c.webp",
+            "image_width": 100,
+            "url": "",
+            "open_link_in_new_tab": true
+          }
+        },
+        "8cf0ecb0-fd20-404e-8079-a6d7eef8d1f0": {
+          "type": "app-link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_4b5db3ab1b514964a3d827731659a8e9.webp",
+            "image_width": 100,
+            "url": "https:\/\/apps.apple.com\/us\/app\/vesync\/id1289575311",
+            "open_link_in_new_tab": true
+          }
+        },
+        "32342e29-a96e-4872-8a98-a902e4fd9615": {
+          "type": "app-link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_8d4e559c210548f2b7b2e44809ca0808.webp",
+            "image_width": 100,
+            "url": "https:\/\/play.google.com\/store\/apps\/details?hl=en&id=com.etekcity.vesyncplatform",
+            "open_link_in_new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "99b52250-0229-4bd2-bf99-5508d01ed530",
+        "ff2e03af-9f31-4317-a303-c2c91c892576",
+        "8cf0ecb0-fd20-404e-8079-a6d7eef8d1f0",
+        "32342e29-a96e-4872-8a98-a902e4fd9615"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Make Life Easier<\/b>",
+        "desc": "<p style=\"font-size:1.2rem;\">The VeSync app allows the Core 300S to blend seamlessly into your lifestyle, no matter where you are.<\/p>",
+        "list": "",
+        "header_width": 620,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "",
+        "button_url": "",
+        "footer_image_width": 100,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#1f155f",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "19b91b22-acd4-4437-b55d-52a1b2758a11": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "4232a1b5-a74e-4717-8a84-32f7a68e2176": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "<b>Voice Control<\/b>",
+            "desc": "<p style=\"font-size: 1.2rem;\">Connect to Amazon Alexa or Google Assistant™ to control the air purifier when your hands are full.<\/p>",
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-07-25_at_12.07.44_AM.png",
+            "image_width": 310,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 480,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#ffffff",
+            "text_color_desc": "#ffffff",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "6055d131-f48b-48a0-b326-d30d3a9363e8": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify:\/\/files\/videos\/01.00_WA2_0322Core200S_us_08_1.mp4",
+            "show_unmute_button": false,
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "4232a1b5-a74e-4717-8a84-32f7a68e2176",
+        "6055d131-f48b-48a0-b326-d30d3a9363e8"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "#14015b",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "d79284e4-d56e-4321-8415-896982ac2591": {
+      "type": "m-media",
+      "blocks": {
+        "17c1dc68-ddf0-4ab2-919f-eef5b706894f": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify:\/\/files\/videos\/01.00_Core300S_RCB_08(Compressed).mp4",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250,
+            "show_unmute_button": false
+          }
+        }
+      },
+      "block_order": [
+        "17c1dc68-ddf0-4ab2-919f-eef5b706894f"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Get Your Zzz’s<\/b>",
+        "desc": "<p style=\"font-size:1.2rem;\">Sleep Mode lets you get quality rest while purifying the air as quietly as a gentle breeze.<\/p>",
+        "list": "",
+        "header_width": 830,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "",
+        "button_url": "",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "7676b1e0-9d0f-46f5-ba09-45c999d3dc14": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "f060840b-5207-4542-87ba-216d46d0684e": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/california-air-resources-board.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "5f036555-cbdb-4d9c-8f6d-9f7f5688e0e9": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Energy_Star_logo_svg.png",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "b5967c11-4cda-4985-a6fb-8a7d3c8025ef": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/intertek.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "18052804-87f9-43b7-b6b3-83d4fe605839": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/fc.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "f060840b-5207-4542-87ba-216d46d0684e",
+        "5f036555-cbdb-4d9c-8f6d-9f7f5688e0e9",
+        "b5967c11-4cda-4985-a6fb-8a7d3c8025ef",
+        "18052804-87f9-43b7-b6b3-83d4fe605839"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Certifications",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#FFFFFF",
+        "button_border_radius": 0,
+        "disable_slider": "disabled",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 4,
+        "desktop_items_per_row": 4,
+        "gap": 2,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "left",
+        "convert_to_card": false,
+        "card_bg_color": "",
+        "card_subtitle_color": "",
+        "card_title_color": "",
+        "card_desc_color": "",
+        "card_border_radius": 0
+      }
+    },
+    "104fde46-24da-4956-8f24-8f89c3b7083c": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:<\/b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href=\"www.P65Warnings.ca.gov\" target=\"_blank\">www.P65Warnings.ca.gov<\/a><\/p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/reviews-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/rating-summary-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "59beb5cb-7868-4004-87d3-749b484e89be",
+    "c7e4a8b0-1e13-4e80-b8ff-a0228988533f",
+    "b27dd132-8e27-46b0-9ebd-ad24c08f1268",
+    "7cc782f3-4faa-4cf0-afb7-5f55c0511b55",
+    "32080d47-e758-4550-965c-492b33cb4176",
+    "19b91b22-acd4-4437-b55d-52a1b2758a11",
+    "d79284e4-d56e-4321-8415-896982ac2591",
+    "7676b1e0-9d0f-46f5-ba09-45c999d3dc14",
+    "104fde46-24da-4956-8f24-8f89c3b7083c",
+    "product-recommendations",
+    "reviews"
+  ]
+}

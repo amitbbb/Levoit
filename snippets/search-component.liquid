@@ -1,0 +1,50 @@
+
+
+<search-component class="relative block">
+  <predictive-search data-loading-text="{{ 'accessibility.loading' | t }}" limit="{{ limit }}">
+    <form action="{{ routes.search_url }}" method="get" role="search" class="">
+      <label class="relative block">
+        <input
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="Find the best for a healthier home..."
+          aria-label="find the best for a healthier home..."
+          role="combobox"
+          aria-expanded="false"
+          aria-owns="predictive-search-results-list"
+          aria-controls="predictive-search-results-list"
+          aria-haspopup="listbox"
+          aria-autocomplete="list"
+          autocorrect="off"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+          class="
+            block
+            w-full
+            rounded-md
+            border-transparent
+            bg-gray-100 p-2 
+            text-base placeholder-black/40 placeholder:text-xs
+            focus:border-gray-500 focus:ring-0
+          "
+        >
+        <button type="submit" class="absolute top-1/2 right-4 -translate-y-1/2">
+          {% render 'icons' with 'search', width: 25, height: 25 %}
+        </button>
+      </label>
+
+      <input type="hidden" name="options[prefix]" value="last">
+      <aside class="{{ aside_class }}">
+        <div
+          id="Search-Results"
+          data-predictive-search
+          tabindex="-1"
+        ></div>
+      </aside>
+
+      <span class="predictive-search-status sr-only block py-4" role="status" aria-hidden="true"></span>
+    </form>
+  </predictive-search>
+</search-component>

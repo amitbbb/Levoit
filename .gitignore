@@ -1,0 +1,12 @@
+# Project #
+node_modules
+
+.env
+.env.*
+
+# Logs
+*.log
+
+# OS generated files #
+.DS_Store
+

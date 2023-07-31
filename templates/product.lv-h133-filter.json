@@ -1,0 +1,332 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {
+          }
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {
+          }
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {
+      }
+    },
+    "76d14dc5-7e1f-4a3c-a47c-693a79c4fd15": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109696188567__76d14dc5-7e1f-4a3c-a47c-693a79c4fd15-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_e03ad139256547f4b5b7cec9dd8f8d05.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109696188567__76d14dc5-7e1f-4a3c-a47c-693a79c4fd15-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "c8ca5981-1c8e-46a1-a2d7-3053b71fc5d7": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "225551ae-e99c-4ec6-b1ea-ab7058ce9f9d": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Frame_12.jpg",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "27545721-feb7-4c3b-9a43-3f7498dc678a": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "left",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#000000",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "21dbcddd-331b-47c9-adfd-60708a701adf": {
+          "type": "icon-with-text",
+          "settings": {
+            "image_width": 60,
+            "title": "<b>Nylon Pre-Filter<\/b>",
+            "desc": "Captures large particles such as dust, lint, fibers, hair, and pet fur."
+          }
+        },
+        "fa1cada3-61f3-4e83-a61a-b9a070559f35": {
+          "type": "icon-with-text",
+          "settings": {
+            "image_width": 60,
+            "title": "<b>H13 True HEPA Filter<\/b>",
+            "desc": "Traps small particles such as pollen, pet dander, smoke particles, and fine dust."
+          }
+        },
+        "66bb32c3-4aaf-462c-88f7-91c6688b5b6e": {
+          "type": "icon-with-text",
+          "settings": {
+            "image_width": 60,
+            "title": "<b>High-Efficiency Activated Carbon Filter<\/b>",
+            "desc": "Helps neutralize smoke, fumes, VOCs, and household odors such as cooking smells and pet odors."
+          }
+        }
+      },
+      "block_order": [
+        "225551ae-e99c-4ec6-b1ea-ab7058ce9f9d",
+        "27545721-feb7-4c3b-9a43-3f7498dc678a",
+        "21dbcddd-331b-47c9-adfd-60708a701adf",
+        "fa1cada3-61f3-4e83-a61a-b9a070559f35",
+        "66bb32c3-4aaf-462c-88f7-91c6688b5b6e"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>3-Stage Filtration<\/b>",
+        "desc": "Filters at least 99.97% of airborne particles 0.3 microns in size.",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": true
+      }
+    },
+    "d0bb6901-fc1a-41f6-b0e9-cc123ce54456": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "d46551bb-a581-4a12-a09a-ae60d91a919f": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_ce8be9dc0777426bbb3e1c1194a9a1e3.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Unplug the air purifier and remove the filter cover, then remove the old filter<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "99652642-54f2-4974-85d6-60199c983f77": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_1850a68af91147c9b1dfdef149e69a43.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Unwrap the new filter and place it into the housing. Make sure the pull tabs are facing out.<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "4cd96cfe-475d-4ac5-a2db-087b71759c21": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_9cd66d94ffc44acca97918f4450ff80c.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Replace the filter cover onto the housing.<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "4050fa18-999d-4f10-ae94-a6eac25c56af": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_0b848aeb67264467835cb9efd312250b.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<small>Plug in and turn on the air purifier.<\/small>",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "d46551bb-a581-4a12-a09a-ae60d91a919f",
+        "99652642-54f2-4974-85d6-60199c983f77",
+        "4cd96cfe-475d-4ac5-a2db-087b71759c21",
+        "4050fa18-999d-4f10-ae94-a6eac25c56af"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Replacing Your Filter\n\n<\/b>",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-xl",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 4,
+        "gap": 2.6,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": true,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "left"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/reviews-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/rating-summary-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "76d14dc5-7e1f-4a3c-a47c-693a79c4fd15",
+    "c8ca5981-1c8e-46a1-a2d7-3053b71fc5d7",
+    "d0bb6901-fc1a-41f6-b0e9-cc123ce54456",
+    "product-recommendations",
+    "reviews"
+  ]
+}

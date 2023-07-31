@@ -1,0 +1,185 @@
+<div class="section-{{ section.id }} mb-16">
+  {%- if section.settings.collection_links != blank -%}
+    <nav class="my-4 flex  justify-start bg-neutral-100 lg:hidden lg:justify-center">
+      <ul class="flex flex-nowrap gap-x-4 overflow-x-auto px-4 py-4">
+        {%- for link in section.settings.collection_links.links -%}
+          <li>
+            <a
+              href="{{ link.url }}"
+              class="whitespace-nowrap"
+              {% if link.active %}
+                aria-current="page"
+              {% endif %}
+            >
+              {{ link.title }}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  {%- endif -%}
+  <div class="container">
+    <div class="flex flex-col gap-8 lg:flex-row lg:gap-12">
+      <div class="hidden lg:w-60 max-w-full lg:block">
+        <div
+          aria-labelledby="verticalTitle"
+          class="facets-wrapper divide-y"
+          id="main-collection-filters"
+          data-id="{{ section.id }}"
+        >
+          {% render 'facets',
+            results: collection,
+            enable_filtering: section.settings.enable_filtering,
+            enable_sorting: section.settings.enable_sorting,
+            filter_type: section.settings.filter_type,
+            paginate: paginate
+          %}
+          {%- if collection.products.size > 0 -%}
+            <filters-compare-button class="hidden py-3">
+              <a
+                href="/pages/compare?collection={{ collection.handle }}"
+                class="btn-outline"
+                >Compare
+                <span
+                  class="w-6 h-6 text-xs bg-neutral-100 text-black inline-flex justify-center items-center rounded-full"
+                  count
+                ></span
+              ></a>
+              {% comment %}
+                <a
+                  href="/pages/compare?collection={{ collection.handle }}"
+                  class="block py-3 font-semibold text-primary-dark"
+                  >Compare</a
+                >
+              {% endcomment %}
+            </filters-compare-button>
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="flex-1">
+        <div
+          id="vertical-filter-sort-container"
+          class="mb-8 "
+        >
+          <div class="flex items-center justify-between rounded-md border lg:border-none">
+            <div class="order-1 block flex-1 lg:hidden border-r lg:border-r-0">
+              {%- render 'filter-drawer', results: collection -%}
+            </div>
+            {% comment %} <span>{{ collection.filters.active_values }}</span> {% endcomment %}
+            {%- render 'filters-sort-and-active-values', class: 'order-2 lg:order-2' -%}
+          </div>
+        </div>
+
+        <div id="ProductGridContainer">
+          <p class="product-count__text mb-4 text-center text-sm lg:hidden">
+            <span id="ProductCountDesktop" class="whitespace-nowrap">
+              {%- if collection.results_count -%}
+                {{
+                  'templates.search.results_with_count'
+                  | t: terms: collection.terms, count: collection.results_count
+                }}
+              {%- elsif collection.products_count == collection.all_products_count -%}
+                {{ 'products.facets.product_count_simple' | t: count: collection.products_count }}
+              {%- else -%}
+                {{
+                  'products.facets.product_count'
+                  | t: product_count: collection.products_count, count: collection.all_products_count
+                }}
+              {%- endif -%}
+            </span>
+          </p>
+
+          {%- paginate collection.products by section.settings.products_per_page -%}
+            {%- if collection.products.size == 0 -%}
+              <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
+                <div class="loading-overlay gradient"></div>
+                <div class="title-wrapper center">
+                  <h2 class="title title--primary">
+                    {{ 'sections.collection_template.empty' | t -}}
+                    <br>
+                    {{
+                      'sections.collection_template.use_fewer_filters_html'
+                      | t: link: collection.url, class: 'underlined-link link'
+                    }}
+                  </h2>
+                </div>
+              </div>
+            {%- else -%}
+              <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
+                <div class="loading-overlay gradient"></div>
+                <ul
+                  id="product-grid"
+                  data-id="{{ section.id }}"
+                  class="grid grid-cols-2 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:gap-10 xl:grid-cols-4 2xl:grid-cols-4"
+                >
+                  {%- for product in collection.products -%}
+                    {%- liquid
+                      assign lazy_load = false
+                      if forloop.index > 2
+                        assign lazy_load = true
+                      endif
+                    -%}
+
+                    {% render 'plp-product-loop-banner', index: forloop.index %}
+
+                    <li class="h-full">
+                      {%- render 'card-product',
+                        product: product,
+                        collection: collection,
+                        lazy_load: lazy_load,
+                        section_id: section.id,
+                        aspect_ratio: 'aspect-[4/5]',
+                        show_secondary_image: true,
+                        object_fit: 'object-contain',
+                        show_compare: true,
+                        show_favorite: true
+                      -%}
+                    </li>
+                  {%- endfor %}
+                </ul>
+              </div>
+
+              {%- if paginate.pages > 1 -%}
+                {%- if paginate.next -%}
+                  <div class="flex justify-center mt-16">
+                    <pagination-component
+                      url="{{ paginate.next.url }}"
+                      aria-label="{{ 'general.pagination.next' | t }}"
+                      class=""
+                      ><button type="button" class="btn-primary mx-auto inline-block cursor-pointer border px-2 py-2">
+                        Load more
+                      </button></pagination-component
+                    >
+                  </div>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endpaginate -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Grid",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "default": 16,
+      "label": "Products per page"
+    },
+    {
+      "type": "link_list",
+      "id": "collection_links",
+      "label": "Collection links (scrolling bar)"
+    }
+  ]
+}
+{% endschema %}

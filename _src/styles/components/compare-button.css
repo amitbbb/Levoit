@@ -1,0 +1,5 @@
+#CompareButton {
+  &.is-active span {
+    @apply before:absolute before:-right-6 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:border before:border-black before:rounded-full after:absolute after:-right-8 after:top-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:border after:border-black after:rounded-full
+  }
+}

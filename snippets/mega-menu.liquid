@@ -1,0 +1,338 @@
+{% style %}
+  .main-nav__menu {
+    {% if section.settings.show_separator_line %}
+      {% if section.settings.logo_position == 'top-left' or section.settings.logo_position == 'top-center' %}
+        border-top: 1px solid {{ section.settings.separator_line }};
+      {% endif %}
+    {% endif %}
+  }
+{% endstyle %}
+
+{%- capture slider_config -%}
+  { "slides": { "perView": 2.2, "spacing": 16 } }
+{%- endcapture -%}
+
+{% # prettier-ignore %}
+{%- capture slider_config -%}
+  {
+    "spaceBetween": 16,
+    "slidesPerView": 1.25,
+    "watchSlidesProgress": true
+  }
+{%- endcapture -%}
+
+<ul class="{{ class }} hidden h-full items-center justify-around text-sm leading-none lg:flex lg:gap-x-4 xl:gap-x-6 text-neutral">
+  {%- for link in menu.links -%}
+    {%- liquid
+      assign link_title_downcase = link.title | strip | downcase
+      assign mega_menu_block = empty
+      for block in section.blocks
+        assign menu_item_downcase = block.settings.title | strip | downcase
+        if menu_item_downcase == link_title_downcase
+          assign mega_menu_block = block
+          break
+        endif
+      endfor
+    -%}
+
+    <li class="h-full">
+      {%- if link.links != blank -%}
+        {%- if mega_menu_block != empty -%}
+          <mega-menu class="inline-block h-full transition-colors duration-300 ease-out-quint hover:border-b hover:border-b-black">
+            <details id="Details-menu-drawer-menu-item-{{ forloop.index }}" class="h-full">
+              <summary class="flex h-full items-center {% if link.child_active %} is-active{% endif %}">
+                <a
+                  href="{{ link.url }}"
+                  {% if link.current %}
+                    aria-current="page"
+                  {% endif %}
+                  class="menu-item flex h-full items-center "
+                >
+                  {{- link.title | escape -}}
+                </a>
+              </summary>
+              <div
+                id="link-{{ link.handle | escape }}"
+                tabindex="-1"
+                class="details__main absolute left-0 right-0 top-full h-[auto]  w-full border-b bg-white p-4	"
+              >
+                <div class="container">
+                  {%- if mega_menu_block.settings.shop_all_link != blank -%}
+                    <a
+                      href="{{ mega_menu_block.settings.shop_all_link }}"
+                      class="inline-flex items-center gap-x-2 font-normal mb-2 text-base"
+                    >
+                      {{- mega_menu_block.settings.shop_all_label -}}
+                      {% render 'icons' with 'arrow-right', width: 20, height: 20 %}
+                    </a>
+                  {%- endif -%}
+                  <div class="menu-drawer__inner-submenu flex gap-12">
+                    <ul class="flex-1 flex w-full flex-wrap gap-x-16  gap-y-4" role="list" tabindex="-1">
+                      {%- for childlink in link.links -%}
+                        <li class="flex-1">
+                          {%- if childlink.links == blank -%}
+                            <a
+                              href="{{ childlink.url }}"
+                              class="menu-drawer__menu-item link link--text list-menu__item focus-inset block py-2{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
+                              {% if childlink.current %}
+                                aria-current="page"
+                              {% endif %}
+                            >
+                              {{ childlink.title | escape }}
+                            </a>
+                          {%- else -%}
+                            {%- if childlink.title == '_' -%}
+                              <ul role="list" tabindex="-1" class="font-bold">
+                                {%- for grandchildlink in childlink.links -%}
+                                  <li>
+                                    <a
+                                      href="{{ grandchildlink.url }}"
+                                      class="menu-drawer__menu-item block normal-case py-2 {% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"
+                                      {% if grandchildlink.current %}
+                                        aria-current="page"
+                                      {% endif %}
+                                    >
+                                      {{ grandchildlink.title | escape }}
+                                    </a>
+                                  </li>
+                                {%- endfor -%}
+                              </ul>
+                            {%- else -%}
+                              <div>
+                                <span class="block  border-b py-2 text-sm font-bold">
+                                  {{ childlink.title | escape }}
+                                </span>
+                                <ul role="list" tabindex="-1" class="py-2">
+                                  {%- for grandchildlink in childlink.links -%}
+                                    <li>
+                                      <a
+                                        href="{{ grandchildlink.url }}"
+                                        class="menu-drawer__menu-item block py-2 normal-case {% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"
+                                        {% if grandchildlink.current %}
+                                          aria-current="page"
+                                        {% endif %}
+                                      >
+                                        {{ grandchildlink.title | escape }}
+                                      </a>
+                                    </li>
+                                  {%- endfor -%}
+                                </ul>
+                              </div>
+                            {%- endif -%}
+                          {%- endif -%}
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                    {%- if mega_menu_block.settings.image_1
+                      or mega_menu_block.settings.image_2
+                      or mega_menu_block.settings.image_3
+                      or mega_menu_block.settings.image_4 != blank
+                    -%}
+                      <div class="w-64 max-w-full">
+                        <div>
+                          <span class="block font-bold pt-2 mb-4">Featured</span>
+                        </div>
+
+                        <swiper-slider slider-config="{{ slider_config | escape }}" class="block">
+                          <div class="swiper">
+                            <div class="swiper-wrapper">
+                              {%- render 'mega-menu-image-slider',
+                                image: mega_menu_block.settings.image_1,
+                                title: mega_menu_block.settings.image_1_title,
+                                link_label: mega_menu_block.settings.image_1_link_label,
+                                link: mega_menu_block.settings.image_1_link
+                              -%}
+                              {%- render 'mega-menu-image-slider',
+                                image: mega_menu_block.settings.image_2,
+                                title: mega_menu_block.settings.image_2_title,
+                                link_label: mega_menu_block.settings.image_2_link_label,
+                                link: mega_menu_block.settings.image_2_link
+                              -%}
+
+                              {%- render 'mega-menu-image-slider',
+                                image: mega_menu_block.settings.image_3,
+                                title: mega_menu_block.settings.image_3_title,
+                                link_label: mega_menu_block.settings.image_3_link_label,
+                                link: mega_menu_block.settings.image_3_link
+                              -%}
+
+                              {%- render 'mega-menu-image-slider',
+                                image: mega_menu_block.settings.image_4,
+                                title: mega_menu_block.settings.image_4_title,
+                                link_label: mega_menu_block.settings.image_4_link_label,
+                                link: mega_menu_block.settings.image_4_link
+                              -%}
+                            </div>
+                          </div>
+
+                          <nav class=" bg-white rounded-xl overflow-hidden shadow-xs border border-opacity-50 inline-block">
+                            <div class="flex gap-x-4 items-center">
+                              <button swiper-button-prev class="flex items-center justify-center h-12 w-12 bg-white">
+                                {% render 'icons' with 'arrow-left' %}
+                              </button>
+                              <div
+                                swiper-pagination
+                                class="bg-white h-12 !w-12 rounded-full flex items-center justify-center tracking-[0.35rem] text-xs"
+                              ></div>
+                              <button swiper-button-next class="flex items-center justify-center h-12 w-12 bg-white">
+                                {% render 'icons' with 'arrow-right' %}
+                              </button>
+                            </div>
+                          </nav>
+                        </swiper-slider>
+                      </div>
+                    {%- endif -%}
+                  </div>
+                  <div class="text-center font-bold flex justify-end gap-16 items-center mt-4">
+                    {%- if mega_menu_block.settings.user_manuals_link != blank -%}
+                      <a href="{{ mega_menu_block.settings.user_manuals_link }}" class="">
+                        {{- mega_menu_block.settings.user_manuals_label -}}
+                      </a>
+                    {%- endif -%}
+                  </div>
+                </div>
+              </div>
+            </details>
+          </mega-menu>
+        {%- else -%}
+          <dropdown-menu class="group inline-flex h-full items-center">
+            <details
+              id=""
+              class="relative inline-flex h-full"
+            >
+              {% comment %} <details id="Details-menu-drawer-menu-item-{{ forloop.index }}" class="relative h-full"> {% endcomment %}
+              <summary class="flex h-full items-center {% if link.child_active %} is-active{% endif %}">
+                <a
+                  href="{{ link.url | escape }}"
+                  class="inline-flex h-full items-center transition-colors duration-300 ease-out-quint group-hover:border-b group-hover:border-black"
+                >
+                  {{- link.title | escape -}}
+                </a>
+              </summary>
+              <aside
+                id="link-{{ link.handle | escape }}"
+                tabindex="-1"
+                class="absolute left-1/2 top-[calc(100%+1px)] right-auto w-auto -translate-x-1/2 bg-white px-8 py-2"
+              >
+                <div class="menu-drawer__inner-submenu">
+                  {%- comment -%}
+                    <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
+                      {% render 'icons' with 'arrow' %}
+                      {{ link.title | escape }}
+                    </button>
+                  {%- endcomment -%}
+                  <ul class="grid" role="list" tabindex="-1">
+                    {%- for childlink in link.links -%}
+                      <li>
+                        {%- if childlink.links == blank -%}
+                          <a
+                            href="{{ childlink.url }}"
+                            class="menu-drawer__menu-item block py-4 {% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
+                            {% if childlink.current %}
+                              aria-current="page"
+                            {% endif %}
+                          >
+                            <span class="link-underline">{{ childlink.title | escape }}</span>
+                          </a>
+                        {%- else -%}
+                          <details
+                            id="Details-menu-drawer-submenu-{{ forloop.index }}"
+                            class="whitespace-nowrap"
+                            rotate-icon
+                          >
+                            <summary class="flex items-center justify-between gap-x-8 py-3 ">
+                              {{ childlink.title | escape }}
+                              {% render 'icons' with 'chevron-down' %}
+                            </summary>
+                            <div id="childlink-{{ childlink.handle | escape }}" class=" px-4 py-2">
+                              <ul role="list" tabindex="-1" class="">
+                                {%- for grandchildlink in childlink.links -%}
+                                  <li>
+                                    <a
+                                      href="{{ grandchildlink.url }}"
+                                      class="menu-drawer__menu-item block py-3 text-neutral-600 {% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"
+                                      {% if grandchildlink.current %}
+                                        aria-current="page"
+                                      {% endif %}
+                                    >
+                                      {{ grandchildlink.title | escape }}
+                                    </a>
+                                  </li>
+                                {%- endfor -%}
+                              </ul>
+                            </div>
+                          </details>
+                        {%- endif -%}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              </aside>
+            </details>
+          </dropdown-menu>
+        {%- endif -%}
+      {%- else -%}
+        {%- if mega_menu_block != empty -%}
+          <details id="Details-menu-drawer-menu-item-{{ forloop.index }}" class="relative h-full">
+            <summary class="flex h-full items-center {% if link.child_active %} is-active{% endif %}">
+              {{ link.title | escape }}
+            </summary>
+            <div
+              id="link-{{ link.handle | escape }}"
+              tabindex="-1"
+              class="fixed left-0 right-0 top-16 h-[auto] w-80 min-w-full bg-white p-4	"
+            >
+              <div class="menu-drawer__inner-submenu flex flex-col items-center gap-x-8 gap-y-10">
+                <ul class="flex gap-x-4 gap-y-4">
+                  {%- for product in mega_menu_block.settings.collection.products limit: 6 -%}
+                    <li class="">
+                      <a href="{{ product.url }}" class="relative mb-4  block aspect-square">
+                        <lazy-image class="block h-full w-full overflow-hidden bg-neutral-100">
+                          {%- assign image_src = product.featured_image | image_url: width: 1000 -%}
+                          {{
+                            product.featured_image
+                            | image_url: width: 100
+                            | image_tag:
+                              width: null,
+                              class: 'w-full h-full object-cover',
+                              preload: 'true',
+                              data-src: image_src
+                          }}
+                        </lazy-image>
+                      </a>
+                      <p class="mb-2 uppercase">{{ product.title }}</p>
+
+                      <a
+                        href="{{ product.url }}"
+                        class="text-sm uppercase underline underline-offset-4"
+                        >View</a
+                      >
+                    </li>
+                  {%- endfor -%}
+                </ul>
+
+                <a
+                  href="{{ mega_menu_block.settings.collection.url }}"
+                  class="text-center text-sm underline underline-offset-4"
+                  >View all {{ mega_menu_block.settings.collection.title }}
+                </a>
+              </div>
+            </div>
+          </details>
+        {%- else -%}
+          <a
+            href="{{ link.url }}"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+            class="menu-item"
+          >
+            <span class="inline-flex  h-full items-center transition-colors duration-300 ease-out-quint hover:border-b hover:border-b-black">
+              {{- link.title | escape -}}
+            </span>
+          </a>
+        {%- endif -%}
+      {%- endif -%}
+    </li>
+  {%- endfor -%}
+</ul>

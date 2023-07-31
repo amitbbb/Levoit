@@ -1,0 +1,52 @@
+{
+  "sections": {
+    "featured_articles": {
+      "type": "main-blog-featured-articles",
+      "blocks": {
+        "article_1": {
+          "type": "featured-article",
+          "settings": {
+            "article": "levoit-blog\/meet-levoit-s-first-tower-humidifier"
+          }
+        },
+        "article_2": {
+          "type": "featured-article",
+          "settings": {
+            "article": "news\/what-makes-the-vortexiq™-40-cordless-vacuum-better"
+          }
+        },
+        "article_3": {
+          "type": "featured-article",
+          "settings": {
+            "article": "levoit-blog\/levoit-vital-200s-smart-true-hepa-air-purifier"
+          }
+        },
+        "article_4": {
+          "type": "featured-article",
+          "settings": {
+            "article": "levoit-blog\/storytime-with-the-vital-200s"
+          }
+        }
+      },
+      "block_order": [
+        "article_1",
+        "article_2",
+        "article_3",
+        "article_4"
+      ],
+      "settings": {
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "title": "",
+        "desc": ""
+      }
+    }
+  },
+  "order": [
+    "featured_articles",
+    "main"
+  ]
+}

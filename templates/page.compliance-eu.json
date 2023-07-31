@@ -1,0 +1,301 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": {
+        "desktop_image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_eaae0c6be0be44279b1de8fa633351c5_1.webp"
+      }
+    },
+    "main": {
+      "type": "p-compliance",
+      "blocks": {
+        "6d11510f-d969-4539-841e-d152f90590ed": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_ef436e1a2efa4afa9a9b4007d9e8b075_1.png",
+            "title": "CP137-AF",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CP137_EU_Declaration_of_Conformity.pdf?v=1684308617"
+          }
+        },
+        "f259be1c-cfa9-4f1b-89a2-54ff74dec491": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_ef436e1a2efa4afa9a9b4007d9e8b075_1.png",
+            "title": "CP158-AF",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CS158_EU_Declaration_of_Conformity_ebf05903-924e-4549-b11a-011beda4e185.pdf?v=1684308652"
+          }
+        },
+        "f96a10fd-e82b-4437-87d9-787b52c6c712": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_ef436e1a2efa4afa9a9b4007d9e8b075_1.png",
+            "title": "CS158-AF",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CS158-AF_EU_Declaration_of_Conformity.pdf?v=1684308690"
+          }
+        },
+        "430bcb12-4d0e-4518-9efc-6405072dce20": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_ef436e1a2efa4afa9a9b4007d9e8b075_1.png",
+            "title": "CS158-AF-RXB",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CS158-AF-RXB_EU_Declaration_of_Conformity.pdf?v=1684308724"
+          }
+        },
+        "44543334-028f-4f09-9fb7-f4d246f6bd3d": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_4df0c9d8e69d4665b7133236513fc40b.png",
+            "title": "CS358-AF",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CS358-AF_EU_Declaration_of_Conformity.pdf?v=1684308763"
+          }
+        },
+        "9a57c15f-9878-43b8-b3bf-0730ed2bb741": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_da8049bb05b24317873b13055583cb37.jpg",
+            "title": "CAF-L501",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CAF-L501_EU_Declaration_of_Conformity_4fd5056d-a5a4-4e05-a16f-4148108e22b7.pdf?v=1684308812"
+          }
+        },
+        "b20b7a13-4334-4520-a52a-c8d9ed8a97a7": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_873d01cb6f924bb3aa27c6846739756b.png",
+            "title": "CAF-LI401S",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CAF-L501_EU_Declaration_of_Conformity_4fd5056d-a5a4-4e05-a16f-4148108e22b7_2.pdf?v=1684308855"
+          }
+        },
+        "f108bcda-d36a-458c-8298-f722b452da6a": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_953e025784c64887b6a04b12375c457a.png",
+            "title": "CAF-P583S",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CAF-P583S_EU_Declaration_aof_aConformity.pdf?v=1684308906"
+          }
+        },
+        "b1c1fb3d-b924-47af-bb60-b418fc0d1a86": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_7c53fc1eb1274babbbdba286d08ecb0a.png",
+            "title": "CP258-AF",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CP258_EU_Declaration_of_Conformity.pdf?v=1684308947"
+          }
+        }
+      },
+      "block_order": [
+        "6d11510f-d969-4539-841e-d152f90590ed",
+        "f259be1c-cfa9-4f1b-89a2-54ff74dec491",
+        "f96a10fd-e82b-4437-87d9-787b52c6c712",
+        "430bcb12-4d0e-4518-9efc-6405072dce20",
+        "44543334-028f-4f09-9fb7-f4d246f6bd3d",
+        "9a57c15f-9878-43b8-b3bf-0730ed2bb741",
+        "b20b7a13-4334-4520-a52a-c8d9ed8a97a7",
+        "f108bcda-d36a-458c-8298-f722b452da6a",
+        "b1c1fb3d-b924-47af-bb60-b418fc0d1a86"
+      ],
+      "settings": {
+        "title": "Air Fryers"
+      }
+    },
+    "514478d9-309c-4715-85a6-2237c3104a67": {
+      "type": "p-compliance",
+      "blocks": {
+        "3fd8eb6c-c3b2-4745-8990-d73ed180acea": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_5c78d338da1d49f0817b3c7703916cb5.png",
+            "title": "GK151-CO",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_GK151-CO_EU_Declaration_of_Conformity.pdf?v=1684309006"
+          }
+        }
+      },
+      "block_order": ["3fd8eb6c-c3b2-4745-8990-d73ed180acea"],
+      "settings": {
+        "title": "Beverage"
+      }
+    },
+    "a8eb83d5-a09f-48a1-b208-8257098ea07a": {
+      "type": "p-compliance",
+      "blocks": {
+        "4cd78441-633f-42be-b28e-1969d046023e": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_15580007935344dea69b1701e10ab121.png",
+            "title": "CP267-FD",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CP267-FD_EU_Declaration_of_Conformity.pdf?v=1684309053"
+          }
+        },
+        "f046fc86-17d3-441f-8dbb-102a667815c0": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_f4c5f014f8484f74a9c899593e417b5a.png",
+            "title": "CFD-N051-W",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CFD-N051-W_EU_Declaration_of_Conformity.pdf?v=1684309089"
+          }
+        },
+        "922bc4a8-379c-458d-b16a-f02ff9aa6d33": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_16a90ed22ca64f169de0a50de76a7c4a.png",
+            "title": "CP267-FD",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CP267-FD_EU_Declaration_of_Conformity_9932cd06-0bd6-455d-b02d-a1a009667ca9.pdf?v=1684309131"
+          }
+        }
+      },
+      "block_order": [
+        "4cd78441-633f-42be-b28e-1969d046023e",
+        "f046fc86-17d3-441f-8dbb-102a667815c0",
+        "922bc4a8-379c-458d-b16a-f02ff9aa6d33"
+      ],
+      "settings": {
+        "title": "Food Dehydrators"
+      }
+    },
+    "3256fa38-09e6-41e5-b7e8-2232d91ba66a": {
+      "type": "p-title",
+      "settings": {
+        "title": "Declaration of Conformity (UK)"
+      }
+    },
+    "b7992e9f-a734-4e45-8f05-3b7a21ef1afc": {
+      "type": "p-compliance",
+      "blocks": {
+        "106bf9fd-7665-47cc-bf18-78fac3e4c266": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_ef436e1a2efa4afa9a9b4007d9e8b075_1.png",
+            "title": "CP137-AF",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CP137_UK_Declaration_of_Conformity.pdf?v=1684309667"
+          }
+        },
+        "babc0c85-6310-4071-a6f3-5c10233c9c1a": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_ef436e1a2efa4afa9a9b4007d9e8b075_1.png",
+            "title": "CP158-AF",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CP158_UK_Declaration_of_Conformity.pdf?v=1684309703"
+          }
+        },
+        "4eecd4d3-a2a1-4086-974f-5bedf099e28f": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_ef436e1a2efa4afa9a9b4007d9e8b075_1.png",
+            "title": "CS158-AF",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CS158_UK_Declaration_of_Conformity.pdf?v=1684309739"
+          }
+        },
+        "93658c95-a127-4b47-81b3-1c058710bc57": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_da8049bb05b24317873b13055583cb37.jpg",
+            "title": "CAF-L501",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CAF-L501_UK_Declaration_of_Conformity.pdf?v=1684309773"
+          }
+        },
+        "410e93c9-a726-4238-9737-987f6f948c76": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_873d01cb6f924bb3aa27c6846739756b.png",
+            "title": "CAF-LI401S",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CAF-LI401S_UK_Declaration_of_Conformity.pdf?v=1684309808"
+          }
+        },
+        "4791c10e-136c-4efd-a464-70ec1c11c50c": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_953e025784c64887b6a04b12375c457a.png",
+            "title": "CAF-P583S",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CAF-P583S_UK_Declaration_of_Conformity.pdf?v=1684309843"
+          }
+        },
+        "3a86966b-1286-4488-9c27-451d951100bb": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_7c53fc1eb1274babbbdba286d08ecb0a.png",
+            "title": "CP258-AF",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CP258_UK_Declaration_of_Conformity.pdf?v=1684309878"
+          }
+        }
+      },
+      "block_order": [
+        "106bf9fd-7665-47cc-bf18-78fac3e4c266",
+        "babc0c85-6310-4071-a6f3-5c10233c9c1a",
+        "4eecd4d3-a2a1-4086-974f-5bedf099e28f",
+        "93658c95-a127-4b47-81b3-1c058710bc57",
+        "410e93c9-a726-4238-9737-987f6f948c76",
+        "4791c10e-136c-4efd-a464-70ec1c11c50c",
+        "3a86966b-1286-4488-9c27-451d951100bb"
+      ],
+      "settings": {
+        "title": "CP137-AF"
+      }
+    },
+    "10cf6c81-f0cc-466a-a30c-e96dd0b7a0ab": {
+      "type": "p-compliance",
+      "blocks": {
+        "d6e17eb9-37f5-4b1e-a8ae-001cf18bf3e2": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_5c78d338da1d49f0817b3c7703916cb5.png",
+            "title": "GK151-CO",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_GK151-CO_UK_Declaration_of_Conformity.pdf?v=1684310033"
+          }
+        },
+        "76c6f135-79eb-4c70-a438-0c193a797b7f": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_5c78d338da1d49f0817b3c7703916cb5.png",
+            "title": "GK172-CO",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_GK172-CO_UK_Declaration_of_Conformity.pdf?v=1684310064"
+          }
+        }
+      },
+      "block_order": [
+        "d6e17eb9-37f5-4b1e-a8ae-001cf18bf3e2",
+        "76c6f135-79eb-4c70-a438-0c193a797b7f"
+      ],
+      "settings": {
+        "title": "Beverage"
+      }
+    },
+    "feb9df54-1265-4998-9348-b6a8ff659b1d": {
+      "type": "p-compliance",
+      "blocks": {
+        "5ae50490-2224-48d9-8991-15236fa20070": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_f4c5f014f8484f74a9c899593e417b5a.png",
+            "title": "CFD-N051-W",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CFD-N051-W_UK_Declaration_of_Conformity.pdf?v=1684310110"
+          }
+        },
+        "7539a013-1040-4b10-ab4c-24bf138976f5": {
+          "type": "product",
+          "settings": {
+            "Image": "shopify://shop_images/assets_70f756a994b448e2b60a10734185b2d7_16a90ed22ca64f169de0a50de76a7c4a.png",
+            "title": "CP267-FD",
+            "file_url": "https://cdn.shopify.com/s/files/1/0742/6572/3189/files/Cosori_CP267-FD_UK_Declaration_of_Conformity.pdf?v=1684310149"
+          }
+        }
+      },
+      "block_order": [
+        "5ae50490-2224-48d9-8991-15236fa20070",
+        "7539a013-1040-4b10-ab4c-24bf138976f5"
+      ],
+      "settings": {
+        "heading": "Declaration of Conformity",
+        "title": "Food Dehydrators"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "main",
+    "514478d9-309c-4715-85a6-2237c3104a67",
+    "a8eb83d5-a09f-48a1-b208-8257098ea07a",
+    "3256fa38-09e6-41e5-b7e8-2232d91ba66a",
+    "b7992e9f-a734-4e45-8f05-3b7a21ef1afc",
+    "10cf6c81-f0cc-466a-a30c-e96dd0b7a0ab",
+    "feb9df54-1265-4998-9348-b6a8ff659b1d"
+  ]
+}

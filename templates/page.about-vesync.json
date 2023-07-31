@@ -1,0 +1,98 @@
+{
+  "sections": {
+    "4120d33b-49cf-46f2-949d-ed8264e89ddf": {
+      "type": "pdp-youtube",
+      "settings": {
+        "title": "<b>The VeSync App\n\n</b>",
+        "desc": "<span class=\"font-slab\">Every Cosori smart appliance can be controlled through the free VeSync app, helping you streamline your cooking routine with a variety of smart features.\n</span>",
+        "video_url": "https://vimeo.com/552031002/340e4b98e9",
+        "bg_color": "#003942",
+        "container": "container max-w-screen-lg",
+        "text_color_heading": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_text_align": "center",
+        "mobile_text_align": "center"
+      }
+    },
+    "0559db2e-9169-460a-a690-fc8dd7c1d99c": {
+      "type": "m-picture-with-features",
+      "blocks": {
+        "f40d7a3c-9467-4417-a8b5-6a6776982fdd": {
+          "type": "feature",
+          "settings": {
+            "title": "Automation",
+            "desc": "<span class=\"font-slab\">Enable voice commands and more from your phone.</span>"
+          }
+        },
+        "28bb84ad-001d-42fc-aae4-c74d856c3add": {
+          "type": "feature",
+          "settings": {
+            "title": "Awareness",
+            "desc": "<span class=\"font-slab\">Monitor cooking progress and receive important notifications about your appliances.\n\n</span>"
+          }
+        },
+        "36d0decb-32d5-4e9a-bf18-23d9fa06eb9a": {
+          "type": "feature",
+          "settings": {
+            "title": "Exclusive Content",
+            "desc": "<span class=\"font-slab\">Browse hundreds of online recipesand get access to special sales and prizes.\n\n</span>"
+          }
+        }
+      },
+      "block_order": [
+        "f40d7a3c-9467-4417-a8b5-6a6776982fdd",
+        "28bb84ad-001d-42fc-aae4-c74d856c3add",
+        "36d0decb-32d5-4e9a-bf18-23d9fa06eb9a"
+      ],
+      "settings": {
+        "title": "<b>Better with VeSync\n\n</b>",
+        "desc": "",
+        "desktop_image": "shopify://shop_images/Screen_Shot_2023-05-17_at_3.13.21_PM.png",
+        "figcaption": "",
+        "container": "container",
+        "text_color_heading": "#3d263a",
+        "text_color_desc": "#000000",
+        "desktop_text_align": "center",
+        "feature_text_align": "center",
+        "mobile_text_align": "center"
+      }
+    },
+    "74ffe9c2-6fd8-48af-9a62-d7434c8e6b22": {
+      "type": "pdp-inline-video",
+      "settings": {
+        "title": "<b>Hands-Free Cooking\n\n</b>",
+        "desc": "Through VeSync, you can connect your smart appliances to Google Assistant™ and Amazon Alexa for easy hands-free commands.\n\nThe VeSync app is available on iOS® and Android™",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/787be4ebc1a84355be46b2c41f37480f.mp4",
+        "legal_text": "iOS is a registered trademark of Cisco Systems, Inc. and/or its affiliates in the United States and certain other countries. Android and Google Assistant are trademarks of Google LLC. Amazon, Alexa and all related logos are trademarks of Amazon.com, Inc. or its affiliates.",
+        "bg_color": "#3d263a",
+        "container": "container max-w-screen-lg",
+        "text_color_heading": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_text_align": "center",
+        "mobile_text_align": "center"
+      }
+    },
+    "c93b5e8e-f341-4ecd-b307-193ef488e139": {
+      "type": "m-download-app",
+      "settings": {
+        "title": "<b>Download the App</b>",
+        "desc": "Join a community of over 1 million connected devices.",
+        "vesync_app": "shopify://shop_images/vesync-app.webp",
+        "app_store": "shopify://shop_images/app-store.webp",
+        "app_store_url": "https://itunes.apple.com/us/app/vesync/id1289575311?mt=8",
+        "play_store": "shopify://shop_images/google-play.webp",
+        "play_store_url": "https://play.google.com/store/apps/details?hl=en&id=com.etekcity.vesyncplatform",
+        "container": "container",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "text_align": "center"
+      }
+    }
+  },
+  "order": [
+    "4120d33b-49cf-46f2-949d-ed8264e89ddf",
+    "0559db2e-9169-460a-a690-fc8dd7c1d99c",
+    "74ffe9c2-6fd8-48af-9a62-d7434c8e6b22",
+    "c93b5e8e-f341-4ecd-b307-193ef488e139"
+  ]
+}

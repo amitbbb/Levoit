@@ -1,0 +1,138 @@
+{% # prettier-ignore %}
+{%- capture main_config -%}
+  { 
+    "slidesPerView": 1,
+    "spaceBetween": 0,
+    "autoHeight": true
+    {% if section.settings.show_pagination %}
+      ,"pagination": {
+        "el": ".swiper-pagination",
+        "clickable": true
+      },
+    {% endif %}
+    {% if section.settings.slide_effect == 'fade' %}
+      ,"effect": "fade",
+      "fadeEffect": {
+        "crossFade": true
+      }
+    {% endif %}
+    {% if section.settings.show_navigation %}
+      ,"navigation": {
+        "nextEl": ".swiper-button-next",
+        "prevEl": ".swiper-button-prev"
+      }  
+    {% endif %}
+    {% if section.settings.enable_autoplay %}
+      ,"autoplay": {
+        "delay": {{ section.settings.autoplay_interval | times: 1000 }},
+        "disableOnInteraction": false
+      }  
+    {% endif %}
+  }
+{%- endcapture -%}
+
+{% # prettier-ignore %}
+{%- capture thumbs_config -%}
+  {
+    "spaceBetween": 16,
+    "slidesPerView": 4,
+    "watchSlidesProgress": true,
+    "direction": "vertical",
+    "enabled": false,
+    "breakpoints": {
+      "768": {
+        "enabled": true
+      }
+    }
+  }
+{%- endcapture -%}
+
+<product-gallery-slider
+  class="flex gap-x-4"
+  slider-config="{{ main_config | escape }}"
+  slider-modules="Navigation, Pagination, A11y, Thumbs"
+  thumbs-config="{{ thumbs_config | escape }}"
+>
+  <div id="ProductGallerySlider-Thumbs" class="swiper w-[150px] h-[544px] !hidden md:!block">
+    <ul class="swiper-wrapper">
+      {%- for media in product.media -%}
+        {%- liquid
+          assign lazy_load = false
+          if forloop.index > 4
+            assign lazy_load = true
+          endif
+        -%}
+        <li class="swiper-slide cursor-pointer bg-neutral-100 !h-[120px]">
+          <div class="flex items-center justify-center h-full w-full">
+            {%- render 'media',
+              media: media,
+              aspect_ratio: 'h-full w-full',
+              class: 'h-full w-full',
+              padding: 'p-4',
+              type: 'thumbs',
+              width: 150,
+              sizes: '150, 150, 150',
+              index: forloop.index,
+              lazy_load: lazy_load
+            -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+  <div id="ProductGallerySlider-Main" class="swiper w-full">
+    <ul class="swiper-wrapper">
+      {%- for media in product.media -%}
+        {%- liquid
+          assign lazy_load = false
+          if forloop.index > 1
+            assign lazy_load = true
+          endif
+        -%}
+
+        {% comment %}
+          {%- if forloop.index > 1 -%}
+            {%- assign lazyload = true -%}
+          {%- else -%}
+            {%- assign lazyload = false -%}
+          {%- endif -%}
+        {% endcomment %}
+        <li
+          class="swiper-slide cursor-zoom-in"
+          media-id="{{ media.id }}"
+          media-index="{{ forloop.index0 }}"
+        >
+          {%- render 'media',
+            media: media,
+            aspect_ratio: 'aspect-[4/5]',
+            padding: 'p-4 md:p-12',
+            type: 'main',
+            width: 768,
+            sizes: '768, 768, 768',
+            index: forloop.index,
+            lazy_load: lazy_load
+          -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+    {% comment %}
+      <div class="swiper-button-prev !h-12 !w-12 bg-white">{% render 'icons' with 'arrow-left' %}</div>
+      <div class="swiper-button-next !h-12 !w-12 bg-white">{% render 'icons' with 'arrow-right' %}</div>
+    {% endcomment %}
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-[52] bg-white rounded-xl overflow-hidden shadow-xs border border-opacity-50">
+      <div class="flex gap-x-4 items-center">
+        <div swiper-button-prev class="flex items-center justify-center h-12 w-12 bg-white">
+          {% render 'icons' with 'arrow-left' %}
+        </div>
+        <div
+          swiper-pagination
+          class="bg-white h-12 !w-12 rounded-full flex items-center justify-center tracking-[0.35rem] text-xs"
+        ></div>
+        <div swiper-button-next class="flex items-center justify-center h-12 w-12 bg-white">
+          {% render 'icons' with 'arrow-right' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</product-gallery-slider>

@@ -1,0 +1,33 @@
+{
+  "current": {
+    "theme_accent_color_1": "#84a7e3",
+    "our_company_menu": "our-company-menu",
+    "help_center_menu": "help-menu",
+    "compare_page": "compare",
+    "favorites_page": "favorites",
+    "cart_upsells": "cart-upselss",
+    "socials_instagram": "https:\/\/www.instagram.com\/cosoricooks",
+    "socials_twitter": "https:\/\/twitter.com\/CosoriCooks",
+    "socials_facebook": "https:\/\/www.facebook.com\/CosoriCooks",
+    "socials_youtube": "https:\/\/www.youtube.com\/c\/Cosori",
+    "socials_tiktok": "https:\/\/www.tiktok.com\/@cosori_official?lang=en",
+    "socials_pinterest": "https:\/\/www.pinterest.com\/cosoricooks",
+    "favicon": "shopify:\/\/shop_images\/favicon-levoit.png",
+    "content_for_index": [
+
+    ],
+    "blocks": {
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      "#instagenie-list {margin-top: 20px;}"
+    ]
+  }
+}

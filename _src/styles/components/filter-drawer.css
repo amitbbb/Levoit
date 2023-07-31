@@ -1,0 +1,21 @@
+/** DEFAULT STATE */
+filter-drawer {
+  details {
+  #FilterDrawer-Aside {
+    @apply -translate-x-full
+  }
+  }
+
+}
+
+/** OPEN STATE */
+filter-drawer {
+  details[open].menu-opening {
+    #FilterDrawer-Summary::before {
+      @apply content-[''] fixed inset-0 z-30 bg-black/70;
+    }
+    #FilterDrawer-Aside {
+      @apply -translate-x-0
+    }
+  }
+}

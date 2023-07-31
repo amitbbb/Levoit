@@ -1,0 +1,897 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {}
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {}
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {}
+    },
+    "cf890805-6454-4787-87df-d2deab58a753": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "c600e513-eab5-43b1-ad13-708365612d43": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Group_14.jpg",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        },
+        "be53c4f7-d481-418e-ba6d-ef1d939215af": {
+          "type": "list-item",
+          "settings": {
+            "title": "753 ft2",
+            "desc": "Coverage"
+          }
+        },
+        "c68dea4c-9661-4efa-ba47-e39e3bf87ede": {
+          "type": "list-item",
+          "settings": {
+            "title": "6-Liter",
+            "desc": "Tank"
+          }
+        },
+        "1ce72e66-35b6-45d9-931a-ad17a42f17bf": {
+          "type": "list-item",
+          "settings": {
+            "title": "Up to",
+            "desc": "50-Hour Runtime"
+          }
+        },
+        "c77d87fa-7949-4970-8cdf-a7eb68e69538": {
+          "type": "list-item",
+          "settings": {
+            "title": "Smart",
+            "desc": "Control"
+          }
+        }
+      },
+      "block_order": [
+        "c600e513-eab5-43b1-ad13-708365612d43",
+        "be53c4f7-d481-418e-ba6d-ef1d939215af",
+        "c68dea4c-9661-4efa-ba47-e39e3bf87ede",
+        "1ce72e66-35b6-45d9-931a-ad17a42f17bf",
+        "c77d87fa-7949-4970-8cdf-a7eb68e69538"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<small>Smart Hybrid</small>\n<strong>Ultrasonic Humidifier</strong>",
+        "desc": "",
+        "hide_header_image_on_mobile": false,
+        "header_width": 540,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_above",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "center",
+        "text_position": "center_center",
+        "bg_color": "#005195",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#EEEEEE",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#ffffff",
+        "list_item_desc_color": "#ffffff",
+        "desktop_list_divider_border_color": "#EEEEEE",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#ffffff",
+        "desktop_list_item_desc_color": "#ffffff",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "b1c03e18-16a1-4ec2-b36a-f239f378cbb0": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109748486295__b1c03e18-16a1-4ec2-b36a-f239f378cbb0-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Frame_14.jpg",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109748486295__b1c03e18-16a1-4ec2-b36a-f239f378cbb0-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Warm & Cool Mist</strong>",
+        "desc": "The hybrid mist design lets you choose between warm and cool mist to suit the needs of your home.",
+        "list": "",
+        "header_width": 570,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#005195",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "5e5023b7-9091-4f92-b48c-b014e6b1dafb": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109748486295__5e5023b7-9091-4f92-b48c-b014e6b1dafb-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_35017c6409e940d7b03a8fe301f7216a.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109748486295__5e5023b7-9091-4f92-b48c-b014e6b1dafb-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Just a Tap</strong>",
+        "desc": "Quickly choose between settings with the easy touch display.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#005195",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "5bf60294-9ba2-4cb2-9b3a-bf3a63e872a3": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "3845b2d5-817f-4bea-8335-065a6d304af6": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "<strong>Large Capacity</strong>",
+            "desc": "With a 6-liter tank, the humidifier can run for up to 50 continuous hours on the lowest mist setting.",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#005195",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "0ea6dceb-f8f4-4a99-8e70-51f836659c2f": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_2b7b8fd1316c430ba0dd097884eb08dd.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "3845b2d5-817f-4bea-8335-065a6d304af6",
+        "0ea6dceb-f8f4-4a99-8e70-51f836659c2f"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "ea53dd19-3d33-4cbc-86f1-58c2e2b063ff": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109748486295__ea53dd19-3d33-4cbc-86f1-58c2e2b063ff-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_0d03747ba60b4da5861f6c51b30af018.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109748486295__ea53dd19-3d33-4cbc-86f1-58c2e2b063ff-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Easy to Clean & Refill</strong>",
+        "desc": "The top-fill design allows for an opening at the top where you can conveniently clean and refill your humidifier.",
+        "list": "",
+        "header_width": 550,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#005195",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "30b1d842-26a7-4611-b025-1854cd6f1b5c": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "a8d0fab2-a95a-44e0-bb81-41012323cd0e": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_81e5047019f8483a9058bda5e5b97084.png",
+            "mobile_image": "shopify://shop_images/Group_15.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": ["a8d0fab2-a95a-44e0-bb81-41012323cd0e"],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Powerful Coverage</strong>",
+        "desc": "The dual 360° nozzles let you choose two different mist directions with a coverage of up to 753 ft2.",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_above",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "center",
+        "text_position": "center_center",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#005195",
+        "text_color_desc": "#000000",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "bottom_right",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#005195",
+        "desktop_text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#EEEEEE",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#EEEEEE",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "dee25148-07b8-403b-af1a-da31e228ee7f": {
+      "type": "m-media",
+      "blocks": {
+        "03b96dd3-9c47-4b90-bce8-df6966311c76": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify://files/videos/01.03_LV600S_RichContent_07_2.mp4",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250,
+            "show_unmute_button": false
+          }
+        },
+        "7474e38e-2a8b-47b3-b13a-7732d683a4c3": {
+          "type": "app-link",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_c5a42732ad104300b671e12f6648c2a6.webp",
+            "image_width": 420,
+            "url": "",
+            "open_link_in_new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "03b96dd3-9c47-4b90-bce8-df6966311c76",
+        "7474e38e-2a8b-47b3-b13a-7732d683a4c3"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>VeSync Smart Control</strong>",
+        "desc": "The VeSync app lets you control your humidifier from your phone with a range of smart settings.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#005195",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "13df8436-6477-4823-839d-c1e99da0cf5a": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "b8c162c0-84a2-459a-b87d-13d17179fbee": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "<strong>Voice Command</strong>",
+            "desc": "Through VeSync, you can connect your smart humidifier to Amazon Alexa and Google Assistant™ for hands-free control.",
+            "image": "shopify://shop_images/Screenshot_2023-07-26_at_7.24.31_PM.png",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#ffffff",
+            "text_color_desc": "#ffffff",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "c0f93e29-9886-4a2a-b599-8570cba3105f": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify://files/videos/01.02_LV600S_RichContent_07b_1.mp4",
+            "show_unmute_button": false,
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "b8c162c0-84a2-459a-b87d-13d17179fbee",
+        "c0f93e29-9886-4a2a-b599-8570cba3105f"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "",
+        "bg_color": "#005195",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#ffffff",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "4c2a23c8-0953-4623-b65c-baf431d4e00a": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "0d4e11ca-4ca0-44bb-acaf-0e111e91fccc": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify://files/videos/01.01_LV600S_RichContent_08a_1.mp4",
+            "aspect_ratio": "video",
+            "object_fit": "cover",
+            "image_height": 250,
+            "show_unmute_button": false
+          }
+        },
+        "68440b84-1090-437e-a230-1f32bc8ac1ce": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_1dfc83ca6fc441979afb1617aef5bce0.webp",
+            "title": "Timer",
+            "desc": "Set a timer for up to 12 hours with automatic shutoff."
+          }
+        },
+        "d06c413d-c467-429a-a9e6-828d75c04a7c": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_73264b84e2dd493aad1f43c6f95ae68c.webp",
+            "title": "Sleep Mode",
+            "desc": "Turns auto mode on a warm mist off to keep noise levels low."
+          }
+        }
+      },
+      "block_order": [
+        "0d4e11ca-4ca0-44bb-acaf-0e111e91fccc",
+        "68440b84-1090-437e-a230-1f32bc8ac1ce",
+        "d06c413d-c467-429a-a9e6-828d75c04a7c"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Convenient Settings</strong>",
+        "desc": "Quickly increase mist levels, set a timer, or turn on Sleep Mode with the one-touch display.",
+        "hide_header_image_on_mobile": false,
+        "header_width": 650,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_above",
+        "container": "",
+        "header_image_align": "center",
+        "text_align": "center",
+        "text_position": "center_center",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#005195",
+        "text_color_desc": "#393939",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "top_right",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#EEEEEE",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#005195",
+        "list_item_desc_color": "#393939",
+        "desktop_list_divider_border_color": "#EEEEEE",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#ffffff",
+        "desktop_list_item_desc_color": "#ffffff",
+        "mobile_items_per_row": 1,
+        "tablet_items_per_row": 1,
+        "desktop_items_per_row": 1,
+        "gap": 1
+      }
+    },
+    "f593aa94-7480-4215-846b-c007d03f7bba": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "0db49984-d207-48d6-bacb-d80e46fd002d": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_f115e72f10334dcda75a26b8dc7755a8.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "6c572fbb-fd06-4d92-bfef-7cbf6eba78bb": {
+          "type": "content-list",
+          "settings": {
+            "subtitle": "",
+            "title": "<strong>Aromatherapy</strong>",
+            "desc": "Add your favorite essential oil to the aroma box to enhance your space.",
+            "list": "Push the aroma box at the back of the base and pull it out.\nPut 8-10 drops of essential oils on the aroma pad.\nPlace the aroma box back into the humidifier.\nThe humidifier will automatically diffuse the aroma when in use.",
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#005195",
+            "text_color_desc": "#000000",
+            "text_color_list": "#000000",
+            "list_count_bg_color": "#83a7e4",
+            "list_count_text_color": "#FFFFFF",
+            "custom_block_width": 30
+          }
+        }
+      },
+      "block_order": [
+        "0db49984-d207-48d6-bacb-d80e46fd002d",
+        "6c572fbb-fd06-4d92-bfef-7cbf6eba78bb"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "f2b3e98f-10f1-433d-8070-2d166bd4c908": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "cc30828f-3793-4adc-82f0-2e0e44a2114f": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_756e283bbd8547f188d915f409be8ee0.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "3a2f1e63-eadc-4ed6-bd6d-cc30418d2495": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Screenshot_2023-07-26_at_7.35.26_PM.png",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "772ded0e-0358-4d13-9594-685ae5b0a543": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_56bc1e0f5994431aba7c4ecfa4d9b16f.webp",
+            "image_width": 100,
+            "title": "3 x Aroma Pad\n(1 Pre-Installed)",
+            "desc": ""
+          }
+        },
+        "f7c6770a-ad39-4c34-a624-65431ca1e3ac": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_29433be4f184407bb59963d3db230d43.webp",
+            "image_width": 100,
+            "title": "3 x Absorption Pad\n(1 Pre-Installed)",
+            "desc": ""
+          }
+        },
+        "20e088a0-69c6-4baf-9db7-fbdb9bca74be": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_8ef9b9ac0fdb4f068f8f45445df83f86.webp",
+            "image_width": 100,
+            "title": "2 x Water Filter Sponge\n(1 Pre-Installed)",
+            "desc": ""
+          }
+        },
+        "61790393-70e8-42f2-aaa5-b614c72a372e": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_a888912a2795406ea102ad9fe0fc5af0.webp",
+            "image_width": 100,
+            "title": "Cleaning Brush",
+            "desc": ""
+          }
+        },
+        "b2368c23-2d3c-4335-8fbd-f9074555e892": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_2bd186e6362846a883c3b3a1e2d7a64c.webp",
+            "image_width": 100,
+            "title": "User Manual",
+            "desc": ""
+          }
+        },
+        "d1711c5b-6490-4faf-9ce5-f2e62e39f18b": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_e573b8f8a3024d54ba5cc6747d351f4f.webp",
+            "image_width": 100,
+            "title": "Quick Start Guide",
+            "desc": ""
+          }
+        }
+      },
+      "block_order": [
+        "cc30828f-3793-4adc-82f0-2e0e44a2114f",
+        "3a2f1e63-eadc-4ed6-bd6d-cc30418d2495",
+        "772ded0e-0358-4d13-9594-685ae5b0a543",
+        "f7c6770a-ad39-4c34-a624-65431ca1e3ac",
+        "20e088a0-69c6-4baf-9db7-fbdb9bca74be",
+        "61790393-70e8-42f2-aaa5-b614c72a372e",
+        "b2368c23-2d3c-4335-8fbd-f9074555e892",
+        "d1711c5b-6490-4faf-9ce5-f2e62e39f18b"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>What's in the Box</strong>",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#005195",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "ede029be-e1b5-466a-8fe6-b17e91862860": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "b785cba4-7ef8-4a50-859a-b807af22d2b0": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_9652a140fc1340e48d9e30bb64d5c7e8_1.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "4f03c29b-6eaf-45e6-8ec3-3d7e2f81cbaa": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_849b29f4636e43a2801dc97c39488c99.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "d5096654-b3d4-4879-8a5d-feff4b2fd703": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_7c7744ff49d549488d12b5331c60378e.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "a67d5c11-c7ba-4958-bacc-f79797280a63": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_5c4c83adaa87446298d404f6fb86f374.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "b785cba4-7ef8-4a50-859a-b807af22d2b0",
+        "4f03c29b-6eaf-45e6-8ec3-3d7e2f81cbaa",
+        "d5096654-b3d4-4879-8a5d-feff4b2fd703",
+        "a67d5c11-c7ba-4958-bacc-f79797280a63"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Safe & Certified</strong>",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#005195",
+        "text_color_desc": "#000000",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 4,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "left"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "b9f34ecb-0467-4d4b-805f-24c85ea8ec01": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:</b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href='www.P65Warnings.ca.gov' target='_blank'>www.P65Warnings.ca.gov</a></p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/reviews-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/rating-summary-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cf890805-6454-4787-87df-d2deab58a753",
+    "b1c03e18-16a1-4ec2-b36a-f239f378cbb0",
+    "5e5023b7-9091-4f92-b48c-b014e6b1dafb",
+    "5bf60294-9ba2-4cb2-9b3a-bf3a63e872a3",
+    "ea53dd19-3d33-4cbc-86f1-58c2e2b063ff",
+    "30b1d842-26a7-4611-b025-1854cd6f1b5c",
+    "dee25148-07b8-403b-af1a-da31e228ee7f",
+    "13df8436-6477-4823-839d-c1e99da0cf5a",
+    "4c2a23c8-0953-4623-b65c-baf431d4e00a",
+    "f593aa94-7480-4215-846b-c007d03f7bba",
+    "f2b3e98f-10f1-433d-8070-2d166bd4c908",
+    "ede029be-e1b5-466a-8fe6-b17e91862860",
+    "product-recommendations",
+    "b9f34ecb-0467-4d4b-805f-24c85ea8ec01",
+    "reviews"
+  ]
+}

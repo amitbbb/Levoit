@@ -1,0 +1,18 @@
+{%- case object_fit -%}
+  {%- when 'natural' -%}
+    
+  {%- when 'cover' -%}
+    echo
+  {%- when 'contain' -%}
+    
+{%- endcase -%}
+
+{% liquid
+  case object_fit
+    when 'natural'
+      echo 'w-full h-auto'
+    when 'cover'
+      echo 'absolute inset-0 h-full w-full object-cover'
+    when 'contain'
+  endcase
+%}

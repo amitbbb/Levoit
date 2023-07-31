@@ -1,0 +1,902 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {}
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {}
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {}
+    },
+    "541dc2d8-e3a0-412f-8ff6-a3c6a31013a2": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "f3738ef8-67b9-4560-9b1c-327a842303e2": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Group_9.jpg",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 570
+          }
+        },
+        "930c4ca0-0e21-468b-a388-cee40db48750": {
+          "type": "list-item",
+          "settings": {
+            "title": "H13 True HEPA Filtration",
+            "desc": "Filter at least 99.97% of 0.3-micron airborne particles."
+          }
+        },
+        "b3d86be1-9296-49bf-8e32-baca80f2eab1": {
+          "type": "list-item",
+          "settings": {
+            "title": "Large Rooms",
+            "desc": "Change the air in a 403 ft² room in just 12 minutes."
+          }
+        },
+        "7c50aff1-8fcc-4a97-a851-59385366b2e9": {
+          "type": "list-item",
+          "settings": {
+            "title": "Auto Mode",
+            "desc": "Adjusts fan speed based on air quality."
+          }
+        },
+        "6dd23bd9-6683-45f0-9acd-da0c6475a35f": {
+          "type": "list-item",
+          "settings": {
+            "title": "QuietKEAP™ Technology",
+            "desc": "Keeps noise levels as low as 24dB (whisper volume)."
+          }
+        }
+      },
+      "block_order": [
+        "f3738ef8-67b9-4560-9b1c-327a842303e2",
+        "930c4ca0-0e21-468b-a388-cee40db48750",
+        "b3d86be1-9296-49bf-8e32-baca80f2eab1",
+        "7c50aff1-8fcc-4a97-a851-59385366b2e9",
+        "6dd23bd9-6683-45f0-9acd-da0c6475a35f"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Levoit Core® 400S (RED)",
+        "desc": "SMART TRUE HEPA AIR PURIFIER\n\nAn award-winning air purifier in our Core Series, the Core 400S is packed with advanced technologies to make air purification a breeze.",
+        "hide_header_image_on_mobile": false,
+        "header_width": 590,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_below",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "left",
+        "text_position": "center_left",
+        "bg_color": "#f2f2f2",
+        "text_color_subtitle": "#aa182c",
+        "text_color_title": "#aa182c",
+        "text_color_desc": "#aa182c",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#aa182c",
+        "desktop_text_color_title": "#aa182c",
+        "desktop_text_color_desc": "#393939",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#EEEEEE",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#aa182c",
+        "list_item_desc_color": "#aa182c",
+        "desktop_list_divider_border_color": "#EEEEEE",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 1,
+        "tablet_items_per_row": 1,
+        "desktop_items_per_row": 1,
+        "gap": 1
+      }
+    },
+    "ae86d9be-d3af-4ab4-b6b2-e7207efc2123": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "e51a3731-ddc7-4e9b-a722-452ec18a36d6": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_158af6cb2b6a4b6bb21eb198b3eb847c.png",
+            "mobile_image": "shopify://shop_images/Screenshot_2023-07-25_at_12.19.13_AM.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": ["e51a3731-ddc7-4e9b-a722-452ec18a36d6"],
+      "settings": {
+        "subtitle": "",
+        "title": "IN THE FIGHT FOR\nGLOBAL HEALTH",
+        "desc": "Pandemics thrive where poverty and discrimination exist. Levoit has teamed up with (RED) to sound the alarm on the injustice of global health emergencies.\n\nFrom October 2022 through September 2024, 3% of the purchase price of every (Levoit)RED product will go to the Global Fund to fight AIDS and COVID-19 with (RED), with a minimum guaranteed donation of $200,000. This donation will strengthen healthcare systems, support equitable access to HIV testing and treatment, and help save lives.",
+        "header_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_dd757c9b62584f808fac07b6aaa2e7f4.webp",
+        "hide_header_image_on_mobile": false,
+        "header_width": 700,
+        "header_image_width": 200,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_below",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "left",
+        "text_position": "center_left",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#EEEEEE",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#EEEEEE",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "f9615651-3496-4dba-814f-8200fc68d55d": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "f2dae93d-f544-4c57-823e-3c55483fad41": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_c424456c3e9a4b378b629f92e3515cd4.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        },
+        "8f47727a-1b57-4865-b750-0e44e93b7b02": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_3b37d0f2b6d24b1da3a827228de6a509.webp",
+            "title": "Pre-Filter",
+            "desc": "Captures lint, fibers, hair, and pet fur."
+          }
+        },
+        "1159a6d4-d682-4c5a-9f48-fc5fa5aeeee5": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_2641f900099d46ec8d9b4c4e05b54be0.webp",
+            "title": "H13 True HEPA Filter",
+            "desc": "Traps fine dust, smoke particles, pollen, and pet dander, while HEPASmart™ Technology uses statically charged fibers to trap 99.99% of bacteria and 99.9% of viruses*."
+          }
+        },
+        "dd6732de-a612-4584-93b3-b7100d8e0494": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_0b29b39051ae43f792d596ae5e445f34.webp",
+            "title": "Custom High-Efficiency Activated Carbon Filter",
+            "desc": "Filters smoke, fumes, VOCs, pet smells, and cooking odors while the ARC (Air Recomposition) Formula® breaks down molecules trapped within the filter and helps extend the filter life."
+          }
+        }
+      },
+      "block_order": [
+        "f2dae93d-f544-4c57-823e-3c55483fad41",
+        "8f47727a-1b57-4865-b750-0e44e93b7b02",
+        "1159a6d4-d682-4c5a-9f48-fc5fa5aeeee5",
+        "dd6732de-a612-4584-93b3-b7100d8e0494"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "3-Stage Filtration",
+        "desc": "",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_above",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "left",
+        "text_position": "center_left",
+        "bg_color": "rgba(0,0,0,0)",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "top_right",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#aa182c",
+        "desktop_text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#EEEEEE",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#EEEEEE",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 1,
+        "tablet_items_per_row": 1,
+        "desktop_items_per_row": 1,
+        "gap": 1
+      }
+    },
+    "31542de2-1138-44d7-b693-3fe7685fd63d": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109007929495__31542de2-1138-44d7-b693-3fe7685fd63d-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_216df592a1b048918c20dd9223b69d90.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109007929495__31542de2-1138-44d7-b693-3fe7685fd63d-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Purifies Large Rooms in Minutes",
+        "desc": "Whether you’re hosting a get-together or making a home for yourself, create a healthy space in no time.",
+        "list": "",
+        "header_width": 870,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#aa182c",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "897e1f40-c241-47af-b95b-47c6f41f697e": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "e3bdfed7-e3e0-4fe9-be47-ae54d17497db": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_ead2b8ae085046caa6632c35ab400e84.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": ["e3bdfed7-e3e0-4fe9-be47-ae54d17497db"],
+      "settings": {
+        "subtitle": "",
+        "title": "Circulate Fresh Air",
+        "desc": "VortexAir™ Technology uses 360° air intake, curved fan blades, and raised vents to provide powerful air circulation while keeping noise levels minimal.",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_above",
+        "container": "",
+        "header_image_align": "center",
+        "text_align": "center",
+        "text_position": "center_center",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#aa182c",
+        "text_color_desc": "#000000",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "top_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#aa182c",
+        "desktop_text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#EEEEEE",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#EEEEEE",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "13b7dab9-901e-4fb0-99b4-ffc3ebf2fe96": {
+      "type": "m-media",
+      "blocks": {
+        "ea7320ff-fec8-4311-af27-151682da3167": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify://files/videos/D1_01.00_WA2_0822Core400S(Red)_06_1.mp4",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250,
+            "show_unmute_button": false
+          }
+        }
+      },
+      "block_order": ["ea7320ff-fec8-4311-af27-151682da3167"],
+      "settings": {
+        "subtitle": "",
+        "title": "Just a Tap",
+        "desc": "VortexAir™ Technology uses 360° air intake, curved fan blades, and raised vents to provide powerful air circulation while keeping noise levels minimal.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_2e7e20bc5bc8465b8fe995c14f9f764c.webp",
+        "footer_image_width": 580,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#aa182c",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "f4d8ce19-15bb-49ea-8e85-7face3c7397d": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109007929495__f4d8ce19-15bb-49ea-8e85-7face3c7397d-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_8bbca8bce5ae439a9b170cfd9a64a70a.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109007929495__f4d8ce19-15bb-49ea-8e85-7face3c7397d-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "How well do you know your air?",
+        "desc": "AirSight Plus™ Technology uses a high-sensitivity laser dust sensor to scan your air for allergens. Then, if selected, Auto Mode will adjust the fan speed for you, so you never have to guess what your air needs.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#aa182c",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "72ac2c93-b2c7-4448-8f2d-f24e9ffc643f": {
+      "type": "m-media",
+      "blocks": {
+        "35c98401-3d62-4939-a762-97a89666ad0b": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify://files/videos/D1_01.00_WA2_0822Core400S(Red)_08_1_5e52d028-da23-44e3-8fe3-d04b144d5716.mp4",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250,
+            "show_unmute_button": false
+          }
+        }
+      },
+      "block_order": ["35c98401-3d62-4939-a762-97a89666ad0b"],
+      "settings": {
+        "subtitle": "",
+        "title": "Undisturbed Sleep",
+        "desc": "QuietKEAP™ Technology uses rubber pads to absorb sounds made by the fan. Increase the fan speed for white noise or select Sleep Mode for a whisper-quiet volume of 24dB.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#aa182c",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "6ff626bb-e7ee-45e3-be08-17e744e327a4": {
+      "type": "m-media",
+      "blocks": {
+        "aae0cfcd-5b90-4517-94aa-48b57585c08e": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify://files/videos/D2_01.00_WA2_0822Core400S(Red)_09_1.mp4",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250,
+            "show_unmute_button": false
+          }
+        },
+        "11e5556e-b845-4860-af8c-fd2ad4f2dd3c": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_52ef3928d81e4a9c86a629687ea099d5.webp",
+            "title": "Control Settings",
+            "image_width": 50
+          }
+        },
+        "012e1c3c-a5ac-4454-b0ee-1c4f833ee855": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_8d62525238294fffa8876968ab273a4a.webp",
+            "title": "View Air Quality Updates",
+            "image_width": 50
+          }
+        },
+        "2a4900d1-9ce3-4884-b04e-dbc12a24e030": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_294d0fa095cb447b812767717a9c65ae.webp",
+            "title": "Check Filter Life",
+            "image_width": 50
+          }
+        },
+        "e36cb379-9dcb-45a8-b80e-a10b20f7028b": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_f9a0b55711db42f48375d5c33aef1d29.webp",
+            "title": "Set Schedules & Timers",
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "aae0cfcd-5b90-4517-94aa-48b57585c08e",
+        "11e5556e-b845-4860-af8c-fd2ad4f2dd3c",
+        "012e1c3c-a5ac-4454-b0ee-1c4f833ee855",
+        "2a4900d1-9ce3-4884-b04e-dbc12a24e030",
+        "e36cb379-9dcb-45a8-b80e-a10b20f7028b"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Make Life Easier",
+        "desc": "The VeSync app allows the Core 400S to blend seamlessly into your lifestyle.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#aa182c",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "0bec739b-446e-416b-82c3-66e0f466d274": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "833c5cf8-625f-4dd0-8f62-28095cf50963": {
+          "type": "content-app-links",
+          "disabled": true,
+          "settings": {
+            "subtitle": "",
+            "title": "Voice Control",
+            "desc": "Connect to <b>Amazon Alexa</b> or <b>Google Assistant™</b> to control the air purifier when your hands are full.",
+            "app_store_url_1": "",
+            "app_store_url_2": "",
+            "app_store_url_3": "",
+            "store_icon_widths": 150,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#000000",
+            "text_color_desc": "#000000"
+          }
+        },
+        "04bc7533-d7aa-4d72-9312-db064f58c4d7": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "Voice Control",
+            "desc": "Connect to <b>Amazon Alexa</b> or <b>Google Assistant™</b> to control the air purifier when your hands are full.",
+            "image": "shopify://shop_images/Screenshot_2023-07-26_at_4.06.40_AM.png",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 460,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#aa182c",
+            "text_color_desc": "#000000"
+          }
+        },
+        "23568883-e083-47d1-ada5-d0b7edc3d926": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify://files/videos/D3_01.00_WA2_0822Core400S(Red)_10_1.mp4",
+            "show_unmute_button": false,
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "lazyload": true
+          }
+        }
+      },
+      "block_order": [
+        "833c5cf8-625f-4dd0-8f62-28095cf50963",
+        "04bc7533-d7aa-4d72-9312-db064f58c4d7",
+        "23568883-e083-47d1-ada5-d0b7edc3d926"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "#f2f2f2",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "gap": 1,
+        "reverse_row_on_mobile": false
+      }
+    },
+    "ee86b943-04c8-4eb5-acc6-2ff5fa4cf0d0": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "2dc07cb5-b138-446f-9554-13e6bf5e0391": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_49a5e94024c14f0ea688dd21477f5b85.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 150
+          }
+        },
+        "7d063c66-bad0-4777-9dca-067ef5cdcc8f": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_bc06f6cd6ef143dcae0ebbe1f2da0329.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 150
+          }
+        },
+        "4f2296ed-8a5f-41c0-a02a-79c5aabde499": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_e51abe97e7024c44acd5dbae240cd382.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "2edc84aa-8879-4682-8da1-770555031bcf": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_186ff5918edb449db406b99e5a4a9c94.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 150
+          }
+        }
+      },
+      "block_order": [
+        "2dc07cb5-b138-446f-9554-13e6bf5e0391",
+        "7d063c66-bad0-4777-9dca-067ef5cdcc8f",
+        "4f2296ed-8a5f-41c0-a02a-79c5aabde499",
+        "2edc84aa-8879-4682-8da1-770555031bcf"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Awards",
+        "desc": "Our ground-breaking design and patented technologies have won global acclaim.",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#aa182c",
+        "text_color_desc": "#000000",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 4,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "left"
+      }
+    },
+    "04cd4320-e406-4266-9bad-c4004fd30b13": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "e4d76300-5116-4a8e-849d-cc0514ae2462": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_9652a140fc1340e48d9e30bb64d5c7e8_1.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 150
+          }
+        },
+        "c33c078a-81d7-4d36-9437-e0d8be628b16": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_f2304c7e7613488ba479769d1fa3d224.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 150
+          }
+        },
+        "4ffb1f3e-a661-4bf5-ba42-10146bd87c10": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_21ea58ed25634442b9b968fda3a82d95.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 150
+          }
+        },
+        "356489b2-d711-42fb-844c-2fc62ce3bf25": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_50bab5c166ce42f9ab1a7759b806f0af.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 150
+          }
+        }
+      },
+      "block_order": [
+        "e4d76300-5116-4a8e-849d-cc0514ae2462",
+        "c33c078a-81d7-4d36-9437-e0d8be628b16",
+        "4ffb1f3e-a661-4bf5-ba42-10146bd87c10",
+        "356489b2-d711-42fb-844c-2fc62ce3bf25"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Certifications",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#aa182c",
+        "text_color_desc": "#000000",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 4,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "left"
+      }
+    },
+    "86e57602-4c1e-4c9d-ba69-c1251d8bf30a": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:</b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href='www.P65Warnings.ca.gov' target='_blank'>www.P65Warnings.ca.gov</a></p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/reviews-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/rating-summary-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "541dc2d8-e3a0-412f-8ff6-a3c6a31013a2",
+    "ae86d9be-d3af-4ab4-b6b2-e7207efc2123",
+    "f9615651-3496-4dba-814f-8200fc68d55d",
+    "31542de2-1138-44d7-b693-3fe7685fd63d",
+    "897e1f40-c241-47af-b95b-47c6f41f697e",
+    "13b7dab9-901e-4fb0-99b4-ffc3ebf2fe96",
+    "f4d8ce19-15bb-49ea-8e85-7face3c7397d",
+    "72ac2c93-b2c7-4448-8f2d-f24e9ffc643f",
+    "6ff626bb-e7ee-45e3-be08-17e744e327a4",
+    "0bec739b-446e-416b-82c3-66e0f466d274",
+    "ee86b943-04c8-4eb5-acc6-2ff5fa4cf0d0",
+    "04cd4320-e406-4266-9bad-c4004fd30b13",
+    "86e57602-4c1e-4c9d-ba69-c1251d8bf30a",
+    "product-recommendations",
+    "reviews"
+  ]
+}

@@ -1,0 +1,320 @@
+{% # prettier-ignore %}
+{%- capture slider_config -%}
+  { 
+    "renderMode": "performance",
+    "breakpoints": {
+      "(min-width: 768px)": { 
+        "slides": { "perView": 3, "spacing": 16 }
+      },
+      "(min-width: 1024px)": { 
+        "slides": { "perView": 3, "spacing": 16 }
+      }
+    },
+    "slides": { "perView": 1, "spacing": 16 }
+  }
+{%- endcapture -%}
+
+{% style %}
+  {% if section.settings.bg_color != blank %}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.bg_color }};
+    }
+  {% endif %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  #M-RecipesCarousel-Title-{{ section.id }} {
+    color: {{ section.settings.text_color_heading }};
+  }
+  #M-RecipesCarousel-Desc-{{ section.id }} {
+    color: {{ section.settings.text_color_desc }};
+  }
+  #M-RecipesCarousel-Content-{{ section.id }} {
+    {% render 'get-text-align-style', align: section.settings.mobile_text_align, get: 'style' %}
+  }
+
+
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    #PDP-Picture-Content-{{ section.id }} {
+      {% render 'get-text-align-style', align: section.settings.desktop_text_align, get: 'style' %}
+    }
+  }
+{% endstyle %}
+
+<div class="{{ section.settings.container }}">
+  {%- if section.settings.title != blank or section.settings.desc != blank -%}
+    <header id="M-RecipesCarousel-Content-{{ section.id }}" class="mb-4 lg:mb-12">
+      {%- if section.settings.title != blank -%}
+        <h2 id="M-RecipesCarousel-Title-{{ section.id }}" class="m-title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.desc != blank -%}
+        <p id="M-RecipesCarousel-Desc-{{ section.id }}" class="m-desc font-slab">{{ section.settings.desc }}</p>
+      {%- endif -%}
+    </header>
+  {%- endif -%}
+
+  <keen-slider slider-config="{{ slider_config | escape }}" navigation="dots" class="block">
+    <ul class="keen-slider">
+      {%- for block in section.blocks -%}
+        {%- assign tags_arr = block.settings.tags | split: ', ' -%}
+        {% assign colors = '#005e6e, #fbdb65, #003339' %}
+        {%- assign colors_arr = colors | split: ", " -%}
+        <li class="keen-slider__slide p-2">
+          <a href="{{ block.settings.recipe.url}}">
+            <article class='rounded-lg overflow-hidden shadow-lg'>
+              {% render 'image',
+                image: block.settings.recipe.image,
+                width: 250,
+                sizes: '350, 350, 350',
+                aspect_ratio: 'aspect-video',
+                object_fit: 'cover'
+              %}
+              <header class="p-4">
+                <ul class="flex gap-4 mb-4">
+                  {%- for tag in tags_arr -%}
+                    <li class="flex-1 flex items-center justify-center py-1 text-xs {% if forloop.index0 == 1 %}text-black{% else%}text-white{% endif %}" style="background-color: {{ colors_arr[forloop.index0] }};">{{ tag }}</li>
+                  {%- endfor -%}
+                </ul>
+                
+                <h3 class="font-bold text-lg mb-2">{{ block.settings.recipe.title }}</h3>
+                <p class="text-sm mb-4">
+                  {%- if block.settings.recipe.excerpt.size > 0 -%}
+                    {{ block.settings.recipe.excerpt | strip_html | truncatewords: 30 }}
+                  {%- else -%}
+                    {{ block.settings.recipe.content | strip_html | truncatewords: 30 }}
+                  {%- endif -%}
+                </p>
+
+                <p class="font-bold inline-flex gap-x-2 items-center">
+                  {% render 'icons' with 'time', width: 28, height: 28 %}
+                  {{ block.settings.time }}</p>
+                
+                <p class='font-black uppercase text-primary'>Learn more</p>
+              </header>
+            </article>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+    {%- if section.blocks.size > 1 -%}
+      <div id="dots" class="dots my-4"></div>
+    {%- endif -%}
+  </keen-slider>
+
+  {%- if section.settings.button_label != blank -%}
+    <div class="text-center">
+      <a href="{{ section.settings.button_url }}" class="btn-primary uppercase">{{ section.settings.button_label }}</a>
+    </div>
+    
+  {%- endif -%}
+</div>
+
+
+{% schema %}
+{
+  "name": "M | Recipe Carousel",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "<small class='font-black uppercase'>Explore Our Most</small><br/><span class='font-display'>Popular Recipes</span>"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Desc"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "URL"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "View all recipes"
+    },
+    {
+      "type": "header",
+      "content": "Desktop"
+    },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container (width)",
+      "options": [
+        {
+          "value": "",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Default"
+        },
+        {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+        },
+        {
+          "value": "container max-w-screen-md",
+          "label": "md"
+        },
+        {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+        },
+        {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+        },
+        {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+        }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color_heading",
+      "label": "Text color (Heading)",
+      "default": "#003339"
+    },
+    {
+      "type": "color",
+      "id": "text_color_desc",
+      "label": "Text color (Desc)",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Settings"
+    },
+    {
+      "type": "select",
+      "id": "desktop_text_align",
+      "label": "Text align (Desktop)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_align",
+      "label": "Text align (Mobile)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "recipe",
+      "name": "Recipe",
+      "settings": [
+        {
+          "type": "article",
+          "id": "recipe",
+          "label": "Recipe"
+        },
+        {
+          "type": "header",
+          "content": "Tags"
+        },
+        {
+          "type": "text",
+          "id": "tags",
+          "label": "Tags",
+          "default": "Indian, Dinner, Intermediate",
+          "info": "Comma separated list. Must be formatted exactly as example."
+        },
+        {
+          "type": "header",
+          "content": "Time"
+        },
+        {
+          "type": "text",
+          "id": "time",
+          "label": "Time",
+          "default": "3hr 20min"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "M | Recipe Carousel"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,460 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {}
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {}
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {}
+    },
+    "6b37b28b-3898-4ad0-b3d2-987247de29ea": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "ea527bdc-909c-44d5-8cdc-d9fb44e6263d": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_ec162653148c4a999b6d4ae9fe4287eb.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        },
+        "23f9d877-30d0-44a8-845b-af560b63ac32": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_c18edbe744994ae4ad2fcd4fd09a8196.webp",
+            "title": "6-Liter Tank",
+            "desc": ""
+          }
+        },
+        "ab676a2c-dbdb-4e42-8f2a-ccd3465f3e31": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_c3bad1a67095404daa20a2f9dedfab4a.webp",
+            "title": "6-Liter Tank",
+            "desc": ""
+          }
+        },
+        "c7d7f591-8b71-4146-99d9-333e16154ded": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_fa186c99b1b541e2964b7bf168ef5d56.webp",
+            "title": "Bottom Fill Design",
+            "desc": ""
+          }
+        },
+        "e9ff1acc-8c3d-4974-be82-afc70e6c03c2": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_9b734fd1c4534721ae56977d24e4fec2.webp",
+            "title": "Up to 50 Hours Runtime",
+            "desc": ""
+          }
+        }
+      },
+      "block_order": [
+        "ea527bdc-909c-44d5-8cdc-d9fb44e6263d",
+        "23f9d877-30d0-44a8-845b-af560b63ac32",
+        "ab676a2c-dbdb-4e42-8f2a-ccd3465f3e31",
+        "c7d7f591-8b71-4146-99d9-333e16154ded",
+        "e9ff1acc-8c3d-4974-be82-afc70e6c03c2"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Levoit\n<b>Hybrid Ultrasonic Humidifier</b>",
+        "desc": "LV600HH",
+        "hide_header_image_on_mobile": false,
+        "header_width": 520,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_above",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "center",
+        "text_position": "center_center",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#005195",
+        "text_color_desc": "#005195",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#EEEEEE",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#005195",
+        "list_item_desc_color": "#ffffff",
+        "desktop_list_divider_border_color": "#EEEEEE",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#ffffff",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "3da69dc2-eb32-4d78-9795-6d6e56bd9566": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109748453527__3da69dc2-eb32-4d78-9795-6d6e56bd9566-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Frame_13.jpg",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109748453527__3da69dc2-eb32-4d78-9795-6d6e56bd9566-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Cool & Warm Mist</b>",
+        "desc": "Each option has different benefits for you and your home.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#005195",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "reverse_on_mobile": false
+      }
+    },
+    "80031e01-518f-4acd-81af-24b3c63ee67e": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "748d7cf0-6ce9-4d1a-93b9-b799a8895cc5": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_c2cc3a765b7c42788473e843f3ec8104.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<b>Wide Coverage</b>",
+            "desc": "Enjoy warm or cool mist throughout your home with an effective range of 430–753 ft².",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "79560310-ebbe-4711-86c2-35a5ed66a248": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_04d383ff90114a0ab8da678f69a09532.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<strong>Aromatherapy</strong>",
+            "desc": "Simply add a few drops of essential oils to the aroma box to enjoy your favorite fragrances.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "4cbf40d4-c328-4e64-b0df-95efb1647220": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_f187e3efd6a04c55995ac25f22f54f7f.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<strong>Dual Control</strong>",
+            "desc": "Choose your preferred settings with the intuitive control panel, or use the remote to control the humidifier without leaving your bed.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "748d7cf0-6ce9-4d1a-93b9-b799a8895cc5",
+        "79560310-ebbe-4711-86c2-35a5ed66a248",
+        "4cbf40d4-c328-4e64-b0df-95efb1647220"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#005195",
+        "text_color_desc": "#000000",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 1.5,
+        "tablet_items_per_row": 2.5,
+        "desktop_items_per_row": 3,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "center"
+      }
+    },
+    "cd53bc0b-3098-4810-8512-e510566498ee": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109748453527__cd53bc0b-3098-4810-8512-e510566498ee-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_f6e7e10eb07e426c88638f18a39047ef.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109748453527__cd53bc0b-3098-4810-8512-e510566498ee-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Automatic Adjustments\n\n</strong>",
+        "desc": "Auto Mode uses the built-in humidity sensor to keep your space comfortable with automatic mist level adjustments.",
+        "list": "",
+        "header_width": 560,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#005195",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "c01e0d27-0cce-4f6a-850c-8886cf3482b1": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "73d5353b-bf37-499d-8462-9d65e9b0af69": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_9652a140fc1340e48d9e30bb64d5c7e8_1.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "d9540f9b-aed4-4fdf-87ae-ad252d7a97c0": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_3cd8d60bd62c426da7682c5e2ad6be9b.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "d4a5334d-75bf-4f1a-9f9c-bab89a61d47e": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_50bab5c166ce42f9ab1a7759b806f0af.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "f447b06a-ec42-4d73-8500-a1b8f4802e32": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/fc.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "73d5353b-bf37-499d-8462-9d65e9b0af69",
+        "d9540f9b-aed4-4fdf-87ae-ad252d7a97c0",
+        "d4a5334d-75bf-4f1a-9f9c-bab89a61d47e",
+        "f447b06a-ec42-4d73-8500-a1b8f4802e32"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Safe & Certified",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#005195",
+        "text_color_desc": "#000000",
+        "disable_slider": "disabled",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 4,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "left"
+      }
+    },
+    "cdbddb43-8f66-4602-93cd-03d0f96aa09a": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:</b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href='www.P65Warnings.ca.gov' target='_blank'>www.P65Warnings.ca.gov</a></p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/reviews-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/rating-summary-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "6b37b28b-3898-4ad0-b3d2-987247de29ea",
+    "3da69dc2-eb32-4d78-9795-6d6e56bd9566",
+    "80031e01-518f-4acd-81af-24b3c63ee67e",
+    "cd53bc0b-3098-4810-8512-e510566498ee",
+    "c01e0d27-0cce-4f6a-850c-8886cf3482b1",
+    "cdbddb43-8f66-4602-93cd-03d0f96aa09a",
+    "product-recommendations",
+    "reviews"
+  ]
+}

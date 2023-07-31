@@ -1,0 +1,430 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {
+          }
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {
+          }
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {
+      }
+    },
+    "74151703-e930-4bde-8e8c-88a6dbb96189": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "b959aa66-735c-4d4f-9fc5-9c4704e3eb66": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Frame_8.jpg",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "446eefd8-16df-4402-958e-2fd0df7065e0": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "Clean Air Fits Anywhere",
+            "desc": "Compact and convenient, the Levoit Personal HEPA Air Purifier easily fits on desks and nightstands.",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#14015b",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        }
+      },
+      "block_order": [
+        "b959aa66-735c-4d4f-9fc5-9c4704e3eb66",
+        "446eefd8-16df-4402-958e-2fd0df7065e0"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": true
+      }
+    },
+    "444d17c5-0ee7-49dd-8e6a-ce95134151f2": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109533855895__444d17c5-0ee7-49dd-8e6a-ce95134151f2-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_513e2ad7e4094de696002e67ce3385f5.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109533855895__444d17c5-0ee7-49dd-8e6a-ce95134151f2-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "3-Stage Filtration",
+        "desc": "Capture at least 99.5% of airborne particles 0.3 micrometers in diameter with your personal air purifier.",
+        "list": "",
+        "header_width": 430,
+        "text_align": "left",
+        "text_position": "",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "e9540539-5f01-4b97-8ef5-ae7c2b980499": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "2519cbde-a486-4ccc-a995-7d3d050cfa0b": {
+          "type": "image-text",
+          "settings": {
+            "hide_image_placeholder": true,
+            "subtitle": "",
+            "title": "Activated Carbon Pre-Filter",
+            "desc": "Captures large particles like lint, fur, and hair floating around.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "c899fd85-e769-4bc2-a54b-b66fc8507914": {
+          "type": "image-text",
+          "settings": {
+            "hide_image_placeholder": true,
+            "subtitle": "",
+            "title": "H12 Personal HEPA Filter",
+            "desc": "Traps small particles like pet dander, fine dust, and pollen.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "254c50b5-2729-437a-8ffa-14da6f81fd06": {
+          "type": "image-text",
+          "settings": {
+            "hide_image_placeholder": true,
+            "subtitle": "",
+            "title": "High-Efficiency Activated Carbon Filter",
+            "desc": "Absorbs pollutants, VOCs, and unpleasant odors in your home.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "2519cbde-a486-4ccc-a995-7d3d050cfa0b",
+        "c899fd85-e769-4bc2-a54b-b66fc8507914",
+        "254c50b5-2729-437a-8ffa-14da6f81fd06"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 3,
+        "gap": 2,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 2,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "left"
+      }
+    },
+    "dc67b450-d30b-4319-ab8a-d2db5452c9ea": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "a3c31827-28db-4185-93fd-7793f2cd0f63": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Screenshot_2023-07-26_at_12.07.21_PM.png",
+            "figcaption": "",
+            "aspect_ratio": "square",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "b75a02cb-fb19-4f94-b4ef-5ca2d1417dda": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Screenshot_2023-07-26_at_12.07.29_PM.png",
+            "figcaption": "",
+            "aspect_ratio": "square",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "a3c31827-28db-4185-93fd-7793f2cd0f63",
+        "b75a02cb-fb19-4f94-b4ef-5ca2d1417dda"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "b8466138-8395-4679-945e-e5e1aa31290d": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109533855895__b8466138-8395-4679-945e-e5e1aa31290d-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_dbfd254e2dd7421b867e29e4ae5e5f86.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109533855895__b8466138-8395-4679-945e-e5e1aa31290d-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "reverse_on_mobile": false
+      }
+    },
+    "a6092746-2326-4ae4-a090-789285239f91": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109533855895__a6092746-2326-4ae4-a090-789285239f91-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_2dafb16f10ff44ca92239006750b47d6.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109533855895__a6092746-2326-4ae4-a090-789285239f91-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Quiet & Compact",
+        "desc": "Made for personal spaces, the air purifier fits perfectly on nightstands, quietly operating while you rest.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "0c1bb5e1-791b-42ce-9c42-0bbaacaabb9a": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:<\/b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href='www.P65Warnings.ca.gov' target='_blank'>www.P65Warnings.ca.gov<\/a><\/p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/reviews-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/rating-summary-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "74151703-e930-4bde-8e8c-88a6dbb96189",
+    "444d17c5-0ee7-49dd-8e6a-ce95134151f2",
+    "e9540539-5f01-4b97-8ef5-ae7c2b980499",
+    "dc67b450-d30b-4319-ab8a-d2db5452c9ea",
+    "b8466138-8395-4679-945e-e5e1aa31290d",
+    "a6092746-2326-4ae4-a090-789285239f91",
+    "product-recommendations",
+    "0c1bb5e1-791b-42ce-9c42-0bbaacaabb9a",
+    "reviews"
+  ]
+}

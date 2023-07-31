@@ -1,0 +1,10 @@
+/* .section {
+  @apply first-of-type:mb-16 md:first-of-type:mb-20 lg:first-of-type:mb-28;
+  &:not(:first-of-type) {
+    @apply my-16 md:my-20 lg:my-28;
+  }
+} */
+
+.section {
+  /* @apply scroll-mt-32 */
+}

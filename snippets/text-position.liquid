@@ -1,0 +1,82 @@
+{% comment %}
+  {%- liquid
+    if text_position != blank
+      case text_position
+        when 'top-left'
+          assign text_position = 'items-start justify-start'
+        when 'top-center'
+          assign text_position = 'items-start justify-center'
+        when 'top-right'
+          assign text_position = 'items-start justify-end'
+        when 'center-left'
+          assign text_position = 'items-center justify-start'
+        when 'center-center'
+          assign text_position = 'items-center justify-center'
+        when 'center-right'
+          assign text_position = 'items-center justify-end'
+        when 'bottom-left'
+          assign text_position = 'items-end justify-start'
+        when 'bottom-center'
+          assign text_position = 'items-end justify-center'
+        when 'bottom-right'
+          assign text_position = 'items-end justify-end'
+      endcase
+    else
+      assign text_position = 'items-center justify-center'
+    endif
+  -%}
+  {{ text_position }}
+{% endcomment %}
+
+{%- liquid
+  assign get = get | default: 'class'
+  assign text_position = text_position | default: 'center-center'
+  case get
+    when 'class'
+      case text_position
+        when 'top-left'
+          assign text_position = 'items-start justify-start'
+        when 'top-center'
+          assign text_position = 'items-start justify-center'
+        when 'top-right'
+          assign text_position = 'items-start justify-end'
+        when 'center-left'
+          assign text_position = 'items-center justify-start'
+        when 'center-center'
+          assign text_position = 'items-center justify-center'
+        when 'center-right'
+          assign text_position = 'items-center justify-end'
+        when 'bottom-left'
+          assign text_position = 'items-end justify-start'
+        when 'bottom-center'
+          assign text_position = 'items-end justify-center'
+        when 'bottom-right'
+          assign text_position = 'items-end justify-end'
+      endcase
+
+      echo text_position
+
+    when 'style'
+      case text_position
+        when 'top-left'
+          assign text_position = 'align-items: flex-start; justify-content: flex-start;'
+        when 'top-center'
+          assign text_position = 'align-item: flex-start; justify-content: center;'
+        when 'top-right'
+          assign text_position = 'align-items: flex-start; justify-content: flex-end;'
+        when 'center-left'
+          assign text_position = 'align-items: center; justify-content: flex-start;'
+        when 'center-center'
+          assign text_position = 'align-items: center; justify-content: center;'
+        when 'center-right'
+          assign text_position = 'align-items: center; justify-content: flex-end;'
+        when 'bottom-left'
+          assign text_position = 'align-items: flex-end; justify-content: flex-start;'
+        when 'bottom-center'
+          assign text_position = 'align-items: flex-end; justify-content: center;'
+        when 'bottom-right'
+          assign text_position = 'align-items: flex-end; justify-content: flex-end;'
+      endcase
+      echo text_position
+  endcase
+-%}

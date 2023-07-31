@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-newsroom",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/assets_70f756a994b448e2b60a10734185b2d7_389fffd7420f45bcbbb22f42cc14e7bf.png"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

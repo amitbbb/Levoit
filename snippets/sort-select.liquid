@@ -1,0 +1,85 @@
+{%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+
+{%- capture selected_option -%}
+  {%- case sort_by | escape -%}
+    {%- when 'title-ascending' -%}
+      Title (A-Z)
+    {%- when 'title-descending' -%}
+      Title (Z-A)
+    {%- when 'price-ascending' -%}
+      Price (Low-High)
+    {%- when 'price-descending' -%}
+      Price (High-Low)
+    {%- when 'created-ascending' -%}
+      Oldest
+    {%- when 'created-descending' -%}
+      Newest
+    {%- when 'best-selling' -%}
+      Best Selling
+    {%- when 'manual' -%}
+      Featured
+    {%- else -%}
+      {{ option.name | escape }}
+  {%- endcase -%}
+{%- endcapture -%}
+
+<custom-select>
+  <details class="relative w-full lg:max-w-xs ">
+    <summary class="details__summary py-4 px-4 text-sm cursor-pointer flex justify-between items-center gap-x-4 lg:border lg:rounded-md ">
+      <span class="selected-label whitespace-nowrap">{{ selected_option }}</span>
+
+      {% render 'icons' with 'chevron-down' %}
+    </summary>
+    <aside class="absolute right-0 h-64 lg:absolute lg:top-full   w-full border rounded-md z-40 text-sm transition-all duration-500 ease-out-expo bg-white min-w-[16rem] overflow-y-auto">
+      <ul class="">
+      {%- for option in collection.sort_options -%}
+        {%- capture option_title -%}
+          {%- case option.name | escape -%}
+            {%- when 'Alphabetically, A-Z' -%}
+              Title (A-Z)
+            {%- when 'Alphabetically, Z-A' -%}
+              Title (Z-A)
+            {%- when 'Price, low to high' -%}
+              Price (Low-High)
+            {%- when 'Price, high to low' -%}
+              Price (High-Low)
+            {%- when 'Date, old to new' -%}
+              Oldest
+            {%- when 'Date, new to old' -%}
+              Newest
+            {%- else -%}
+              {{ option.name | escape }}
+          {%- endcase -%}
+        {%- endcapture -%}
+
+        <li
+          data-value="{{ option.value | escape }}"
+          {% if option.value == sort_by %}
+            selected="selected"
+          {% endif %}
+          class="cursor-pointer hover:bg-neutral-50"
+        >
+          <label
+            for="Filter-{{ option.value | escape }}-{{ forloop.index }}"
+            class="facet-checkbox"
+          >
+            <input
+              type="radio"
+              name="sort_by"
+              value="{{ option.value | escape }}"
+              title="{{ option_title }}"
+              id="Filter-{{ option.value | escape }}-{{ forloop.index }}"
+              class="sr-only"
+              {% if option.value == sort_by %}
+                checked="checked"
+              {% endif %}
+            >
+            <span class="label p-4 h-full w-full cursor-pointer relative whitespace-nowrap">{{ option_title }}</span>
+          </label>
+        </li>
+      {%- endfor -%}
+    </ul>
+    </aside>
+    
+  </details>
+</custom-select>

@@ -1,0 +1,13 @@
+[id^=Favorites-Button] {
+  &.is-active {
+    svg {
+      /* @apply fill-orange-500 ; */
+      circle {
+        @apply stroke-orange-500 fill-white;
+      }
+      path {
+        @apply stroke-orange-500 fill-orange-500
+      }
+    }
+  }
+}

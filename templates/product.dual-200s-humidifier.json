@@ -1,0 +1,707 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {
+          }
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {
+          }
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {
+      }
+    },
+    "516beda2-2ee0-4c26-988e-91c301ddc948": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "55edbe9f-8cbb-4bcc-824c-aa4e608d0d9d": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_f491e6c33c284a06b49a2d84ae53cfc0.png",
+            "aspect_ratio": "fill",
+            "object_fit": "cover",
+            "image_height": 550
+          }
+        },
+        "91b306db-ac6f-4598-8b8c-cfa70e856793": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_c18edbe744994ae4ad2fcd4fd09a8196.webp",
+            "title": "3-Liter Tank",
+            "desc": ""
+          }
+        },
+        "8c957487-9bc3-453e-bef5-6622f3fe9acd": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_c3bad1a67095404daa20a2f9dedfab4a.webp",
+            "title": "290 ft2 Coverage",
+            "desc": ""
+          }
+        },
+        "a7380311-151c-4ef3-8742-4609cd2544f2": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_92a0de0b9c1345cfb7322496819c6ccd.webp",
+            "title": "Top-Fill Design",
+            "desc": ""
+          }
+        },
+        "86e01260-c981-42af-849b-86808cacb048": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_9b734fd1c4534721ae56977d24e4fec2.webp",
+            "title": "Up to 25-Hour Runtime",
+            "desc": ""
+          }
+        }
+      },
+      "block_order": [
+        "55edbe9f-8cbb-4bcc-824c-aa4e608d0d9d",
+        "91b306db-ac6f-4598-8b8c-cfa70e856793",
+        "8c957487-9bc3-453e-bef5-6622f3fe9acd",
+        "a7380311-151c-4ef3-8742-4609cd2544f2",
+        "86e01260-c981-42af-849b-86808cacb048"
+      ],
+      "settings": {
+        "logo_width": 150,
+        "subtitle": "",
+        "title": "Levoit Dual 200S",
+        "desc": "Smart Top-Fill Humidifier",
+        "hide_header_image_on_mobile": false,
+        "header_width": 520,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_below",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "left",
+        "text_position": "center_left",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#14015b",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#ffffff",
+        "desktop_list_item_desc_color": "#ffffff",
+        "mobile_items_per_row": 1,
+        "tablet_items_per_row": 1,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "52c79da3-a772-49f0-b957-fadb58069f6a": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "7791a46f-0872-4978-a92a-916947628c14": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_204329360809436db33e5430c58e67f6.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<b>Large Capacity<\/b>",
+            "desc": "Enjoy mist for up to 25 hours in a 107–290 ft2 space.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 200
+          }
+        },
+        "1867b6b4-f274-4e08-945a-07ff7eb9e50d": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_872312e36b314986ac4032c9c5a66790.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<b>Aromatherapy<\/b>",
+            "desc": "Add soothing fragrance to your humidity with a few drops of essential oils* directly into the base chamber.\n\n<span style=\"color: #7b7b7b\">*Essential oils not included.<\/span>",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 200
+          }
+        },
+        "06734dfe-1a5a-4a26-9981-465e74f5cb48": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_33775d1ba5cf4f17b9a88d06d31f02bd.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<b>360° Nozzle<\/b>",
+            "desc": "Adjust the direction of the ultrasonic mist by turning the nozzle wherever you want it to go.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": false,
+            "if_logo_set_width": 200
+          }
+        }
+      },
+      "block_order": [
+        "7791a46f-0872-4978-a92a-916947628c14",
+        "1867b6b4-f274-4e08-945a-07ff7eb9e50d",
+        "06734dfe-1a5a-4a26-9981-465e74f5cb48"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#005195",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#FFFFFF",
+        "button_border_radius": 0,
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 4,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "center",
+        "convert_to_card": false,
+        "card_bg_color": "",
+        "card_subtitle_color": "",
+        "card_title_color": "",
+        "card_desc_color": "",
+        "card_border_radius": 0
+      }
+    },
+    "d2113385-56ce-4dfb-99ba-3de81d662608": {
+      "type": "m-media",
+      "blocks": {
+        "b51af66a-ab47-4b78-b146-0d3c9ead7de9": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify:\/\/files\/videos\/01.00_WA2_0222Dual200S_RCB Update_03.mp4",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250,
+            "show_unmute_button": false
+          }
+        }
+      },
+      "block_order": [
+        "b51af66a-ab47-4b78-b146-0d3c9ead7de9"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Customize Your Humidity<\/b> with VeSync",
+        "desc": "Download the <b>free VeSync app<\/b> to control your home’s humidity level, even when you’re not there.",
+        "list": "Control settings\nSet target humidity levels\nSet schedules & timers\nMonitor humidity levels",
+        "header_width": 780,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "",
+        "button_url": "",
+        "footer_image": "shopify:\/\/shop_images\/Screenshot_2023-07-24_at_4.57.07_PM.png",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#005195",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#FFFFFF",
+        "button_border_radius": 0,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "4ab26e65-e17d-4d10-a496-af3e55fb1512": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "bc2d23b6-955f-46d2-bb21-7a6316bfca39": {
+          "type": "content-app-links",
+          "settings": {
+            "subtitle": "",
+            "title": "<b>Voice Control<\/b>",
+            "desc": "Connect to third-party voice assistants through VeSync to give the humidifier commands when your hands are full.<br><span style=\"font-size:.7rem;\">Google, Google Play, and Google Assistant are trademarks of Google LLC.\nAmazon, Alexa and all related logos are trademarks of Amazon.com, Inc. or its affiliates.<\/span>",
+            "app_store_icon_1": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_222f92d36db0439c8dc0d338c00859d7.webp",
+            "app_store_url_1": "#",
+            "app_store_icon_2": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_894791a501c14222b781802ae1888416.webp",
+            "app_store_url_2": "#",
+            "app_store_url_3": "",
+            "store_icon_widths": 150,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#ffffff",
+            "text_color_desc": "#ffffff",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "cf577dde-9ae3-42d0-8166-62edc37a8cb2": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify:\/\/files\/videos\/01.00_WA2_0222Dual200S_RCB Update_04.mp4",
+            "show_unmute_button": false,
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "bc2d23b6-955f-46d2-bb21-7a6316bfca39",
+        "cf577dde-9ae3-42d0-8166-62edc37a8cb2"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "",
+        "bg_color": "#004988",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "gap": 1,
+        "reverse_row_on_mobile": true,
+        "enable_custom_block_widths": false
+      }
+    },
+    "65dea611-6e93-46c0-957e-83183bedc38b": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "aa1f5d20-7e3d-417c-9768-b3e30f33c675": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify:\/\/files\/videos\/01.00_WA2_0222Dual200S_RCB Update_05.mp4",
+            "aspect_ratio": "fill",
+            "object_fit": "cover",
+            "image_height": 550,
+            "show_unmute_button": false
+          }
+        },
+        "cd339b43-d077-47f7-8e32-d501c8481b75": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_9f5d583597e644348b4546deff7bceba.webp",
+            "title": "Benefits of Humidity",
+            "desc": "Balanced humidity helps combat dry skin, congestion, and coughing."
+          }
+        },
+        "69ce6d4c-6710-4a1f-b73c-b218fe67042d": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_14fa6c9d7f374bd583f3ebf5dde47f8d.webp",
+            "title": "Sleep Mode",
+            "desc": "Turns on display lights and sets humidifier to Auto Mode."
+          }
+        },
+        "c8759216-93b1-420f-ba12-380c972de179": {
+          "type": "list-item",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_14fa6c9d7f374bd583f3ebf5dde47f8d.webp",
+            "title": "Muffler Technology",
+            "desc": "A hydraulic fan reduces the sounds of friction and water droplets, keeping noise levels as low as 28dB."
+          }
+        }
+      },
+      "block_order": [
+        "aa1f5d20-7e3d-417c-9768-b3e30f33c675",
+        "cd339b43-d077-47f7-8e32-d501c8481b75",
+        "69ce6d4c-6710-4a1f-b73c-b218fe67042d",
+        "c8759216-93b1-420f-ba12-380c972de179"
+      ],
+      "settings": {
+        "logo_width": 230,
+        "subtitle": "",
+        "title": "Sleep Well",
+        "desc": "Add healthy humidity to your nighttime routine.",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "stack_content_below",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "left",
+        "text_position": "center_left",
+        "bg_color": "#005195",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#ffffff",
+        "text_color_desc": "#ffffff",
+        "desktop_header_image_align": "right",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_right",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#ffffff",
+        "desktop_text_color_desc": "#ffffff",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#ffffff",
+        "list_item_desc_color": "#ffffff",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "rgba(0,0,0,0)",
+        "desktop_list_item_title_color": "#ffffff",
+        "desktop_list_item_desc_color": "#ffffff",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 1,
+        "desktop_items_per_row": 1,
+        "gap": 1
+      }
+    },
+    "172ef55b-34b0-4d3f-b63b-a691c53e5f41": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "8127808f-de8b-485f-9233-c517942f62ff": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "<b>Anti-Leak Design<\/b>",
+            "desc": "The <b>double-valve structure <\/b> catches leaks before they exit the humidifier and uses a filter to keep hair and dust out of the water tank.",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#14015b",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        },
+        "9f8231c8-9108-42bc-b22f-4bf68c304610": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_bcdf96513ef740e5897184d2ae892566.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "8127808f-de8b-485f-9233-c517942f62ff",
+        "9f8231c8-9108-42bc-b22f-4bf68c304610"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "#f2f2f2",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 2,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "b4c3184e-47c9-44f0-8955-efcba7c59fa3": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "d83992fb-005a-48a6-a73a-493c3cf0b735": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_3cd8d60bd62c426da7682c5e2ad6be9b.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "057e25ea-2748-4b98-a08f-fce8ba148230": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/intertek.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "db943ab0-92cd-4b29-aa4c-19584f3818d4": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/bpa-free.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        },
+        "5a499520-17d0-4cc5-a2fe-bdfabc769e51": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/fc.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "button_label_2": "Learn more",
+            "button_url_2": "",
+            "is_logo": true,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "d83992fb-005a-48a6-a73a-493c3cf0b735",
+        "057e25ea-2748-4b98-a08f-fce8ba148230",
+        "db943ab0-92cd-4b29-aa4c-19584f3818d4",
+        "5a499520-17d0-4cc5-a2fe-bdfabc769e51"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b>Safe & Certified<\/b>",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#005195",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#FFFFFF",
+        "button_border_radius": 0,
+        "disable_slider": "disabled",
+        "mobile_items_per_row": 4,
+        "tablet_items_per_row": 4,
+        "desktop_items_per_row": 4,
+        "gap": 1.8,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 2,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "left",
+        "convert_to_card": false,
+        "card_bg_color": "",
+        "card_subtitle_color": "",
+        "card_title_color": "",
+        "card_desc_color": "",
+        "card_border_radius": 0
+      }
+    },
+    "7eaeb930-35bd-49d0-a936-62955cb1da31": {
+      "type": "m-media-text-row",
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "<small>*Source: Stackline data for U.S. Amazon Sales, February 2019 to September 2021.<\/small>",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "104fde46-24da-4956-8f24-8f89c3b7083c": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:<\/b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href=\"www.P65Warnings.ca.gov\" target=\"_blank\">www.P65Warnings.ca.gov<\/a><\/p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/reviews-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/rating-summary-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "516beda2-2ee0-4c26-988e-91c301ddc948",
+    "52c79da3-a772-49f0-b957-fadb58069f6a",
+    "d2113385-56ce-4dfb-99ba-3de81d662608",
+    "4ab26e65-e17d-4d10-a496-af3e55fb1512",
+    "65dea611-6e93-46c0-957e-83183bedc38b",
+    "172ef55b-34b0-4d3f-b63b-a691c53e5f41",
+    "b4c3184e-47c9-44f0-8955-efcba7c59fa3",
+    "7eaeb930-35bd-49d0-a936-62955cb1da31",
+    "104fde46-24da-4956-8f24-8f89c3b7083c",
+    "product-recommendations",
+    "reviews"
+  ]
+}

@@ -1,0 +1,829 @@
+{
+  "sections": {
+    "e414666c-a0e5-4bde-bee1-380be78fafc2": {
+      "type": "m-media",
+      "blocks": {
+        "template--16111406514327__e414666c-a0e5-4bde-bee1-380be78fafc2-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Screenshot_2023-07-28_at_7.55.01_PM.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        },
+        "4b5819e3-c753-4699-a173-9af6790fbb2e": {
+          "type": "button",
+          "settings": {
+            "title": "Shop EverestAir®",
+            "button_url": "shopify://products/everestair-smart-air-purifier",
+            "button_bg_color": "#84a7e3",
+            "button_text_color": "#ffffff",
+            "button_border_radius": 0
+          }
+        },
+        "7774bdfb-a22c-4d9d-9077-99667a78d61e": {
+          "type": "button",
+          "settings": {
+            "title": "Shop Levoit Core® Series",
+            "button_url": "shopify://products/everestair-smart-air-purifier",
+            "button_bg_color": "#84a7e3",
+            "button_text_color": "#ffffff",
+            "button_border_radius": 0
+          }
+        },
+        "ee84162b-653d-4cb9-aa08-8e3dcbbf6b5d": {
+          "type": "button",
+          "settings": {
+            "title": "Shop Levoit Vital Series",
+            "button_url": "shopify://collections/levoit-vital-series-air-purifiers",
+            "button_bg_color": "#84a7e3",
+            "button_text_color": "#ffffff",
+            "button_border_radius": 0
+          }
+        }
+      },
+      "block_order": [
+        "template--16111406514327__e414666c-a0e5-4bde-bee1-380be78fafc2-picture-1",
+        "4b5819e3-c753-4699-a173-9af6790fbb2e",
+        "7774bdfb-a22c-4d9d-9077-99667a78d61e",
+        "ee84162b-653d-4cb9-aa08-8e3dcbbf6b5d"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong class=\"uppercase\">You're unique, and so is your air.</strong>",
+        "desc": "Every home has it's own allergens and needs. Our collection of air purifiers includes options for every room size, pollution problem, and feature preference.",
+        "list": "",
+        "enable_header_width": true,
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "",
+        "button_url": "",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#14015b",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false,
+        "icon_with_text_title_color": ""
+      }
+    },
+    "675dd75c-bba8-45f7-b9e5-f8ee29ff40bd": {
+      "type": "m-marquee",
+      "blocks": {
+        "4ae572de-00e8-4feb-8f59-37a58ff95c78": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_8a7a3900011c4fc7a4b717e173cdf77e.webp",
+            "image_width": 100
+          }
+        },
+        "5381bfc6-59ff-4035-8856-bb73722deb68": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_304f2862ac934e31bc4619ca5f7fa2a6.webp",
+            "image_width": 100
+          }
+        },
+        "704f6cb5-3620-4533-abd7-e1913c23e498": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_fd0718cca1a64e908376530e2f21da34.webp",
+            "image_width": 100
+          }
+        },
+        "ac9190d3-d8a1-4477-b642-cffdee98de93": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_88164947cced4d4da1bb3bdad99a880e.webp",
+            "image_width": 100
+          }
+        },
+        "5e312c6a-2805-457b-b413-66b0806ed15e": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_0d535ba4ae99413dae354fe8b0609dfc.webp",
+            "image_width": 100
+          }
+        },
+        "974568dd-3e2c-4856-8d8e-f51bbb1ff894": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_329b99410cf7480f9317aeedaf992027.webp",
+            "image_width": 100
+          }
+        },
+        "3cbedff2-f659-44c5-9996-af00fa151a3a": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_eae3268c0bf041baabc3e6667830fc39.webp",
+            "image_width": 100
+          }
+        },
+        "56b1a298-5cd6-4cc3-b151-42670b591bc0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_8274e453503149c693a1c26a5f62839f.webp",
+            "image_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "4ae572de-00e8-4feb-8f59-37a58ff95c78",
+        "5381bfc6-59ff-4035-8856-bb73722deb68",
+        "704f6cb5-3620-4533-abd7-e1913c23e498",
+        "ac9190d3-d8a1-4477-b642-cffdee98de93",
+        "5e312c6a-2805-457b-b413-66b0806ed15e",
+        "974568dd-3e2c-4856-8d8e-f51bbb1ff894",
+        "3cbedff2-f659-44c5-9996-af00fa151a3a",
+        "56b1a298-5cd6-4cc3-b151-42670b591bc0"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<b class=\"uppercase\">An Industry Trusted Brand</b>",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "",
+        "bg_color": "rgba(0,0,0,0)",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "23f9523e-ddf3-47b1-b130-c6284346681b": {
+      "type": "m-tabs",
+      "blocks": {
+        "54278185-a0b8-475a-95ba-5fa30a87b1d8": {
+          "type": "tab",
+          "settings": {
+            "title": "<strong class=\"uppercase\">Pre-Filter</strong>",
+            "desc": "Protects the lifespan of the H13 True HEPA Filter by capturing large particles such as lint, fibers, hair, and pet fur",
+            "image": "shopify://shop_images/Group_21.jpg",
+            "hide_image_placeholder": false,
+            "content_width": 450,
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        },
+        "c598f0b7-07e8-45fc-81cb-d7e785bb0abf": {
+          "type": "tab",
+          "settings": {
+            "title": "<strong class=\"uppercase\">H13 True HEPA FIlter</strong>",
+            "desc": "H13 True HEPA FIlter",
+            "hide_image_placeholder": true,
+            "content_width": 450,
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        },
+        "76e28bfa-ecea-4a93-824f-9eb8da688e0d": {
+          "type": "tab",
+          "settings": {
+            "title": "<strong class=\"uppercase\">High-Efficiency Activated Carbon Filter</strong>",
+            "desc": "High-Efficiency Activated Carbon Filter",
+            "hide_image_placeholder": true,
+            "content_width": 450,
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "54278185-a0b8-475a-95ba-5fa30a87b1d8",
+        "c598f0b7-07e8-45fc-81cb-d7e785bb0abf",
+        "76e28bfa-ecea-4a93-824f-9eb8da688e0d"
+      ],
+      "settings": {
+        "tab_settings": "mixed",
+        "tab_trigger_bg_color": "#84a7e3",
+        "tab_trigger_text_color": "#f7f7f7",
+        "active_tab_trigger_bg_color": "#f7f7f7",
+        "active_tab_trigger_text_color": "#14015b",
+        "tab_panel_bg_color": "#f7f7f7",
+        "tab_panel_title_color": "#14015b",
+        "tab_panel_desc_color": "#14015b",
+        "subtitle": "",
+        "title": "<strong class=\"uppercase\">Every Levoit Air Purifier is Equipped with 3-Stage Filtration</strong>",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "f973f340-a48b-4674-bb69-64a24901968b": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "be0c0c2f-0f5f-40a7-b24a-baf898e7349a": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Screenshot_2023-07-29_at_6.13.48_PM.png",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "c001560e-9104-4020-9ba1-edff79b95c0b": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Screenshot_2023-07-29_at_6.13.54_PM.png",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        }
+      },
+      "block_order": [
+        "be0c0c2f-0f5f-40a7-b24a-baf898e7349a",
+        "c001560e-9104-4020-9ba1-edff79b95c0b"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong class=\"uppercase\">Third-Party Certifications</strong>",
+        "desc": "Don't just take our word for it. Check our third-party certifications* and rest assured your air is in good hands.",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#14015b",
+        "text_color_desc": "#14015b",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false,
+        "render_icons_with_text_list_as_row": false,
+        "render_icons_with_text_list_item_as_column": false,
+        "icons_with_text_text_align": "left",
+        "icons_with_text_title_font_size": 1
+      }
+    },
+    "2a194c0a-03dd-4ccd-a434-b9f08f1d4e62": {
+      "type": "m-media",
+      "blocks": {
+        "template--16111406514327__2a194c0a-03dd-4ccd-a434-b9f08f1d4e62-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Screenshot_2023-07-29_at_6.12.50_PM.png",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16111406514327__2a194c0a-03dd-4ccd-a434-b9f08f1d4e62-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "enable_header_width": true,
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "",
+        "button_url": "",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "#f7f7f7",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "reverse_on_mobile": false,
+        "icon_with_text_title_color": ""
+      }
+    },
+    "9b95b3fa-f269-4607-a4ad-0d4fd0ce8d94": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "0ec7e7a1-efc9-4966-9e43-ae378991b515": {
+          "type": "product",
+          "settings": {
+            "product": "aura-sensor",
+            "title": "",
+            "desc": "\"Lightweight. The Cooking is super slick! Super versatile. Braised, seared... you name it!\"\n\n— Peter M.",
+            "button_label": "",
+            "button_url": "",
+            "tags": "Smart, Best Seller, New"
+          }
+        },
+        "5c56fc89-5d18-45ff-bb02-a0baee542c9e": {
+          "type": "product",
+          "settings": {
+            "product": "aura-smart-thermostat",
+            "title": "",
+            "desc": "",
+            "button_label": "",
+            "button_url": "",
+            "tags": ""
+          }
+        },
+        "b5090c53-eb98-4a74-a52c-1c892dbd35e0": {
+          "type": "product",
+          "settings": {
+            "product": "classic100-ultrasonic-cool-mist-humidifier",
+            "title": "",
+            "desc": "",
+            "button_label": "",
+            "button_url": "",
+            "tags": ""
+          }
+        },
+        "67deb747-e2b2-4f19-9f37-d013d4cf326b": {
+          "type": "product",
+          "settings": {
+            "product": "classic150-mini-ultrasonic-cool-mist-humidifier",
+            "title": "",
+            "desc": "",
+            "button_label": "",
+            "button_url": "",
+            "tags": ""
+          }
+        },
+        "08f62a22-646c-404b-88e9-4a41c819328a": {
+          "type": "product",
+          "settings": {
+            "product": "dual100-ultrasonic-humidifier-diffuser-white",
+            "title": "",
+            "desc": "",
+            "button_label": "",
+            "button_url": "",
+            "tags": ""
+          }
+        },
+        "63e67d73-6119-444f-9b8b-eefad108de5a": {
+          "type": "product",
+          "settings": {
+            "product": "classic-300s-smart-ultrasonic-top-fill-cool-mist-humidifier",
+            "title": "",
+            "desc": "",
+            "button_label": "",
+            "button_url": "",
+            "tags": ""
+          }
+        }
+      },
+      "block_order": [
+        "0ec7e7a1-efc9-4966-9e43-ae378991b515",
+        "5c56fc89-5d18-45ff-bb02-a0baee542c9e",
+        "b5090c53-eb98-4a74-a52c-1c892dbd35e0",
+        "67deb747-e2b2-4f19-9f37-d013d4cf326b",
+        "08f62a22-646c-404b-88e9-4a41c819328a",
+        "63e67d73-6119-444f-9b8b-eefad108de5a"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Customer Favorites</strong>",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#14015b",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "disable_slider": "enabled",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 3,
+        "gap": 2,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "left",
+        "convert_to_card": false,
+        "card_bg_color": "",
+        "card_subtitle_color": "",
+        "card_title_color": "",
+        "card_desc_color": "",
+        "card_border_radius": 0
+      }
+    },
+    "31beb5b1-92aa-4c6e-b794-98af38734c8e": {
+      "type": "m-media",
+      "blocks": {
+        "4558c928-6863-4a4b-a23b-84d6b82e4e3d": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify://files/videos/assets_5c5a2dfbd0b84138938c43351f003dd8_2e84fc4ddb60451fa2f84f9be63b38a9_compressed_1.mp4",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250,
+            "show_unmute_button": false
+          }
+        }
+      },
+      "block_order": ["4558c928-6863-4a4b-a23b-84d6b82e4e3d"],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Pure Innovation</strong>",
+        "desc": "The Levoit Core® 600S Smart True HEPA Air Purifier is a perfect example of the innovative thinking that makes our air purifiers so effective",
+        "list": "",
+        "enable_header_width": true,
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "",
+        "button_url": "",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#14015b",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false,
+        "icon_with_text_title_color": ""
+      }
+    },
+    "db145fa5-0411-45e2-8862-e39f7710cad7": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "7178b0f9-a7eb-4cd4-9c80-c5de2cfc8d5f": {
+          "type": "article",
+          "settings": {
+            "article": "news/what-makes-the-vortexiq™-40-cordless-vacuum-better"
+          }
+        },
+        "fe1748bc-8df7-4abf-9020-3b8c6c24082d": {
+          "type": "article",
+          "settings": {
+            "article": "levoit-blog/pollen-101"
+          }
+        },
+        "fc04bca8-af12-40cf-82bb-b39f06ae0df7": {
+          "type": "article",
+          "settings": {
+            "article": "levoit-blog/tips-tricks-for-maximizing-your-vacuum-this-spring"
+          }
+        },
+        "5beeb801-7f62-4ddf-ba6f-6eb94bb071bb": {
+          "type": "article",
+          "settings": {
+            "article": "levoit-blog/which-levoit-oasismist™-humidifier-is-right-for-you"
+          }
+        },
+        "2e7bcfb9-783e-4036-abab-5dad64bbd9ef": {
+          "type": "article",
+          "settings": {
+            "article": "levoit-blog/meet-levoit-s-first-tower-humidifier"
+          }
+        }
+      },
+      "block_order": [
+        "7178b0f9-a7eb-4cd4-9c80-c5de2cfc8d5f",
+        "fe1748bc-8df7-4abf-9020-3b8c6c24082d",
+        "fc04bca8-af12-40cf-82bb-b39f06ae0df7",
+        "5beeb801-7f62-4ddf-ba6f-6eb94bb071bb",
+        "2e7bcfb9-783e-4036-abab-5dad64bbd9ef"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "disable_slider": "enabled",
+        "mobile_items_per_row": 1.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 3,
+        "gap": 1,
+        "aspect_ratio": "video",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "left",
+        "convert_to_card": false,
+        "card_bg_color": "",
+        "card_subtitle_color": "",
+        "card_title_color": "",
+        "card_desc_color": "",
+        "card_border_radius": 0
+      }
+    },
+    "e0b3acef-1552-4d0e-a1e8-9313200accb0": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "13c0f7e5-a514-4dd7-98e4-84ce3a6e0e30": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Screenshot_2023-07-30_at_7.36.55_PM.png",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 20
+          }
+        },
+        "d8b27e11-e9b2-4cfc-b300-c5a811ed8811": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "",
+            "desc": "",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": false,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#000000",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 80
+          }
+        },
+        "593c2b34-4f5a-4a35-b4a3-23dd98b072a7": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-07-30_at_2.43.57_PM.png",
+            "image_width": 60,
+            "title": "<strong>Free Shipping & Returns</strong>",
+            "desc": ""
+          }
+        },
+        "1ddf236d-8335-4f7f-a61d-f6a2aae52414": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-07-30_at_2.43.57_PM.png",
+            "image_width": 60,
+            "title": "<strong>Limited 2-Year Warranty</strong>",
+            "desc": ""
+          }
+        },
+        "128ac565-1c45-4196-a76d-ba54d01842a0": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-07-30_at_2.43.57_PM.png",
+            "image_width": 60,
+            "title": "<strong>U.S. Based Customer Service</strong>",
+            "desc": ""
+          }
+        },
+        "cad3821d-9069-48db-bff4-a04e90b2346f": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-07-30_at_2.43.57_PM.png",
+            "image_width": 60,
+            "title": "<strong>30-Day Money-Back Guarantee</strong>",
+            "desc": ""
+          }
+        },
+        "1274b4ee-bba7-465d-a35a-cb57fbd3080b": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-07-30_at_2.43.57_PM.png",
+            "image_width": 60,
+            "title": "<strong>VeSync App</strong>",
+            "desc": ""
+          }
+        }
+      },
+      "block_order": [
+        "13c0f7e5-a514-4dd7-98e4-84ce3a6e0e30",
+        "d8b27e11-e9b2-4cfc-b300-c5a811ed8811",
+        "593c2b34-4f5a-4a35-b4a3-23dd98b072a7",
+        "1ddf236d-8335-4f7f-a61d-f6a2aae52414",
+        "128ac565-1c45-4196-a76d-ba54d01842a0",
+        "cad3821d-9069-48db-bff4-a04e90b2346f",
+        "1274b4ee-bba7-465d-a35a-cb57fbd3080b"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong class=\"uppercase\">Why Levoit</strong>",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#14015b",
+        "text_color_desc": "#14015b",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": true,
+        "render_icons_with_text_list_as_row": true,
+        "render_icons_with_text_list_item_as_column": true,
+        "icons_with_text_text_align": "center",
+        "icons_with_text_title_font_size": 0.8
+      }
+    },
+    "6aa9b44d-9926-4e40-a51d-4c81b965b9cb": {
+      "type": "m-media",
+      "blocks": {
+        "50ef8041-3ffa-40f4-a860-8b9254d3de15": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify://files/videos/D2_01.00_WA2_0822Core400S(Red)_09_1.mp4",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250,
+            "show_unmute_button": false
+          }
+        },
+        "8a879ab5-eb6a-4177-922e-9a4a852300e8": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-07-30_at_2.43.57_PM.png",
+            "title": "Realtime Air Quality Indicator",
+            "image_width": 50
+          }
+        },
+        "b507b4f4-7dbb-49a2-a4bc-0a6048330c8b": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-07-30_at_2.43.57_PM.png",
+            "title": "Create Customized Schedules",
+            "image_width": 50
+          }
+        },
+        "fff5d97c-c695-4fa1-8414-869c218d0e49": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-07-30_at_2.43.57_PM.png",
+            "title": "Track Air Quality Over Time",
+            "image_width": 50
+          }
+        },
+        "acef36e4-2697-48e9-a02a-985664c9de6e": {
+          "type": "icon-with-text",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-07-30_at_2.43.57_PM.png",
+            "title": "Check Filter Life",
+            "image_width": 50
+          }
+        },
+        "8f877013-1c3b-46e3-823e-04ef2e02275d": {
+          "type": "app-link",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-07-30_at_2.45.47_PM.png",
+            "image_width": 100,
+            "url": "",
+            "open_link_in_new_tab": true
+          }
+        },
+        "50bcd31a-cbeb-4a9a-98fc-9aba8407d308": {
+          "type": "app-link",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-07-30_at_2.45.49_PM.png",
+            "image_width": 100,
+            "url": "",
+            "open_link_in_new_tab": true
+          }
+        },
+        "1fd1b31f-10a4-4ca4-83ac-8432a06e2c31": {
+          "type": "app-link",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-07-30_at_2.45.55_PM.png",
+            "image_width": 100,
+            "url": "",
+            "open_link_in_new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "50ef8041-3ffa-40f4-a860-8b9254d3de15",
+        "8a879ab5-eb6a-4177-922e-9a4a852300e8",
+        "b507b4f4-7dbb-49a2-a4bc-0a6048330c8b",
+        "fff5d97c-c695-4fa1-8414-869c218d0e49",
+        "acef36e4-2697-48e9-a02a-985664c9de6e",
+        "8f877013-1c3b-46e3-823e-04ef2e02275d",
+        "50bcd31a-cbeb-4a9a-98fc-9aba8407d308",
+        "1fd1b31f-10a4-4ca4-83ac-8432a06e2c31"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Fresh Air, the Smart Way</strong>",
+        "desc": "A host of smart features lets you stay on top of your air quality at all times.",
+        "list": "",
+        "enable_header_width": false,
+        "header_width": 690,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "button_label": "",
+        "button_url": "",
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-xl",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#14015b",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_border_radius": 0,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false,
+        "icon_with_text_title_color": "#14015b"
+      }
+    }
+  },
+  "order": [
+    "e414666c-a0e5-4bde-bee1-380be78fafc2",
+    "675dd75c-bba8-45f7-b9e5-f8ee29ff40bd",
+    "23f9523e-ddf3-47b1-b130-c6284346681b",
+    "f973f340-a48b-4674-bb69-64a24901968b",
+    "2a194c0a-03dd-4ccd-a434-b9f08f1d4e62",
+    "9b95b3fa-f269-4607-a4ad-0d4fd0ce8d94",
+    "31beb5b1-92aa-4c6e-b794-98af38734c8e",
+    "db145fa5-0411-45e2-8862-e39f7710cad7",
+    "e0b3acef-1552-4d0e-a1e8-9313200accb0",
+    "6aa9b44d-9926-4e40-a51d-4c81b965b9cb"
+  ]
+}

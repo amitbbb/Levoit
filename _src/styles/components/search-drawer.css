@@ -1,0 +1,22 @@
+/** DEFAULT STATE */
+search-drawer {
+  details {
+    aside {
+      @apply -translate-x-full
+    }
+  }
+
+}
+
+/** OPEN STATE */
+search-drawer {
+  details[open].menu-opening {
+    summary::before {
+      @apply content-[''] fixed inset-0 z-20 bg-black/70;
+    }
+
+    aside {
+      @apply -translate-x-0
+    }
+  }
+}

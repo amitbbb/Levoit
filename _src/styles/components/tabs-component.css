@@ -1,0 +1,111 @@
+tabs-component {
+  & button[role="tab"] {
+    background-color: var(--tab-bg-color, #f7f7f7);
+    color: var(--tab-text-color, #14015b);
+    /* background-color: var(--tab-bg-color); */
+    &.is-active {
+      color: var(--active-tab-text-color, #14015b);
+      /* background-color: var(--tab-active-bg-color, #14015B); */
+      background-color: var(--active-tab-bg-color, #84a7e3);
+    }
+  }
+  & [content-container] {
+    max-width: 100%;
+  }
+  &[data-settings="tab"] {
+    summary {
+      @apply hidden;
+    }
+    aside {
+      background-color: var(--tab-panel-bg-color, #fff);
+      & [content-title] {
+        color: var(--tab-panel-title-color, #14015b);
+      }
+      & [content-desc] {
+        color: var(--tab-panel-desc-color, #14015b);
+      }
+      @media (min-width: 768px) {
+        & [content-container] {
+          width: var(--content-container-width);
+        }
+      }
+    }
+  }
+  &[data-settings="accordion"] {
+    nav {
+      @apply hidden;
+    }
+
+    details {
+      summary {
+        svg {
+          @apply rotate-0 transition-transform duration-300 ease-out-quint;
+        }
+      }
+      &[open] {
+        summary {
+          svg {
+            @apply rotate-90;
+          }
+        }
+      }
+    }
+
+    [content] {
+      @apply divide-y;
+    }
+    [content-title] {
+      @apply hidden;
+    }
+  }
+  &[data-settings="mixed"] {
+    nav {
+      @apply hidden;
+    }
+    [content] {
+      @apply divide-y;
+    }
+    [content-title] {
+      @apply hidden;
+    }
+    details {
+      summary {
+        svg {
+          @apply rotate-0 transition-transform duration-300 ease-out-quint;
+        }
+      }
+      &[open] {
+        summary {
+          svg {
+            @apply rotate-90;
+          }
+        }
+      }
+    }
+    @media (min-width: 768px) {
+      nav {
+        @apply flex;
+      }
+      summary {
+        @apply hidden;
+      }
+      [content] {
+        @apply divide-none;
+      }
+      aside {
+        background-color: var(--tab-panel-bg-color, #fff);
+        & [content-container] {
+          width: var(--content-container-width);
+        }
+        & [content-title] {
+          color: var(--tab-panel-title-color, #14015b);
+          @apply block;
+        }
+        & [content-desc] {
+          color: var(--tab-panel-desc-color, #14015b);
+          @apply block;
+        }
+      }
+    }
+  }
+}

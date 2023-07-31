@@ -1,0 +1,73 @@
+{% # prettier-ignore %}
+{%- capture zoom_config -%}
+  {
+    "loop": true,
+    "slidesPerView": 1,
+    "spaceBetween": 0
+  }
+{%- endcapture -%}
+
+<pdp-zoom-gallery
+  class="block invisible fixed inset-0 bg-neutral-100 z-50 overflow-hidden opacity-0 pointer-events-none transition-all duration-300 ease-out-quint scale-75"
+  slider-config="{{ zoom_config | escape }}"
+  tabindex="-1"
+>
+  <div class="flex items-center justify-center h-screen relative ">
+    <button
+      close-button
+      class="absolute z-[51] top-4 right-4 bg-white h-12 w-12 rounded-full flex items-center justify-center"
+    >
+      {% render 'icons' with 'close', width: 16, height: 16 %}
+    </button>
+
+    <div class="swiper h-full w-full" tabindex="-1">
+      <ul class="swiper-wrapper">
+        {%- for media in product.media -%}
+          <li class="swiper-slide {% if media.media_type == 'image' %}cursor-zoom-in {% endif %}">
+            {%- if media.media_type == 'image' -%}
+              <div class="swiper-zoom-container  max-w-screen-lg mx-auto">
+            {%- else -%}
+              <div class="flex items-center justify-center h-full w-full  max-w-screen-lg mx-auto">
+            {%- endif -%}
+
+            {%- render 'media',
+              media: media,
+              aspect_ratio: 'aspect-square',
+              media_size: 1080,
+              padding: 'p-4 md:p-12',
+              type: 'modal',
+              width: 1080,
+              sizes: '768, 1080, 1080',
+              index: forloop.index
+            -%}
+            {%- if media.media_type == 'image' -%}
+              </div>
+            {%- else -%}
+              </div>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+      <nav
+        class="absolute bottom-4 left-1/2 -translate-x-1/2 z-[52] bg-white rounded-xl overflow-hidden shadow-xs border border-opacity-50"
+        {% comment %} tabindex="-1" {% endcomment %}
+        swiper-nav
+      >
+        <div class="flex gap-x-4 items-center">
+          <button swiper-button-prev class="flex items-center justify-center h-12 w-12 bg-white" tabindex="-1">
+            {% render 'icons' with 'arrow-left' %}
+          </button>
+          <div
+            swiper-pagination
+            class="bg-white h-12 !w-12 rounded-full flex items-center justify-center tracking-[0.35rem] text-xs"
+          ></div>
+          <button swiper-button-next class="flex items-center justify-center h-12 w-12 bg-white" tabindex="-1">
+            {% render 'icons' with 'arrow-right' %}
+          </button>
+        </div>
+      </nav>
+
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+</pdp-zoom-gallery>

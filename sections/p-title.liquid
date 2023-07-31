@@ -1,0 +1,24 @@
+<div class="container">
+  <h2 class="text-3xl lg:text-6xl mt-12 text-center">{{ section.settings.title }}</h2>
+</div>
+
+{% schema %}
+  {
+    "name": "P | Title",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Declaration of Conformity (UK)"
+      }
+    ],
+    "presets": [
+      {
+        "name": "P | Title"
+      }
+    ]
+  }
+{% endschema %}

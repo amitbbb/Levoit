@@ -1,0 +1,35 @@
+{% comment %}
+   {% liquid
+    assign collection_handle = request.params.collection
+    assign collection = collections['air-fryers']
+  %}
+{% endcomment %}
+
+{%- if collection.products.size > 0 -%}
+  <ul class="grid grid-cols-2 gap-6 md:gap-8 lg:grid-cols-4 lg:gap-12 2xl:grid-cols-4">
+    {%- for product in collection.products -%}
+      <li>
+        {% render 'card-manuals', product: product %}
+      </li>
+    {%- endfor -%}
+  </ul>
+{%- else -%}
+  <p>No products found.</p>
+{%- endif -%}
+{% comment %}
+   {%- if collection -%}
+    {%- paginate collection.products by 4 -%}
+      {%- for product in collection.products -%}
+        <li>
+          {% render 'card-manuals', product: product %}
+        </li>
+      {%- endfor -%}
+
+      {%- if paginate.pages > 1 -%}
+        {% render 'pagination', paginate: paginate, anchor: '' %}
+      {%- endif -%}
+    {%- endpaginate -%}
+  {%- else -%}
+    <p>No products found.</p>
+  {%- endif -%}
+{% endcomment %}

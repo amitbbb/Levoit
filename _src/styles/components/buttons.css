@@ -1,0 +1,47 @@
+.btn.is-loading .btn__text{
+  @apply hidden
+}
+
+.btn-primary, .klaviyo-bis-trigger {
+  @apply bg-primary px-10 py-3 text-white  uppercase font-bold tracking-wide inline-flex justify-around items-center border-2 border-transparent rounded-lg
+  transition-colors duration-300 ease-out
+  hover:bg-transparent hover:text-primary hover:border-2 hover:border-primary
+}
+
+.btn-secondary {
+  @apply bg-primary px-10 py-3 text-white  uppercase font-bold tracking-wide inline-flex justify-around items-center border-2 border-transparent rounded-lg
+  transition-colors duration-300 ease-out
+  hover:bg-transparent hover:text-primary hover:border-2 hover:border-primary
+}
+.btn-tertiary {
+  @apply bg-primary px-10 py-3 text-white  uppercase font-bold tracking-wide inline-flex justify-around items-center border-2 border-transparent rounded-lg
+  transition-colors duration-300 ease-out
+  hover:bg-transparent hover:text-primary hover:border-2 hover:border-primary;
+}
+.btn-alternative {
+  @apply bg-alternative px-10 py-3 text-white  uppercase font-bold tracking-wide inline-flex justify-around items-center border-2 border-transparent rounded-lg
+  transition-colors duration-300 ease-out
+  hover:bg-alternative hover:text-white hover:border-2 hover:border-alternative
+}
+
+button[id='AddToCart'][disabled] {
+  @apply bg-neutral-500 hover:bg-neutral-500 hover:border-neutral-500 hover:text-white;
+}
+
+.btn-small {
+  @apply px-8 py-2 font-bold;
+}
+
+.btn-outline {
+  /* @apply border-[3px] border-black lg:px-6 py-2 flex gap-x-1 justify-center items-center uppercase text-center mb-2 text-xs lg:text-sm hover:shadow-sm hover:scale-[1.005] duration-300 ease-out-quint transition-all */
+  @apply border-[3px] border-black px-2 lg:px-6 py-2 flex gap-x-1 justify-center items-center uppercase text-center mb-2 text-xs lg:text-sm hover:drop-shadow-md hover:-translate-y-[.5px] duration-150 ease-out-quint transition-all
+}
+
+.btn-black {
+  /* @apply border-[3px] border-black lg:px-6 py-2 flex gap-x-1 justify-center items-center uppercase text-center mb-2 text-xs lg:text-sm hover:shadow-sm hover:scale-[1.005] duration-300 ease-out-quint transition-all */
+  @apply border-[3px] bg-black text-white border-black px-2 lg:px-6 py-2 flex gap-x-1 justify-center items-center uppercase text-center mb-2 text-xs lg:text-sm hover:drop-shadow-md hover:-translate-y-[.5px] duration-150 ease-out-quint transition-all
+}
+
+.btn-dynamic {
+  @apply px-6 md:px-6 py-3 inline-flex gap-x-1 justify-center items-center uppercase text-center text-xs lg:text-sm duration-150 ease-out-quint transition-all;
+}

@@ -1,0 +1,11 @@
+support-sticky-nav {
+  .support-sticky-nav {
+    @apply relative 
+      before:transition-all before:duration-300 before:ease-out-expo before:absolute 
+      before:bg-transparent before:right-0 lg:before:right-auto before:h-1 before:bottom-2 lg:before:bottom-auto
+      lg:before:top-1/2 lg:before:-translate-y-1/2 lg:before:h-4 lg:before:w-1 before:left-0  lg:px-4 py-4 lg:py-2;
+    &.is-active {
+      @apply before:bg-primary
+    }
+  }
+}

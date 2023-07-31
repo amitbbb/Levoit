@@ -1,0 +1,1521 @@
+{%- style -%}
+  {% if section.settings.bg_color != blank %}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.bg_color }};
+    }
+  {% endif %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  #M-MediaTextRow-HeaderSubTitle-{{ section.id }} {
+    color: {{ section.settings.text_color_subtitle }};
+  }
+  #M-MediaTextRow-HeaderTitle-{{ section.id }}, [id^='M-MediaTextRow-IconsWithText-Title-{{ section.id }}'] {
+    color: {{ section.settings.text_color_heading }};
+  }
+  #M-MediaTextRow-HeaderDesc-{{ section.id }}, [id^='M-MediaTextRow-IconsWithText-Desc-{{ section.id }}'] {
+    color: {{ section.settings.text_color_desc }};
+  }
+  #M-MediaTextRow-Header-{{ section.id }} {
+    max-width: 100%;
+    width: 100%;
+    {% render 'get-text-align-style', align: section.settings.text_align, get: 'style' %}
+  }
+
+  [id^='M-MediaTextRow-IconsWithText-Title-{{ section.id }}'] {
+    font-size: {{ section.settings.icons_with_text_title_font_size }}rem;
+  }
+
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    #M-MediaTextRow-Header-{{ section.id }} {
+      width: {{ section.settings.header_width }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign show_header = false
+  assign header_subtitle_size = section.settings.subtitle | size
+  assign header_title_size = section.settings.title | size
+  assign header_desc_size = section.settings.desc | size
+  assign header_size = header_subtitle_size | plus: header_title_size | plus: header_desc_size
+
+  if header_size > 0
+    assign show_header = true
+  endif
+
+  if section.settings.reverse_row_on_mobile
+    assign reverse_row_on_mobile = 'flex-col-reverse md:flex-row'
+  endif
+
+  assign icons_with_text_count = 0
+  for block in section.blocks
+    case block.type
+      when 'icon-with-text'
+        assign icons_with_text_count = icons_with_text_count | plus: 1
+    endcase
+  endfor
+-%}
+
+{% capture render_icons_with_text %}
+  {%- if icons_with_text_count > 0 -%}
+    <ul class="gap-6 mt-8 {% if section.settings.render_icons_with_text_list_as_row %}flex flex-row flex-1{% else %}inline-flex flex-col{% endif %}">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'icon-with-text' -%}
+          <li class=" flex items-center gap-4 {% if section.settings.render_icons_with_text_list_item_as_column %}flex-col{% else %}flex-row{% endif %} {% render 'get-text-align-style', get: 'class', align: section.settings.icons_with_text_text_align %}">
+            {%- if block.settings.image != blank -%}
+              {%- assign width_2x = block.settings.image_width | times: 2 -%}
+              {%- assign widths = block.settings.image_width | append: ', ' | append: width_2x -%}
+              <div style="width: {{ block.settings.image_width }}px;">
+                {% render 'image',
+                  image: block.settings.image,
+                  aspect_ratio: section.settings.aspect_ratio,
+                  object_fit: section.settings.object_fit,
+                  width: width_2x,
+                  height: section.settings.image_height
+                %}
+              </div>
+            {%- endif -%}
+            <div class="flex-1">
+              {%- if block.settings.title != blank -%}
+                <p id="M-MediaTextRow-IconsWithText-Title-{{ section.id }}-{{ block.id }}" class=' font-normal'>{{ block.settings.title }}</p>
+              {%- endif -%}
+              {%- if block.settings.desc != blank -%}
+                <div id="M-MediaTextRow-IconsWithText-Desc-{{ section.id }}-{{ block.id }}" class="text-sm">{{ block.settings.desc | newline_to_br }}</div>
+              {%- endif -%}
+            </div>
+          </li>
+      {%- endcase -%}
+    {%- endfor -%}
+  </ul>
+  {%- endif -%}
+  
+{% endcapture %}
+
+<div class="{{ section.settings.container }} flex-col">
+  {%- if show_header -%}
+    <header id="M-MediaTextRow-Header-{{ section.id }}" class="mb-12 {{ section.settings.text_position }}">
+      {%- if section.settings.subtitle != blank -%}
+        <span id="M-MediaTextRow-HeaderSubTitle-{{ section.id }}" class="block mb-2">
+          {{- section.settings.subtitle -}}
+        </span>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 id="M-MediaTextRow-HeaderTitle-{{ section.id }}" class="m-title-h2">
+          {{ section.settings.title }}
+        </h2>
+      {%- endif -%}
+      {%- if section.settings.desc != blank -%}
+        <p id="M-MediaTextRow-HeaderDesc-{{ section.id }}" class="">{{ section.settings.desc }}</p>
+      {%- endif -%}
+    </header>
+  {%- endif -%}
+
+  <ul class="flex flex-wrap items-center {{ reverse_row_on_mobile }}" style="gap: {{ section.settings.gap }}rem;">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'video' -%}
+          {%- assign media_id = 'M-MediaTextRow-Media-' | append: section.id | append: '-' | append: block.id -%}
+          {% style %}
+            @media (min-width: 768px) {
+              #M-MediaTextRow-VideoBlock-{{ section.id }} {
+                {% if section.settings.enable_custom_block_widths %}
+                  width: calc({{ block.settings.custom_block_width }}% - {{ section.settings.gap }}rem);
+                {% endif %}
+              }
+            }
+          {% endstyle %}
+          <li
+            id="M-MediaTextRow-VideoBlock-{{ section.id }}"
+            class="w-full {% unless section.settings.enable_custom_block_widths %}md:flex-1{% endunless %}"
+          >
+            {%- if block.settings.desktop_video != blank or block.settings.mobile_video != blank -%}
+              {% render 'video',
+                desktop_video: block.settings.desktop_video,
+                mobile_video: block.settings.mobile_video,
+                aspect_ratio: block.settings.aspect_ratio,
+                object_fit: block.settings.object_fit,
+                lazyload: block.settings.lazyload,
+                show_unmute_button: block.settings.show_unmute_button,
+                id: media_id
+              %}
+            {%- else -%}
+              <div class="bg-neutral-100 aspect-video"></div>
+            {%- endif -%}
+          </li>
+        {%- when 'image' -%}
+          {%- assign media_id = 'M-MediaTextRow-Media-' | append: section.id | append: '-' | append: block.id -%}
+          {% style %}
+            @media (min-width: 768px) {
+              #M-MediaTextRow-ImageBlock-{{ section.id }} {
+                {% if section.settings.enable_custom_block_widths %}
+                  width: calc({{ block.settings.custom_block_width }}% - {{ section.settings.gap }}rem);
+                {% endif %}
+              }
+            }
+          {% endstyle %}
+          <li
+            id="M-MediaTextRow-ImageBlock-{{ section.id }}"
+            class="w-full {% unless section.settings.enable_custom_block_widths %}md:flex-1{% endunless %}"
+          >
+            {%- if block.settings.desktop_image != blank or block.settings.mobile_image != blank -%}
+              {% render 'picture',
+                desktop_image: block.settings.desktop_image,
+                mobile_image: block.settings.mobile_image,
+                aspect_ratio: block.settings.aspect_ratio,
+                object_fit: block.settings.object_fit,
+                figcaption: block.settings.figcaption,
+                height: block.settings.image_fill_height,
+                id: media_id,
+                width: 768,
+                widths: '480, 640, 768'
+              %}
+            {%- else -%}
+              <div class="aspect-square bg-neutral-100"></div>
+            {%- endif -%}
+          </li>
+        {%- when 'content-app-links' -%}
+          {% style %}
+            #M-MediaTextRow-ContentHeader-{{ section.id }}-{{ block.id }} {
+              {% render 'get-text-align-style', align: block.settings.text_align, get: 'style' %}
+              {% render 'get-margin-alignment-styles', position: block.settings.text_position %}
+            }
+            #M-MediaTextRow-ContentHeader-{{ section.id }}-{{ block.id }} {
+              max-width: 100%;
+              {% if block.settings.enable_content_width %}
+                width: {{ block.settings.content_width }}px;
+              {% endif %}
+            }
+            #M-MediaTextRow-ContentSubTitle-{{ section.id }}-{{ block.id }} {
+              color: {{ block.settings.text_color_subtitle }};
+            }
+            #M-MediaTextRow-ContentTitle-{{ section.id }}-{{ block.id }} {
+              color: {{ block.settings.text_color_title }};
+            }
+            #M-MediaTextRow-ContentDesc-{{ section.id }}-{{ block.id }} {
+              color: {{ block.settings.text_color_desc }};
+            }
+
+            @media (min-width: 768px) {
+              #M-MediaTextRow-ContentAppLinksBlock-{{ section.id }} {
+                {% if section.settings.enable_custom_block_widths %}
+                  width: calc({{ block.settings.custom_block_width }}% - {{ section.settings.gap }}rem);
+                {% endif %}
+              }
+            }
+          {% endstyle %}
+
+          <li
+            id="M-MediaTextRow-ContentAppLinksBlock-{{ section.id }}"
+            class="w-full {% unless section.settings.enable_custom_block_widths %}md:flex-1{% endunless %} p-6 md:p-8"
+          >
+            <div id="M-MediaTextRow-ContentHeader-{{ section.id }}-{{ block.id }}">
+              {%- if block.settings.subtitle != blank -%}
+                <span id="M-MediaTextRow-ContentSubTitle-{{ section.id }}-{{ block.id }}" class="block mb-2">
+                  {{- block.settings.subtitle -}}
+                </span>
+              {%- endif -%}
+              {%- if block.settings.title != blank -%}
+                <h2 id="M-MediaTextRow-ContentTitle-{{ section.id }}-{{ block.id }}" class="m-title-h3">
+                  {{ block.settings.title }}
+                </h2>
+              {%- endif -%}
+              {%- if block.settings.desc != blank -%}
+                <p id="M-MediaTextRow-ContentDesc-{{ section.id }}-{{ block.id }}" class="">
+                  {{ block.settings.desc }}
+                </p>
+              {%- endif -%}
+
+              {{ render_icons_with_text }}
+
+              <ul class="flex  whitespace-nowrap gap-x-4 mt-12 items-center {% if block.settings.text_position == 'center' and block.settings.text_align == 'center' %}justify-center{% endif %}{% if block.settings.text_position == 'right' and block.settings.text_align == 'right' %}justify-end{% endif %}">
+                {%- if block.settings.app_store_url_1 != blank -%}
+                  <li class="" style="width: {{ block.settings.store_icon_widths }}px; max-width: 100%;">
+                    <a href="{{ block.settings.app_store_url_1 }}" target="_blank" class="w-full  shadow-lg">
+                      {% render 'image', image: block.settings.app_store_icon_1, width: store_icon_widths %}
+                    </a>
+                  </li>
+                {%- endif -%}
+                {%- if block.settings.app_store_url_2 != blank -%}
+                  <li class="" style="width: {{ block.settings.store_icon_widths }}px; max-width: 100%;">
+                    <a href="{{ block.settings.app_store_url_2 }}" target="_blank" class="shadow-lg">
+                      {% render 'image', image: block.settings.app_store_icon_2, width: store_icon_widths %}
+                    </a>
+                  </li>
+                {%- endif -%}
+                {%- if block.settings.app_store_url_3 != blank -%}
+                  <li class="" style="width: {{ block.settings.store_icon_widths }}px; max-width: 100%;">
+                    <a href="{{ block.settings.app_store_url_3 }}" target="_blank" class="shadow-lg">
+                      {% render 'image', image: block.settings.app_store_icon_3, width: store_icon_widths %}
+                    </a>
+                  </li>
+                {%- endif -%}
+              </ul>
+            </div>
+          </li>
+        {%- when 'content-image' -%}
+          {% style %}
+            #M-MediaTextRow-ContentHeader-{{ section.id }}-{{ block.id }} {
+              max-width: 100%;
+              {% if block.settings.enable_content_width %}
+                  width: {{ block.settings.content_width }}px;
+                {% endif %}
+              {% render 'get-margin-alignment-styles', position: block.settings.text_position %}
+              {% render 'get-text-align-style', align: block.settings.text_align, get: 'style' %}
+            }
+            #M-MediaTextRow-ContentSubTitle-{{ section.id }}-{{ block.id }} {
+              color: {{ block.settings.text_color_subtitle }};
+            }
+            #M-MediaTextRow-ContentTitle-{{ section.id }}-{{ block.id }} {
+              color: {{ block.settings.text_color_title }};
+            }
+            #M-MediaTextRow-ContentDesc-{{ section.id }}-{{ block.id }} {
+              color: {{ block.settings.text_color_desc }};
+            }
+             @media (min-width: 768px) {
+              #M-MediaTextRow-ContentImageBlock-{{ section.id }} {
+                {% if section.settings.enable_custom_block_widths %}
+                  width: calc({{ block.settings.custom_block_width }}% - {{ section.settings.gap }}rem);
+                {% endif %}
+              }
+            }
+          {% endstyle %}
+
+          <li
+            id="M-MediaTextRow-ContentImageBlock-{{ section.id }}"
+            class="w-full {% unless section.settings.enable_custom_block_widths %}md:flex-1{% endunless %} p-4 lg:p-8"
+          >
+            <div id="M-MediaTextRow-ContentHeader-{{ section.id }}-{{ block.id }}">
+              {%- if block.settings.render_image_at_top -%}
+                <ul class="flex  whitespace-nowrap gap-x-4 mb-4 {% if block.settings.text_position == 'center' and block.settings.text_align == 'center' %}justify-center{% endif %}{% if block.settings.text_position == 'right' and block.settings.text_align == 'right' %}justify-end{% endif %}">
+                  {%- if block.settings.image != blank -%}
+                    <li class="" style="width: {{ block.settings.image_width }}px; max-width: 100%;">
+                      {%- assign high_res_width = block.settings.image_width | times: 2 -%}
+                      {%- assign widths = block.settings.image_width | append: ', ' | append: high_res_width -%}
+
+                      {% render 'image',
+                        image: block.settings.image,
+                        image_width: block.settings.image_width,
+                        width: block.settings.image_width,
+                        widths: widths
+                      %}
+                    </li>
+                  {%- endif -%}
+                </ul>
+              {%- endif -%}
+              {%- if block.settings.subtitle != blank -%}
+                <span id="M-MediaTextRow-ContentSubTitle-{{ section.id }}-{{ block.id }}" class="block mb-2">
+                  {{- block.settings.subtitle -}}
+                </span>
+              {%- endif -%}
+              {%- if block.settings.title != blank -%}
+                <h2 id="M-MediaTextRow-ContentTitle-{{ section.id }}-{{ block.id }}" class="m-title-h3">
+                  {{ block.settings.title }}
+                </h2>
+              {%- endif -%}
+              {%- if block.settings.desc != blank -%}
+                <div id="M-MediaTextRow-ContentDesc-{{ section.id }}-{{ block.id }}" class="mt-4">
+                  {{ block.settings.desc | newline_to_br }}
+                </div>
+              {%- endif -%}
+
+              {{ render_icons_with_text }}
+
+              {%- unless block.settings.render_image_at_top -%}
+                <ul class="flex  whitespace-nowrap gap-x-4 mt-12 {% if block.settings.text_position == 'center' and block.settings.text_align == 'center' %}justify-center{% endif %}{% if block.settings.text_position == 'right' and block.settings.text_align == 'right' %}justify-end{% endif %}">
+                  {%- if block.settings.image != blank -%}
+                    <li class="" style="width: {{ block.settings.image_width }}px; max-width: 100%;">
+                      {%- assign high_res_width = block.settings.image_width | times: 2 -%}
+                      {%- assign widths = block.settings.image_width | append: ', ' | append: high_res_width -%}
+
+                      {% render 'image',
+                        image: block.settings.image,
+                        image_width: block.settings.image_width,
+                        width: block.settings.image_width,
+                        widths: widths
+                      %}
+                    </li>
+                  {%- endif -%}
+                </ul>
+              {%- endunless -%}
+            </div>
+          </li>
+        {%- when 'video-embed' -%}
+          {%- liquid
+            assign video_id = block.settings.video_url.id
+            assign video_alt = block.settings.video_url.alt
+            assign poster = block.settings.video_url.preview_image
+          -%}
+          {% style %}
+            @media (min-width: 768px) {
+              #M-MediaTextRow-VideoEmbedBlock-{{ section.id }} {
+                {% if section.settings.enable_custom_block_widths %}
+                  width: calc({{ block.settings.custom_block_width }}% - {{ section.settings.gap }}rem);
+                {% endif %}
+              }
+            }
+          {% endstyle %}
+
+          <li
+            id="M-MediaTextRow-VideoEmbedBlock-{{ section.id }}"
+            class="w-full {% unless section.settings.enable_custom_block_widths %}md:flex-1{% endunless %}"
+          >
+            {%- if block.settings.video_url != blank -%}
+              <defer-embed-video>
+                {%- if block.settings.video_url.type == 'youtube' -%}
+                  <iframe
+                    data-src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1{%- if block.settings.video_autoplay -%}&autoplay=1{%- endif -%}"
+                    class="js-youtube aspect-video w-full h-full"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                    title="{{ video_alt | escape }}"
+                  ></iframe>
+                {%- else -%}
+                  <iframe
+                    data-src="https://player.vimeo.com/video/{{ video_id }}?title=false&portrait=false&byline=false{%- if block.settings.video_autoplay -%}&autoplay=1{%- endif -%}"
+                    class="js-vimeo aspect-video w-full h-full"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                    title="{{ video_alt | escape }}"
+                  ></iframe>
+                {%- endif -%}
+              </defer-embed-video>
+            {%- else -%}
+              <div class="aspect-video bg-neutral-100"></div>
+            {%- endif -%}
+          </li>
+        {%- when 'content-list' -%}
+          <li
+            id="M-MediaTextRow-ContentListBlock-{{ section.id }}"
+            class="w-full {% unless section.settings.enable_custom_block_widths %}md:flex-1{% endunless %} py-8"
+          >
+            {%- liquid
+              assign list_array = block.settings.list | newline_to_br | split: '<br />'
+            -%}
+            {% style %}
+              #M-MediaTextRow-ContentHeader-{{ section.id }}-{{ block.id }} {
+                max-width: 100%;
+                {% if block.settings.enable_content_width %}
+                  width: {{ block.settings.content_width }}px;
+                {% endif %}
+                {% render 'get-margin-alignment-styles', position: block.settings.text_position %}
+                {% render 'get-text-align-style', align: block.settings.text_align, get: 'style' %}
+              }
+              #M-MediaTextRow-ContentSubTitle-{{ section.id }}-{{ block.id }} {
+                color: {{ block.settings.text_color_subtitle }};
+              }
+              #M-MediaTextRow-ContentTitle-{{ section.id }}-{{ block.id }} {
+                color: {{ block.settings.text_color_title }};
+              }
+              #M-MediaTextRow-ContentDesc-{{ section.id }}-{{ block.id }} {
+                color: {{ block.settings.text_color_desc }};
+              }
+              #M-MediaTextRow-ContentList-{{ section.id }}-{{ block.id }} {
+                color: {{ block.settings.text_color_list }};
+              }
+              #M-MediaTextRow-ContentListCount-{{ section.id }}-{{ block.id }} {
+                background-color: {{ block.settings.list_count_bg_color }};
+                color: {{ block.settings.list_count_text_color }};
+              }
+              @media (min-width: 768px) {
+                #M-MediaTextRow-ContentListBlock-{{ section.id }} {
+                  {% if section.settings.enable_custom_block_widths %}
+                    width: calc({{ block.settings.custom_block_width }}% - {{ section.settings.gap }}rem);
+                  {% endif %}
+                }
+              }
+            {% endstyle %}
+
+            <div id="M-MediaTextRow-ContentHeader-{{ section.id }}-{{ block.id }}">
+              {%- if block.settings.subtitle != blank -%}
+                <span id="M-MediaTextRow-ContentSubTitle-{{ section.id }}-{{ block.id }}" class="block mb-2">
+                  {{- block.settings.subtitle -}}
+                </span>
+              {%- endif -%}
+              {%- if block.settings.title != blank -%}
+                <h2 id="M-MediaTextRow-ContentTitle-{{ section.id }}-{{ block.id }}" class="m-title-h3">
+                  {{ block.settings.title }}
+                </h2>
+              {%- endif -%}
+              {%- if block.settings.desc != blank -%}
+                <p id="M-MediaTextRow-ContentDesc-{{ section.id }}-{{ block.id }}" class="">
+                  {{ block.settings.desc | newline_to_br }}
+                </p>
+              {%- endif -%}
+
+              {{ render_icons_with_text }}
+
+              {%- if block.settings.list != blank -%}
+                <ul
+                  class="flex flex-col gap-6 mt-8 {% if block.settings.convert_list_to_bullets %}list-disc ml-8{% endif %}"
+                  id="M-MediaTextRow-ContentList-{{ section.id }}-{{ block.id }}"
+                >
+                  {%- for item in list_array -%}
+                    <li class="{% unless block.settings.convert_list_to_bullets %}relative ml-10 flex items-center{% endunless %}">
+                      {%- unless block.settings.convert_list_to_bullets -%}
+                        <span
+                          id="M-MediaTextRow-ContentListCount-{{ section.id }}-{{ block.id }}"
+                          class="absolute -left-10 w-8 h-8  inline-flex items-center justify-center rounded-full"
+                        >
+                          {{- forloop.index -}}
+                        </span>
+                      {%- endunless -%}
+
+                      <span class="">{{ item }}</span>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+
+              {%- if block.settings.button_url != blank -%}
+                <a
+                  href="{{ block.settings.button_url }}"
+                  class="btn-dynamic mt-4"
+                  style="background-color: {{ block.settings.button_bg_color }}; color: {{ block.settings.button_text_color }}; border-radius: {{ block.settings.button_border_radius }}px;"
+                >
+                  {{- block.settings.button_label -}}
+                </a>
+              {%- endif -%}
+            </div>
+          </li>
+      {%- endcase -%}
+    {%- endfor -%}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "M — Media Text Row",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "This section is used to display a row of media and text. It can be used to display a row of images, videos, or a combination of both. Limit two of any block other than 'Icon with Text'. Multiple 'Icon with text' blocks can be used and rendered on 'Content' Blocks"
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Air Quality Readings"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Description",
+      "default": "Choose what you’d like to see on the display, such as PM1.0, PM2.5, or PM10 readings, or your overall clean air percentage, so you can know your indoor atmosphere like an expert."
+    },
+    {
+      "type": "range",
+      "id": "header_width",
+      "min": 400,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Header width (px)",
+      "default": 700
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text position",
+      "options": [
+        {
+          "value": "",
+          "label": "Left"
+        },
+        {
+          "value": "mx-auto",
+          "label": "Center"
+        },
+        {
+          "value": "ml-auto",
+          "label": "Right"
+        }
+      ],
+      "default": "mx-auto"
+    },
+    {
+      "type": "header",
+      "content": "Section settings"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container (width)",
+      "options": [
+        {
+          "value": "",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Default"
+        },
+        {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+        },
+        {
+          "value": "container max-w-screen-md",
+          "label": "md"
+        },
+        {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+        },
+        {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+        },
+        {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+        }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color_subtitle",
+      "label": "Text color (Subtitle)",
+      "default": "#fe5834"
+    },
+    {
+      "type": "color",
+      "id": "text_color_heading",
+      "label": "Text color (Heading)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color_desc",
+      "label": "Text color (Desc)",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Grid settings"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 1,
+      "max": 4,
+      "step": 0.2,
+      "unit": "rem",
+      "label": "Gap (rem)",
+      "default": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_row_on_mobile",
+      "label": "Reverse row on mobile",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_block_widths",
+      "label": "Enable custom block widths",
+      "default": false,
+      "info": "If enabled, you can set widths for each block. The sum of widths must equal 100%."
+    },
+    {
+      "type": "header",
+      "content": "Icon with Text block settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "render_icons_with_text_list_as_row",
+      "label": "Render 'Icons with text' list as a row",
+      "default": false,
+      "info": "defaults as column"
+    },
+    {
+      "type": "checkbox",
+      "id": "render_icons_with_text_list_item_as_column",
+      "label": "Render icons with text list item as column",
+      "default": false,
+      "info": "defaults as row (for individual items)"
+    },
+    {
+      "type": "select",
+      "id": "icons_with_text_text_align",
+      "label": "Icons with text text align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "icons_with_text_title_font_size",
+      "min": 0.1,
+      "max": 3,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Icons with text title font size (rem)",
+      "default": 1
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Desktop image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "textarea",
+          "id": "figcaption",
+          "label": "Figcaption",
+          "info": "For SEO & screen readers only"
+        },
+        {
+          "type": "header",
+          "content": "Aspect ratio settings"
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Aspect ratio",
+          "options": [
+            {
+              "value": "square",
+              "label": "Square"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            },
+            {
+              "value": "natural",
+              "label": "Natural"
+            },
+            {
+              "value": "fill",
+              "label": "Fill"
+            }
+          ],
+          "default": "natural"
+        },
+        {
+          "type": "select",
+          "id": "object_fit",
+          "label": "Object fit",
+          "options": [
+            {
+              "value": "cover",
+              "label": "Cover"
+            },
+            {
+              "value": "contain",
+              "label": "Contain"
+            }
+          ],
+          "default": "cover",
+          "info": "If using 'Natural', select 'Cover'. Refer to https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit for more information"
+        },
+        {
+          "type": "range",
+          "id": "image_fill_height",
+          "min": 250,
+          "max": 650,
+          "step": 10,
+          "unit": "px",
+          "label": "Image fill height (px)",
+          "default": 450,
+          "info": "If using 'Fill' aspect ratio, set height of image. Only applies when using 'Fill' aspect ratio"
+        },
+        {
+          "type": "checkbox",
+          "id": "lazyload",
+          "label": "Lazyload",
+          "default": true,
+          "info": "If first section on page, disable lazyload"
+        },
+        {
+          "type": "header",
+          "content": "Custom block width",
+          "info": "Must enable 'Enable custom block widths' in section settings"
+        },
+        {
+          "type": "range",
+          "id": "custom_block_width",
+          "min": 10,
+          "max": 100,
+          "step": 10,
+          "unit": "%",
+          "label": "Custom block width",
+          "default": 70
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "desktop_video",
+          "label": "Desktop video",
+          "info": "If only one video, use 'Desktop video'"
+        },
+        {
+          "type": "video",
+          "id": "mobile_video",
+          "label": "Mobile video"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_unmute_button",
+          "label": "Show unmute button",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Aspect ratio settings"
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Aspect ratio",
+          "options": [
+            {
+              "value": "aspect-square",
+              "label": "Square"
+            },
+            {
+              "value": "aspect-video",
+              "label": "Video"
+            },
+            {
+              "value": "natural",
+              "label": "Natural"
+            }
+          ],
+          "default": "natural"
+        },
+        {
+          "type": "select",
+          "id": "object_fit",
+          "label": "Object fit",
+          "options": [
+            {
+              "value": "cover",
+              "label": "Cover"
+            },
+            {
+              "value": "contain",
+              "label": "Contain"
+            }
+          ],
+          "default": "cover",
+          "info": "If using 'Natural', select 'Cover'. Refer to https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit for more information"
+        },
+        {
+          "type": "checkbox",
+          "id": "lazyload",
+          "label": "Lazyload",
+          "default": true,
+          "info": "If first section on page, disable lazyload"
+        },
+        {
+          "type": "header",
+          "content": "Custom block width",
+          "info": "Must enable 'Enable custom block widths' in section settings"
+        },
+        {
+          "type": "range",
+          "id": "custom_block_width",
+          "min": 10,
+          "max": 100,
+          "step": 10,
+          "unit": "%",
+          "label": "Custom block width",
+          "default": 70
+        }
+      ]
+    },
+    {
+      "type": "video-embed",
+      "name": "Video Embed",
+      "settings": [
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Video url",
+          "accept": ["youtube", "vimeo"]
+        },
+        {
+          "type": "checkbox",
+          "id": "lazyload",
+          "label": "Lazyload",
+          "default": true,
+          "info": "If first section on page, disable lazyload"
+        },
+        {
+          "type": "header",
+          "content": "Custom block width",
+          "info": "Must enable 'Enable custom block widths' in section settings"
+        },
+        {
+          "type": "range",
+          "id": "custom_block_width",
+          "min": 10,
+          "max": 100,
+          "step": 10,
+          "unit": "%",
+          "label": "Custom block width",
+          "default": 70
+        }
+      ]
+    },
+    {
+      "type": "content-app-links",
+      "name": "Content — App links",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Air Fryer Collection"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "default": "Exceptionally smart. Cooking redefined."
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "default": "Take your kitchen to the next level with COSORI air fryers, designed to elevate the flavors and textures of your favorite meals to new heights."
+        },
+        {
+          "type": "header",
+          "content": "App store links"
+        },
+        {
+          "type": "image_picker",
+          "id": "app_store_icon_1",
+          "label": "App Store Icon #1 (SVG preferred)"
+        },
+        {
+          "type": "url",
+          "id": "app_store_url_1",
+          "label": "App store url #1",
+          "info": "Remove URL to hide icon, enter '#' if no link"
+        },
+        {
+          "type": "image_picker",
+          "id": "app_store_icon_2",
+          "label": "App Store Icon #2 (SVG preferred)"
+        },
+        {
+          "type": "url",
+          "id": "app_store_url_2",
+          "label": "App store url #2",
+          "info": "Remove URL to hide icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "app_store_icon_3",
+          "label": "App Store Icon #3 (SVG preferred)"
+        },
+        {
+          "type": "url",
+          "id": "app_store_url_3",
+          "label": "App store url #3",
+          "info": "Remove URL to hide icon"
+        },
+        {
+          "type": "range",
+          "id": "store_icon_widths",
+          "min": 100,
+          "max": 500,
+          "step": 10,
+          "unit": "px",
+          "label": "Store icon widths",
+          "default": 150
+        },
+        {
+          "type": "header",
+          "content": "Settings"
+        },
+        {
+          "type": "header",
+          "content": "Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_content_width",
+          "label": "Enable content width",
+          "default": true,
+          "info": "If disabled, content with will be 100%"
+        },
+        {
+          "type": "range",
+          "id": "content_width",
+          "min": 250,
+          "max": 600,
+          "step": 10,
+          "unit": "px",
+          "label": "Content width (px)",
+          "default": 380
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "left",
+              "label": "left"
+            },
+            {
+              "value": "center",
+              "label": "center"
+            },
+            {
+              "value": "right",
+              "label": "right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "header",
+          "content": "Block colors"
+        },
+        {
+          "type": "color",
+          "id": "text_color_subtitle",
+          "label": "Text color (Subtitle)",
+          "default": "#fe5834"
+        },
+        {
+          "type": "color",
+          "id": "text_color_title",
+          "label": "Text color (Title)",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "text_color_desc",
+          "label": "Text color (Desc)",
+          "default": "#000000"
+        },
+        {
+          "type": "checkbox",
+          "id": "lazyload",
+          "label": "Lazyload",
+          "default": true,
+          "info": "If first section on page, disable lazyload"
+        },
+        {
+          "type": "header",
+          "content": "Custom block width",
+          "info": "Must enable 'Enable custom block widths' in section settings"
+        },
+        {
+          "type": "range",
+          "id": "custom_block_width",
+          "min": 10,
+          "max": 100,
+          "step": 10,
+          "unit": "%",
+          "label": "Custom block width",
+          "default": 30
+        }
+      ]
+    },
+    {
+      "type": "content-image",
+      "name": "Content",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Air Fryer Collection"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "default": "Exceptionally smart. Cooking redefined."
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "default": "Take your kitchen to the next level with COSORI air fryers, designed to elevate the flavors and textures of your favorite meals to new heights."
+        },
+        {
+          "type": "header",
+          "content": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 100,
+          "max": 500,
+          "step": 10,
+          "unit": "px",
+          "label": "Image width",
+          "default": 350
+        },
+        {
+          "type": "checkbox",
+          "id": "render_image_at_top",
+          "label": "Render image at top",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_content_width",
+          "label": "Enable content width",
+          "default": true,
+          "info": "If disabled, content with will be 100%"
+        },
+        {
+          "type": "range",
+          "id": "content_width",
+          "min": 250,
+          "max": 600,
+          "step": 10,
+          "unit": "px",
+          "label": "Content width (px)",
+          "default": 380
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "left",
+              "label": "left"
+            },
+            {
+              "value": "center",
+              "label": "center"
+            },
+            {
+              "value": "right",
+              "label": "right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "header",
+          "content": "Block colors"
+        },
+        {
+          "type": "color",
+          "id": "text_color_subtitle",
+          "label": "Text color (Subtitle)",
+          "default": "#fe5834"
+        },
+        {
+          "type": "color",
+          "id": "text_color_title",
+          "label": "Text color (Title)",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "text_color_desc",
+          "label": "Text color (Desc)",
+          "default": "#000000"
+        },
+        {
+          "type": "checkbox",
+          "id": "lazyload",
+          "label": "Lazyload",
+          "default": true,
+          "info": "If first section on page, disable lazyload"
+        },
+        {
+          "type": "header",
+          "content": "Custom block width",
+          "info": "Must enable 'Enable custom block widths' in section settings"
+        },
+        {
+          "type": "range",
+          "id": "custom_block_width",
+          "min": 10,
+          "max": 100,
+          "step": 10,
+          "unit": "%",
+          "label": "Custom block width",
+          "default": 30
+        }
+      ]
+    },
+    {
+      "type": "content-list",
+      "name": "Content — list",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Air Fryer Collection"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "default": "Exceptionally smart. Cooking redefined."
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "default": "Take your kitchen to the next level with COSORI air fryers, designed to elevate the flavors and textures of your favorite meals to new heights."
+        },
+        {
+          "type": "textarea",
+          "id": "list",
+          "label": "List",
+          "default": "Example 1\nExample 2\nExample 3",
+          "info": "Separate each item with a new line"
+        },
+        {
+          "type": "checkbox",
+          "id": "convert_list_to_bullets",
+          "label": "Convert list to bullets instead of numbers",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button URL",
+          "info": "omit url to render link"
+        },
+        {
+          "type": "header",
+          "content": "Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_content_width",
+          "label": "Enable content width",
+          "default": true,
+          "info": "If disabled, content with will be 100%"
+        },
+        {
+          "type": "range",
+          "id": "content_width",
+          "min": 250,
+          "max": 600,
+          "step": 10,
+          "unit": "px",
+          "label": "Content width (px)",
+          "default": 380
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "left"
+            },
+            {
+              "value": "center",
+              "label": "center"
+            },
+            {
+              "value": "right",
+              "label": "right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "header",
+          "content": "Block colors"
+        },
+        {
+          "type": "color",
+          "id": "text_color_subtitle",
+          "label": "Text color (Subtitle)",
+          "default": "#fe5834"
+        },
+        {
+          "type": "color",
+          "id": "text_color_title",
+          "label": "Text color (Title)",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "text_color_desc",
+          "label": "Text color (Desc)",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "text_color_list",
+          "label": "Text color (List)",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "list_count_bg_color",
+          "label": "List count bg color",
+          "default": "#83a7e4"
+        },
+        {
+          "type": "color",
+          "id": "list_count_text_color",
+          "label": "List count text color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "header",
+          "content": "button settings"
+        },
+        {
+          "type": "color",
+          "id": "button_bg_color",
+          "label": "Button bg color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "button_border_radius",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Button border radius",
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "Custom block width",
+          "info": "Must enable 'Enable custom block widths' in section settings"
+        },
+        {
+          "type": "range",
+          "id": "custom_block_width",
+          "min": 10,
+          "max": 100,
+          "step": 10,
+          "unit": "%",
+          "label": "Custom block width",
+          "default": 30
+        }
+      ]
+    },
+    {
+      "type": "icon-with-text",
+      "name": "Icon with text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "image"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 30,
+          "max": 350,
+          "step": 10,
+          "unit": "px",
+          "label": "If Logo, set width",
+          "default": 60
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "default": "Pre-Filter"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "default": "Captures large particles such as dust, lint, fibers, hair, and pet fur."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "M — Media Text Row"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,23 @@
+<div class="container py-16">
+  {% render 'breadcrumbs' %}
+  <header class="py-8 text-center">
+    <h1 class="text-3xl lg:text-6xl">{{ page.title }}</h1>
+  </header>
+  <div class="prose mx-auto max-w-screen-md">
+    {{ page.content }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main page",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "heading"
+    }
+  ]
+}
+{% endschema %}

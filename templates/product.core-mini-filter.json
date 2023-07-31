@@ -1,0 +1,408 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {}
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {}
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {}
+    },
+    "8c8041a2-4c54-4ada-9df9-959001ee6bac": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "20309b4e-1e80-4523-a627-adf4327ddaac": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_fcb8222233bb4f75b65ecad55be83507.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true
+          }
+        },
+        "e3e59654-4d25-40d9-9a8a-d7e36c3f771d": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "Advanced Filtration\n<span class=\"font-normal\">Technology</span>",
+            "desc": "No need to worry about your air quality—enhanced with HEPASmart™ Technology, the Personal HEPA Filter uses statically charged fibers to effectively attract and trap unseen airborne particles.",
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_ec28687d7e3d45ccaa98c24b1efff5a0_1.webp",
+            "image_width": 500,
+            "render_image_at_top": true,
+            "enable_content_width": false,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#14015b",
+            "text_color_desc": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "20309b4e-1e80-4523-a627-adf4327ddaac",
+        "e3e59654-4d25-40d9-9a8a-d7e36c3f771d"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false
+      }
+    },
+    "da4a4d1f-a2aa-4285-adee-c0953060b8f3": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "0c2c75de-9d47-40e7-b5f7-a83800322266": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "3-Stage Filtration",
+            "desc": "Filter at least 97% of airborne particles 0.3 microns in size. With each filter designed to capture different airborne pollutants, this system ensures your air stays fresh.",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#14015b",
+            "text_color_desc": "#000000"
+          }
+        },
+        "c4cdc4e6-0941-48e6-a426-eac66e3a514e": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_df4dafa70b0145cca30f456850150975.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true
+          }
+        }
+      },
+      "block_order": [
+        "0c2c75de-9d47-40e7-b5f7-a83800322266",
+        "c4cdc4e6-0941-48e6-a426-eac66e3a514e"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false
+      }
+    },
+    "16ad93e8-5682-47db-bc52-70fd0960c649": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "98cccd0f-d8ee-482c-acf8-94fb489d87f3": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_10e14ecc36d349ef9b1d645e9f65020b.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Pre-Filter",
+            "desc": "Captures large particles such as dust, lint, fibers, hair, and pet fur.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "5790d196-89f1-4744-bbf7-25e58c556684": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_732471c2c80e4195a5758ae27b400117.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Personal HEPA Filter",
+            "desc": "Traps small particles such as pollen, pet dander, smoke particles, and fine dust.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "70a307f0-cce6-4ac1-893e-ec2d8bce85c1": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_9cf351e1d62043fc87ebf2c98a201810.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Activated Carbon Filter",
+            "desc": "Helps neutralize smoke, fumes, and household odors such as cooking smells and pet odors.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "98cccd0f-d8ee-482c-acf8-94fb489d87f3",
+        "5790d196-89f1-4744-bbf7-25e58c556684",
+        "70a307f0-cce6-4ac1-893e-ec2d8bce85c1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 3,
+        "gap": 2,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "center"
+      }
+    },
+    "8d64fbfc-14fd-491d-82ad-a397acf38e81": {
+      "type": "m-media",
+      "blocks": {
+        "template--16108751618199__8d64fbfc-14fd-491d-82ad-a397acf38e81-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_6fd0764535414d93ac4d5903b2bdae28.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16108751618199__8d64fbfc-14fd-491d-82ad-a397acf38e81-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "reverse_on_mobile": false
+      }
+    },
+    "621935d2-6e53-4d86-ba51-af294490aa1b": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "09c5124f-e133-4e95-983a-9a396134d326": {
+          "type": "image-text",
+          "settings": {
+            "hide_image_placeholder": true,
+            "subtitle": "",
+            "title": "Pollen",
+            "desc": "Enjoy your indoor plants without the sneezing caused by pollen.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "a14adea9-9470-4db4-88c2-8846bbf510b1": {
+          "type": "image-text",
+          "settings": {
+            "hide_image_placeholder": true,
+            "subtitle": "",
+            "title": "Dust",
+            "desc": "This compact air purifier is quiet enough to run by your bed, helping to reduce nightly coughing and congestion caused by dust and other allergens.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 320
+          }
+        },
+        "beeca811-71ae-4754-b92f-d27e70348146": {
+          "type": "image-text",
+          "settings": {
+            "hide_image_placeholder": true,
+            "subtitle": "",
+            "title": "Lint",
+            "desc": "The Pre-Filter captures large particles, so you can rest easy knowing the amount of lint and fibers in your air is significantly reduced.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "09c5124f-e133-4e95-983a-9a396134d326",
+        "a14adea9-9470-4db4-88c2-8846bbf510b1",
+        "beeca811-71ae-4754-b92f-d27e70348146"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-xl",
+        "bg_color": "#83a7e4",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#FFFFFF",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 3,
+        "gap": 2,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "center"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/reviews-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/rating-summary-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "8c8041a2-4c54-4ada-9df9-959001ee6bac",
+    "da4a4d1f-a2aa-4285-adee-c0953060b8f3",
+    "16ad93e8-5682-47db-bc52-70fd0960c649",
+    "8d64fbfc-14fd-491d-82ad-a397acf38e81",
+    "621935d2-6e53-4d86-ba51-af294490aa1b",
+    "product-recommendations",
+    "reviews"
+  ]
+}

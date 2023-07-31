@@ -1,0 +1,49 @@
+{%- liquid
+  assign accordion_product_specs = product.metafields.pdp.specifications.value
+-%}
+
+{%- capture product_specs_json -%}
+  [
+    {%- for item in accordion_product_specs -%}
+      {"{{ item.title }}": "{{ item.value }}"} {%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+{%- endcapture -%}
+
+{%- capture product_json -%}
+  {
+    "id": "{{ product.id }}",
+    "handle": "{{ product.handle }}",
+    "title": "{{ product.title }}",
+    "url": "{{ product.url | within: collection }}",
+    "price": "{{ product.price | money_with_currency }}",
+    "featured_image": "{{ product.featured_media | image_url }}",
+    "collection_title": "{{ collection.title }}",
+    "collection_handle": "{{ collection.handle }}",
+    "specs": [
+      {%- for item in accordion_product_specs -%}
+        {"name": "{{ item.title }}", "value": "{{ item.value }}"} {%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  }
+{%- endcapture -%}
+
+<compare-products-button id="{{ product.id }}">
+  <button
+    type="button"
+    id="CompareButton"
+    class="absolute z-20 bottom-0 left-0 right-0 py-2 font-semibold text-xs md:text-sm w-full"
+    {% comment %}
+      product-id="{{ product.id }}"
+      product-handle="{{ product.handle }}"
+      product-image="{{ product.featured_media | image_url: width: 500 }}"
+      product-title="{{ product.title }}"
+      product-specs="{{ product_specs_json | escape }}"
+      collection-title="{{ collection.title }}"
+      collection-handle="{{ collection.handle }}"
+    {% endcomment %}
+    product-json="{{ product_json | escape }}"
+  >
+    <span class="whitespace-nowrap relative ">Add to compare</span>
+  </button>
+</compare-products-button>

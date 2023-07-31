@@ -1,0 +1,860 @@
+{%- liquid
+  assign show_header = false
+  assign header_subtitle_size = section.settings.subtitle | size
+  assign header_title_size = section.settings.title | size
+  assign header_desc_size = section.settings.desc | size
+  assign header_size = header_subtitle_size | plus: header_title_size | plus: header_desc_size
+
+  if header_size > 0
+    assign show_header = true
+  endif
+
+  assign media_id = 'M-Media-Media-' | append: section.id
+
+  assign app_link_size = 0
+  for block in section.blocks
+    case block.type
+      when 'app-link'
+        assign app_link_size = app_link_size | plus: 1
+    endcase
+  endfor
+
+  assign icon_with_text_size = 0
+  for block in section.blocks
+    case block.type
+      when 'icon-with-text'
+        assign icon_with_text_size = icon_with_text_size | plus: 1
+    endcase
+  endfor
+
+  assign button_blocks_size = 0
+  for block in section.blocks
+    case block.type
+      when 'button'
+        assign button_blocks_size = button_blocks_size | plus: 1
+    endcase
+  endfor
+-%}
+
+<div class="{{ section.settings.container }}">
+  <div class="flex {% if section.settings.reverse_on_mobile %}flex-col-reverse md:flex-col{% else %}flex-col{% endif %}">
+    {%- if show_header -%}
+      <div class="container">
+        <header
+          id="M-Media-Header-{{ section.id }}"
+          class="{{ section.settings.text_position }} {% if section.settings.reverse_on_mobile %}mt-4{% endif %} {% if section.blocks.size > 0 %}mb-12{% endif %}"
+        >
+          {%- if section.settings.subtitle != blank -%}
+            <span id="M-Media-HeaderSubTitle-{{ section.id }}" class="block mb-2">
+              {{- section.settings.subtitle -}}
+            </span>
+          {%- endif -%}
+          {%- if section.settings.title != blank -%}
+            <h2 id="M-Media-HeaderTitle-{{ section.id }}" class="m-title-h2">
+              {{ section.settings.title }}
+            </h2>
+          {%- endif -%}
+          {%- if section.settings.desc != blank -%}
+            <p id="M-Media-HeaderDesc-{{ section.id }}" class="">{{ section.settings.desc | newline_to_br }}</p>
+          {%- endif -%}
+
+          {%- if section.settings.list != blank -%}
+            {%- assign list_array = section.settings.list | newline_to_br | split: '<br />' -%}
+
+            <ul id="M-Media-HeaderList-{{ section.id }}" class="flex flex-wrap justify-center items-center gap-8 mt-8">
+              {%- for item in list_array -%}
+                <li class="whitespace-nowrap">{{ item }}</li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+          {%- if icon_with_text_size > 0 -%}
+            <ul class="flex flex-wrap gap-6 items-center md:justify-center mt-8">
+              {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                  {%- when 'icon-with-text' -%}
+                    <li class="inline-flex items-center gap-2">
+                      {%- assign high_res_width = block.settings.image_width | times: 2 -%}
+                      {%- assign widths = block.settings.image_width | append: ', ' | append: high_res_width -%}
+
+                      {%- if block.settings.image != blank -%}
+                        <div style="width: {{ block.settings.image_width }}px; max-width: 100%;">
+                          {% render 'image',
+                            image: block.settings.image,
+                            image_width: block.settings.image_width,
+                            width: block.settings.image_width,
+                            widths: widths
+                          %}
+                        </div>
+                      {%- endif -%}
+
+                      <p id="M-Media-IconWithText-Title-{{ section.id }}-{{ block.id }}">{{ block.settings.title }}</p>
+                    </li>
+                {%- endcase -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+
+          {%- if app_link_size > 0 -%}
+            <ul class="flex flex-wrap gap-6 items-center justify-center mt-8">
+              {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                  {%- when 'app-link' -%}
+                    <li class="" style="width: {{ block.settings.image_width }}px; max-width: 100%;">
+                      {%- assign high_res_width = block.settings.image_width | times: 2 -%}
+                      {%- assign widths = block.settings.image_width | append: ', ' | append: high_res_width -%}
+
+                      {%- if block.settings.url != blank -%}
+                        <a
+                          href="{{ block.settings.url }}"
+                          {% if block.settings.open_link_in_new_tab %}
+                            target="_blank"
+                          {% endif %}
+                        >
+                      {%- endif -%}
+                      {% render 'image',
+                        image: block.settings.image,
+                        image_width: block.settings.image_width,
+                        width: block.settings.image_width,
+                        widths: widths
+                      %}
+                      {%- if block.settings.url != blank -%}
+                        </a>
+                      {%- endif -%}
+                    </li>
+                {%- endcase -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </header>
+      </div>
+    {%- endif -%}
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'picture' -%}
+          {%- if block.settings.desktop_image or block.settings.mobile_image != blank -%}
+            {% render 'picture',
+              desktop_image: block.settings.desktop_image,
+              mobile_image: block.settings.mobile_image,
+              aspect_ratio: block.settings.aspect_ratio,
+              object_fit: block.settings.object_fit,
+              figcaption: block.settings.figcaption,
+              height: block.settings.image_height,
+              width: 768,
+              widths: '425, 768, 1024, 1280, 1560, 1920',
+              id: media_id
+            %}
+          {%- else -%}
+            <div class="aspect-video bg-neutral-100"></div>
+          {%- endif -%}
+        {%- when 'video' -%}
+          {%- if block.settings.desktop_video or block.settings.mobile_video != blank -%}
+            {% render 'video',
+              type: 'sources',
+              desktop_video: block.settings.desktop_video,
+              mobile_video: block.settings.mobile_video,
+              aspect_ratio: block.settings.aspect_ratio,
+              object_fit: block.settings.object_fit,
+              height: block.settings.image_height,
+              lazyload: block.settings.lazyload,
+              show_unmute_button: block.settings.show_unmute_button,
+              id: media_id
+            %}
+          {%- else -%}
+            <div class="aspect-video bg-neutral-100"></div>
+          {%- endif -%}
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+
+  {%- if section.settings.footer_content != blank
+    or section.settings.footer_image != blank
+    or section.settings.button_url != blank
+  -%}
+    <div id="M-Media-Footer-{{ section.id }}" class="mt-8 {{ section.settings.text_position }}">
+      {%- if section.settings.footer_content != blank -%}
+        <div class="">
+          {{ section.settings.footer_content }}
+        </div>
+      {%- endif -%}
+      {%- if section.settings.footer_image != blank -%}
+        {%- assign footer_image_dpr2x = section.settings.footer_image_width | times: 2 -%}
+        {%- assign footer_image_widths = '{{ section.settings.footer_image_width }}, {{ footer_image_dpr2x }}' -%}
+        <div class="mx-auto max-w-full" style="width: {{ section.settings.footer_image_width }}px">
+          {%
+            render 'image',
+            image: section.settings.footer_image,
+            aspect_ratio: 'natural',
+            object_fit: 'cover',
+            width: footer_image_dpr2x,
+            widths: '{{ footer_image_dpr2x }}'
+          %}
+        </div>
+      {%- endif -%}
+      {%- if section.settings.button_url != blank -%}
+        <a
+          href="{{ section.settings.button_url }}"
+          class="btn-dynamic mt-4"
+          style="background-color: {{ section.settings.button_bg_color }}; color: {{ section.settings.button_text_color }}; border-radius: {{ section.settings.button_border_radius }}px;"
+        >
+          {{- section.settings.button_label -}}
+        </a>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  {%- if button_blocks_size > 0 -%}
+    <ul class="flex flex-col md:flex-row flex-wrap justify-center gap-4 mt-6">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'button' -%}
+            {%- if block.settings.button_url != blank -%}
+              <a
+                href="{{ block.settings.button_url }}"
+                class="btn-dynamic whitespace-nowrap"
+                style="background-color: {{ block.settings.button_bg_color }}; color: {{ block.settings.button_text_color }}; border-radius: {{ block.settings.button_border_radius }}px;"
+              >
+                {{- block.settings.title -}}
+              </a>
+            {%- endif -%}
+        {%- endcase -%}
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</div>
+
+{%- style -%}
+  {% if section.settings.bg_color != blank %}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.bg_color }};
+    }
+  {% endif %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  #M-Media-HeaderSubTitle-{{ section.id }} {
+    color: {{ section.settings.text_color_subtitle }};
+  }
+  #M-Media-HeaderTitle-{{ section.id }}, #M-Media-HeaderList-{{ section.id }} {
+    color: {{ section.settings.text_color_title }};
+  }
+  #M-Media-HeaderDesc-{{ section.id }}, #M-Media-Footer-{{ section.id }} {
+    color: {{ section.settings.text_color_desc }};
+  }
+  #M-Media-Header-{{ section.id }} {
+    max-width: 100%;
+    width: 100%;
+    {% render 'get-text-align-style', align: section.settings.text_align, get: 'style' %}
+  }
+  #M-Media-Footer-{{ section.id }}{
+    max-width: 100%;
+    width: 100%;
+    {% render 'get-text-align-style', align: section.settings.footer_text_align, get: 'style' %}
+  }
+  {% if section.settings.icon_with_text_title_color != blank %}
+    [id^='M-Media-IconWithText-Title-{{ section.id }}'] {
+      color: {{ section.settings.icon_with_text_title_color }}
+    }
+  {% endif %}
+
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    {% if section.settings.enable_header_width %}
+    #M-Media-Header-{{ section.id }} {
+      width: {{ section.settings.header_width }}px;
+    }
+    {% endif %}
+    #M-Media-Footer-{{ section.id }} {
+      width: {{ section.settings.footer_width }}px;
+    }
+
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "M — Media",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Use only one video or picture block.\n\nUse as many App link blocks as you want."
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "paragraph",
+      "content": "Blocks in this section are used to add different types of content to your page. You can add, remove, or reorder content blocks here to customize your page."
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Fresh Air Starts With Innovation."
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Description"
+    },
+    {
+      "type": "textarea",
+      "id": "list",
+      "label": "List",
+      "placeholder": "Item 1\nItem2\nItem3",
+      "info": "Separate each item with a new line"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_header_width",
+      "label": "Enable header width",
+      "default": true,
+      "info": "If disabled, will fill the entire width of the container"
+    },
+    {
+      "type": "range",
+      "id": "header_width",
+      "min": 400,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Header width (Header)",
+      "default": 680
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align (Header)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text position (Header)",
+      "options": [
+        {
+          "value": "",
+          "label": "Left"
+        },
+        {
+          "value": "mx-auto",
+          "label": "Center"
+        },
+        {
+          "value": "ml-auto",
+          "label": "Right"
+        }
+      ],
+      "default": "mx-auto"
+    },
+    {
+      "type": "header",
+      "content": "Footer"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_content",
+      "label": "Footer Content",
+      "placeholder": "<p>The EverestAir® is equipped with an extra-large fan that operates at a lower rotation speed, generating powerful yet quiet air. The fan's careful positioning within the air duct allows for uniform wind speed and efficient air movement. Combined, these features provide you with a high Clean Air Delivery Rate at a whisper-quiet volume.</p>"
+    },
+    {
+      "type": "range",
+      "id": "footer_width",
+      "min": 400,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Footer width (px)",
+      "default": 680
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "button label"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button url"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_image",
+      "label": "Footer Image"
+    },
+    {
+      "type": "range",
+      "id": "footer_image_width",
+      "min": 100,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "label": "Footer Image width (px)",
+      "default": 250
+    },
+    {
+      "type": "select",
+      "id": "footer_text_align",
+      "label": "Text align (Footer)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "footer_text_position",
+      "label": "Text position (Footer)",
+      "options": [
+        {
+          "value": "",
+          "label": "Left"
+        },
+        {
+          "value": "mx-auto",
+          "label": "Center"
+        },
+        {
+          "value": "ml-auto",
+          "label": "Right"
+        }
+      ],
+      "default": "mx-auto"
+    },
+    {
+      "type": "header",
+      "content": "Section settings"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container (width)",
+      "options": [
+        {
+          "value": "",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Default"
+        },
+        {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+        },
+        {
+          "value": "container max-w-screen-md",
+          "label": "md"
+        },
+        {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+        },
+        {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+        },
+        {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+        }
+      ],
+      "default": "container max-w-screen-lg"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color_subtitle",
+      "label": "Text color (Subtitle)",
+      "default": "#fe5834"
+    },
+    {
+      "type": "color",
+      "id": "text_color_title",
+      "label": "Text color (Title)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color_desc",
+      "label": "Text color (Desc)",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "button settings"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button bg color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Button border radius",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_on_mobile",
+      "label": "Reverse on mobile",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Icons with Text settings"
+    },
+    {
+      "type": "color",
+      "id": "icon_with_text_title_color",
+      "label": "Icon with text title color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "picture",
+      "name": "Picture",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Media"
+        },
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Image (Desktop)"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Image (mobile)"
+        },
+        {
+          "type": "header",
+          "content": "Media settings"
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Aspect ratio",
+          "options": [
+            {
+              "value": "natural",
+              "label": "Natural"
+            },
+            {
+              "value": "square",
+              "label": "Square"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            },
+            {
+              "value": "fill",
+              "label": "Fill"
+            }
+          ],
+          "default": "natural"
+        },
+        {
+          "type": "select",
+          "id": "object_fit",
+          "label": "Image Object Fit",
+          "options": [
+            {
+              "value": "cover",
+              "label": "cover"
+            },
+            {
+              "value": "contain",
+              "label": "contain"
+            }
+          ],
+          "default": "cover",
+          "info": "Control how the image displays inside the container. See https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit for more info."
+        },
+        {
+          "type": "range",
+          "id": "image_height",
+          "min": 150,
+          "max": 750,
+          "step": 10,
+          "unit": "px",
+          "label": "Image height (px)",
+          "default": 250,
+          "info": "Only applicable for 'fill' aspect ratio"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "desktop_video",
+          "label": "Video (Desktop)"
+        },
+        {
+          "type": "video",
+          "id": "mobile_video",
+          "label": "Video (Mobile)"
+        },
+        {
+          "type": "header",
+          "content": "Media settings"
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Aspect ratio",
+          "options": [
+            {
+              "value": "natural",
+              "label": "Natural"
+            },
+            {
+              "value": "square",
+              "label": "Square"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            },
+            {
+              "value": "fill",
+              "label": "Fill"
+            }
+          ],
+          "default": "natural"
+        },
+        {
+          "type": "select",
+          "id": "object_fit",
+          "label": "Image Object Fit",
+          "options": [
+            {
+              "value": "cover",
+              "label": "cover"
+            },
+            {
+              "value": "contain",
+              "label": "contain"
+            }
+          ],
+          "default": "cover",
+          "info": "Control how the image displays inside the container. See https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit for more info."
+        },
+        {
+          "type": "range",
+          "id": "image_height",
+          "min": 150,
+          "max": 750,
+          "step": 10,
+          "unit": "px",
+          "label": "Image height (px)",
+          "default": 250,
+          "info": "Only applicable for 'fill' aspect ratio"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_unmute_button",
+          "label": "Show unmute button",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "app-link",
+      "name": "App link",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 100,
+          "max": 500,
+          "step": 10,
+          "unit": "px",
+          "label": "Image width (px)",
+          "default": 200
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_link_in_new_tab",
+          "label": "Open link in new tab",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "icon-with-text",
+      "name": "Icon with text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 50,
+          "max": 500,
+          "step": 10,
+          "unit": "px",
+          "label": "Image width (px)",
+          "default": 100
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "button URL"
+        },
+        {
+          "type": "header",
+          "content": "button settings"
+        },
+        {
+          "type": "color",
+          "id": "button_bg_color",
+          "label": "Button bg color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "button_border_radius",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Button border radius",
+          "default": 0
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "M — Media",
+      "blocks": [
+        {
+          "type": "picture"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

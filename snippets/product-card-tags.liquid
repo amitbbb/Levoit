@@ -1,0 +1,29 @@
+<ul class="{{ class }}">
+  {%- if product.metafields.pdp.filters_smart_wifi_enabled -%}
+    <li class="px-2 py-1 border whitespace-nowrap">Smart</li>
+  {%- endif -%}
+  {%- if product.metafields.pdp.filters_room_size -%}
+    {%- liquid
+      assign room_size = ''
+      if product.metafields.pdp.filters_room_size contains 'Small'
+        assign room_size = 'Small rooms'
+      elsif product.metafields.pdp.filters_room_size contains 'Medium'
+        assign room_size = 'Medium rooms'
+      elsif product.metafields.pdp.filters_room_size contains 'Large'
+        assign room_size = 'Large rooms'
+      endif
+    -%}
+    <li class="px-2 py-1 border whitespace-nowrap">
+      {{ room_size }}
+    </li>
+  {%- endif -%}
+
+  {%- if product.metafields.pdp.filters_tank_capacity -%}
+    <li class="px-2 py-1 border whitespace-nowrap">{{ product.metafields.pdp.filters_tank_capacity.value }}</li>
+  {%- endif -%}
+  {% comment %}
+    {%- if product.metafields.pdp.filters_best_sellers -%}
+      <li class="px-2 py-1 border whitespace-nowrap">Best Seller</li>
+    {%- endif -%}
+  {% endcomment %}
+</ul>

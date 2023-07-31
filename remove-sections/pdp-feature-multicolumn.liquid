@@ -1,0 +1,353 @@
+{% style %}
+  {% if section.settings.bg_color != blank %}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.bg_color }};
+    }
+  {% endif %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  #PDP-FeatureMulticolumn-Content-{{ section.id }} {
+    {% render 'get-text-align-style', align: section.settings.header_text_align, get: 'style' %}
+  }
+  #PDP-FeatureMulticolumn-FeatureList-{{ section.id }} {
+    grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0, 1fr));
+    {% render 'get-text-align-style', align: section.settings.columns_text_align, get: 'style' %}
+
+  }
+  #PDP-FeatureMulticolumn-Heading-{{ section.id }} {
+    color: {{ section.settings.text_color_heading }};
+  }
+  #PDP-FeatureMulticolumn-Desc-{{ section.id }} {
+    color: {{ section.settings.text_color_desc }};
+  }
+  [id^='PDP-FeatureMulticolumn-BlockHeading-{{ section.id }}'] {
+    color: {{ section.settings.columns_heading_text_color }};
+  }
+  [id^='PDP-FeatureMulticolumn-BlockDesc-{{ section.id }}'] {
+    color: {{ section.settings.columns_desc_text_color }};
+  }
+  @media (min-width: 768px) {
+    #PDP-FeatureMulticolumn-FeatureList-{{ section.id }} {
+      grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+  }
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    #PDP-FeatureMulticolumn-FeatureList-{{ section.id }} {
+      grid-template-columns: repeat({{ section.settings.columns_desktop }}, minmax(0, 1fr))
+    }
+  }
+{% endstyle %}
+
+{% capture card_style %}
+  {% if section.settings.make_items_into_cards -%}
+    rounded-xl shadow-lg overflow-hidden m-2 lg:m-0
+  {% endif %}
+{% endcapture %}
+
+{%- capture slider_config -%}
+  { 
+    {%- if section.settings.enable_slider_on_mobile -%}
+      "renderMode": "performance",
+      "breakpoints": {
+        "(min-width: 768px)": { 
+          "slides": { "perView": 2, "spacing": 16 }
+        },
+        "(min-width: 1024px)": { 
+          "disabled": true
+        }
+      },
+      "slides": { "perView": 1, "spacing": 16 }
+    {%- else -%}
+      "disabled": true
+    {%- endif -%}
+  }
+{%- endcapture -%}
+
+{%- assign multicolumn_id = 'PDP-FeatureMulticolumn-FeatureList-' | append: section.id -%}
+{% render 'get-flex-col-style', columns_desktop: section.settings.columns_desktop, columns_mobile: section.settings.columns_mobile, gap_desktop: '4rem', gap_mobile: '1rem', id: multicolumn_id %}
+
+
+<div class="{{ section.settings.container }}">
+  <header id="PDP-FeatureMulticolumn-Content-{{ section.id }}" class="text-center max-w-screen-lg mx-auto mb-12">
+    <h2 id="PDP-FeatureMulticolumn-Heading-{{ section.id }}" class="title m-title">{{ section.settings.title }}</h2>
+    <p id="PDP-FeatureMulticolumn-Desc-{{ section.id }}" class="desc m-desc">{{ section.settings.desc }}</p>
+  </header>
+  <keen-slider class="block" slider-config="{{ slider_config | escape }}" {% if section.blocks.size > 1 %}navigation="dots"{% endif %}>
+    {% comment %} <ul id="PDP-Feature-Multicolumn-{{ section.id }}-Feature-List" class="{% if section.settings.enable_slider_on_mobile %}keen-slider lg:grid lg:gap-16{% else %}grid gap-8 md:grid-cols-3 lg:gap-16{% endif %}"> {% endcomment %}
+    <ul id="PDP-FeatureMulticolumn-FeatureList-{{ section.id }}" class="{% if section.settings.enable_slider_on_mobile %}keen-slider lg:flex lg:flex-wrap lg:gap-16 lg:justify-center{% else %}flex flex-wrap gap-4 lg:gap-16{% endif %}">
+      {%- for block in section.blocks -%}
+        <li class="keen-slider__slide" style="">
+          <div class="{{ card_style }}">
+            {%- if block.settings.url != blank -%}
+              <a href="{{ block.settings.url }}">
+            {%- endif -%}
+            {%- if block.settings.image != blank -%}
+              <div class="">
+                {% render 'image', image: block.settings.image, width: 768, sizes: '768, 768, 768' %}
+              </div>
+            {%- else -%}
+              <div class="bg-primary m-8 mb-4 aspect-square rounded-full"></div>
+            {%- endif -%}
+            <div class="{% if section.settings.make_items_into_cards -%}p-8{% else %}mt-4{% endif %}">
+              <h3 id="PDP-FeatureMulticolumn-BlockHeading-{{ section.id }}-{{ block.id }}" class="title mb-2 text-xl font-bold uppercase">{{ block.settings.title }}</h3>
+              <p id="PDP-FeatureMulticolumn-BlockDesc-{{ section.id }}-{{ block.id }}" class="desc">{{ block.settings.desc }}</p>
+            </div>
+            {%- if block.settings.url != blank -%}
+            </a>
+            {%- endif -%}
+          </div>
+          
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    {%- if section.blocks.size > 1 -%}
+      <div id="dots" class="dots my-4"></div>
+    {%- endif -%}
+  </keen-slider>
+  
+</div>
+
+
+
+{% schema %}
+{
+  "name": "PDP | Feature Multicolumn",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "8 <b>PRESSURE</b> COOKING MODES"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Description",
+      "default": "<span class='font-slab'>Take your kitchen to the next level with the Cosori Smart 7-Quart Air Fryer Oven. Equipped with 14 versatile cooking functions, a wide temperature range, and smart capabilities on the free VeSync app, the oven is ready to cook any kind of meal you’d like.</span>"
+    },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG color"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider_on_mobile",
+      "label": "Enable slider on mobile",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "make_items_into_cards",
+      "label": "Make items into cards",
+      "default": false,
+      "info": "Adds rounded corners and shadow to items"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container (width)",
+      "options": [
+        {
+        "value": "",
+        "label": "Full width"
+        },
+        {
+        "value": "container",
+        "label": "Default"
+        },
+        {
+        "value": "container max-w-screen-sm",
+        "label": "sm"
+        },
+        {
+        "value": "container max-w-screen-md",
+        "label": "md"
+        },
+        {
+        "value": "container max-w-screen-lg",
+        "label": "lg"
+        },
+        {
+        "value": "container max-w-screen-xl",
+        "label": "xl"
+        },
+        {
+        "value": "container max-w-screen-2xl",
+        "label": "2xl"
+        }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "color",
+      "id": "text_color_heading",
+      "label": "Text color (Heading)",
+      "default": "#003339"
+    },
+    {
+      "type": "color",
+      "id": "text_color_desc",
+      "label": "Text color (Desc)",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "header_text_align",
+      "label": "Text align (Header)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Column settings"
+    },
+    {
+      "type": "select",
+      "id": "columns_text_align",
+      "label": "Text align (Columns)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "color",
+      "id": "columns_heading_text_color",
+      "label": "Text color (Heading)",
+      "default": "#003339"
+    },
+    {
+      "type": "color",
+      "id": "columns_desc_text_color",
+      "label": "Text color (Desc)",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Settings"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "unit": "col",
+      "label": "Columns (Desktop)",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "unit": "col",
+      "label": "Columns (Mobile)",
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "PRESSURE COOK"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Desc",
+          "default": "Customize pressure and time to make a variety of recipes."
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP | Feature Multicolumn"
+    }
+  ]
+}
+{% endschema %}
+

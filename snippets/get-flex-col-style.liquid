@@ -1,0 +1,31 @@
+{% style %}
+  #{{ id }} li {
+    {%- case columns_mobile -%}
+      {%- when 1 -%}
+        flex-basis: calc(100% - {{ gap_mobile }});
+      {%- when 2 -%}
+        flex-basis: calc(50% - {{ gap_mobile }});
+      {%- when 3 -%}
+        flex-basis: calc(33.333333% - {{ gap_mobile }});
+    {%- endcase -%}
+
+    
+      {%- case columns_desktop -%}
+        @media (min-width: 1024px) {
+        {%- when 1 -%}
+          flex-basis: calc(100% - {{ gap_desktop }});
+        {%- when 2 -%}
+          flex-basis: calc(50%% - {{ gap_desktop }});
+        {%- when 3 -%}
+          flex-basis: calc(33.333333% - {{ gap_desktop }});
+        {%- when 4 -%}
+          flex-basis: calc(25% - {{ gap_desktop }});
+        {%- when 5 -%}
+          flex-basis: calc(20% - {{ gap_desktop }});
+        {%- when 6 -%}
+          flex-basis: calc(16.666666% - {{ gap_desktop }});
+        }
+      {%- endcase -%}
+    
+  }
+{% endstyle %}

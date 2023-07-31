@@ -1,0 +1,1066 @@
+{%- liquid
+  assign show_header = false
+  assign header_subtitle_size = section.settings.subtitle | size
+  assign header_title_size = section.settings.title | size
+  assign header_desc_size = section.settings.desc | size
+  assign header_size = header_subtitle_size | plus: header_title_size | plus: header_desc_size
+
+  if header_size > 0
+    assign show_header = true
+  endif
+
+  assign media_id = 'M-MediaWithTextOverlay-Media' | append: section.id
+
+  assign list_item_size = 0
+  for block in section.blocks
+    if block.type == 'list-item'
+      assign list_item_size = list_item_size | plus: 1
+    endif
+  endfor
+
+  assign mobile_item_width = 100 | divided_by: section.settings.mobile_items_per_row | append: '%'
+  assign tablet_item_width = 100 | divided_by: section.settings.tablet_items_per_row | append: '%'
+  assign desktop_item_width = 100 | divided_by: section.settings.desktop_items_per_row | append: '%'
+-%}
+
+<div class="{{ section.settings.container }}">
+  <div class="relative flex flex-col">
+    {%- if show_header -%}
+      <header
+        id="M-MediaWithTextOverlay-Header-{{ section.id }}"
+        class=" p-4 md:p-8 lg:p-12 container flex"
+      >
+        <div
+          id="M-MediaWithTextOverlay-HeaderContainer-{{ section.id }}"
+          class=""
+        >
+          {%- if section.settings.logo != blank -%}
+            {%- assign logo_dpr2x = section.settings.logo_width | times: 2 -%}
+            {%- assign logo_widths = '{{ section.settings.logo_width }}, {{ logo_dpr2x }}' -%}
+
+            <div
+              id="M-MediaWithTextOverlay-HeaderLogo-{{ section.id }}"
+              class=" max-w-full mb-4"
+              style="width: {{ section.settings.logo_width }}px"
+            >
+              {% render 'image',
+                image: section.settings.logo,
+                aspect_ratio: 'natural',
+                object_fit: 'cover',
+                width: logo_width
+              %}
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.subtitle != blank -%}
+            <span id="M-MediaWithTextOverlay-HeaderSubTitle-{{ section.id }}" class="block mb-2">
+              {{- section.settings.subtitle -}}
+            </span>
+          {%- endif -%}
+          {%- if section.settings.title != blank -%}
+            <h2 id="M-MediaWithTextOverlay-HeaderTitle-{{ section.id }}" class="m-title-h2">
+              {{ section.settings.title | newline_to_br }}
+            </h2>
+          {%- endif -%}
+          {%- if section.settings.desc != blank -%}
+            <div id="M-MediaWithTextOverlay-HeaderDesc-{{ section.id }}" class="">
+              {{ section.settings.desc | newline_to_br }}
+            </div>
+          {%- endif -%}
+
+          {%- if list_item_size > 0 -%}
+            {%- if section.settings.add_border_above_list -%}
+              <hr id="M-MediaWithTextOverlay-Divider-{{ section.id }}" class="mt-4">
+            {%- endif -%}
+
+            <ul id="M-MediaWithTextOverlay-List-{{ section.id }}" class="flex flex-wrap mt-4">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'list-item' -%}
+                  <li
+                    id="M-MediaWithTextOverlay-ListItem-{{ section.id }}-{{ block.id }}"
+                    class="{% if section.settings.list_item_bg_color != blank %}p-2 md:p-4 bg-white rounded-md dropshadow-2xl{% endif %}"
+                  >
+                    <h3
+                      id="M-MediaWithTextOverlay-ListItemTitle-{{ section.id }}-{{ block.id }}"
+                      class="text-lg font-semibold inline-flex justify-center gap-x-2"
+                    >
+                      {%- if block.settings.icon != blank -%}
+                        {{
+                          block.settings.icon
+                          | image_url: width: 200
+                          | image_tag: class: 'w-8 h-8 object-contain', loading: 'lazy'
+                        }}
+                      {%- endif -%}
+
+                      {{ block.settings.title }}
+                    </h3>
+                    <div id="M-MediaWithTextOverlay-ListItemDesc-{{ section.id }}-{{ block.id }}">
+                      {{ block.settings.desc | newline_to_br }}
+                    </div>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+
+          {%- if section.settings.header_image != blank -%}
+            {%- assign header_image_dpr2x = section.settings.header_image_width | times: 2 -%}
+            {%- assign header_image_widths = '{{ section.settings.header_image_width }}, {{ header_image_dpr2x }}' -%}
+
+            <div
+              id="M-MediaWithTextOverlay-HeaderImage-{{ section.id }}"
+              class=" max-w-full mt-8"
+              style="width: {{ section.settings.header_image_width }}px"
+            >
+              {% render 'image',
+                image: section.settings.header_image,
+                aspect_ratio: 'natural',
+                object_fit: 'cover',
+                width: header_image_dpr2x,
+                widths: header_image_dpr2x
+              %}
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.button_label != blank -%}
+            <a
+              id="M-MediaWithTextOverlay-HeaderButton-{{ section.id }}"
+              href="{{ section.settings.button_url }}"
+              class="btn-dynamic mt-8"
+            >
+              {{- section.settings.button_label -}}
+            </a>
+          {%- endif -%}
+        </div>
+      </header>
+    {%- endif -%}
+
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'picture' -%}
+          {%- if block.settings.desktop_image or block.settings.mobile_image != blank -%}
+            {% render 'picture',
+              desktop_image: block.settings.desktop_image,
+              mobile_image: block.settings.mobile_image,
+              aspect_ratio: block.settings.aspect_ratio,
+              object_fit: block.settings.object_fit,
+              figcaption: block.settings.figcaption,
+              height: block.settings.image_height,
+              width: 768,
+              widths: '768, 1024, 1280, 1560, 1920',
+              id: media_id
+            %}
+          {%- else -%}
+            <div class="aspect-video bg-neutral-100"></div>
+          {%- endif -%}
+        {%- when 'video' -%}
+          {%- if block.settings.desktop_video or block.settings.mobile_video != blank -%}
+            {% render 'video',
+              type: 'sources',
+              desktop_video: block.settings.desktop_video,
+              mobile_video: block.settings.mobile_video,
+              aspect_ratio: block.settings.aspect_ratio,
+              object_fit: block.settings.object_fit,
+              height: block.settings.image_height,
+              lazyload: block.settings.lazyload,
+              show_unmute_button: block.settings.show_unmute_button,
+              id: media_id
+            %}
+          {%- else -%}
+            <div class="aspect-video bg-neutral-100"></div>
+          {%- endif -%}
+      {%- endcase -%}
+    {%- endfor -%}
+
+    {%- if section.settings.footer_content != blank -%}
+      <div id="M-Picture-Footer-{{ section.id }}" class="mt-8 {{ section.settings.text_position }}">
+        <div class="">
+          {{ section.settings.footer_content }}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- style -%}
+  {% if section.settings.bg_color != blank %}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.bg_color }};
+    }
+  {% endif %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  #M-MediaWithTextOverlay-Header-{{ section.id }} {
+    {% case section.settings.enable_mobile_stack %}
+      {% when 'stack_content_above' %}
+        order: 0;
+      {% when 'stack_content_below' %}
+        order: 1;
+      {% else %}
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+    {% endcase %}
+  }
+  #M-MediaWithTextOverlay-Header-{{ section.id }} {
+    {% render 'get-text-position-style', position: section.settings.text_position, get: 'style' %}
+    {% render 'get-text-align-style', align: section.settings.text_align, get: 'style' %}
+  }
+  #M-MediaWithTextOverlay-HeaderLogo-{{ section.id }} {
+    {% render 'get-margin-alignment-styles' position: section.settings.header_image_align %}
+  }
+
+
+  #M-MediaWithTextOverlay-HeaderImage-{{ section.id }} {
+    {% render 'get-margin-alignment-styles' position: section.settings.header_image_align %}
+    {% if section.settings.hide_header_image_on_mobile %}
+      display: none;
+    {% endif %}
+  }
+
+  #M-MediaWithTextOverlay-HeaderSubTitle-{{ section.id }} {
+    color: {{ section.settings.text_color_subtitle }};
+  }
+  #M-MediaWithTextOverlay-HeaderTitle-{{ section.id }} {
+    color: {{ section.settings.text_color_title }};
+  }
+  #M-MediaWithTextOverlay-HeaderDesc-{{ section.id }}, #M-MediaWithTextOverlay-HeaderList-{{ section.id }} {
+    color: {{ section.settings.text_color_desc }};
+  }
+  #M-MediaWithTextOverlay-HeaderList-{{ section.id }} {
+    border-color: {{ section.settings.text_color_desc }};
+  }
+  #M-MediaWithTextOverlay-HeaderContainer-{{ section.id }} {
+    max-width: 100%;
+    width: 100%;
+  }
+  #M-MediaWithTextOverlay-Footer-{{ section.id }}{
+    max-width: 100%;
+    width: 100%;
+    {% render 'get-text-align-style', align: section.settings.footer_text_align, get: 'style' %}
+  }
+  #M-MediaWithTextOverlay-Divider-{{ section.id }} {
+    {% if section.settings.list_divider_border_color != blank %}
+      border-color: {{ section.settings.list_divider_border_color }};
+    {% endif %}
+  }
+
+  #M-MediaWithTextOverlay-List-{{ section.id }} {
+    gap: {{ section.settings.gap }}rem;
+  }
+  [id^='M-MediaWithTextOverlay-ListItem-{{ section.id }}'] {
+    width: calc({{ mobile_item_width }} - {{ section.settings.gap }}rem);
+    {% if section.settings.list_item_bg_color != blank %}
+      background-color: {{ section.settings.list_item_bg_color }};
+    {% endif %}
+  }
+  [id^='M-MediaWithTextOverlay-ListItemTitle-{{ section.id }}'] {
+    color: {{ section.settings.list_item_title_color }};
+  }
+  [id^='M-MediaWithTextOverlay-ListItemDesc-{{ section.id }}'] {
+    color: {{ section.settings.list_item_desc_color }};
+  }
+
+  #M-MediaWithTextOverlay-HeaderButton-{{ section.id }} {
+    background-color: {{ section.settings.mobile_button_bg_color }};
+    color: {{ section.settings.mobile_button_text_color }};
+  }
+
+  @media (min-width: 1024px) {
+    #M-MediaWithTextOverlay-HeaderContainer-{{ section.id }} {
+      width: {{ section.settings.header_width }}px;
+    }
+
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    #M-MediaWithTextOverlay-HeaderSubTitle-{{ section.id }} {
+      color: {{ section.settings.desktop_text_color_subtitle }};
+    }
+    #M-MediaWithTextOverlay-HeaderTitle-{{ section.id }} {
+      color: {{ section.settings.desktop_text_color_title }};
+    }
+    #M-MediaWithTextOverlay-HeaderDesc-{{ section.id }}, #M-MediaWithTextOverlay-HeaderList-{{ section.id }} {
+      color: {{ section.settings.desktop_text_color_desc }};
+    }
+    #M-MediaWithTextOverlay-HeaderList-{{ section.id }} {
+      border-color: {{ section.settings.text_color_desc }};
+    }
+    #M-MediaWithTextOverlay-Header-{{ section.id }} {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10;
+
+      {% render 'get-text-position-style', position: section.settings.desktop_text_position, get: 'style' %}
+      {% render 'get-text-align-style', align: section.settings.desktop_text_align, get: 'style' %}
+    }
+
+    #M-MediaWithTextOverlay-HeaderLogo-{{ section.id }} {
+       {% render 'get-text-position-style', position: section.settings.desktop_text_position, get: 'style' %}
+    }
+
+    #M-MediaWithTextOverlay-HeaderImage-{{ section.id }} {
+      {% render 'get-margin-alignment-styles' position: section.settings.desktop_header_image_align %}
+      {% if section.settings.hide_header_image_on_mobile %}
+        display: flex;
+      {% endif %}
+    }
+
+    #M-MediaWithTextOverlay-HeaderLogo-{{ section.id }} {
+    {% render 'get-margin-alignment-styles' position: section.settings.desktop_header_image_align %}
+  }
+
+    [id^='M-MediaWithTextOverlay-ListItem-{{ section.id }}'] {
+      {% if section.settings.desktop_list_item_bg_color != blank %}
+        background-color: {{ section.settings.desktop_list_item_bg_color }};
+      {% endif %}
+    }
+    [id^='M-MediaWithTextOverlay-ListItemTitle-{{ section.id }}'] {
+      color: {{ section.settings.desktop_list_item_title_color }};
+    }
+    [id^='M-MediaWithTextOverlay-ListItemDesc-{{ section.id }}'] {
+      color: {{ section.settings.desktop_list_item_desc_color }};
+    }
+
+    #M-MediaWithTextOverlay-HeaderContainer-{{ section.id }} {
+      width: {{ section.settings.header_width }}px;
+    }
+    #M-MediaWithTextOverlay-Footer-{{ section.id }} {
+      width: {{ section.settings.footer_width }}px;
+    }
+    [id^='M-MediaWithTextOverlay-ListItem-{{ section.id }}'] {
+      width: calc({{ tablet_item_width }} - {{ section.settings.gap }}rem);
+    }
+
+    #M-MediaWithTextOverlay-HeaderButton-{{ section.id }} {
+      background-color: {{ section.settings.desktop_button_bg_color }};
+      color: {{ section.settings.desktop_button_text_color }};
+    }
+  }
+  @media (min-width: 1024px) {
+   [id^='M-MediaWithTextOverlay-ListItem-{{ section.id }}'] {
+      width: calc({{ desktop_item_width }} - {{ section.settings.gap }}rem);
+    }
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "M — Media w/ Text Overlay",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Blocks in this section are used to add different types of content to your page. You can add, remove, or reorder content blocks here to customize your page. Only use 1 video or picture block per section."
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo with (px)",
+      "default": 150
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Hands-Free Control"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "header_image",
+      "label": "Header image"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_header_image_on_mobile",
+      "label": "Hide header image on mobile",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "header_width",
+      "min": 200,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Header width (Header)",
+      "default": 350
+    },
+    {
+      "type": "range",
+      "id": "header_image_width",
+      "min": 100,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Header Image width (Header)",
+      "default": 300
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "placeholder": "View all"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button url"
+    },
+    {
+      "type": "header",
+      "content": "Section settings"
+    },
+    {
+      "type": "select",
+      "id": "enable_mobile_stack",
+      "label": "Enable mobile stack",
+      "options": [
+        {
+          "value": "stack_content_above",
+          "label": "Stack — Content above"
+        },
+        {
+          "value": "stack_content_below",
+          "label": "Stack — Content below"
+        },
+        {
+          "value": "",
+          "label": "Do not stack"
+        }
+      ],
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container (width)",
+      "options": [
+        {
+          "value": "",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Default"
+        },
+        {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+        },
+        {
+          "value": "container max-w-screen-md",
+          "label": "md"
+        },
+        {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+        },
+        {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+        },
+        {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+        }
+      ],
+      "default": ""
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "select",
+      "id": "header_image_align",
+      "label": "Header Image align",
+      "options": [
+        {
+          "value": "left",
+          "label": "left"
+        },
+        {
+          "value": "center",
+          "label": "center"
+        },
+        {
+          "value": "right",
+          "label": "right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align (Header)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text position",
+      "options": [
+        {
+          "value": "top_left",
+          "label": "Top left"
+        },
+        {
+          "value": "top_center",
+          "label": "Top center"
+        },
+        {
+          "value": "top_right",
+          "label": "Top right"
+        },
+        {
+          "value": "center_left",
+          "label": "Center left"
+        },
+        {
+          "value": "center_center",
+          "label": "Center center"
+        },
+        {
+          "value": "center_right",
+          "label": "Center right"
+        },
+        {
+          "value": "bottom_left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "bottom_center",
+          "label": "Bottom center"
+        },
+        {
+          "value": "bottom_right",
+          "label": "Bottom right"
+        }
+      ],
+      "default": "center_left"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color_subtitle",
+      "label": "Text color (Subtitle)",
+      "default": "#fe5834"
+    },
+    {
+      "type": "color",
+      "id": "text_color_title",
+      "label": "Text color (Title)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color_desc",
+      "label": "Text color (Desc)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "mobile_button_bg_color",
+      "label": "Button BG color (Mobile)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "mobile_button_text_color",
+      "label": "Button text color (Mobile)",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Settings"
+    },
+    {
+      "type": "select",
+      "id": "desktop_header_image_align",
+      "label": "Header Image align",
+      "options": [
+        {
+          "value": "left",
+          "label": "left"
+        },
+        {
+          "value": "center",
+          "label": "center"
+        },
+        {
+          "value": "right",
+          "label": "right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "desktop_text_align",
+      "label": "Text align (Header)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "desktop_text_position",
+      "label": "Text position",
+      "options": [
+        {
+          "value": "top_left",
+          "label": "Top left"
+        },
+        {
+          "value": "top_center",
+          "label": "Top center"
+        },
+        {
+          "value": "top_right",
+          "label": "Top right"
+        },
+        {
+          "value": "center_left",
+          "label": "Center left"
+        },
+        {
+          "value": "center_center",
+          "label": "Center center"
+        },
+        {
+          "value": "center_right",
+          "label": "Center right"
+        },
+        {
+          "value": "bottom_left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "bottom_center",
+          "label": "Bottom center"
+        },
+        {
+          "value": "bottom_right",
+          "label": "Bottom right"
+        }
+      ],
+      "default": "center_left"
+    },
+    {
+      "type": "color",
+      "id": "desktop_text_color_subtitle",
+      "label": "Text color (Subtitle — Desktop)",
+      "default": "#fe5834"
+    },
+    {
+      "type": "color",
+      "id": "desktop_text_color_title",
+      "label": "Text color (Title — Desktop)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "desktop_text_color_desc",
+      "label": "Text color (Desc — Desktop)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "desktop_button_bg_color",
+      "label": "Button BG color (Desktop)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "desktop_button_text_color",
+      "label": "Button text color (Desktop)",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Mobile List Item Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "Changes only render when 'List Item' blocks are added to the section"
+    },
+    {
+      "type": "checkbox",
+      "id": "add_border_above_list",
+      "label": "Add border above list",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "list_divider_border_color",
+      "label": "Border color",
+      "default": "#EEEEEE"
+    },
+    {
+      "type": "color",
+      "id": "list_item_bg_color",
+      "label": "List item BG color",
+      "info": "If color is selected, background color will display. If no color is selected, background will be transparent."
+    },
+    {
+      "type": "color",
+      "id": "list_item_title_color",
+      "label": "List item title color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "list_item_desc_color",
+      "label": "List item desc color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Desktop List Item Settings"
+    },
+    {
+      "type": "color",
+      "id": "desktop_list_divider_border_color",
+      "label": "Border color",
+      "default": "#EEEEEE"
+    },
+    {
+      "type": "color",
+      "id": "desktop_list_item_bg_color",
+      "label": "List item BG color",
+      "info": "If color is selected, background color will display. If no color is selected, background will be transparent."
+    },
+    {
+      "type": "color",
+      "id": "desktop_list_item_title_color",
+      "label": "List item title color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "desktop_list_item_desc_color",
+      "label": "List item desc color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "List Item Grid Settings"
+    },
+    {
+      "type": "range",
+      "id": "mobile_items_per_row",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Items per row (mobile)",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "tablet_items_per_row",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Items per row (tablet)",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "desktop_items_per_row",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Items per row (desktop)",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 1,
+      "max": 4,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "Gap (rem)",
+      "info": "mutliply by base font size (16px) to get in px",
+      "default": 1
+    }
+  ],
+  "blocks": [
+    {
+      "type": "picture",
+      "name": "picture",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Only use one picture or video block per section."
+        },
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Image (Desktop)"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Image (Mobile)"
+        },
+        {
+          "type": "header",
+          "content": "Media settings"
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Aspect ratio",
+          "options": [
+            {
+              "value": "natural",
+              "label": "Natural"
+            },
+            {
+              "value": "square",
+              "label": "Square"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            },
+            {
+              "value": "fill",
+              "label": "Fill"
+            }
+          ],
+          "default": "natural"
+        },
+        {
+          "type": "select",
+          "id": "object_fit",
+          "label": "Image Object Fit",
+          "options": [
+            {
+              "value": "cover",
+              "label": "cover"
+            },
+            {
+              "value": "contain",
+              "label": "contain"
+            }
+          ],
+          "default": "cover",
+          "info": "Control how the image displays inside the container. See https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit for more info."
+        },
+        {
+          "type": "range",
+          "id": "image_height",
+          "min": 150,
+          "max": 750,
+          "step": 10,
+          "unit": "px",
+          "label": "Image height (px)",
+          "default": 250,
+          "info": "Only applicable for 'fill' aspect ratio"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "video",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Only use one picture or video block per section."
+        },
+        {
+          "type": "video",
+          "id": "desktop_video",
+          "label": "Video (Desktop)"
+        },
+        {
+          "type": "video",
+          "id": "mobile_video",
+          "label": "Video (Mobile)"
+        },
+        {
+          "type": "header",
+          "content": "Media settings"
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Aspect ratio",
+          "options": [
+            {
+              "value": "natural",
+              "label": "Natural"
+            },
+            {
+              "value": "square",
+              "label": "Square"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            },
+            {
+              "value": "fill",
+              "label": "Fill"
+            }
+          ],
+          "default": "natural"
+        },
+        {
+          "type": "select",
+          "id": "object_fit",
+          "label": "Image Object Fit",
+          "options": [
+            {
+              "value": "cover",
+              "label": "cover"
+            },
+            {
+              "value": "contain",
+              "label": "contain"
+            }
+          ],
+          "default": "cover",
+          "info": "Control how the image displays inside the container. See https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit for more info."
+        },
+        {
+          "type": "range",
+          "id": "image_height",
+          "min": 150,
+          "max": 750,
+          "step": 10,
+          "unit": "px",
+          "label": "Image height (px)",
+          "default": 250,
+          "info": "Only applicable for 'fill' aspect ratio"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_unmute_button",
+          "label": "Show unmute button",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "list-item",
+      "name": "List item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "3-Stage Filtration"
+        },
+        {
+          "type": "text",
+          "id": "desc",
+          "label": "Description",
+          "default": "Traps particles such as dust, smoke particles, pollen, and pet dander"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "M — Media w/ Text Overlay"
+    }
+  ]
+}
+{% endschema %}

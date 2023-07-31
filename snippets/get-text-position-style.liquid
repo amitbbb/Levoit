@@ -1,0 +1,69 @@
+{%- comment -%}
+  This snippet is used to generate flexbox alignment classes
+
+  pass in the following variables:
+  -position
+  -get (style or class)
+  -breakpoint: 'sm', 'md', 'lg'
+{%- endcomment -%}
+
+{% liquid
+  assign get = get | default: 'class'
+  if get == 'style'
+    if position == 'top_left'
+      echo 'align-items: flex-start; justify-content: flex-start;'
+    endif
+    if position == 'top_center'
+      echo 'align-items: flex-start; justify-content: center;'
+    endif
+    if position == 'top_right'
+      echo 'align-items: flex-start; justify-content: flex-end;'
+    endif
+    if position == 'center_left'
+      echo 'align-items: center; justify-content: flex-start;'
+    endif
+    if position == 'center_center'
+      echo 'align-items: center; justify-content: center;'
+    endif
+    if position == 'center_right'
+      echo 'align-items: center; justify-content: flex-end;'
+    endif
+    if position == 'bottom_left'
+      echo 'align-items: flex-end; justify-content: flex-start;'
+    endif
+    if position == 'bottom_center'
+      echo 'align-items: flex-end; justify-content: center;'
+    endif
+    if position == 'bottom_right'
+      echo 'align-items: flex-end; justify-content: flex-end;'
+    endif
+  else
+    if position == 'top_left'
+      echo 'items-start justify-start'
+    endif
+    if position == 'top_center'
+      echo 'items-start justify-center'
+    endif
+    if position == 'top_right'
+      echo 'items-start justify-end'
+    endif
+    if position == 'center_left'
+      echo 'items-center justify-start'
+    endif
+    if position == 'center_center'
+      echo 'items-center justify-center'
+    endif
+    if position == 'center_right'
+      echo 'items-center justify-end'
+    endif
+    if position == 'bottom_left'
+      echo 'items-end justify-start'
+    endif
+    if position == 'bottom_center'
+      echo 'items-end justify-center'
+    endif
+    if position == 'bottom_right'
+      echo 'items-end justify-end'
+    endif
+  endif
+%}

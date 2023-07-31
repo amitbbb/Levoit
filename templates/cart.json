@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "blocks": {
+        "totals": { "type": "totals", "settings": {} },
+        "order_note": { "type": "order_note", "settings": {} }
+      },
+      "block_order": ["totals", "order_note"],
+      "settings": {}
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "featured-collection"
+  ]
+}

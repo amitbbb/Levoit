@@ -1,0 +1,52 @@
+{% comment %}
+  {% liquid
+    if get == 'style'
+      if align == 'left'
+        echo 'text-align: left;'
+      endif
+      if align == 'center'
+        echo 'text-align: center;'
+      endif
+      if align == 'right'
+        echo 'text-align: right;'
+      endif
+    else
+      if align == 'left'
+        echo 'text-left'
+      endif
+      if align == 'center'
+        echo 'text-center'
+      endif
+      if align == 'right'
+        echo 'text-right'
+      endif
+    endif
+  %}
+{% endcomment %}
+
+{%- liquid
+  assign get = get | default: 'class'
+
+  case get
+    when 'class'
+      if align == 'left'
+        echo 'text-left'
+      endif
+      if align == 'center'
+        echo 'text-center'
+      endif
+      if align == 'right'
+        echo 'text-right'
+      endif
+    when 'style'
+      if align == 'left'
+        echo 'text-align: left;'
+      endif
+      if align == 'center'
+        echo 'text-align: center;'
+      endif
+      if align == 'right'
+        echo 'text-align: right;'
+      endif
+  endcase
+-%}

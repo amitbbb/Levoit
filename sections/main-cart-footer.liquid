@@ -1,0 +1,41 @@
+<div class="container">
+
+  {%- if settings.show_cart_note -%}
+    <cart-note class="cart__note field">
+      <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+      <textarea class="text-area field__input" name="note" form="cart" id="Cart-note" placeholder="{{ 'sections.cart.note' | t }}">{{ cart.note }}</textarea>
+    </cart-note>
+  {%- endif -%}
+
+  <div class="w-1/3 bg-slate-300 ml-auto p-8">
+    <div class="flex gap-x-4 items-center">
+      <h2>Subtotal</h2>
+      <span class="text-xl">$300</span>
+    </div>
+    <span class="text-sm text-neutral-400 mb-8 inline-block">Taxes and shipping calculated at checkout</span>
+  
+    <a href="" class="rounded-lg bg-black text-sm p-2.5 text-white w-full block flex items-center justify-center">Checkout</a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main Cart Footer",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "subtotal",
+      "name": "Subtotal",
+      "limit": 1
+    },
+    {
+      "type": "buttons",
+      "name": "Buttons",
+      "limit": 1
+    },
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

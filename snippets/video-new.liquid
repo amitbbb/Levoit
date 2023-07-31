@@ -1,0 +1,128 @@
+{%- comment -%}
+  /snippets/video.liquid to be migrated to this (TBD)
+
+  pass in:
+  - desktop_video
+  - mobile_video
+  - aspect_ratio
+  - object_fit
+  - id
+  - lazyload
+{%- endcomment -%}
+
+{%- liquid
+  for source in mobile_video.sources
+    unless source.mime_type == 'application/x-mpegURL'
+      assign mobile_source = source
+    endunless
+  endfor
+
+  for source in desktop_video.sources
+    unless source.mime_type == 'application/x-mpegURL'
+      assign desktop_source = source
+    endunless
+  endfor
+
+  assign desktop_aspect_ratio = 1 | divided_by: desktop_video.aspect_ratio | times: 100
+  assign mobile_aspect_ratio = 1 | divided_by: mobile_video.aspect_ratio | times: 100
+
+  if object_fit == 'cover'
+    assign object_fit_class = 'absolute inset-0 object-cover w-full h-full'
+  elsif object_fit == 'contain'
+    assign object_fit_class = 'absolute inset-0 object-contain w-full h-auto'
+  endif
+-%}
+
+{%- style -%}
+{%- endstyle -%}
+
+{%- case aspect_ratio -%}
+  {%- when 'natural' -%}
+    {%- assign aspect_ratio = '' -%}
+    {% style %}
+      #{{ id }} {
+        position: relative;
+        width: 100%;
+        {% if mobile_video %}
+          padding-bottom: {{ mobile_aspect_ratio }}%;
+        {% else %}
+          padding-bottom: {{ desktop_aspect_ratio }}%;
+        {% endif %}
+        display: block;
+        overflow: hidden;
+      }
+      @media (min-width: 768px) {
+        #{{ id }} {
+          {% if desktop_video %}
+            padding-bottom: {{ desktop_aspect_ratio }}%;
+          {% else %}
+            padding-bottom: {{ mobile_aspect_ratio }}%;
+          {% endif %}
+        }
+      }
+    {% endstyle %}
+  {%- when 'height' -%}
+    {%- assign aspect_ratio = '' -%}
+    {% style %}
+      #{{ id }} {
+        position: relative;
+        width: 100%;
+        height: {{ banner_height }}px;
+        display: block;
+        overflow: hidden;
+      }
+    {% endstyle %}
+  {%- else -%}
+    {%- assign aspect_ratio = aspect_ratio -%}
+{%- endcase -%}
+
+{% comment %}
+  <code class="block bg-neutral-100 p-4 rounded-md">
+    desktop: {{ desktop_aspect_ratio }} | mobile: {{ mobile_aspect_ratio }} |
+  </code>
+
+  <code class="block bg-neutral-100 p-4 rounded-md">
+    {{ desktop_video }}
+  </code>
+{% endcomment %}
+
+<lazy-video-sources
+  desktop-src="{{ desktop_source.url }}"
+  desktop-mime="{{ desktop_source.mime_type }}"
+  desktop-poster="{{ desktop_video.preview_image.src | image_url: width: 1440 }}"
+  mobile-src="{{ mobile_source.url }}"
+  mobile-mime="{{ mobile_source.mime_type }}"
+  mobile-poster="{{ mobile_video.preview_image | image_url: width: 768 }}"
+  id="{{ id }}"
+  class="relative block {{ aspect_ratio }}"
+>
+  {%- if show_unmute_button -%}
+    <button
+      type="button"
+      sound-button
+      class="absolute z-10 top-4 right-4 h-12 w-12 bg-white flex items-center justify-center rounded-full drop-shadow-md"
+    >
+      <span icon-sound-on>{% render 'icons' with 'sound-on', width: 16, height: 16 %}</span>
+      <span icon-sound-off class="hidden">{% render 'icons' with 'sound-off', width: 16, height: 16 %}</span>
+    </button>
+  {%- endif -%}
+
+  <video playsinline autoplay muted loop class="{{ object_fit_class }}">
+    {% comment %}
+      <source src="{{ mobile_source.url }}" type="{{ mobile_source.mime_type }}" media="">
+      <source src="{{ desktop_source.url }}" type="{{ desktop_source.mime_type }}" media="(min-width: 768px)">
+    {% endcomment %}
+  </video>
+</lazy-video-sources>
+
+{% comment %}
+  {{
+    desktop_video
+    | video_tag:
+      image_size: '1100x',
+      autoplay: true,
+      loop: desktop_video,
+      controls: true,
+      muted: false
+  }}
+{% endcomment %}

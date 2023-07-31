@@ -1,0 +1,13 @@
+.range::-webkit-slider-thumb {
+  @apply bg-white pointer-events-auto rounded-full cursor-pointer h-5 w-5;
+  -webkit-appearance: none;
+  box-shadow: 0 0 0 5px rgb(41, 41, 41) inset;
+}
+
+.range::-moz-range-thumb {
+  pointer-events: auto;
+}
+
+.price-range__input-number::-webkit-inner-spin-button, .price-range__input-number::-webkit-outer-spin-button {
+  @apply appearance-none m-0;
+}

@@ -1,0 +1,19 @@
+<div class="container py-16">
+  <div class="prose mx-auto max-w-screen-md h-[1100px]">
+    {{ page.content }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main page",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "heading"
+    }
+  ]
+}
+{% endschema %}

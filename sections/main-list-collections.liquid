@@ -1,0 +1,123 @@
+{%- liquid
+  case section.settings.sort
+    when 'products_high' or 'products_low'
+      assign collections = collections | sort: 'all_products_count'
+    when 'date' or 'date_reversed'
+      assign collections = collections | sort: 'published_at'
+  endcase
+
+  if section.settings.sort == 'products_high' or section.settings.sort == 'date_reversed' or section.settings.sort == 'alphabetical_reversed'
+    assign collections = collections | reverse
+  endif
+
+  assign assign paginate_by = 30
+-%}
+
+
+<div class="">
+  {% if section.settings.show_collection_title == true %}
+    <div class="container py-8">
+      <h1 class="font-serif text-lg">Browse collections</h1>
+    </div>
+  {% endif %}
+
+  {%- paginate collections by paginate_by -%}
+    <ul class="grid grid-cols-3 gap-px">
+      {%- for collection in collections -%}
+        <li>
+          <a href="">
+            <!-- <div class="bg-neutral-200 aspect-[2/3]"></div> -->
+            <div class="aspect-[2/3]">
+              {{ collection.featured_image | image_url: width: 800 | image_tag: width: nil, class: "w-full h-full object-cover", loading: "lazy" }}
+            </div>
+            
+            <div class="px-8 pt-4 pb-8 text-sm relative">
+              <p class="uppercase mb-2 transition-colors duration-300 group-hover:text-neutral-400">{{ collection.title }}</p>
+            </div>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endpaginate -%}
+
+
+  <!-- <ul class="grid grid-cols-3 gap-px">
+    <li>
+      <a href="">
+        <div class="bg-neutral-200 aspect-[2/3]"></div>
+        <div class="px-8 pt-4 pb-8 text-sm relative">
+          <p class="uppercase mb-2 transition-colors duration-300 group-hover:text-neutral-400">Collection name</p>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="">
+        <div class="bg-neutral-200 aspect-[2/3]"></div>
+        <div class="px-8 pt-4 pb-8 text-sm relative">
+          <p class="uppercase mb-2 transition-colors duration-300 group-hover:text-neutral-400">Collection name</p>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="">
+        <div class="bg-neutral-200 aspect-[2/3]"></div>
+        <div class="px-8 pt-4 pb-8 text-sm relative">
+          <p class="uppercase mb-2 transition-colors duration-300 group-hover:text-neutral-400">Collection name</p>
+        </div>
+      </a>
+    </li>
+  </ul> -->
+</div>
+
+{% schema %}
+{
+  "name": "List Collections",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.main-list-collections.settings.title.label",
+      "default": "Collections"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_title",
+      "default": true,
+      "label": "Show collection title"
+    },
+    {
+      "type": "select",
+      "id": "sort",
+      "options": [
+        {
+          "value": "alphabetical",
+          "label": "t:sections.main-list-collections.settings.sort.options__1.label"
+        },
+        {
+          "value": "alphabetical_reversed",
+          "label": "t:sections.main-list-collections.settings.sort.options__2.label"
+        },
+        {
+          "value": "date_reversed",
+          "label": "t:sections.main-list-collections.settings.sort.options__3.label"
+        },
+        {
+          "value": "date",
+          "label": "t:sections.main-list-collections.settings.sort.options__4.label"
+        },
+        {
+          "value": "products_high",
+          "label": "t:sections.main-list-collections.settings.sort.options__5.label"
+        },
+        {
+          "value": "products_low",
+          "label": "t:sections.main-list-collections.settings.sort.options__6.label"
+        }
+      ],
+      "default": "alphabetical",
+      "label": "t:sections.main-list-collections.settings.sort.label"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,9 @@
+product-gallery-slider {
+  [id="ProductGallerySlider-Thumbs"] {
+    .swiper-slide {
+      &.swiper-slide-thumb-active {
+        @apply border border-black
+      }
+    }
+  }
+}

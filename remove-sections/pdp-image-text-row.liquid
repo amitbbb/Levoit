@@ -1,0 +1,475 @@
+{% style %}
+  {% if section.settings.bg_color %}
+   #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+   }
+  {% endif %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  #PDP-ImageTextRow-{{ section.id }}-Heading {
+    color: {{ section.settings.text_color_heading }};
+  }
+  #PDP-ImageTextRow-{{ section.id }}-Desc, [id^='PDP-ImageTextRow-{{ section.id }}'] {
+    color: {{ section.settings.text_color_desc }};
+  }
+  #PDP-ImageTextRow-{{ section.id }}-Content {
+    {% render 'get-text-align-style', align: section.settings.mobile_text_align, get: 'style' %}
+
+    {% if section.settings.mobile_image_first %}
+      order: 2;
+    {% else %}
+      order: 1;
+    {% endif %}
+  }
+  #PDP-ImageTextRow-{{ section.id }}-Image, #PDP-ImageTextRow-{{ section.id }}-Video {
+    {% if section.settings.mobile_image_first %}
+      order: 1;
+    {% else %}
+      order: 2;
+    {% endif %}
+  }
+
+  @media (min-width: 768px) {
+    #PDP-ImageTextRow-{{ section.id }}-Content {
+      order: unset;
+    }
+    #PDP-ImageTextRow-{{ section.id }}-Image, #PDP-ImageTextRow-{{ section.id }}-Video {
+      order: unset;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    #PDP-ImageTextRow-{{ section.id }}-Content {
+      {% render 'get-text-position-style', position: section.settings.desktop_text_position, get: 'style' %}
+      {% render 'get-text-align-style', align: section.settings.desktop_text_align, get: 'style' %}
+    }
+    #PDP-ImageTextRow-{{ section.id }}-Content, #PDP-ImageTextRow-{{ section.id }}-Image { 
+      order: unset;
+    }
+  }
+{% endstyle %}
+
+
+
+<div class="{{ section.settings.container }}">
+
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-14">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'text' -%}
+          <li id="PDP-ImageTextRow-{{ section.id }}-Content" class="flex items-center justify-center ">
+            <div class="{% if section.settings.container == '' %}p-4 md:p-12{% endif %}">
+              {%- if block.settings.title != blank -%}
+                <h2 id="PDP-ImageTextRow-{{ section.id }}-Heading" class="m-title">{{ block.settings.title | newline_to_br }}</h2>
+              {%- endif -%}
+              {%- if block.settings.desc != blank -%}
+                <p id="PDP-ImageTextRow-{{ section.id }}-Desc" class="m-desc">{{ block.settings.desc | newline_to_br }}</p>
+              {%- endif -%}
+
+              {%- if block.settings.add_app_store_links -%}
+                {% render 'render-app-store-icons', width: 400, class: 'mt-8' %}
+              {%- endif -%}
+
+              {%- if block.settings.image != blank -%}
+                <img src="{{ block.settings.image | image_url: width: block.settings.img_width }}" alt="{{ block.settings.image.alt }}" loading="lazy" class="mt-8">
+              {%- endif -%}
+
+              {%- if block.settings.add_community_links -%}
+                {% render 'community-links', class: 'grid gap-4 mt-4' %}
+              {%- endif -%}
+            </div>
+          </li>
+        {%- when 'image' -%}
+        <li id="PDP-ImageTextRow-{{ section.id }}-Image">
+            {% render 'image',
+              image: block.settings.image,
+              aspect_ratio: block.settings.aspect_ratio,
+              class: 'w-full h-full',
+              object_fit: block.settings.object_fit,
+              figcaption: block.settings.figcaption
+            %}
+          </li>
+        {%- when 'video' -%}
+          <li id="PDP-ImageTextRow-{{ section.id }}-Video">
+            {% render 'video', video: block.settings.video_url, aspect_ratio: block.settings.aspect_ratio, poster: block.settings.poster, object_fit: block.settings.object_fit %}
+          </li>
+      {%- endcase -%}
+    {%- endfor -%}
+  </ul>
+</div>
+
+
+
+
+{% schema %}
+{
+  "name": "PDP | Image/Text Row",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section BG color"
+    },
+    {
+        "type": "select",
+        "id": "container",
+        "label": "Container (width)",
+        "options": [
+          {
+          "value": "",
+          "label": "Full width"
+          },
+          {
+          "value": "container",
+          "label": "Default"
+          },
+          {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+          },
+          {
+          "value": "container max-w-screen-md",
+          "label": "md"
+          },
+          {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+          },
+          {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+          },
+          {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+          }
+        ],
+        "default": "container"
+      },
+    {
+      "type": "color",
+      "id": "text_color_heading",
+      "label": "Text color (Heading)",
+      "default": "#003339"
+    },
+    {
+      "type": "color",
+      "id": "text_color_desc",
+      "label": "Text color (Desc)",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Settings"
+    },
+    {
+      "type": "select",
+      "id": "desktop_text_position",
+      "label": "Text position (Desktop)",
+      "options": [
+        {
+          "value": "top_left",
+          "label": "Top left"
+        },
+        {
+          "value": "top_center",
+          "label": "Top center"
+        },
+        {
+          "value": "top_right",
+          "label": "Top right"
+        },
+        {
+          "value": "center_left",
+          "label": "Center left"
+        },
+        {
+          "value": "center_center",
+          "label": "Center center"
+        },
+        {
+          "value": "center_right",
+          "label": "Center right"
+        },
+        {
+          "value": "bottom_left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "bottom_center",
+          "label": "Bottom center"
+        },
+        {
+          "value": "bottom_right",
+          "label": "Bottom right"
+        }
+      ],
+      "default": "center_left"
+    },
+    {
+      "type": "select",
+      "id": "desktop_text_align",
+      "label": "Text align (Desktop)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_image_first",
+      "label": "Image first (Mobile)",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_align",
+      "label": "Text align (Mobile)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "header",
+          "content": "Image Caption",
+          "info": "For screen readers and search engines"
+        },
+        {
+          "type": "textarea",
+          "id": "figcaption",
+          "label": "Image caption"
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Media aspect ratio",
+          "options": [
+            {
+              "value": "natural",
+              "label": "Natural"
+            },
+            {
+              "value": "aspect-square",
+              "label": "Square"
+            },
+            {
+              "value": "aspect-video",
+              "label": "Video"
+            }
+          ],
+          "default": "natural"
+        },
+        {
+          "type": "select",
+          "id": "object_fit",
+          "label": "Object fit",
+          "options": [
+            {
+            "value": "contain",
+            "label": "Contain"
+            },
+            {
+            "value": "cover",
+            "label": "Cover"
+            },
+            {
+            "value": "",
+            "label": "None"
+            }
+          ],
+          "default": ""
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "Video url",
+          "default": "https://cdn.shopify.com/videos/c/o/v/5b38a4d9973f42d2b87546ff88e34572.mov"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "image_picker",
+          "id": "poster",
+          "label": "Poster",
+          "info": "Video is lazy loaded when in view, so poster is necessary"
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Media aspect ratio",
+          "options": [
+            {
+              "value": "natural",
+              "label": "Natural"
+            },
+            {
+              "value": "aspect-square",
+              "label": "Square"
+            },
+            {
+              "value": "aspect-video",
+              "label": "Video"
+            }
+          ],
+          "default": "natural"
+        },
+        {
+          "type": "select",
+          "id": "object_fit",
+          "label": "Object fit",
+          "options": [
+            {
+            "value": "object-contain",
+            "label": "Contain"
+            },
+            {
+            "value": "object-cover",
+            "label": "Cover"
+            },
+            {
+            "value": "",
+            "label": "None"
+            }
+          ],
+          "default": ""
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title",
+          "default": "<b>Powerfully Made</b>"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Desc",
+          "default": "<span class='font-slab'>When it comes to delivering quick, crispy results, the 1800W motor outperforms the competition.</span>"
+        },
+        {
+          "type": "checkbox",
+          "id": "add_app_store_links",
+          "label": "Add app store links",
+          "default": false,
+          "info": "Adds Apple Store / Google Play Download Icons"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "img_width",
+          "min": 100,
+          "max": 1000,
+          "step": 25,
+          "unit": "px",
+          "label": "Width (px)",
+          "default": 300
+        },
+        {
+          "type": "checkbox",
+          "id": "add_community_links",
+          "label": "Add community links",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP | Image/Text Row"
+    }
+  ]
+}
+{% endschema %}
+

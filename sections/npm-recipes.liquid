@@ -1,0 +1,109 @@
+{% # prettier-ignore %}
+{%- capture slider_config -%}
+  { 
+    "renderMode": "performance",
+    "slides": { "perView": 1, "spacing": 16 },
+    "breakpoints": { 
+      "(min-width: 768px)": { "slides": { "perView": 2, "spacing": 16 }},
+      "(min-width: 1024px)": { "slides": { "perView": 4, "spacing": 16 } }
+    }
+  }
+{%- endcapture -%}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+  }
+{% endstyle %}
+
+<div id="NPM-Recipes" class="container max-w-screen-lg">
+  <header class="mb-4 lg:mb-8">
+    <h2 class="text-2xl font-bold text-primary mb-2">{{ section.settings.title }}</h2>
+    <p>{{ section.settings.desc }}</p>
+  </header>
+
+  <keen-slider slider-config="{{ slider_config | escape }}">
+    <ul class="keen-slider">
+      {%- for block in section.blocks -%}
+        <li class="keen-slider__slide">
+          <a href="{{ block.settings.article.url }}">
+            <article class="rounded-lg shadow-lg overflow-hidden my-4">
+              {% render 'image', image: block.settings.article.image, width: 350, sizes: '350,350,350', aspect_ratio: 'aspect-square', object_fit: 'cover' %}
+              <div class="p-4">
+                <h3 class="font-semibold">{{ block.settings.article.title }}</h3>
+              </div>
+            </article>
+          </a>          
+        </li>
+      {%- endfor -%}
+    </ul>
+  </keen-slider>
+  
+</div>
+
+{% schema %}
+  {
+    "name": "NPM | Recipes",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Pet Recipe Library"
+      },
+      {
+        "type": "textarea",
+        "id": "desc",
+        "label": "Desc",
+        "default": "Our in-house chefs have crafted an extensive recipe library specifically for pets. <br/>Browse the library to find the best choice for your pets."
+      },
+      {
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "range",
+        "id": "desktop_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Desktop Padding (Y)",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "mobile_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Mobile Padding (Y)",
+        "default": 2
+      }
+    ],
+    "blocks": [
+      {
+        "type": "article",
+        "name": "Article",
+        "settings": [
+          {
+            "type": "article",
+            "id": "article",
+            "label": "Article"
+          }
+        ]
+      }
+    ]
+
+  }
+{% endschema %}

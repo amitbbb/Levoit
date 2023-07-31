@@ -1,0 +1,6 @@
+.header-search .header-search__content-inner {
+  @apply translate-x-full duration-500 ease-out;
+}
+.header-search.menu-opening .header-search__content-inner {
+  @apply translate-x-0
+}

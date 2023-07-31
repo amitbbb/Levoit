@@ -1,0 +1,250 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {}
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {}
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {}
+    },
+    "31f4a07e-0a6c-43d2-ac83-4ea540e457dd": {
+      "type": "m-title",
+      "settings": {
+        "header_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_79b02c1ca39c4e6ba15b1fa22eea2c49.webp",
+        "title": "Toxin Absorber Filter",
+        "des": "",
+        "header_width": 680,
+        "header_image_width": 100,
+        "container": "container max-w-screen-lg",
+        "text_align": "center",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#14015b",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0
+      }
+    },
+    "8c040c0d-4fa4-448b-b91f-356dddbd38e4": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "b1b30b43-1e80-4c6a-a8d3-5da54ab4e061": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_ba8d9867ae9346ec8265c626857d581a.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": ["b1b30b43-1e80-4c6a-a8d3-5da54ab4e061"],
+      "settings": {
+        "subtitle": "",
+        "title": "Core 300-RF-TX",
+        "desc": "Perfect for areas with high levels of smoke, smog, and Volatile Organic Compounds (VOCs).",
+        "header_width": 350,
+        "header_image_width": 300,
+        "enable_mobile_stack": "",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "left",
+        "text_position": "center_left",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#14015b",
+        "desktop_text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#EEEEEE",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#EEEEEE",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "2c87fd0e-a623-462c-b716-b4fa96a644ba": {
+      "type": "m-media",
+      "blocks": {
+        "template--16107863277719__2c87fd0e-a623-462c-b716-b4fa96a644ba-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_c3b9af416ced4fe4ad554c509cbc4111.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16107863277719__2c87fd0e-a623-462c-b716-b4fa96a644ba-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Effective Filtration",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "279a2b3f-ea4e-4961-b8c5-f5783a9e5adb": {
+      "type": "m-media",
+      "blocks": {
+        "template--16107863277719__279a2b3f-ea4e-4961-b8c5-f5783a9e5adb-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_0d750b767fd44cf693c4fdf44e2bc535.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16107863277719__279a2b3f-ea4e-4961-b8c5-f5783a9e5adb-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Improved Filtration",
+        "desc": "Levoit’s exclusive ARC Formula™ extends the life of the filter and prevents second-hand pollution by chemically decomposing the molecules trapped within the carbon filter.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/reviews-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/rating-summary-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "31f4a07e-0a6c-43d2-ac83-4ea540e457dd",
+    "8c040c0d-4fa4-448b-b91f-356dddbd38e4",
+    "2c87fd0e-a623-462c-b716-b4fa96a644ba",
+    "279a2b3f-ea4e-4961-b8c5-f5783a9e5adb",
+    "product-recommendations",
+    "reviews"
+  ]
+}

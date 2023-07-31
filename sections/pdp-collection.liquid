@@ -1,0 +1,243 @@
+{% # prettier-ignore %}
+{%- capture slider_config -%}
+  {
+    "slidesPerView": 1,
+    "spaceBetween": 16,
+    "autoHeight": true,
+    "breakpoints": {
+      "768": {
+        "slidesPerView": 1.25,
+        "slidesPerGroup": 1
+      },
+      "992": {
+        "slidesPerView": 2.25,
+        "slidesPerGroup": 2
+      }
+    }
+  }
+{%- endcapture -%}
+
+{%- liquid
+  assign product_limit = section.settings.product_limit | default: 8
+  assign found_product = false
+  for i in section.settings.collection.products limit: product_limit
+    if product.id == i.id
+      assign found_product = true
+      assign product_limit = product_limit | plus: 1
+    endif
+  endfor
+-%}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+    {% if section.settings.bg_color != blank %}
+      background-color: {{ section.settings.bg_color }};
+    {% endif %}
+  }
+  /* #PDP-Picture-Title-{{ section.id }} {
+    color: {{ section.settings.text_color_heading }};
+  }
+  #PDP-Picture-Desc-{{ section.id }} {
+    color: {{ section.settings.text_color_desc }};
+  }
+  #PDP-Picture-Content-{{ section.id }} {
+    {% render 'get-text-align-style', align: section.settings.mobile_text_align, get: 'style' %}
+  } */
+
+
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    /* #PDP-Picture-Content-{{ section.id }} {
+      {% render 'get-text-align-style', align: section.settings.desktop_text_align, get: 'style' %}
+    } */
+  }
+{% endstyle %}
+
+<div class="md:container">
+  <div class="md:grid md:grid-cols-12 gap-12">
+    <div class="md:col-span-4 p-4 md:p-0">
+      {% comment %}
+        {{ product.featured_image | image_url: width: 500 | image_tag }}
+        <p class="text-2xl mb-2 font-bold">{{ product.title }}</p>
+        <p>{{ product.description | strip_html | truncatewords: 30 }}</p>
+        <button class="border-[3px] border-black lg:px-6 py-2 flex gap-x-1 justify-center items-center uppercase text-center text-xs lg:text-sm mt-8">
+          Add to Cart {% render 'icons' with 'arrow-right', width: 22, height: 22 -%}
+        </button>
+      {% endcomment %}
+
+      {% render 'card-product-quick-add', product: product, btn: 'outline', show_description: true %}
+    </div>
+    <div class="md:col-span-8">
+      <div id="PDP-Collection-Header-{{ section.id }}" class="mb-8 p-4 md:p-0">
+        {%- if section.settings.title != blank -%}
+          <h2 class="text-4xl mb-1 font-bold">{{ section.settings.title }}</h2>
+        {%- endif -%}
+        {%- if section.settings.desc != blank -%}
+          <p class="text-2xl">{{ section.settings.desc }}</p>
+        {%- endif -%}
+      </div>
+      <swiper-slider slider-config="{{ slider_config | escape }}">
+        <div class="swiper">
+          <ul class="swiper-wrapper">
+            {%- for product in section.settings.collection.products limit: product_limit -%}
+              <li class="swiper-slide bg-white p-5 lg:p-8">
+                <div class="flex flex-row md:flex-col gap-x-6">
+                  <div>
+                    <p class="font-bold lg:text-xl mb-2">{{ product.title }}</p>
+                    {% render 'price',
+                      product: product,
+                      use_variant: true,
+                      show_badges: false,
+                      price_class: 'text-base mb-2'
+                    %}
+                    <p class="mb-6 hidden lg:block text-neutral-600 text-sm">
+                      {{ product.description | strip_html | truncatewords: 10 }}
+                    </p>
+
+                    <a
+                      href="{{ product.url }}"
+                      class="btn-outline bg-white"
+                      >View product
+                      {% render 'icons' with 'arrow-right', width: 22, height: 22, class: 'hidden lg:block' -%}
+                    </a>
+                    <a href="{{ product.url }}" class="text-center block mb-2">Learn more</a>
+                  </div>
+
+                  <div class="w-72 md:w-full">
+                    <p class="mb-6 block lg:hidden text-neutral-600 text-sm">
+                      {{ product.description | strip_html | truncatewords: 10 }}
+                    </p>
+                    <div class="bg-neutral-100 aspect-square">
+                      {{ product.featured_image | image_url: width: 500 | image_tag: loading: 'lazy' }}
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {%- endfor -%}
+          </ul>
+
+          <nav
+            class="mt-8 flex justify-center"
+            {% comment %} tabindex="-1" {% endcomment %}
+            swiper-nav
+          >
+            <div class="inline-flex gap-x-4 items-center bg-white rounded-xl overflow-hidden shadow-xs border border-opacity-50">
+              <button swiper-button-prev class="flex items-center justify-center h-12 w-12 bg-white" tabindex="-1">
+                {% render 'icons' with 'arrow-left' %}
+              </button>
+              <div
+                swiper-pagination
+                class="bg-white h-12 !w-12 rounded-full flex items-center justify-center tracking-[0.35rem] text-xs"
+              ></div>
+              <button swiper-button-next class="flex items-center justify-center h-12 w-12 bg-white" tabindex="-1">
+                {% render 'icons' with 'arrow-right' %}
+              </button>
+            </div>
+          </nav>
+        </div>
+      </swiper-slider>
+    </div>
+  </div>
+
+  {%- if section.settings.cta_url != blank -%}
+    <div class="flex justify-center mt-8">
+      <a href="" class=" text-xl inline-flex items-center gap-x-2 font-bold ">
+        {{- section.settings.cta_text -}}
+        {% render 'icons' with 'arrow-right', width: 22, height: 22 -%}
+      </a>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "PDP | Collection",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Also in this collection"
+    },
+    {
+      "type": "text",
+      "id": "desc",
+      "label": "Desc",
+      "default": "Compare models to see what fits your needs."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection",
+      "info": "Select collection to display on the product page."
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA URL",
+      "info": "Leave blank to omit cta button"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "Compare more models"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "label": "Product limit",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color",
+      "default": "#f2f2f2"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP | Collection"
+    }
+  ]
+}
+{% endschema %}

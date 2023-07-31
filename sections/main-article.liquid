@@ -1,0 +1,49 @@
+<article class="my-8">
+  <div class="container">
+    {% render 'breadcrumbs' %}
+    <header class="flex flex-col lg:flex-row my-4 gap-8">
+      <div class="flex-1 lg:p-8 order-2 lg:order-1">
+        <span class="inline-block text-3xl font-normal mb-6">{{ blog.title }}</span>
+        <h1 class="text-5xl leading-snug mb-10">{{ article.title }}</h1>
+
+        <ul class="flex flex-row flex-nowrap divide-x-2 divide-neutral-300 text-neutral-500">
+          <li class="pr-4" itemprop="dateCreated pubdate datePublished">
+            {{- article.published_at | time_tag: format: 'date' -}}
+          </li>
+          <span class="pl-4">1 min read</span>
+        </ul>
+      </div>
+      <div class="flex-1 order-1 lg:order-2">
+        {% render 'image', image: article.image, width: 768, sizes: '768, 768, 768', class: 'w-full h-[400px]', object_fit: 'cover' %}
+      </div>
+    </header>
+    <div class="flex flex-col lg:flex-row gap-16 py-8 lg:py-16">
+      <div class="flex-1">
+        <div class="prose prose-xl prose-img:mx-auto max-w-screen-lg">
+          {{ article.content }}
+        </div>
+      </div>
+
+      <aside class="lg:max-w-sm w-full">
+        {%- if article.metafields.recipe_article.recipe_equipment_used -%}
+          <h2 class="mb-2 uppercase tracking-widest font-bold text-lg">Equipment Used</h2>
+          <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
+            {%- for product in article.metafields.recipe_article.recipe_equipment_used.value -%}
+              <li class="">
+                {% render 'card-product',
+                  product: product,
+                  aspect_ratio: 'aspect-[4/5]',
+                  show_secondary_image: false,
+                  object_fit: 'object-contain',
+                  show_compare: false,
+                  show_favorite: true
+                %}
+              </li>
+            {%- endfor -%}
+          </ul>  
+        {%- endif -%}
+        
+      </aside>
+    </div>
+  </div>
+</article>

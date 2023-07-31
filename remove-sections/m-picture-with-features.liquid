@@ -1,0 +1,288 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  [id^='PDP-PictureWithFeatures-Title-{{ section.id }}'] {
+    color: {{ section.settings.text_color_heading }};
+  }
+  [id^='PDP-PictureWithFeatures-Desc-{{ section.id }}'] {
+    color: {{ section.settings.text_color_desc }};
+  }
+  #PDP-PictureWithFeatures-Content-{{ section.id }} {
+    {% render 'get-text-align-style', align: section.settings.mobile_text_align, get: 'style' %}
+  }
+
+  #PDP-PictureWithFeatures-List-{{ section.id }} {
+    {% render 'get-text-align-style', align: section.settings.feature_text_align, get: 'style' %}
+  }
+  
+
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    #PDP-PictureWithFeatures-Content-{{ section.id }} {
+      {% render 'get-text-align-style', align: section.settings.desktop_text_align, get: 'style' %}
+    }
+  }
+{% endstyle %}
+
+
+<div class="{{ section.settings.container }}">
+  {%- if section.settings.title or section.settings.desc != blank -%}
+  <header id="PDP-PictureWithFeatures-Content-{{ section.id }}" class="mb-4 lg:mb-12">
+    {%- if section.settings.title != blank -%}
+      <h2 id="PDP-PictureWithFeatures-Title-{{ section.id }}" class="m-title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+    {%- if section.settings.desc != blank -%}
+      <p id="PDP-PictureWithFeatures-Desc-{{ section.id }}" class="m-desc font-slab">{{ section.settings.desc }}</p>
+    {%- endif -%}
+  </header>  
+{%- endif -%}
+
+<div class="relative">
+  {% render 'picture', image_desktop: section.settings.desktop_image, image_mobile: section.settings.mobile_image, width: 768, sizes: '1440, 1920', object_fit: 'contain', figcaption: section.settings.figcaption %}
+  
+</div>
+
+
+{%- if section.blocks.size > 0 -%}
+  <ul id="PDP-PictureWithFeatures-List-{{ section.id }}" class="flex flex-wrap gap-y-4 mt-4">
+    {%- for block in section.blocks -%}
+      <li class="w-full lg:flex-1 px-4">
+        {%- if block.settings.title != blank -%}
+          <h3 id="PDP-PictureWithFeatures-Title-{{ section.id }}-{{ block.id }}" class="font-bold text-2xl mb-2">{{ block.settings.title }}</h3>
+        {%- endif -%}
+        {%- if block.settings.desc != blank -%}
+          <p id="PDP-PictureWithFeatures-Desc-{{ section.id }}-{{ block.id }}">{{ block.settings.desc }}</p>  
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>  
+{%- endif -%}
+
+
+</div>
+
+{% schema %}
+  {
+    "name": "M | Picture with Features",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title",
+        "default": "<small>ALL IN YOUR</small> <em><b>CONTROL</b></em>"
+      },
+      {
+        "type": "textarea",
+        "id": "desc",
+        "label": "Desc",
+        "default": "Cook your favorites and discover new ones with a wide temperature range of 90°–450°F / 30°–230°C."
+      },
+      {
+        "type": "header",
+        "content": "Desktop"
+      },
+      {
+        "type": "image_picker",
+        "id": "desktop_image",
+        "label": "Image (desktop)"
+      },
+      {
+        "type": "header",
+        "content": "Mobile"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Image (mobile)",
+        "info": "Can be omitted, will render desktop image instead"
+      },
+      {
+        "type": "header",
+        "content": "Image Caption",
+        "info": "For screen readers and search engines"
+      },
+      {
+        "type": "textarea",
+        "id": "figcaption",
+        "label": "Image caption"
+      },
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "select",
+        "id": "container",
+        "label": "Container (width)",
+        "options": [
+          {
+          "value": "",
+          "label": "Full width"
+          },
+          {
+          "value": "container",
+          "label": "Default"
+          },
+          {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+          },
+          {
+          "value": "container max-w-screen-md",
+          "label": "md"
+          },
+          {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+          },
+          {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+          },
+          {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+          }
+        ],
+        "default": "container"
+      },
+      {
+        "type": "color",
+        "id": "text_color_heading",
+        "label": "Text color (Heading)",
+        "default": "#003339"
+      },
+      {
+        "type": "color",
+        "id": "text_color_desc",
+        "label": "Text color (Desc)",
+        "default": "#000000"
+      },
+      {
+        "type": "header",
+        "content": "Desktop Settings"
+      },
+      {
+        "type": "select",
+        "id": "desktop_text_align",
+        "label": "Text align (Desktop)",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center"
+      },
+      {
+        "type": "select",
+        "id": "feature_text_align",
+        "label": "Text align (Columns)",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center"
+      },
+      {
+        "type": "header",
+        "content": "Mobile Settings"
+      },
+      {
+        "type": "select",
+        "id": "mobile_text_align",
+        "label": "Text align (Mobile)",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center"
+      },
+      {
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "range",
+        "id": "desktop_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Desktop Padding (Y)",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "mobile_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Mobile Padding (Y)",
+        "default": 2
+      }
+    ],
+    "blocks": [
+      {
+        "type": "feature",
+        "name": "Feature",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Automation"
+          },
+          {
+            "type": "textarea",
+            "id": "desc",
+            "label": "Desc",
+            "default": "<span class='font-slab'>Enable voice commands and more from your phone.</span>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "M | Picture with Features"
+      }
+    ]
+  }
+{% endschema %}
+

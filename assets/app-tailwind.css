@@ -1,0 +1,294 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  /* For Webkit-based browsers (Chrome, Safari and Opera) */
+  .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+  }
+
+  /* For IE, Edge and Firefox */
+  .scrollbar-hide {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+  }
+
+  .no-spinner::-webkit-inner-spin-button, 
+  .no-spinner::-webkit-outer-spin-button  {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .no-spinner {
+    -moz-appearance: textfield;
+  }
+
+  details {
+    user-select: none
+  }
+  details summary svg {
+    @apply transition-transform duration-300 rotate-0;
+  }
+
+  details[open] summary svg {
+    @apply -rotate-180;
+  }
+
+  details > summary {
+    list-style: none;
+  }
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@layer components {
+
+  /*
+  ** 
+  * Buttons
+  **
+  */
+
+  .btn.is-loading .btn__text{
+    @apply hidden
+  }
+
+  .btn-primary {
+    @apply rounded-lg border-2 border-black bg-black p-2.5 text-white w-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-700 hover:text-neutral-50 font-medium;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-black rounded-lg bg-transparent  text-black p-2.5 w-full flex items-center justify-center transition-colors duration-300 hover:bg-neutral-300 hover:text-neutral-900
+  }
+
+  /* Dynamic checkout buttons */
+  .shopify-payment-button__button,
+  .shopify-payment-button__button--unbranded,
+  .shopify-payment-button [role="button"],
+  .cart__dynamic-checkout-buttons [role='button'],
+  .cart__dynamic-checkout-buttons iframe  {
+    border: 2px solid black;
+    line-height: unset;
+    @apply rounded-lg bg-transparent text-black p-2.5 w-full flex items-center justify-center transition-colors duration-300;
+  }
+  
+  .shopify-payment-button__button:hover,
+  .shopify-payment-button__button--unbranded:hover,
+  .shopify-payment-button [role="button"]:hover,
+  .cart__dynamic-checkout-buttons [role='button']:hover,
+  .cart__dynamic-checkout-buttons iframe:hover  {
+    border: 2px solid black;
+    line-height: unset;
+    @apply hover:bg-neutral-300 hover:text-neutral-900
+  }
+
+  .shopify-payment-button__button + .shopify-payment-button__button--hidden, 
+  .shopify-payment-button__button--hidden {
+    display: none;
+  }
+
+  /* badges */
+  .badge-success {
+    @apply bg-green-100 text-green-700 px-3 py-1.5 rounded text-xs font-medium
+  }
+  .badge-warning {
+    @apply bg-amber-100 text-amber-700 px-3 py-1.5 rounded text-xs font-medium
+  }
+  .badge-error {
+    @apply bg-red-100 text-red-700 px-3 py-1.5 rounded text-xs font-medium
+  }
+
+  /* price */
+  .price[sold-out] .badge--sold-out {
+    @apply inline-block;
+  }
+  .price[on-sale] .badge--on-sale {
+    @apply inline-block;
+  } 
+
+  .price[on-sale] .price--sale {
+    @apply block;
+  }
+
+  .price[on-sale] .price--regular {
+    @apply hidden;
+  }
+
+  .price .price--regular {
+    @apply block;
+  }
+
+  .price[no-compare] .price--regular {
+    @apply block;
+  }
+
+  /* Pagination */
+  #Pagination a[aria-current="page"] {
+    @apply z-10 border border-neutral-500 bg-white font-medium text-black focus:z-20
+  }
+
+  /* Store Header */
+  /* #shopify-section-header {
+    @apply bg-transparent;
+  } */
+
+  .store-header {
+    @apply block transition-colors duration-300;
+  }
+  .store-header.is-filled {
+    @apply bg-[#fafaf9] text-black
+  }
+  /* .shopify-section--header.is-filled {
+    @apply bg-white text-black
+  } */
+
+
+  /* Main Cart Layout */
+  #main-cart-layout {
+    @apply lg:col-span-2
+  }
+
+  #main-cart-layout.is-empty {
+    @apply lg:col-span-3
+  }
+
+  /* Main Cart Items */
+  .cart-items-header {
+    @apply hidden;
+  }
+  .is-empty .cart-items-header {
+    @apply block;
+  }
+
+  /* Main Cart Summary */
+  #main-cart-summary.is-empty {
+    @apply hidden
+  }
+
+  /* Cart Notification */
+  .cart-notification {
+    @apply invisible opacity-0;
+  }
+  .cart-notification.is-active {
+    @apply visible top-full opacity-100;
+  }
+ 
+  /* Modal */
+  .modal {
+    @apply fixed inset-0 z-10 flex items-center justify-center;
+  }
+  .modal-overlay {
+    @apply fixed inset-0 z-20 bg-black/20;
+  }
+
+  /* Drawer */
+  /* .drawer {
+    @apply fixed inset-0 z-30 flex;
+  } */
+
+  /* .is-drawer {
+    @apply transition-transform  duration-300 -translate-x-full
+  }
+  [open] .is-drawer {
+    @apply translate-x-0;
+  } */
+
+
+  .drawer {
+    @apply fixed z-30 w-[400px] bg-[#fafaf9]
+  }
+
+  .drawer--left {
+    @apply top-0 left-0 bottom-0;
+  }
+ }
+
+.cart-drawer {
+  @apply fixed inset-0 z-50 flex justify-end invisible;
+}
+.cart-drawer.active {
+  @apply visible
+}
+
+.cart-drawer__main {
+  @apply opacity-0 duration-500 ease-out
+  /* @apply translate-x-full duration-500 ease-out */
+}
+
+.cart-drawer.active .cart-drawer__main {
+  @apply opacity-100
+  /* @apply translate-x-0 */
+}
+
+.no-js {
+  @apply hidden;
+}
+
+.facets__form {
+  @apply grid gap-4;
+  grid-template-columns: 1fr max-content max-content;
+}
+
+.active-facets {
+  /* display: flex; */
+  flex-wrap: wrap;
+  width: 100%;
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin-top: -0.5rem;
+}
+
+html.no-js .no-js-hidden {
+  display: none !important;
+}
+
+.mobile-facets__inner {
+  @apply -translate-x-full transition-transform duration-500 ease-out;
+}
+
+.mobile-facets__disclosure.menu-opening .mobile-facets__inner {
+  @apply translate-x-0;
+}
+
+.mobile-facets__disclosure .mobile-facets__open-wrapper {
+  @apply before:fixed before:inset-0 before:bg-red-400 before:hidden
+}
+/* .mobile-facets__disclosure.menu-opening summary::before {
+  @apply block;
+} */
+
+lazy-image img {
+  @apply scale-[1.01] opacity-0 fade-in ease-out transition-all duration-500
+}
+
+lazy-image.fade-in img {
+  @apply scale-100 opacity-100;    
+}
+
+.facet-checkbox .label {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.facet-checkbox .label::before {
+  content: '';
+  height: 0.1rem;
+  width: 0;
+  display: block;
+  transform: translateX(-0.5rem);
+  background-color: currentColor;
+  transition: width var(--duration-default) ease;
+}
+
+.facet-checkbox input[type='radio']:checked ~ .label::before {
+  width: 1rem;
+}
+
+.facet-checkbox input[type='radio']:checked ~ .label {
+  @apply bg-neutral-100;
+}
+

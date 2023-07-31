@@ -1,0 +1,120 @@
+
+.menu-drawer {
+  @apply fixed top-0 left-0 bottom-0 z-40
+  -translate-x-full invisible w-[40rem] max-w-[calc(100vw-3rem)] 
+  overflow-x-hidden bg-white h-full text-black;
+}
+
+.details__summary[aria-expanded="true"]::before {
+  @apply content-[''] fixed inset-0 z-20 bg-black/70;
+}
+
+.disclosure-has-popup[open] > summary::before {
+  @apply content-[''] fixed inset-0 z-30 bg-black/70 block
+}
+
+details[open] > .menu-drawer,
+details[open] > .menu-drawer__submenu {
+  @apply duration-500 ease-out-expo transition-all;
+}
+
+details[open].menu-opening > .menu-drawer,
+details[open].menu-opening > .menu-drawer__submenu {
+  @apply translate-x-0 visible opacity-100
+}
+
+/* .js .menu-drawer__navigation .submenu-open {
+  visibility: hidden; 
+} */
+
+/* doesnt seem necessary */
+.menu-drawer__inner-container {
+  @apply relative h-full;
+}
+
+.menu-drawer__navigation-container {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-content: space-between;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.menu-drawer__navigation {
+   @apply p-4
+}
+
+.menu-drawer__inner-submenu {
+  @apply h-full overflow-x-hidden overflow-y-auto
+}
+
+
+/* .menu-drawer__menu-item--active,
+.menu-drawer__menu-item:focus,
+.menu-drawer__close-button:focus,
+.menu-drawer__menu-item:hover,
+.menu-drawer__close-button:hover {
+  @apply bg-neutral-200
+} */
+
+
+.js .menu-drawer__submenu {
+  /* @apply absolute top-0 left-0 right-0 bottom-0 z-20 -translate-x-full invisible opacity-0 bg-white p-8; */
+  /* position: absolute;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(var(--color-background));
+  border-left: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  z-index: 1;
+  transform: translateX(100%);
+  visibility: hidden; */
+}
+
+.js .menu-drawer__submenu .menu-drawer__submenu {
+  overflow-y: auto;
+}
+
+.menu-drawer__menu,
+.menu-drawer__submenu {
+  @apply flex flex-col
+}
+
+.menu-drawer__menu-item {
+  @apply  inline-block
+}
+header-drawer .menu-drawer__menu-item {
+  @apply  inline-block w-full
+}
+
+.menu-drawer__menu-item[role='button'] {
+  @apply flex items-center justify-between
+}
+
+/* .menu-drawer__close-button {
+  @apply py-4 flex items-center justify-between
+} */
+
+.menu-drawer__utility-links {
+  @apply p-8
+}
+
+
+/* .disclosure-has-popup[open] > summary::before {
+  @apply content-[''] inset-0 fixed z-[100] bg-black/70
+} */
+
+/* 
+.disclosure-has-popup[open] > summary::before {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 11111;
+  display: block;
+  cursor: default;
+  content: ' ';
+  background: transparent;
+}  */

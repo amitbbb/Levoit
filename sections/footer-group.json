@@ -1,0 +1,91 @@
+{
+  "name": "Footer",
+  "type": "footer",
+  "sections": {
+    "footer-top-bar": {
+      "type": "footer-top-bar",
+      "disabled": true,
+      "blocks": {
+        "col-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/icon-user-guides-and-manuals.webp",
+            "title": "User Guides & Manuals",
+            "url": "shopify:\/\/pages\/user-manuals"
+          }
+        },
+        "col-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/icon-product-registration.webp",
+            "title": "Product Registration",
+            "url": "https:\/\/warranty.cosori.com\/warranty"
+          }
+        },
+        "col-3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/icon-support.webp",
+            "title": "Support",
+            "url": "shopify:\/\/pages\/contact-us"
+          }
+        }
+      },
+      "block_order": [
+        "col-1",
+        "col-2",
+        "col-3"
+      ],
+      "settings": {
+        "bg_color": "#84a7e3",
+        "text_color": "#ffffff"
+      }
+    },
+    "announcement-bar": {
+      "type": "footer-announcement",
+      "disabled": true,
+      "settings": {
+        "content": "<p>IMPORTANT VOLUNTARY SAFETY RECALL. <a href=\"\/pages\/cosori-product-recall\" target=\"_blank\" title=\"COSORI's Voluntary Air Fryer Recall\">Learn more<\/a><\/p>"
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "menu_1": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer"
+          }
+        },
+        "menu_2": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer-2"
+          }
+        },
+        "menu_3": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer-3"
+          }
+        }
+      },
+      "block_order": [
+        "menu_1",
+        "menu_2",
+        "menu_3"
+      ],
+      "settings": {
+        "bg_color": "#14015b",
+        "text_color": "#ffffff",
+        "logo_width": 100,
+        "policies_menu": ""
+      }
+    }
+  },
+  "order": [
+    "footer-top-bar",
+    "announcement-bar",
+    "footer"
+  ]
+}

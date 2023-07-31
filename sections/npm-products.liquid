@@ -1,0 +1,366 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  @media (min-width: 1024px){
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+  }
+{% endstyle %}
+
+<quick-add-to-cart-sticky>
+  <aside class="fixed top-0 left-0 right-0 bg-white py-8 z-40">
+    <div class="container">
+      <div class="flex flex-col gap-4 md:flex-row items-center justify-center md:justify-between">
+        {% render 'icons' with 'logo', width: 150, height: 30 %}
+        <ul class="inline-flex flex-row gap-4 items-center text-sm">
+         {%- for block in section.blocks -%}
+           <li>
+             <a href="{{ block.settings.product.url }}" class="btn-primary">
+              Buy 
+              {{ block.settings.sticky_bar_product_title }}</a>
+           </li>
+         {%- endfor -%}
+        </ul>
+      </div>
+
+    </div>
+  </aside>
+</quick-add-to-cart-sticky>
+
+<div id="NPM-Products" class="container">
+  <h2 class="m-title text-center">{{ section.settings.title }}</h2>
+
+  <ul class="grid md:grid-cols-2 gap-16 max-w-screen-lg mx-auto text-center">
+    {%- for block in section.blocks -%}
+      {% liquid
+        assign original_price = block.settings.product.price
+        assign discount_percent = block.settings.discount_percent
+        assign discount_amount = original_price | times: discount_percent | divided_by: 100
+        assign final_price = original_price | minus: discount_amount
+
+        assign product = block.settings.product
+      %}
+      <li class="rounded-lg shadow-lg overflow-hidden p-6">
+        {% comment %}
+          {% render 'image', image: block.settings.product.featured_image, width: 500, sizes: '500,500,500', aspect_ratio: 'aspect-square' %}
+          <h3 class="font-bold text-2xl">{% if block.settings.product_title != blank %}{{ block.settings.product_title }} {% else %} {{ block.settings.product.title }} {% endif %}</h3>
+          <p class="text-xl">{{ block.settings.product_type }}</p>
+          <p class="font-slab my-4">{{ block.settings.desc }}</p>
+          <s class="text-xl font-bold">{{ block.settings.product.price | money_without_trailing_zeros }}</s>
+          <p class="text-3xl font-bold text-red-600">{{ final_price | money_without_trailing_zeros }}</p>
+          <p class="my-2">{{ block.settings.promo_code }}</p>
+          <a href="{{ block.settings.product.url }}" class="underline block mb-4">Learn more</a>
+        {% endcomment %}
+        {% comment %} <button class="uppercase btn-primary block w-full">Add to cart</button> {% endcomment %}
+
+        <quick-add-to-cart>
+          {% comment %} {% render 'image', image: block.settings.product.featured_image, width: 500, sizes: '500,500,500', aspect_ratio: 'aspect-square' %} {% endcomment %}
+          <img
+            id="QuickAddToCartImg-{{ block.settings.product.id }}"
+            src="{{ block.settings.product.featured_image | image_url: width: 500 }}"
+            alt="{{ block.settings.product.title }}"
+            width="500"
+            height="500"
+            loading="lazy"
+          >
+          <h3 class="font-bold text-2xl">
+            {% if block.settings.product_title != blank -%}
+              {{- block.settings.product_title }}
+            {% else %}
+              {{ block.settings.product.title }}
+            {% endif %}
+          </h3>
+          <p class="text-xl">{{ block.settings.product_type }}</p>
+          <p class="font-slab my-4">{{ block.settings.desc }}</p>
+          <s original-price class="text-xl font-bold">{{ block.settings.product.price | money_without_trailing_zeros }}</s>
+          <p sale-price class="text-3xl font-bold text-red-600">{{ final_price | money_without_trailing_zeros }}</p>
+          <p class="my-2">{{ block.settings.promo_code }}</p>
+          <a href="{{ block.settings.product.url }}" class="underline block mb-4">Learn more</a>
+
+          <ul class="mb-4">
+            {%- for option in product.options_with_values -%}
+              {% assign option_name = option.name | handleize %}
+              {%- if option_name == 'color' -%}
+                {%- assign color_swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />' -%}
+                <li>
+                  <fieldset class="flex flex-row flex-wrap gap-4 justify-center" color-variant>
+                    {%- for value in option.values -%}
+                      <label for="QuickAddToCart-{{ option.position }}-{{ forloop.index }}">
+                        <input
+                          type="radio"
+                          name="{{ option.name }}"
+                          id="QuickAddToCart-{{ option.position }}-{{ forloop.index }}"
+                          value="{{ value | escape }}"
+                          title="{{ value | escape }}"
+                          class="peer sr-only"
+                          {% if option.selected_value == value %}
+                            checked
+                          {% endif %}
+                        >
+                        <span
+                          class="relative inline-block h-5 w-5 overflow-hidden rounded-full border border-neutral-500 outline outline-1 outline-offset-4 outline-transparent peer-checked:outline peer-checked:outline-neutral-500 cursor-pointer"
+                          style="{%- render 'get-color-swatch-style', color_swatch_config: color_swatch_config, value: value -%}"
+                        >
+                          <span class="sr-only">
+                            {{- value -}}
+                          </span>
+                        </span>
+                      </label>
+                    {%- endfor -%}
+                  </fieldset>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+          <form>
+            <input type="hidden" name="id" value="{{ product.first_available_variant.id }}"">
+            <button
+              type="submit"
+              name="add"
+              class="uppercase btn-primary block w-full"
+            >
+              Add to cart
+            </button>
+          </form>
+
+          <script type="application/json">
+            {{ product.variants | json }}
+          </script>
+        </quick-add-to-cart>
+
+        <ul class="grid grid-cols-2 gap-8 font-slab text-sm mt-12">
+          <li>
+            {% render 'image',
+              image: block.settings.feature_1_icon,
+              width: 250,
+              sizes: '250,250,250',
+              aspect_ratio: 'aspect-square',
+              class: 'w-16 h-16 mx-auto mb-4'
+            %}
+            <h4 class="font-semibold mb-2">{{ block.settings.feature_1_title }}</h4>
+            <p>{{ block.settings.feature_1_desc }}</p>
+          </li>
+          <li>
+            {% render 'image',
+              image: block.settings.feature_2_icon,
+              width: 250,
+              sizes: '250,250,250',
+              aspect_ratio: 'aspect-square',
+              class: 'w-16 h-16 mx-auto mb-4'
+            %}
+            <h4 class="font-semibold mb-2">{{ block.settings.feature_2_title }}</h4>
+            <p>{{ block.settings.feature_2_desc }}</p>
+          </li>
+          <li>
+            {% render 'image',
+              image: block.settings.feature_3_icon,
+              width: 250,
+              sizes: '250,250,250',
+              aspect_ratio: 'aspect-square',
+              class: 'w-16 h-16 mx-auto mb-4'
+            %}
+            <h4 class="font-semibold mb-2">{{ block.settings.feature_3_title }}</h4>
+            <p>{{ block.settings.feature_3_desc }}</p>
+          </li>
+          <li>
+            {% render 'image',
+              image: block.settings.feature_4_icon,
+              width: 250,
+              sizes: '250,250,250',
+              aspect_ratio: 'aspect-square',
+              class: 'w-16 h-16 mx-auto mb-4'
+            %}
+            <h4 class="font-semibold mb-2">{{ block.settings.feature_4_title }}</h4>
+            <p>{{ block.settings.feature_4_desc }}</p>
+          </li>
+        </ul>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "NPM | Products",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Which Food Dehydrator is <b>Best for You?</b>"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Product title",
+          "default": "Premium 6-Tray"
+        },
+        {
+          "type": "text",
+          "id": "sticky_bar_product_title",
+          "label": "Product title (sticky bar)",
+          "default": "6-Tray"
+        },
+        {
+          "type": "text",
+          "id": "product_type",
+          "label": "Product type",
+          "default": "Food Dehydrator"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Desc",
+          "default": "Turn ordinary food into long-lasting savory snacks with COSORI’s Premium Stainless Steel 6-Tray Food Dehydrator. The possibilities are endless with 6 drying trays."
+        },
+        {
+          "type": "range",
+          "id": "discount_percent",
+          "min": 1,
+          "max": 50,
+          "step": 1,
+          "unit": "%",
+          "label": "Discount %",
+          "default": 15
+        },
+        {
+          "type": "text",
+          "id": "promo_code",
+          "label": "Promo code",
+          "default": "Use code PETS15 at checkout."
+        },
+        {
+          "type": "html",
+          "id": "buy_button_code",
+          "label": "Buy button code"
+        },
+        {
+          "type": "header",
+          "content": "Feature #1"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_1_icon",
+          "label": "Feature #1 Icon"
+        },
+        {
+          "type": "text",
+          "id": "feature_1_title",
+          "label": "Feature #1 Title",
+          "default": "Ideal Kitchen Size:"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_1_desc",
+          "label": "Feature #1 Desc",
+          "default": "Works best in standard size kitchens"
+        },
+        {
+          "type": "header",
+          "content": "Feature #2"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_2_icon",
+          "label": "Feature #2 Icon"
+        },
+        {
+          "type": "text",
+          "id": "feature_2_title",
+          "label": "Feature #2 Title",
+          "default": "Dimension:"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_2_desc",
+          "label": "Feature #2 Desc",
+          "default": "13.4 x 17.8 x 12.4 in / 34 x 45 x 31.1 cm"
+        },
+        {
+          "type": "header",
+          "content": "Feature #3"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_3_icon",
+          "label": "Feature #3 Icon"
+        },
+        {
+          "type": "text",
+          "id": "feature_3_title",
+          "label": "Feature #3 Title",
+          "default": "Capacity:"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_3_desc",
+          "label": "Feature #3 Desc",
+          "default": "6 Trays"
+        },
+        {
+          "type": "header",
+          "content": "Feature #4"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_4_icon",
+          "label": "Feature #4 Icon"
+        },
+        {
+          "type": "text",
+          "id": "feature_4_title",
+          "label": "Feature #4 Title",
+          "default": "Perfect For:"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_4_desc",
+          "label": "Feature #4 Desc",
+          "default": "Small to medium pets"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

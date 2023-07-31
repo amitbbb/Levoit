@@ -1,0 +1,91 @@
+{
+  "name": "Header",
+  "type": "header",
+  "sections": {
+    "header-top-bar": {
+      "type": "header-top-bar",
+      "settings": {
+        "bg_color": "#393939",
+        "text_color": "#ffffff",
+        "company_menu": "our-company-menu",
+        "help_center_link": "https:\/\/support.cosori.com",
+        "help_menu": "help-menu"
+      }
+    },
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "announcement": "Free Shipping on All Orders.",
+        "link_label": "Learn more",
+        "link_url": "shopify:\/\/pages\/shipping-and-delivery-levoit"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_1": {
+          "type": "mega_menu",
+          "settings": {
+            "title": "air purifiers",
+            "shop_all_label": "Shop all",
+            "shop_all_link": "",
+            "user_manuals_label": "User Guides & Manuals",
+            "user_manuals_link": "",
+            "image_1": "shopify:\/\/shop_images\/vital-200s-featured-blog.jpg",
+            "image_1_title": "Explore Our Air Purifier Blogs",
+            "image_1_link_label": "View Now",
+            "image_1_link": "shopify:\/\/blogs\/levoit-blog",
+            "image_2_title": "",
+            "image_2_link_label": "",
+            "image_2_link": "",
+            "image_3_title": "",
+            "image_3_link_label": "",
+            "image_3_link": "shopify:\/\/blogs\/recipes",
+            "image_4_title": "",
+            "image_4_link_label": "",
+            "image_4_link": "shopify:\/\/products\/smart-7-0-quart-air-fryer-oven-af701-cs"
+          }
+        },
+        "7fdefc4e-f7a7-4eca-a1fd-48ecd6350204": {
+          "type": "mega_menu",
+          "settings": {
+            "title": "Humidifiers",
+            "shop_all_label": "Shop all",
+            "shop_all_link": "",
+            "user_manuals_label": "User Guides & Manuals",
+            "user_manuals_link": "shopify:\/\/pages\/user-manuals",
+            "image_1": "shopify:\/\/shop_images\/oasismist-featured-blog.jpg",
+            "image_1_title": "Explore Our Humidifier Blogs",
+            "image_1_link_label": "View Now",
+            "image_1_link": "https:\/\/levoit.com\/blogs\/levoit-blog\/tagged\/filter-products-humidifiers",
+            "image_2_title": "",
+            "image_2_link_label": "",
+            "image_2_link": "",
+            "image_3_title": "",
+            "image_3_link_label": "",
+            "image_3_link": "",
+            "image_4_title": "",
+            "image_4_link_label": "",
+            "image_4_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_1",
+        "7fdefc4e-f7a7-4eca-a1fd-48ecd6350204"
+      ],
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/Levoit.svg",
+        "logo_width": 100,
+        "menu": "main-menu",
+        "mobile_menu_footer": "",
+        "layout": "logo_left"
+      }
+    }
+  },
+  "order": [
+    "header-top-bar",
+    "announcement-bar",
+    "header"
+  ]
+}

@@ -1,0 +1,157 @@
+
+
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    height: {{ section.settings.height }}vh;
+  }
+{% endstyle %}
+
+{%- if section.settings.video_url != blank -%}
+    <video autoplay muted loop class="object-cover h-full w-full">
+      <source src="{{section.settings.video_url}}" type="video/mp4">
+    </video>
+  {%- else -%}
+    <div class="bg-neutral-200 aspect-video"></div>
+  {%- endif -%}
+
+  <div class="absolute inset-0 z-10 py-8 px-32 ">
+    <div class="h-full w-full flex {% render 'get-text-position-style', position: section.settings.text_position %} {% render 'get-text-align-style', align: section.settings.text_align %}">
+      <div>
+        {%- if section.settings.heading != blank -%}
+          <h2 class="banner-h1 font-semibold">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.desc != blank -%}
+          <p class="text-2xl font-semibold">{{ section.settings.desc }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.button_url != blank -%}
+          <a href="{{ section.settings.button_url }}" class="btn-primary">{{ section.settings.button_label }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+{% schema %}
+{
+  "name": "M | Video Banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Video URL",
+      "info": "Add video url uploaded to admin > content > files",
+      "default": "https://cdn.shopify.com/videos/c/o/v/48ab05483c0e4d0cb28adc4c9bce97c8.mp4"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "label": "Height (viewportHeight)",
+      "default": 45
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "ALEX VOLKANOVSKI"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Description",
+      "default": "#poweredbyvesync"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text position",
+      "options": [
+        {
+          "value": "top_left",
+          "label": "Top left"
+        },
+        {
+          "value": "top_center",
+          "label": "Top center"
+        },
+        {
+          "value": "top_right",
+          "label": "Top right"
+        },
+        {
+          "value": "center_left",
+          "label": "Center left"
+        },
+        {
+          "value": "center_center",
+          "label": "Center center"
+        },
+        {
+          "value": "center_right",
+          "label": "Center right"
+        },
+        {
+          "value": "bottom_left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "bottom_center",
+          "label": "Bottom center"
+        },
+        {
+          "value": "bottom_right",
+          "label": "Bottom right"
+        }
+      ],
+      "default": "center_left"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    }
+  ],
+  "presets": [
+    {
+      "name": "M | Video Banner"
+    }
+  ]
+}
+{% endschema %}

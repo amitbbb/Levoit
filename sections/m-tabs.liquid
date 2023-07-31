@@ -1,0 +1,600 @@
+{%- liquid
+  assign show_header = false
+  assign header_subtitle_size = section.settings.subtitle | size
+  assign header_title_size = section.settings.title | size
+  assign header_desc_size = section.settings.desc | size
+  assign header_size = header_subtitle_size | plus: header_title_size | plus: header_desc_size
+
+  if header_size > 0
+    assign show_header = true
+  endif
+-%}
+
+<div class="{{ section.settings.container }}">
+  {%- if show_header -%}
+    <header id="M-Tabs-Header-{{ section.id }}" class="{{ section.settings.text_position }} mb-12">
+      {%- if section.settings.subtitle != blank -%}
+        <span id="M-Tabs-HeaderSubTitle-{{ section.id }}" class="block mb-2">
+          {{- section.settings.subtitle -}}
+        </span>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 id="M-Tabs-HeaderTitle-{{ section.id }}" class="m-title-h2">
+          {{ section.settings.title }}
+        </h2>
+      {%- endif -%}
+      {%- if section.settings.desc != blank -%}
+        <p id="M-Tabs-HeaderDesc-{{ section.id }}" class="">{{ section.settings.desc | newline_to_br }}</p>
+      {%- endif -%}
+    </header>
+  {%- endif -%}
+
+  <tabs-component
+    class="block"
+    data-settings="{{ section.settings.tab_settings }}"
+    style="--tab-bg-color: {{ section.settings.tab_trigger_bg_color }}; --tab-text-color: {{ section.settings.tab_trigger_text_color }}; --active-tab-bg-color: {{ section.settings.active_tab_trigger_bg_color }}; --active-tab-text-color: {{ section.settings.active_tab_trigger_text_color }}; --tab-panel-bg-color: {{ section.settings.tab_panel_bg_color }}; --tab-panel-title-color: {{ section.settings.tab_panel_title_color }}; --tab-panel-desc-color: {{ section.settings.tab_panel_desc_color }};"
+  >
+    <nav class="flex flex-wrap justify-between">
+      {%- for block in section.blocks -%}
+        <button
+          id="TabsTrigger-{{ section.id }}-{{ block.id }}"
+          class="flex-1 p-4 uppercase whitespace-nowrap {% if forloop.first %}is-active{% endif %}"
+          type="button"
+          {% comment %} data-id="M-Tabs-{{ section.id }}-{{ block.id }}" {% endcomment %}
+          role="tab"
+          aria-selected="{%- if forloop.first -%}true{%- else -%}false{%- endif -%}"
+          aria-controls="TabsPanel-{{ section.id }}-{{ block.id }}"
+        >
+          <div class="pointer-events-none">
+            {{ block.settings.title }}
+          </div>
+        </button>
+      {%- endfor -%}
+    </nav>
+
+    <div content class="">
+      {%- for block in section.blocks -%}
+        <details
+          id="TabsPanel-{{ section.id }}-{{ block.id }}"
+          class="{% if forloop.first %}open{% endif %}"
+          {% if forloop.first %}
+            open
+          {% endif %}
+        >
+          <summary class="relative p-4 flex justify-between cursor-pointer">
+            {{ block.settings.title }}
+            {% render 'icons' with 'arrow-right', width: 16, height: 16 %}
+          </summary>
+          <aside class="p-4" role="tabpanel" aria-labeledby="TabsTrigger-{{ section.id }}-{{ block.id }}">
+            <div class="flex flex-col md:flex-row items-center justify-center w-full h-full gap-6 md:gap-12">
+              <div
+                class="w-full md:flex-1"
+              >
+                <div
+                  content-container
+                  class=""
+                  style="--content-container-width: {{ block.settings.content_width }}px;"
+                >
+                  <p content-title class="m-title-h5">{{ block.settings.title }}</p>
+                  <p content-desc>{{ block.settings.desc | newline_to_br }}</p>
+                </div>
+              </div>
+              {%- unless block.settings.hide_image_placeholder -%}
+                {%- if block.settings.image != blank -%}
+                  <div class="w-full md:flex-1">
+                    {% render 'image',
+                      image: block.settings.image,
+                      aspect_ratio: block.settings.aspect_ratio,
+                      object_fit: block.settings.object_fit,
+                      width: 500,
+                      widths: '450, 768',
+                      height: block.settings.image_height
+                    %}
+                  </div>
+                {%- else -%}
+                  <div class="flex-1">
+                    <div class="aspect-square bg-neutral-200"></div>
+                  </div>
+                {%- endif -%}
+              {%- endunless -%}
+            </div>
+          </aside>
+        </details>
+      {%- endfor -%}
+    </div>
+  </tabs-component>
+</div>
+
+{%- style -%}
+  {% if section.settings.bg_color != blank %}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.bg_color }};
+    }
+  {% endif %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  #M-Tabs-HeaderSubTitle-{{ section.id }} {
+    color: {{ section.settings.text_color_subtitle }};
+  }
+  /* #TabsTrigger-{{ section.id }} {
+    background-color: {{ section.settings.tab_trigger_bg_color }};
+    color: {{ section.settings.tab_trigger_text_color }};
+  } */
+  [id^="M-Tabs-Block-Subtitle-{{ section.id }}"] {
+    {% if section.settings.convert_to_card %}
+      color: {{ section.settings.card_subtitle_color }};
+    {% else %}
+      color: {{ section.settings.text_color_subtitle }};
+    {% endif %}
+  }
+  #M-Tabs-HeaderTitle-{{ section.id }} {
+    color: {{ section.settings.text_color_title }};
+  }
+  [id^='M-Tabs-Block-Title-{{ section.id }}'] {
+    {% if section.settings.convert_to_card %}
+      color: {{ section.settings.card_title_color }};
+    {% else %}
+      color: {{ section.settings.text_color_title }};
+    {% endif %}
+  }
+  #M-Tabs-HeaderDesc-{{ section.id }} {
+    color: {{ section.settings.text_color_desc }};
+  }
+  [id^='M-Tabs-Block-Desc-{{ section.id }}'] {
+    {% if section.settings.convert_to_card %}
+      color: {{ section.settings.card_desc_color }};
+    {% else %}
+      color: {{ section.settings.text_color_desc }};
+    {% endif %}
+  }
+  #M-Tabs-Header-{{ section.id }} {
+    max-width: 100%;
+    width: 100%;
+    {% render 'get-text-align-style', align: section.settings.text_align, get: 'style' %}
+  }
+
+  {% if section.settings.convert_to_card %}
+    [id^='M-Tabs-Block-Header-{{ section.id }}'] {
+      padding: 1.25rem;
+    }
+  {% endif %}
+
+  {% if section.settings.disable_slider == 'disabled' %}
+    #M-Tabs-Swiper-{{ section.id }}  {
+      gap: {{ section.settings.gap }}rem;
+    }
+    [id^='M-Tabs-Slide-{{ section.id }}'] {
+      width: calc({{ mobile_item_width }} - {{ section.settings.gap }}rem);
+    }
+  {% endif %}
+
+  #M-Tabs-Footer-{{ section.id }} {
+    max-width: 100%;
+    width: {{ section.settings.footer_width }}px;
+    {% render 'get-text-align-style', align: section.settings.text_align, get: 'style' %}
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    #M-Tabs-Header-{{ section.id }} {
+      width: {{ section.settings.header_width }}px;
+    }
+    /* {% unless section.settings.disable_slider == 'enabled' %}
+      {% unless section.settings.disable_slider == 'on_tablet' %}
+        #M-Tabs-Swiper-{{ section.id }}  {
+          gap: {{ section.settings.gap }}rem;
+        }
+      {% endunless %}
+    {% endunless %} */
+    {% if section.settings.disable_slider == 'on_tablet' or section.settings.disable_slider == 'disabled' %}
+      #M-Tabs-Swiper-{{ section.id }}  {
+        gap: {{ section.settings.gap }}rem;
+      }
+      [id^='M-Tabs-Slide-{{ section.id }}'] {
+        width: calc({{ tablet_item_width }} - {{ section.settings.gap }}rem);
+      }
+    {% endif %}
+  }
+  @media (min-width: 1024px) {
+    {% if section.settings.disable_slider == 'on_desktop' or section.settings.disable_slider == 'on_tablet' or section.settings.disable_slider == 'disabled' %}
+      #M-Tabs-Swiper-{{ section.id }}  {
+        gap: {{ section.settings.gap }}rem;
+      }
+      [id^='M-Tabs-Slide-{{ section.id }}'] {
+        width: calc({{ desktop_item_width }} - {{ section.settings.gap }}rem);
+      }
+    {% endif %}
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "M — Tabs",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Can be converted to accordions on mobile"
+    },
+    {
+      "type": "header",
+      "content": "Tab settings"
+    },
+    {
+      "type": "select",
+      "id": "tab_settings",
+      "label": "Tab settings",
+      "options": [
+        {
+          "value": "tab",
+          "label": "tab"
+        },
+        {
+          "value": "accordion",
+          "label": "Accordion"
+        },
+        {
+          "value": "mixed",
+          "label": "Mixed"
+        }
+      ],
+      "default": "mixed",
+      "info": "Mixed with render tabs on desktop and accordions on mobile"
+    },
+    {
+      "type": "header",
+      "content": "Tab trigger settings"
+    },
+    {
+      "type": "color",
+      "id": "tab_trigger_bg_color",
+      "label": "Tab trigger bg color",
+      "default": "#f7f7f7"
+    },
+    {
+      "type": "color",
+      "id": "tab_trigger_text_color",
+      "label": "Tab trigger text color",
+      "default": "#14015B"
+    },
+    {
+      "type": "color",
+      "id": "active_tab_trigger_bg_color",
+      "label": "Active tab trigger bg color",
+      "default": "#84A7E3"
+    },
+    {
+      "type": "color",
+      "id": "active_tab_trigger_text_color",
+      "label": "Active tab trigger text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Tab panel settings"
+    },
+    {
+      "type": "color",
+      "id": "tab_panel_bg_color",
+      "label": "Tab panel bg color",
+      "default": "#f7f7f7"
+    },
+    {
+      "type": "color",
+      "id": "tab_panel_title_color",
+      "label": "Tab panel title color",
+      "default": "#14015B"
+    },
+    {
+      "type": "color",
+      "id": "tab_panel_desc_color",
+      "label": "Tab panel desc color",
+      "default": "#14015B"
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "paragraph",
+      "content": "Blocks in this section are used to add different types of content to your page. You can add, remove, or reorder content blocks here to customize your page."
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Fresh Air Starts With Innovation."
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Description"
+    },
+    {
+      "type": "textarea",
+      "id": "list",
+      "label": "List",
+      "placeholder": "Item 1\nItem2\nItem3",
+      "info": "Separate each item with a new line"
+    },
+    {
+      "type": "range",
+      "id": "header_width",
+      "min": 400,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Header width (Header)",
+      "default": 680
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align (Header)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text position (Header)",
+      "options": [
+        {
+          "value": "",
+          "label": "Left"
+        },
+        {
+          "value": "mx-auto",
+          "label": "Center"
+        },
+        {
+          "value": "ml-auto",
+          "label": "Right"
+        }
+      ],
+      "default": "mx-auto"
+    },
+    {
+      "type": "header",
+      "content": "Section settings"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container (width)",
+      "options": [
+        {
+          "value": "",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Default"
+        },
+        {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+        },
+        {
+          "value": "container max-w-screen-md",
+          "label": "md"
+        },
+        {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+        },
+        {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+        },
+        {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+        }
+      ],
+      "default": "container max-w-screen-lg"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color_subtitle",
+      "label": "Text color (Subtitle)",
+      "default": "#fe5834"
+    },
+    {
+      "type": "color",
+      "id": "text_color_title",
+      "label": "Text color (Title)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color_desc",
+      "label": "Text color (Desc)",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "button settings"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button bg color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Button border radius",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "placeholder": "Protects the lifespan of the HEPA filter."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_image_placeholder",
+          "label": "Hide image placeholder",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "content_width",
+          "min": 250,
+          "max": 800,
+          "step": 10,
+          "unit": "px",
+          "label": "Content width",
+          "default": 450
+        },
+        {
+          "type": "header",
+          "content": "Media settings"
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Aspect ratio",
+          "options": [
+            {
+              "value": "natural",
+              "label": "Natural"
+            },
+            {
+              "value": "square",
+              "label": "Square"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            },
+            {
+              "value": "fill",
+              "label": "Fill"
+            }
+          ],
+          "default": "natural"
+        },
+        {
+          "type": "select",
+          "id": "object_fit",
+          "label": "Image Object Fit",
+          "options": [
+            {
+              "value": "cover",
+              "label": "cover"
+            },
+            {
+              "value": "contain",
+              "label": "contain"
+            }
+          ],
+          "default": "cover",
+          "info": "Control how the image displays inside the container. See https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit for more info."
+        },
+        {
+          "type": "range",
+          "id": "image_height",
+          "min": 150,
+          "max": 500,
+          "step": 10,
+          "unit": "px",
+          "label": "Image height (px)",
+          "default": 250,
+          "info": "Only applicable for 'fill' aspect ratio"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "M — Tabs"
+    }
+  ]
+}
+{% endschema %}

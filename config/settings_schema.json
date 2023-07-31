@@ -1,0 +1,258 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Levoit",
+    "theme_version": "1.0.0",
+    "theme_author": "VeSync & B+Co",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://support.shopify.com/"
+  },
+  {
+    "name": "Theme",
+    "settings": [
+      {
+        "type": "color",
+        "id": "theme_accent_color_1",
+        "label": "Theme accent color #1 (primary)",
+        "default": "#84A7E3"
+      },
+      {
+        "type": "color",
+        "id": "theme_accent_color_2",
+        "label": "Theme accent color #2 (secondary)",
+        "default": "#005e6e"
+      },
+      {
+        "type": "color",
+        "id": "theme_accent_color_3",
+        "label": "Theme accent color #3 (tertiary)",
+        "default": "#f9d861"
+      },
+      {
+        "type": "color",
+        "id": "theme_accent_color_4",
+        "label": "Theme accent color #4 (alternative)",
+        "default": "#393939"
+      }
+    ]
+  },
+  {
+    "name": "Shop",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Shop"
+      },
+      {
+        "type": "text",
+        "id": "shop_tagline",
+        "label": "Shop tagline",
+        "default": "We're here too"
+      },
+      {
+        "type": "text",
+        "id": "shop_hashtag_1",
+        "label": "Shop hashtag #1",
+        "default": "#COSORICOOKS"
+      },
+      {
+        "type": "text",
+        "id": "shop_hashtag_2",
+        "label": "Shop hashtag #2",
+        "default": "#LIVELIFETASTEFULLY"
+      },
+      {
+        "type": "header",
+        "content": "Our Company"
+      },
+      {
+        "type": "link_list",
+        "id": "our_company_menu",
+        "label": "Our company menu"
+      },
+      {
+        "type": "header",
+        "content": "Help"
+      },
+      {
+        "type": "text",
+        "id": "phone_number",
+        "label": "Phone #",
+        "default": "1-888-402-1684"
+      },
+      {
+        "type": "text",
+        "id": "email",
+        "label": "Email",
+        "default": "support@cosori.com"
+      },
+      {
+        "type": "url",
+        "id": "help_center_url",
+        "label": "Help center URL"
+      },
+      {
+        "type": "link_list",
+        "id": "help_center_menu",
+        "label": "Help center menu"
+      }
+    ]
+  },
+  {
+    "name": "Color swatch",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "color_swatch_config",
+        "label": "Configuration",
+        "placeholder": "Red:#ff0000\nGreen:#00ff00\nBlue:#0000ff",
+        "info": "Each rule must be in its own line.",
+        "default": "Black:#000000\nOrange:#ffa500\nWhite:#FFFFFF\nMatte Black:#000000\nStainless Steel:#d3d3d3"
+      }
+    ]
+  },
+  {
+    "name": "Compare + Favorites",
+    "settings": [
+      {
+        "type": "page",
+        "id": "compare_page",
+        "label": "Compare page"
+      },
+      {
+        "type": "page",
+        "id": "favorites_page",
+        "label": "Favorites page"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "options": [
+          {
+            "value": "page",
+            "label": "t:settings_schema.cart.settings.cart_type.page.label"
+          },
+          {
+            "value": "drawer",
+            "label": "t:settings_schema.cart.settings.cart_type.drawer.label"
+          }
+        ],
+        "default": "drawer",
+        "label": "t:settings_schema.cart.settings.cart_type.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_cart_note",
+        "label": "Show cart note",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Cart Upsells"
+      },
+      {
+        "type": "text",
+        "id": "cart_upsells_title",
+        "label": "Cart upsells title",
+        "default": "You may also like"
+      },
+      {
+        "type": "collection",
+        "id": "cart_upsells",
+        "label": "Cart upsells"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.search_input.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.search_input.settings.header.content"
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_enabled",
+        "default": true,
+        "label": "t:settings_schema.search_input.settings.predictive_search_enabled.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_show_vendor",
+        "default": false,
+        "label": "t:settings_schema.search_input.settings.predictive_search_show_vendor.label",
+        "info": "t:settings_schema.search_input.settings.predictive_search_show_vendor.info"
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_show_price",
+        "default": true,
+        "label": "t:settings_schema.search_input.settings.predictive_search_show_price.label",
+        "info": "t:settings_schema.search_input.settings.predictive_search_show_price.info"
+      }
+    ]
+  },
+  {
+    "name": "Socials",
+    "settings": [
+      {
+        "type": "text",
+        "id": "socials_instagram",
+        "label": "Instagram",
+        "default": "https://instagram.com",
+        "info": "Full url: https://instagram.com/handle"
+      },
+      {
+        "type": "text",
+        "id": "socials_twitter",
+        "label": "Twitter",
+        "default": "https://twitter.com",
+        "info": "Full url: https://twitter.com/handle"
+      },
+      {
+        "type": "text",
+        "id": "socials_facebook",
+        "label": "Facebook",
+        "default": "https://facebook.com",
+        "info": "Full url: https://facebook.com/handle"
+      },
+      {
+        "type": "text",
+        "id": "socials_youtube",
+        "label": "Youtube",
+        "default": "https://youtube.com",
+        "info": "Full url: https://youtube.com/handle"
+      },
+      {
+        "type": "text",
+        "id": "socials_tiktok",
+        "label": "Tiktok",
+        "default": "https://tiktok.com",
+        "info": "Full url: https://tiktok.com/handle"
+      },
+      {
+        "type": "text",
+        "id": "socials_pinterest",
+        "label": "Pinterest",
+        "default": "https://pinterest.com",
+        "info": "Full url: https://pinterest.com/handle"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.favicon.name",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "t:settings_schema.favicon.settings.favicon.label",
+        "info": "t:settings_schema.favicon.settings.favicon.info"
+      }
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+.price[sold-out] .badge--sold-out {
+  @apply inline-block;
+}
+.price[on-sale] .badge--on-sale {
+  @apply inline-block;
+} 
+
+.price[on-sale] .price--sale {
+  @apply block;
+}
+
+.price[on-sale] .price--regular {
+  @apply hidden;
+}
+
+.price .price--regular {
+  @apply block;
+}
+
+.price[no-compare] .price--regular {
+  @apply block;
+}

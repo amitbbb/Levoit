@@ -1,0 +1,12 @@
+sticky-nav-anchor-links {
+  @apply duration-150 ease-out-quint transition-all bg-white;
+  &.is-active {
+    @apply fixed top-0 left-0 right-0 px-4 z-50 border-b;
+  }
+  button {
+    @apply relative py-4;
+    &.is-active {
+      @apply after:absolute after:h-[1px] after:bg-black after:left-0 after:right-0 after:bottom-0 after:z-[51];
+    }
+  }
+}

@@ -1,0 +1,77 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+
+/* base */
+@import './base/colors.css';
+@import './base/typography.css';
+@import './base/utils.css';
+@import './base/inputs.css';
+@import './base/section.css';
+
+/* global */
+@import './global/store-header.css';
+@import './global/header-search.css';
+@import './global/predictive-search.css';
+
+/* components */
+@import './components/scrollbar.css';
+@import './components/inputs.css';
+@import './components/lists.css';
+@import './components/spinner.css';
+@import './components/underline-hover.css';
+@import './components/stagger-item.css';
+@import './components/buttons.css';
+@import './components/links.css';
+@import './components/badges.css';
+@import './components/details.css';
+@import './components/lazy-image.css';
+@import './components/modal.css';
+@import './components/drawer.css';
+@import './components/menu-drawer.css';
+@import './components/header-drawer.css';
+@import './components/search-drawer.css';
+@import './components/filter-drawer.css';
+@import './components/keen-slider.css';
+@import './components/tab-component.css'; /* old */
+@import './components/tabs-component.css'; /* new */
+@import './components/pagination.css';
+@import './components/dropdown-menu.css';
+@import './components/favorites-button.css';
+@import './components/compare-button.css';
+@import './components/comparisons-bar.css';
+@import './components/support-sticky-nav.css';
+@import './components/product-card-favorites.css';
+@import './components/survey-monkey.css';
+@import './components/quick-add-to-cart-sticky.css';
+@import './components/modal-component.css';
+@import './components/card-product-quick-add.css';
+@import './components/swiper-slider.css';
+@import './components/accordion-component.css';
+@import './components/sticky-nav-anchor-links.css';
+
+
+/* essential cart */
+@import "./essential/cart/cart-drawer.css";
+@import './essential/cart/main-cart.css';
+@import './essential/cart/cart-notification.css';
+
+/* essential product */
+@import './essential/product/price.css';
+@import './essential/product/product-gallery-slider.css';
+@import './essential/product/pdp-zoom-gallery.css';
+
+/* essential collection */
+@import './essential/collection/facets.css';
+@import './essential/collection/quick-add-modal.css';
+@import './essential/collection/price-range.css';
+
+@import './shopify-overrides/captcha.css';
+
+

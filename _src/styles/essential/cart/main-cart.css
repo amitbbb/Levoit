@@ -1,0 +1,21 @@
+/* Main Cart Layout */
+#main-cart-layout {
+  @apply lg:col-span-2
+}
+
+#main-cart-layout.is-empty {
+  @apply lg:col-span-3
+}
+
+/* Main Cart Items */
+.cart-items-header {
+  @apply hidden;
+}
+.is-empty .cart-items-header {
+  @apply block;
+}
+
+/* Main Cart Summary */
+#main-cart-summary.is-empty {
+  @apply hidden
+}

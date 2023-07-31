@@ -1,0 +1,99 @@
+{% liquid
+  assign STICKY_NAV_ITEMS_ARR = page.content | split: '<h3>'
+%}
+
+<div class="container py-8">
+  {% render 'breadcrumbs', class: 'mb-8' %}
+  <section id="SupportPage-Main" class="flex flex-col lg:flex-row gap-4 lg:gap-16">
+    <nav class="max-w-full w-72">
+      <ul class="flex-col gap-4 hidden lg:flex">
+        {%- for link in section.settings.support_menu.links -%}
+          <li>
+            <a
+              href="{{ link.url }}"
+              class="link"
+              {% if link.active %}
+                aria-current="page"
+              {% endif %}
+            >
+              {{- link.title -}}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+    <div class="flex-1">
+      <h1 class="text-4xl mb-8">{{ page.title }}</h1>
+      <div class="prose">{{ page.content }}</div>
+    </div>
+
+    <nav class="max-w-full lg:w-72 order-first lg:order-3 sticky top-0 bg-white py-2 lg:py-0">
+      <div class="sticky top-16">
+        <support-sticky-nav>
+          <ul class="flex flex-row lg:flex-col gap-x-4 lg:gap-x-2 whitespace-nowrap overflow-x-auto border-b lg:border-b-0">
+            {%- for item in STICKY_NAV_ITEMS_ARR -%}
+              {%- if item contains '</h3>' -%}
+                {%- assign NAV_TITLE = item | split: '</h3>' | first -%}
+                <li>
+                  <button class="support-sticky-nav" type="button">
+                    {{ NAV_TITLE }}
+                  </button>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </support-sticky-nav>
+        {% comment %}
+          <support-sticky-nav>
+            <ul>
+              {%- for item in STICKY_NAV_ITEMS_ARR -%}
+                {%- if item contains '</h3>' -%}
+                  {%- assign NAV_TITLE = item | split: '</h3>' | first -%}
+                  <li>
+                    <button class="support-sticky-nav" type="button">
+                      {{ NAV_TITLE }}
+                    </button>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </support-sticky-nav>
+        {% endcomment %}
+      </div>
+    </nav>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Support",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "support_menu",
+      "label": "Support menu"
+    },
+    {
+      "type": "header",
+      "content": "Support callout (bottom section)"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "We're here to help"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Get advice or help from our experts Monday - Friday 9am to 5pm PST."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,101 @@
+{%- liquid
+  assign sort_by = search.sort_by | default: search.default_sort_by
+  assign terms = search.terms | escape
+  assign search_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+-%}
+
+<div class="container py-16">
+  <header class=" mx-auto mb-16 flex max-w-lg flex-col gap-8">
+    <h2 class="text-center text-4xl">Search results</h2>
+
+    {% render 'search-component',
+      aside_class: 'absolute top-full left-0 right-0 h-auto bg-white p-4 border rounded-md z-30',
+      limit: 5
+    %}
+  </header>
+
+  <div class="mt-8">
+    {%- if search.performed -%}
+      {% paginate search.results by 24 %}
+        {%- if search.results.size == 0 -%}
+          <p>{{ 'sections.collection_template.empty' | t }}</p>
+        {%- else -%}
+          <div>
+            {% comment %}
+              <nav  class="mb-8 flex flex-wrap justify-center gap-4" role="tablist" aria-label="Tab navigation">
+                {%- assign search_types = search.types -%}
+                {%- for type in search_types -%}
+                  <button class="rounded-lg bg-neutral-100 px-3 py-2">{{ type }} </button>
+                {%- endfor -%}
+              </nav>
+            {% endcomment %}
+
+            <ul class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+              {%- for item in search.results -%}
+                {%- case item.object_type -%}
+                  {%- when 'product' -%}
+                    <li>
+                      {% comment %} {{ item.object_type }} {% endcomment %}
+                      {% render 'card-product',
+                        product: item,
+                        aspect_ratio: 'aspect-[4/5]',
+                        show_secondary_image: true,
+                        show_compare: false,
+                        show_favorite: true,
+                        object_fit: 'object-contain',
+                        item_type: item.object_type
+                      %}
+                    </li>
+                  {%- when 'article' -%}
+                    {%- assign article_handle_arr = item.handle | split: '/' -%}
+                    {%- assign blog_name = article_handle_arr[0] -%}
+                    <li>
+                      <a href="{{ item.url }}">
+                        <article>
+                          {% render 'image', image: item.image, object_fit: 'cover', aspect_ratio: 'aspect-video', class: 'mb-2', width: 300, sizes: '300, 300, 300' %}
+                          <span class="uppercase text-xs mb-1 block">{{ blog_name }}</span>
+                          {% comment %} <span class="uppercase text-xs mb-1 block">{{ item.object_type }}</span> {% endcomment %}
+                          <p class="mb-2 lg:text-lg font-bold">{{ item.title }}</p>
+                        </article>
+                      </a>
+                      
+                    </li>
+                  {%- when 'page' -%}
+                    <li>
+                      <a href="{{ item.url }}">
+                        <article>
+                          {%- if item.image -%}
+                            {% render 'image', image: item.image, object_fit: 'cover', aspect_ratio: 'aspect-video', class: 'mb-2', width: 300, sizes: '300, 300, 300' %}
+                            {%- else -%}
+                              <div class="aspect-video bg-neutral-100 mb-2 flex items-center justify-center">
+                                {% render 'icons' with 'page', width: 50, height: 50 %}
+                              </div>
+                            {%- endif -%}
+                          
+                            <span class="uppercase text-xs mb-1 block">{{ item.object_type }}</span>
+                            <p class="mb-2 lg:text-lg font-bold">{{ item.title }}</p>
+                          </article>
+                      </a>
+                      
+                     
+                    </li>
+                {%- endcase -%}
+              {%- endfor -%}
+            </ul>
+            {%- if paginate.pages > 1 -%}
+                {% render 'pagination', paginate: paginate %}
+              {%- endif -%}
+          </div>
+        {%- endif -%}
+      {% endpaginate %}
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Search",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

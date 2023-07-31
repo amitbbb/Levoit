@@ -1,0 +1,234 @@
+{%- liquid
+  assign title_text_color = collection.metafields.plp.collection_banner.value.title_text_color | default: '#FFFFFF'
+  assign desc_text_color = collection.metafields.plp.collection_banner.value.desc_text_color | default: '#FFFFFF'
+  assign cta_bg_color = collection.metafields.plp.collection_banner.value.cta_bg_color | default: '#FFFFFF'
+  assign cta_text_color = collection.metafields.plp.collection_banner.value.cta_text_color | default: '#FFFFFF'
+-%}
+
+{% style %}
+  #PLP-MainCollectionBanner-Content-{{ section.id }} {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: 768px) {
+    #PLP-MainCollectionBanner-Content-{{ section.id }} {
+       {% render 'text-position', text_position: collection.metafields.plp.collection_banner.value.text_position, get: 'style' %}
+      {% if collection.metafields.plp.collection_banner.value.text_align == 'left' %}
+        text-align: left;
+      {% elsif collection.metafields.plp.collection_banner.value.text_align == 'center' %}
+        text-align: center;
+      {% elsif collection.metafields.plp.collection_banner.value.text_align == 'right' %}
+        text-align: right;
+      {% endif %}
+    }
+    #PLP-MainCollectionBanner-Title-{{ section.id }}, #PLP-MainCollectionBanner-CTATitle-{{ section.id }} {
+      color: {{ title_text_color }};
+    }
+    #PLP-MainCollectionBanner-Desc-{{ section.id }}, #PLP-MainCollectionBanner-CTADesc-{{ section.id }} {
+      color: {{ desc_text_color }};
+    }
+    #PLP-MainCollectionBanner-CTA-{{ section.id }} {
+      background-color: {{ cta_bg_color }};
+      color: {{ cta_text_color }};
+    }
+  }
+{% endstyle %}
+
+<div class="">
+  <div class="container">
+    {% render 'breadcrumbs', class: 'py-4' %}
+  </div>
+
+  <div class="sm:container">
+    <div class="min-h-[350px] md:min-h-[400px] relative overflow-hidden mb-8">
+      {%- if collection.image -%}
+        <lazy-image class="overflow-hidden block bg-neutral-200 h-full w-full">
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="
+                {%- if collection.metafields.plp.collection_banner.value.image_mobile != blank -%}{{ collection.metafields.plp.collection_banner.value.image_mobile | image_url: width: 1024, format: 'pjpg' }}
+                {%- else -%}{{ collection.image | image_url: width: 1024, format: 'pjpg' }}{%- endif -%}
+              "
+            >
+            <source
+              media="(min-width: 768px)"
+              srcset="{{ collection.image | image_url: width: 1280, format: 'pjpg' }}"
+            >
+            <source
+              media="(min-width: 1440px)"
+              srcset="{{ collection.image | image_url: width: 1920, format: 'pjpg' }}"
+            >
+            <img
+              src="{{ collection.image | image_url: width: 1080, format: 'pjpg' }}"
+              alt="{{ collection.title }}"
+              width="1920"
+              height="1080"
+              class="
+                object-cover
+                absolute inset-0
+                w-full h-full
+              "
+              {%- if forloop.index > 1 -%}
+                loading="lazy"
+              {%- endif -%}
+            >
+          </picture>
+        </lazy-image>
+      {%- endif -%}
+
+      <div
+        id="PLP-MainCollectionBanner-Content-{{ section.id }}"
+        class="absolute z-20 inset-0 py-4 lg:py-20 flex container max-w-screen-xl {% render 'text-align', text_align: collection.metafields.plp.collection_banner.value.text_align %}"
+      >
+        <div class="text-white">
+          <h1 id="PLP-MainCollectionBanner-Title-{{ section.id }}" class="text-4xl mb-2 font-bold">
+            {{ collection.metafields.plp.collection_banner.value.title }}
+          </h1>
+          <div id="PLP-MainCollectionBanner-Desc-{{ section.id }}" class="max-w-sm text-lg leading-snug">
+            {{ collection.metafields.plp.collection_banner.value.description | newline_to_br }}
+          </div>
+
+          {%- if collection.metafields.plp.collection_banner.value.cta_title -%}
+            <h2 id="PLP-MainCollectionBanner-CTATitle-{{ section.id }}" class="mt-8 font-bold text-xl">
+              {{ collection.metafields.plp.collection_banner.value.cta_title }}
+            </h2>
+          {%- endif -%}
+          {%- if collection.metafields.plp.collection_banner.value.cta_desc %}
+            <p id="PLP-MainCollectionBanner-CTADesc-{{ section.id }}" class="mt-1">
+              {{ collection.metafields.plp.collection_banner.value.cta_desc }}
+            </p>
+          {%- endif -%}
+
+          {%- if collection.metafields.plp.collection_banner.value.cta_label != blank -%}
+            <a
+              id="PLP-MainCollectionBanner-CTA-{{ section.id }}"
+              href="{{ collection.metafields.plp.collection_banner.value.cta_product.value.url }}"
+              class="btn-small mt-6 inline-block"
+            >
+              {{- collection.metafields.plp.collection_banner.value.cta_label -}}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {%- if collection.metafields.plp.collection_banner.value.extra_description -%}
+    <div class="container max-w-screen-lg mx-auto">
+      <div class="prose max-w-none">
+        {{ collection.metafields.plp.collection_banner.value.extra_description | metafield_tag }}
+      </div>
+    </div>
+  {%- endif -%}
+
+  {{ collection.metafields.plp.collection_featured_products.size }}
+
+  {%- if collection.metafields.plp.collection_featured_products -%}
+    {% # prettier-ignore %}
+    {%- capture slider_config -%}
+      {
+        "slidesPerView": 1.25,
+        "spaceBetween": 24,
+        "autoHeight": true,
+        "breakpoints": {
+          "640": {
+            "slidesPerView": 2.25,
+            "slidesPerGroup": 2
+          },
+          "768": {
+            "slidesPerView": 3.25,
+            "slidesPerGroup": 3
+          },
+          "992": {
+            "slidesPerView": 4,
+            "slidesPerGroup": 4
+          }
+        }
+      }
+    {%- endcapture -%}
+    <div class="container mb-12">
+      <swiper-slider slider-config="{{ slider_config | escape }}">
+        <div class="flex items-center justify-between  mb-4">
+          <p class="text-xl">Featured</p>
+          <nav
+            class="flex justify-center"
+            {% comment %} tabindex="-1" {% endcomment %}
+            swiper-nav
+          >
+            <div class="inline-flex gap-x-4 items-center bg-white rounded-xl overflow-hidden shadow-xs border border-opacity-50">
+              <button swiper-button-prev class="flex items-center justify-center h-12 w-12 bg-white" tabindex="-1">
+                {% render 'icons' with 'arrow-left' %}
+              </button>
+              <div
+                swiper-pagination
+                class="bg-white h-12 !w-12 rounded-full flex items-center justify-center tracking-[0.35rem] text-xs"
+              ></div>
+              <button swiper-button-next class="flex items-center justify-center h-12 w-12 bg-white" tabindex="-1">
+                {% render 'icons' with 'arrow-right' %}
+              </button>
+            </div>
+          </nav>
+        </div>
+
+        <div class="swiper">
+          <ul class="swiper-wrapper">
+            {% comment %} <ul class="swiper-wrapper grid grid-cols-4 gap-8"> {% endcomment %}
+            {%- for item in collection.metafields.plp.collection_featured_products.value -%}
+              <li class="swiper-slide">
+                <a href="{{ item.product.value.url}}">
+                  {{ item.media | image_url: width: 500 | image_tag: loading: 'lazy' }}
+                </a>
+                <p class="font-bold text-lg">{{ item.product.value.title }}</p>
+                {%- if item.desc.value != blank -%}
+                  <p class="mt-1">{{ item.desc.value }}</p>
+                {%- endif -%}
+
+                <a
+                  href="{{ item.product.value.url }}"
+                  class="inline-flex gap-x-2 items-center text-sm uppercase font-bold mt-4"
+                  >Shop now {% render 'icons' with 'arrow-right', width: 22, height: 22 -%}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </swiper-slider>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Collection banner",
+  "class": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "desc",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "text_position",
+      "label": "Text position"
+    },
+    {
+      "type": "text",
+      "id": "text_align",
+      "label": "Text align"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image (mobile)"
+    }
+  ]
+}
+{% endschema %}

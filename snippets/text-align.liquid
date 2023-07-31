@@ -1,0 +1,15 @@
+{%- liquid
+  if text_align != blank
+    case text_align
+      when 'left'
+        assign text_align = 'text-left'
+      when 'center'
+        assign text_align = 'text-center'
+      when 'right'
+        assign text_align = 'text-right'
+    endcase
+  else
+    assign text_align = 'text-left'
+  endif
+-%}
+{{ text_align }}

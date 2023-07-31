@@ -1,0 +1,6 @@
+tab-component tab-component-nav[aria-selected="true"] {
+  @apply relative lg:after:absolute lg:after:left-0 lg:after:right-0 lg:after:bottom-0 lg:after:h-2 lg:after:bg-neutral-300 bg-dark-green text-white;
+}
+tab-component tab-component-panel[aria-hidden="true"]{
+  @apply invisible pointer-events-none hidden;
+}

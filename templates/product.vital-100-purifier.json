@@ -1,0 +1,466 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {}
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {}
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {}
+    },
+    "7f88545e-4a16-4ea8-a740-05545b3d9189": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109754974359__7f88545e-4a16-4ea8-a740-05545b3d9189-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_fa0bc7cdbe71410c91f3b2db44075495.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109754974359__7f88545e-4a16-4ea8-a740-05545b3d9189-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Filter out harmful and unwanted airborne pollutants with the Levoit Vital 100.</strong>",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#14015b",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "dd06e650-d1df-40cd-bba4-459ea39664bd": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "76c8647c-30f5-4c35-bb3d-026522b4bbdb": {
+          "type": "image-text",
+          "settings": {
+            "hide_image_placeholder": true,
+            "subtitle": "",
+            "title": "<strong>Pre-Filter</strong>",
+            "desc": "Captures large particles such as lint, fibers, hair, and pet fur.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "7f4a9833-74e9-4097-8b27-7800f3c72ef8": {
+          "type": "image-text",
+          "settings": {
+            "hide_image_placeholder": true,
+            "subtitle": "",
+            "title": "<strong>H13 True HEPA Filter \n</strong>",
+            "desc": "Filters at least 99.97% of airborne particles 0.3 microns in size, including fine dust, smoke particles, and allergens such as pollen and pet dander.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "6977adaf-ffc6-4d42-8d46-9dbde918006a": {
+          "type": "image-text",
+          "settings": {
+            "hide_image_placeholder": true,
+            "subtitle": "",
+            "title": "<strong>High-Efficiency Activated Carbon Filter </strong>",
+            "desc": "Filters odors, smoke, and compounds such as formaldehyde, benzene, ammonia, hydrogen sulfide, and volatile organic compounds (VOCs).",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "76c8647c-30f5-4c35-bb3d-026522b4bbdb",
+        "7f4a9833-74e9-4097-8b27-7800f3c72ef8",
+        "6977adaf-ffc6-4d42-8d46-9dbde918006a"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 3,
+        "gap": 2,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "center"
+      }
+    },
+    "24fdaf70-e311-4304-8c11-5577fa6e87e4": {
+      "type": "m-video-embed",
+      "settings": {
+        "video_url": "https://youtu.be/UrUkdJO1Wdo",
+        "subtitle": "",
+        "title": "<strong>Clean Air Where it Matters Most\n\n</strong>",
+        "desc": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "5194b8b6-3d80-4b3d-9417-8e3b6e78025e": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "f333ca81-c3f2-4972-90d5-fc0501872ac0": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_d5eb3f21f35c46f7a5fc6b6dc145fdca.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<strong>Small Rooms\n</strong>",
+            "desc": "Speed 1\n300 ft2 / 28 m2\n30 minutes",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "d54bd830-db17-4fae-b905-be5d2a80e4e4": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_5205527c050441ceb8b4fc7dc7aa05bf.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<strong>Mid-Sized Rooms\n</strong>",
+            "desc": "Speed 2\n500 ft2 / 46.5 m2\n62 minutes",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "f874eb64-8e21-4e26-89cb-7d9b7013d748": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_7812fd3c6dac4a219515ea3ac66868cd.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "<strong>Large Rooms\n</strong>",
+            "desc": "Speed 3\n975 ft2 / 90.6 m2\n130 minutes",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "f333ca81-c3f2-4972-90d5-fc0501872ac0",
+        "d54bd830-db17-4fae-b905-be5d2a80e4e4",
+        "f874eb64-8e21-4e26-89cb-7d9b7013d748"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Clean Air All Around\n\n</strong>",
+        "desc": "Breathe in clean, fresh air in bedrooms, living rooms, and offices.",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 3,
+        "gap": 2,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#FFFFFF",
+        "block_text_align": "center"
+      }
+    },
+    "ab392058-83c3-4780-a526-553605db067c": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109754974359__ab392058-83c3-4780-a526-553605db067c-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_3a5798e8f30e4d82b645d54ccf11cc07.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109754974359__ab392058-83c3-4780-a526-553605db067c-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Fresh Air at the Touch of a Button\n\n</strong>",
+        "desc": "Easily clean your home with the intuitive control panel and convenient features.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "350aed58-462c-4ea2-a925-51d349c1db56": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "7f0ad904-daf3-45dd-8156-b2bce34df82e": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_022cd7bcc5264631b131d8c970cfe418.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": ["7f0ad904-daf3-45dd-8156-b2bce34df82e"],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>Save Energy, Save Money\n\n</strong>",
+        "desc": "At the highest fan speed, the Vital 100 only costs $1.66 a week to operate.\n﻿Maximum Performance: 70% Energy Usage",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "left",
+        "text_position": "top_left",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "top_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#14015b",
+        "desktop_text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#EEEEEE",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#EEEEEE",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "f5cd8fbd-0004-4de0-96f4-5e9b998f91c3": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109754974359__f5cd8fbd-0004-4de0-96f4-5e9b998f91c3-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify://shop_images/assets_5c5a2dfbd0b84138938c43351f003dd8_646f7ea1cd9e4d7a9d53611f77ee75ff.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109754974359__f5cd8fbd-0004-4de0-96f4-5e9b998f91c3-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "<strong>A Perfect Addition\n\n</strong>",
+        "desc": "The Vital 100’s sleek design and portable size makes it a great addition to any home.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "b5b28af2-3971-4e58-a145-d9f80ef8e91b": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:</b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href='www.P65Warnings.ca.gov' target='_blank'>www.P65Warnings.ca.gov</a></p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/reviews-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify://apps/bazaarvoice-reviews-photos/blocks/rating-summary-block/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "7f88545e-4a16-4ea8-a740-05545b3d9189",
+    "dd06e650-d1df-40cd-bba4-459ea39664bd",
+    "24fdaf70-e311-4304-8c11-5577fa6e87e4",
+    "5194b8b6-3d80-4b3d-9417-8e3b6e78025e",
+    "ab392058-83c3-4780-a526-553605db067c",
+    "350aed58-462c-4ea2-a925-51d349c1db56",
+    "f5cd8fbd-0004-4de0-96f4-5e9b998f91c3",
+    "b5b28af2-3971-4e58-a145-d9f80ef8e91b",
+    "product-recommendations",
+    "reviews"
+  ]
+}

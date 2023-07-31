@@ -1,0 +1,684 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "model_number": {
+          "type": "model_number",
+          "settings": {
+          }
+        },
+        "product_title": {
+          "type": "product_title",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "checkmarks": {
+          "type": "checkmarks",
+          "settings": {
+          }
+        },
+        "accordions": {
+          "type": "accordions",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "model_number",
+        "product_title",
+        "description",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "checkmarks",
+        "accordions"
+      ],
+      "settings": {
+      }
+    },
+    "1edd849e-95a1-46b1-81f9-7d717d781a94": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "0c6974e4-b739-446d-a3d2-7adfc8b29bac": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_ca22af18649f400290fe2a0a575c2a0d.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 610
+          }
+        }
+      },
+      "block_order": [
+        "0c6974e4-b739-446d-a3d2-7adfc8b29bac"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Refresh Your Workspace",
+        "desc": "",
+        "hide_header_image_on_mobile": false,
+        "header_width": 650,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "",
+        "container": "container max-w-screen-xl",
+        "header_image_align": "left",
+        "text_align": "left",
+        "text_position": "bottom_center",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "bottom_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#14015b",
+        "desktop_text_color_desc": "#000000",
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "f4e27bde-62bd-4197-a960-82162ed8c681": {
+      "type": "m-video-embed",
+      "settings": {
+        "video_url": "https:\/\/player.vimeo.com\/video\/553164020https:\/\/player.vimeo.com\/video\/553164020",
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "7b992e3c-f767-4372-987b-6f2ceb9431a3": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "57b50fb7-a2c8-4c48-942c-5e7be1270ef9": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_91c61ca2c919485088001d288f5f0196.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "Lint",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 50
+          }
+        },
+        "ed39c18c-73ee-4c3e-8933-da75e86add5e": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_ee31676e45954b4391201308ab5d5e43.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "Pollen",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 60
+          }
+        },
+        "4f456116-c3ec-49f8-a51b-8445f51c261c": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_fd08637536a446b0a4360aff4dc07655_1.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "Fine Dust",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 60
+          }
+        },
+        "55b2c4c5-139b-4207-a028-c50af3e6055e": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_c331b4b787654bbbbe207d26f3e10bc4.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "Pet Dander",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 60
+          }
+        },
+        "4998226c-1ed6-47c7-ba3b-381e6e4ae8a0": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_79b02c1ca39c4e6ba15b1fa22eea2c49_1.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "Common Smoke",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 60
+          }
+        },
+        "3bd8bd0e-83e1-42f0-9846-b68b33bda686": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_76cc115d8e4445e88f68537b69e2fcb6_1.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "Tobacco Smoke",
+            "title": "",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 60
+          }
+        }
+      },
+      "block_order": [
+        "57b50fb7-a2c8-4c48-942c-5e7be1270ef9",
+        "ed39c18c-73ee-4c3e-8933-da75e86add5e",
+        "4f456116-c3ec-49f8-a51b-8445f51c261c",
+        "55b2c4c5-139b-4207-a028-c50af3e6055e",
+        "4998226c-1ed6-47c7-ba3b-381e6e4ae8a0",
+        "3bd8bd0e-83e1-42f0-9846-b68b33bda686"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Clear Out Contaminants",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-xl",
+        "bg_color": "#eeeeee",
+        "text_color_subtitle": "#003339",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#14015b",
+        "disable_slider": "disabled",
+        "mobile_items_per_row": 3,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 6,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "center"
+      }
+    },
+    "2b5a8117-e81e-4026-b4e6-e3450583a487": {
+      "type": "m-media-text-row",
+      "blocks": {
+        "bb7f5171-2ea2-45b2-b919-5e4709412ffe": {
+          "type": "image",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_a64a361278534db5aeee182d37c2acfd.webp",
+            "figcaption": "",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_fill_height": 450,
+            "lazyload": true,
+            "custom_block_width": 70
+          }
+        },
+        "84dd004b-e470-4ab2-a49a-766c24c9f4d0": {
+          "type": "content-image",
+          "settings": {
+            "subtitle": "",
+            "title": "Superior Filtration",
+            "desc": "Built around an H13 True HEPA Filter, the air purifier's 3-stage filtration traps dust, fumes, and at least 99.97% of airborne particles 0.3 microns in size.",
+            "image_width": 350,
+            "render_image_at_top": false,
+            "enable_content_width": true,
+            "content_width": 380,
+            "text_align": "left",
+            "text_position": "center",
+            "text_color_subtitle": "#fe5834",
+            "text_color_title": "#14015b",
+            "text_color_desc": "#000000",
+            "lazyload": true,
+            "custom_block_width": 30
+          }
+        }
+      },
+      "block_order": [
+        "bb7f5171-2ea2-45b2-b919-5e4709412ffe",
+        "84dd004b-e470-4ab2-a49a-766c24c9f4d0"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_heading": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "gap": 1,
+        "reverse_row_on_mobile": false,
+        "enable_custom_block_widths": false
+      }
+    },
+    "c541259f-6b03-4aed-aeb4-ac6366d7fcc5": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "0ff1c3b3-a1cb-4b0a-bf83-47f1516508c3": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_e7c0f56036114c0d9d12d0a25275e406.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Fine Preliminary Pre-Filter",
+            "desc": "Captures large particles such as lint, fibers, hair, and pet fur.",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 180
+          }
+        },
+        "b61a878a-8f0b-4985-aa71-aba3f1fcf8d9": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_732471c2c80e4195a5758ae27b400117.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "H13 True HEPA Filter",
+            "desc": "Filters dust, pollen, pet dander, and other small particles",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 180
+          }
+        },
+        "8b836753-3df3-4034-981e-23189112cc14": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_728e07fbd3df4a00ba64213009afb2d9.webp",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Activated Carbon Pre-Filter",
+            "desc": "Absorbs unwanted odors and fumes like pet smells, smoke, and VOCs",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": true,
+            "if_logo_set_width": 180
+          }
+        }
+      },
+      "block_order": [
+        "0ff1c3b3-a1cb-4b0a-bf83-47f1516508c3",
+        "b61a878a-8f0b-4985-aa71-aba3f1fcf8d9",
+        "8b836753-3df3-4034-981e-23189112cc14"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "header_width": 700,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 2.2,
+        "desktop_items_per_row": 3,
+        "gap": 1,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": false,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "center"
+      }
+    },
+    "47a173f9-ccd8-4113-bea4-e2164864cdba": {
+      "type": "m-media-with-text-overlay",
+      "blocks": {
+        "e2e9f80b-82dd-4dd6-9ff5-11d7a622d700": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_64b7ebeaebe5402dabbe08c333b81b1d.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "e2e9f80b-82dd-4dd6-9ff5-11d7a622d700"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Compact Design",
+        "desc": "6.7 x 6.7 x 10.4 in \/ 17 x 17 x 26.5 cm",
+        "hide_header_image_on_mobile": false,
+        "header_width": 350,
+        "header_image_width": 300,
+        "button_label": "",
+        "button_url": "",
+        "enable_mobile_stack": "",
+        "container": "",
+        "header_image_align": "left",
+        "text_align": "left",
+        "text_position": "center_left",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_header_image_align": "left",
+        "desktop_text_align": "left",
+        "desktop_text_position": "center_left",
+        "desktop_text_color_subtitle": "#fe5834",
+        "desktop_text_color_title": "#14015b",
+        "desktop_text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "add_border_above_list": true,
+        "list_divider_border_color": "#eeeeee",
+        "list_item_bg_color": "",
+        "list_item_title_color": "#000000",
+        "list_item_desc_color": "#000000",
+        "desktop_list_divider_border_color": "#eeeeee",
+        "desktop_list_item_bg_color": "",
+        "desktop_list_item_title_color": "#000000",
+        "desktop_list_item_desc_color": "#000000",
+        "mobile_items_per_row": 2,
+        "tablet_items_per_row": 2,
+        "desktop_items_per_row": 2,
+        "gap": 1
+      }
+    },
+    "06f1dd30-a922-43de-bc35-948784c7dda6": {
+      "type": "m-multicolumn",
+      "blocks": {
+        "1f20f5af-c6b9-43cd-bf31-3b627fa118c6": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_9.jpg",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Remove the aroma pad cap",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "14107d98-6a74-487b-94ee-e4315c06089a": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_10.jpg",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Add 2-3 drops of essential oils to the aroma pad.",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        },
+        "ea964f55-b7c8-4cf9-9fdb-8ff2a396b134": {
+          "type": "image-text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_11.jpg",
+            "hide_image_placeholder": false,
+            "subtitle": "",
+            "title": "Replace the cap and turn on the air purifier.",
+            "desc": "",
+            "button_label": "Learn more",
+            "button_url": "",
+            "is_logo": false,
+            "if_logo_set_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "1f20f5af-c6b9-43cd-bf31-3b627fa118c6",
+        "14107d98-6a74-487b-94ee-e4315c06089a",
+        "ea964f55-b7c8-4cf9-9fdb-8ff2a396b134"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Spread Fresh Fragrances",
+        "desc": "Add your favorite essential oils* to reinvigorate the room with soothing and stimulating fragrances like lavender, peppermint, and rosemary.\n\n<small>*Essential oils not included<\/small>",
+        "header_width": 700,
+        "text_align": "left",
+        "text_position": "",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "disable_slider": "on_desktop",
+        "mobile_items_per_row": 2.2,
+        "tablet_items_per_row": 3,
+        "desktop_items_per_row": 3,
+        "gap": 3,
+        "aspect_ratio": "natural",
+        "object_fit": "cover",
+        "image_height": 250,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "show_count": true,
+        "count_bg_color": "#83a7e4",
+        "count_text_color": "#ffffff",
+        "block_text_align": "center"
+      }
+    },
+    "48ed85e4-fb50-4c0a-8119-67e9492e9d78": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109682327703__48ed85e4-fb50-4c0a-8119-67e9492e9d78-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_f2b694380ef940fa9b5dad324ab3acd9.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109682327703__48ed85e4-fb50-4c0a-8119-67e9492e9d78-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "Quiet Operation",
+        "desc": "Sleep easily with aromatherapy and near-silent noise levels.",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#14015b",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "3b6e0c3f-63cc-4a01-8a12-3da923c2067a": {
+      "type": "m-media",
+      "blocks": {
+        "template--16109682327703__3b6e0c3f-63cc-4a01-8a12-3da923c2067a-picture-1": {
+          "type": "picture",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/assets_5c5a2dfbd0b84138938c43351f003dd8_f037634df8454fbaa61eee06e3270e9d.webp",
+            "aspect_ratio": "natural",
+            "object_fit": "cover",
+            "image_height": 250
+          }
+        }
+      },
+      "block_order": [
+        "template--16109682327703__3b6e0c3f-63cc-4a01-8a12-3da923c2067a-picture-1"
+      ],
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "desc": "",
+        "list": "",
+        "header_width": 680,
+        "text_align": "center",
+        "text_position": "mx-auto",
+        "footer_content": "",
+        "footer_width": 680,
+        "footer_image_width": 250,
+        "footer_text_align": "center",
+        "footer_text_position": "mx-auto",
+        "container": "container max-w-screen-lg",
+        "bg_color": "",
+        "text_color_subtitle": "#fe5834",
+        "text_color_title": "#000000",
+        "text_color_desc": "#000000",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2,
+        "reverse_on_mobile": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Other customers also viewed",
+        "products_to_show": 8,
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "cf8b9877-27bb-446b-b9bb-eff73c33f72d": {
+      "type": "pdp-proposition",
+      "settings": {
+        "title": "<b>WARNING:<\/b> California's Proposition 65",
+        "modal_title": "Proposition 65 Warning for California Consumers",
+        "modal_desc": "<p>WARNING: This product can expose you to chemicals including Acrylamide which is known to the State of California to cause cancer and birth defects or other reproductive harm. For more information go to <a href='www.P65Warnings.ca.gov' target='_blank'>www.P65Warnings.ca.gov<\/a><\/p>",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    },
+    "reviews": {
+      "type": "apps",
+      "blocks": {
+        "bazaarvoice_reviews": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/reviews-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        },
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05": {
+          "type": "shopify:\/\/apps\/bazaarvoice-reviews-photos\/blocks\/rating-summary-block\/766ed9d3-b120-48f3-8444-448f45152f47",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "bazaarvoice_reviews",
+        "c560e6ac-2dc0-47e7-9945-1c38a152aa05"
+      ],
+      "settings": {
+        "title": "",
+        "desc": "",
+        "text_color_heading": "#003339",
+        "text_color_desc": "#000000",
+        "header_text_align": "center",
+        "container": "container",
+        "desktop_padding_y": 4,
+        "mobile_padding_y": 2
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1edd849e-95a1-46b1-81f9-7d717d781a94",
+    "f4e27bde-62bd-4197-a960-82162ed8c681",
+    "7b992e3c-f767-4372-987b-6f2ceb9431a3",
+    "2b5a8117-e81e-4026-b4e6-e3450583a487",
+    "c541259f-6b03-4aed-aeb4-ac6366d7fcc5",
+    "47a173f9-ccd8-4113-bea4-e2164864cdba",
+    "06f1dd30-a922-43de-bc35-948784c7dda6",
+    "48ed85e4-fb50-4c0a-8119-67e9492e9d78",
+    "3b6e0c3f-63cc-4a01-8a12-3da923c2067a",
+    "product-recommendations",
+    "cf8b9877-27bb-446b-b9bb-eff73c33f72d",
+    "reviews"
+  ]
+}

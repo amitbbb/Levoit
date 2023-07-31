@@ -1,0 +1,41 @@
+{% comment %}
+  {%- liquid
+    if text_position != blank
+      case text_position
+        when 'top-left'
+          assign text_position = 'items-start justify-start'
+        when 'top-center'
+          assign text_position = 'items-start justify-center'
+        when 'top-right'
+          assign text_position = 'items-start justify-end'
+        when 'center-left'
+          assign text_position = 'items-center justify-start'
+        when 'center-center'
+          assign text_position = 'items-center justify-center'
+        when 'center-right'
+          assign text_position = 'items-center justify-end'
+        when 'bottom-left'
+          assign text_position = 'items-end justify-start'
+        when 'bottom-center'
+          assign text_position = 'items-end justify-center'
+        when 'bottom-right'
+          assign text_position = 'items-end justify-end'
+      endcase
+    else
+      assign text_position = 'items-center justify-center'
+    endif
+
+    if text_align != blank
+      case text_align
+        when 'left'
+          assign text_align = 'text-left'
+        when 'center'
+          assign text_align = 'text-center'
+        when 'right'
+          assign text_align = 'text-right'
+      endcase
+    else
+      assign text_align = 'text-left'
+    endif
+  -%}
+{% endcomment %}

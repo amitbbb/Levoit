@@ -1,0 +1,485 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  #PDP-Image-Banner-{{ section.id }}-Banner  {
+    min-height: {{- section.settings.height_mobile -}}rem;
+  }
+  #shopify-section-{{ section.id }} .title {
+    color: {{ section.settings.text_color_heading_mobile }};
+  }
+  #shopify-section-{{ section.id }} .desc {
+    color: {{ section.settings.text_color_desc_mobile }};
+  }
+  .pdp-image-banner__content-{{ section.id }} {
+    {% render 'get-text-position-style', position: section.settings.text_position_mobile, get: 'style' %}
+    {% render 'get-text-align-style', align: section.settings.text_align_mobile, get: 'style' %}
+  }
+
+  {% if section.settings.stack_on_mobile == true and section.settings.enable_overlay == true %}
+    #PDP-Image-Banner-{{ section.id }}-Overlay {
+      display: none;
+    }
+    #PDP-Image-Banner-{{ section.id }}-Content {
+      {% if section.settings.mobile_image_first %}
+        grid-row-start: 2;
+      {% else %}
+      grid-row-start: 1;
+      {% endif %}
+    }
+  {% endif %}
+
+  #PDP-Image-Banner-FeatureBelowImage-{{ section.id }} {
+    background-color: {{ section.settings.feature_bg_color }};
+    color: {{ section.settings.feature_text_color }};
+  }
+
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    #PDP-Image-Banner-{{ section.id }}-Banner  {
+      min-height: {{- section.settings.height_desktop -}}rem;
+    }
+    #shopify-section-{{ section.id }} .title {
+      color: {{ section.settings.text_color_heading_desktop }};
+    }
+    #shopify-section-{{ section.id }} .desc {
+      color: {{ section.settings.text_color_desc_desktop }};
+    }
+    .pdp-image-banner__content-{{ section.id }} {
+      {% render 'get-text-position-style', position: section.settings.text_position_desktop, get: 'style' %}
+      {% render 'get-text-align-style', align: section.settings.text_align_desktop, get: 'style' %}
+    }
+    {% if section.settings.enable_overlay == true %}
+      #PDP-Image-Banner-{{ section.id }}-Overlay {
+        display: block;
+      }
+    {% endif %}
+
+    {% if section.settings.mobile_image_first %}
+        #PDP-Image-Banner-{{ section.id }}-Content {
+        grid-row-start: 1;
+      }
+    {% endif %}
+    }
+  }
+{% endstyle %}
+
+<ul id="PDP-Image-Banner-{{ section.id }}-Container" class="relative grid grid-cols-1 grid-auto-rows gap-8 h-full">
+  {%- if section.settings.enable_overlay == true -%}
+    <div
+      id="PDP-Image-Banner-{{ section.id }}-Overlay"
+      class="absolute inset-0 z-10 bg-black"
+      style="opacity: {{ section.settings.overlay_opacity }}%"
+    ></div>
+  {%- endif -%}
+  <li id="PDP-Image-Banner-{{ section.id }}-Content" class="col-start-1 row-start-1 z-10 p-10">
+  {% comment %}
+    <li class="{% if section.settings.stack_on_mobile == true %}col-start-1 row-start-1 z-10 p-10 {% else %}absolute inset-0 z-20 {% endif %}"></li>
+  {% endcomment %}
+    <div class="pdp-image-banner__content-{{ section.id }} container flex h-full ">
+      <div class="max-w-screen-sm">
+        {%- if section.settings.title != blank -%}
+          <h2 class="m-title title">{{ section.settings.title }}</h2>
+        {%- endif -%}
+        {%- if section.settings.desc != blank -%}
+          <p class="m-desc desc">{{ section.settings.desc | newline_to_br }}</p>
+        {%- endif -%}
+
+        {%- unless section.settings.render_features_below_image -%}
+          {%- if section.blocks.size > 0 -%}
+            <ul class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-2">
+              {%- for block in section.blocks -%}
+                <li class="flex flex-row gap-4 text-left">
+                  {%- if block.settings.icon != blank -%}
+                    <div class="w-24 lg:w-16">
+                      {% render 'image', image: block.settings.icon, aspect_ratio: 'aspect-square', object_fit: 'contain' %}
+                    </div>    
+                  {%- endif -%}
+                
+
+                  <div class="flex-1">
+                    {%- if block.settings.title != blank -%}
+                      <h3 class="title mb-2 font-bold uppercase">{{ block.settings.title }}</h3>
+                    {%- endif -%}
+                    {%- if block.settings.desc != blank -%}
+                      <p class="desc">{{ block.settings.desc }}</p>
+                    {%- endif -%}
+                  </div>
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}  
+        {%- endunless -%}
+
+        
+      </div>
+    </div>
+  </li>
+  <li id="PDP-Image-Banner-{{ section.id }}-Banner" class="{% if section.settings.stack_on_mobile == true %}relative lg:col-span-full lg:row-span-full {% else %}relative col-span-full row-span-full {% endif %}">
+    {% comment %}
+  <li class="relative lg:col-span-full lg:row-span-full">      
+    {% endcomment %}
+    {% render 'picture',
+      image_desktop: section.settings.image_desktop,
+      image_mobile: section.settings.image_mobile,
+      aspect_ratio: '',
+      width: 992,
+      sizes: '992, 1440, 1920',
+      object_fit: 'cover'
+    %}
+  </li>
+</ul>
+
+{%- if section.settings.render_features_below_image -%}
+  <div id="PDP-Image-Banner-FeatureBelowImage-{{ section.id }}" >
+    <ul class=" flex py-8 max-w-screen-lg mx-auto flex-wrap ">
+      {%- for block in section.blocks -%}
+        <li class="basis-1/2 flex-grow flex-shrink lg:flex-1 flex flex-col gap-4 text-center justify-center p-4">
+          {%- if block.settings.icon != blank -%}
+            <div class="w-24 lg:w-16 mx-auto">
+              {% render 'image', image: block.settings.icon, aspect_ratio: 'aspect-square', object_fit: 'contain' %}
+            </div>
+  
+          {%- endif -%}
+          
+          <div class="flex-1">
+            {%- if block.settings.title != blank -%}
+              <h3 class="mb-2 font-bold uppercase">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.desc != blank -%}
+              <p class="">{{ block.settings.desc }}</p>
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}
+
+
+
+{% schema %}
+{
+  "name": "PDP | Banner + Features",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image (mobile)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Image (desktop)"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "<span class='font-slab font-semibold'>Your Modern Chef</span>"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Description",
+      "default": "<span class='font-slab'>Take your kitchen to the next level with the Cosori Smart 7-Quart Air Fryer Oven. Equipped with 14 versatile cooking functions, a wide temperature range, and smart capabilities on the free VeSync app, the oven is ready to cook any kind of meal you’d like.</span>"
+    },
+    {
+      "type": "header",
+      "content": "Features Below Image",
+      "info": "Settings for if features below image = true"
+    },
+    {
+      "type": "checkbox",
+      "id": "render_features_below_image",
+      "label": "Render features below image",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "feature_bg_color",
+      "label": "Feature BG color (If below image)",
+      "default": "#f2f2f2"
+    },
+    {
+      "type": "color",
+      "id": "feature_text_color",
+      "label": "Feature text color (If below image)",
+      "default": "#003339"
+    },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "stack_on_mobile",
+      "label": "Stack on mobile",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_overlay",
+      "label": "Enable overlay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Overlay opacity",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Desktop Settings"
+    },
+    {
+      "type": "range",
+      "id": "height_desktop",
+      "min": 18,
+      "max": 50,
+      "step": 1,
+      "unit": "rem",
+      "label": "Height (Desktop)",
+      "default": 31
+    },
+    {
+      "type": "color",
+      "id": "text_color_heading_desktop",
+      "label": "Heading text color (Desktop)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color_desc_desktop",
+      "label": "Desc text color (Desktop)",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "text_position_desktop",
+      "label": "Text position (Desktop)",
+      "options": [
+        {
+          "value": "top_left",
+          "label": "Top left"
+        },
+        {
+          "value": "top_center",
+          "label": "Top center"
+        },
+        {
+          "value": "top_right",
+          "label": "Top right"
+        },
+        {
+          "value": "center_left",
+          "label": "Center left"
+        },
+        {
+          "value": "center_center",
+          "label": "Center center"
+        },
+        {
+          "value": "center_right",
+          "label": "Center right"
+        },
+        {
+          "value": "bottom_left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "bottom_center",
+          "label": "Bottom center"
+        },
+        {
+          "value": "bottom_right",
+          "label": "Bottom right"
+        }
+      ],
+      "default": "center_center"
+    },
+    {
+      "type": "select",
+      "id": "text_align_desktop",
+      "label": "Text align_desktop",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_image_first",
+      "label": "Image first (Mobile)",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "height_mobile",
+      "min": 18,
+      "max": 50,
+      "step": 1,
+      "unit": "rem",
+      "label": "Height (Mobile)",
+      "default": 28
+    },
+    {
+      "type": "color",
+      "id": "text_color_heading_mobile",
+      "label": "Heading text color (Mobile)",
+      "default": "#003339"
+    },
+    {
+      "type": "color",
+      "id": "text_color_desc_mobile",
+      "label": "Desc text color (Mobile)",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "text_position_mobile",
+      "label": "Text position (Mobile)",
+      "options": [
+        {
+          "value": "top_left",
+          "label": "Top left"
+        },
+        {
+          "value": "top_center",
+          "label": "Top center"
+        },
+        {
+          "value": "top_right",
+          "label": "Top right"
+        },
+        {
+          "value": "center_left",
+          "label": "Center left"
+        },
+        {
+          "value": "center_center",
+          "label": "Center center"
+        },
+        {
+          "value": "center_right",
+          "label": "Center right"
+        },
+        {
+          "value": "bottom_left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "bottom_center",
+          "label": "Bottom center"
+        },
+        {
+          "value": "bottom_right",
+          "label": "Bottom right"
+        }
+      ],
+      "default": "center_center"
+    },
+    {
+      "type": "select",
+      "id": "text_align_mobile",
+      "label": "Text align (Mobile)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Smart Control"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Desc",
+          "default": "Control and monitor your air fryer from your smartphone or using voice commands."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP | Banner + Features"
+    }
+  ]
+}
+{% endschema %}
+

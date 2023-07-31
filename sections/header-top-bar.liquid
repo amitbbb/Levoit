@@ -1,0 +1,175 @@
+<div class="container text-sm ">
+  <div class="flex justify-center lg:justify-between">
+    <nav class="flex gap-8 items-center">
+      <p class="font-bold uppercase hidden lg:inline-block">Explore our brands</p>
+      <a href="https://levoit.com" target="_blank" class="py-3 inline-block">
+        {% render 'icons' with 'levoit', fill: '#9E9E9E', class: 'h-5' %}
+      </a>
+      <a href="https://www.etekcity.com" target="_blank" class="py-3 inline-block">
+        {%- render 'icons' with 'etekcity', fill: '#9E9E9E', class: 'h-5' -%}
+      </a>
+      <a href="https://www.vesync.com/" target="_blank" class="py-3 inline-block">
+        {%- render 'icons' with 'vesync', fill: '#9E9E9E', class: 'h-5' -%}
+      </a>
+    </nav>
+    <nav class="hidden lg:block gap-8">
+      <ul class="flex gap-8">
+        <li>
+          <dropdown-menu>
+            <details class="relative z-50 py-3" rotate-icon>
+              <summary class="font-semibold inline-flex gap-x-2 items-center  cursor-pointer">
+                Your Account {% render 'icons' with 'chevron-down', width: 16, height: 16 %}
+              </summary>
+              <aside class="absolute z-50 top-full left-1/2 -translate-x-1/2 bg-white text-black p-6 h-auto rounded-md whitespace-nowrap ">
+                <p class="text-lg font-semibold mb-4">Welcome, User!</p>
+                <ul class="whitespace-nowrap text-neutral-500 flex flex-col gap-1">
+                  {%- if customer -%}
+                    <li><a href="{{ routes.account_url }}">Account</a></li>
+                    <li><a href="{{ routes.account_url }}">Orders</a></li>
+                  {%- endif -%}
+
+                  <li><a href="/pages/favorites">Favorites</a></li>
+                </ul>
+
+                {%- unless customer -%}
+                  <div class="border-t mt-4 pt-4">
+                    <a href="{{ routes.account_login_url }}" class="btn-primary whitespace-nowrap">Login / Signup</a>
+                  </div>
+                {%- else -%}
+                  <div class="border-t mt-4 pt-4">
+                    <a href="{{ routes.account_logout_url }}" class="btn-primary whitespace-nowrap">Sign out</a>
+                  </div>
+                {%- endunless %}
+              </aside>
+            </details>
+          </dropdown-menu>
+        </li>
+        <li>
+          <dropdown-menu>
+            <details class="relative z-50 py-3" rotate-icon>
+              <summary class="font-semibold inline-flex gap-x-2 items-center cursor-pointer">
+                Our Company {% render 'icons' with 'chevron-down', width: 16, height: 16 %}
+              </summary>
+              <aside class="absolute z-50 top-full left-1/2 -translate-x-1/2 bg-white text-black p-6 h-auto rounded-md">
+                <ul class="whitespace-nowrap text-neutral-500 flex flex-col gap-1">
+                  {%- for link in section.settings.company_menu.links -%}
+                    <li>
+                      <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </aside>
+            </details>
+          </dropdown-menu>
+        </li>
+        <li>
+          <dropdown-menu>
+            <details class="relative z-50 py-3" rotate-icon>
+              <summary class="font-semibold inline-flex gap-x-2 items-center  cursor-pointer">
+                Help {% render 'icons' with 'chevron-down', width: 16, height: 16 %}
+              </summary>
+              <aside class="absolute z-50 top-full right-0 bg-white text-black p-6 h-auto rounded-md text-center whitespace-nowrap">
+                <p class="text-lg font-bold mb-4">Get help from our experts</p>
+
+                <div class="text-primary">
+                  <p class="mb-2">Monday - Friday 9:00am - 5:00pm PST</p>
+                  <a href="tel:{{ settings.phone_number }}" class="text-2xl font-semibold">{{ settings.phone_number }}</a>
+                </div>
+
+                <ul class="flex  items-center gap-x-12 my-8 font-bold">
+                  <li class="flex-1">
+                    <a
+                      href="{{ section.settings.help_center_link }}"
+                      target="_blank"
+                      class=" flex flex-row justify-center items-center gap-x-2"
+                    >
+                      <div class="bg-primary aspect-square rounded-full h-12 w-12 inline-flex items-center justify-center">
+                        {% render 'icons' with 'question', width: 32, height: 32, class: 'fill-white' %}
+                      </div>
+                      <span>Help Center</span></a
+                    >
+                  </li>
+                  <li class="flex-1 ">
+                    <a
+                      href="mailto:{{ settings.email }}"
+                      class=" flex flex-row justify-center items-center gap-x-2"
+                    >
+                      <div class="bg-primary aspect-square rounded-full h-12 w-12 inline-flex items-center justify-center">
+                       {% render 'icons' with 'email', width: 32, height: 32, class: 'stroke-white' %}
+                      </div>
+
+                      <span>Email Us</span>
+                    </a>
+                  </li>
+                </ul>
+
+                <ul class="border-t mt-4 pt-4 flex gap-x-4 flex-row flex-nowrap font-bold">
+                  {%- for link in section.settings.help_menu.links -%}
+                    <li>
+                      <a href="{{ link.url }}">{{ link.title }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </aside>
+            </details>
+          </dropdown-menu>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+{% style %}
+  #shopify-section-{{ section.id }}  {
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }}
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Header top bar",
+  "tag": "aside",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG color",
+      "default": "#393939"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Our Company"
+    },
+    {
+      "type": "link_list",
+      "id": "company_menu",
+      "label": "Company menu"
+    },
+    {
+      "type": "header",
+      "content": "Help"
+    },
+    {
+      "type": "page",
+      "id": "help_center_link",
+      "label": "Help center link"
+    },
+    {
+      "type": "link_list",
+      "id": "help_menu",
+      "label": "Help menu"
+    }
+  ]
+}
+{% endschema %}

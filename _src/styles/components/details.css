@@ -1,0 +1,20 @@
+details {
+  user-select: none
+}
+details[rotate-icon] summary svg {
+  @apply transition-transform duration-300 rotate-0;
+}
+
+details[rotate-icon][open] summary svg {
+  @apply -rotate-180;
+}
+
+details > summary {
+  list-style: none;
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+
+

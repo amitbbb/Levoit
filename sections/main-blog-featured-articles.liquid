@@ -1,0 +1,107 @@
+{% liquid
+  for block in section.blocks
+    if forloop.first
+      assign first_article = block.settings.article
+      break
+    endif
+  endfor
+%}
+
+{%- capture slider_config -%}
+  { 
+    "renderMode": "performance",
+    "slides": { "perView": 1.25, "spacing": 16 },
+    "breakpoints": { 
+      "(min-width: 768px)": { "slides": { "perView": 1.25, "spacing": 16 }},
+      "(min-width: 1024px)": { "disabled": "true" }
+    }
+  }
+{%- endcapture -%}
+
+<div class="container mb-16">
+  <header class="py-8">
+    {% render 'breadcrumbs', class: 'mb-8' %}
+    <h2 class="text-5xl font-bold">Featured</h2>
+  </header>
+
+  <a href="{{ first_article.url }}">
+    {% render 'image', image: first_article.image, width: 1280, sizes: '768, 1280, 1920', class: 'h-[550px]', object_fit: 'cover' %}
+  </a>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-8">
+    
+      <article>
+        <a href="{{ first_article.url }}">
+          <h2 class="text-5xl mb-6 font-normal">{{ first_article.title }}</h2>
+        </a>
+
+        {%- if first_article.excerpt_or_content != blank -%}
+          <p class="text-xl">
+            {{ first_article.excerpt_or_content | strip_html | truncate: 100 }}
+          </p>  
+        {%- endif -%}
+        
+        <a href="{{ first_article.url }}" class="mt-12 inline-flex gap-x-2 items-center text-xl font-semibold text-primary"
+          >Read the full article {% render 'icons' with 'arrow-right', width: 20, height: 20 -%}
+        </a>
+      </article>
+
+    <keen-slider slider-config="{{ slider_config | escape }}" navigation="dots">
+      <ul class="keen-slider lg:flex lg:flex-col lg:gap-4">
+        {%- for block in section.blocks -%}
+          {%- unless forloop.first -%}
+            <li class="keen-slider__slide">
+              <a href="{{ block.settings.article.url }}">
+                <article class="flex flex-col lg:flex-row gap-4 items-start">
+                  <div class="w-full lg:w-1/3">
+                    {% render 'image',
+                      image: block.settings.article.image,
+                      width: 500,
+                      sizes: '768, 1280, 1280',
+                      aspect_ratio: 'aspect-video',
+                      object_fit: 'cover'
+                    %}
+                  </div>
+                  <div class="flex-1">
+                    <h2 class="text-2xl font-normal mb-1">{{ block.settings.article.title }}</h2>
+                    {%- if block.settings.article.excerpt_or_content != blank -%}
+                      <p>
+                        {{ block.settings.article.excerpt_or_content | strip_html | truncate: 80 }}
+                      </p>  
+                    {%- endif -%}
+                    
+                  </div>
+                </article>
+              </a>
+            </li>
+          {%- endunless -%}
+        {%- endfor -%}
+      </ul>
+      {%- if section.blocks.size > 1 -%}
+        <div id="dots" class="dots "></div>
+      {%- endif -%}
+    </keen-slider>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Featured Articles",
+  "tag": "section",
+  "max_blocks": 4,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "featured-article",
+      "name": "Featured article",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Featured article"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

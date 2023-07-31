@@ -1,0 +1,29 @@
+<article class="">
+  <a href="{{ article.url }}" class="flex h-full flex-col">
+    <div class="relative">
+      {%- render 'image',
+      image: article.image,
+      aspect_ratio: 'aspect-[4/3]',
+      border_radius: '',
+      object_fit: 'cover',
+      class: 'mb-3'
+    -%}  
+      {%- if article.metafields.recipe_article.featured_video != blank -%}
+        <div class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-white rounded-full h-10 w-10 inline-flex justify-center items-center shadow-xl">
+          {% render 'icons' with 'play', width: 25, height: 25 %}
+        </div>
+       
+      {%- endif -%}
+    </div>
+    
+    <header class="grow ">
+      <h3 class="mb-2 text-xl font-bold">{{ article.title }}</h3>
+      <p class="text-neutral-700">{{ article.excerpt_or_content | strip_html | truncate: 60 }}</p>
+    </header>
+
+    <footer class="mt-4 text-right font-semibold">
+      <span>{{ article.author }}</span>
+      <span>• 1 min read</span>
+    </footer>
+  </a>
+</article>

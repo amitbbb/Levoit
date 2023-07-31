@@ -1,0 +1,113 @@
+{%- liquid
+  assign products_to_display = section.settings.collection.all_products_count
+
+  if section.settings.collection.all_products_count > section.settings.products_to_show
+    assign products_to_display = section.settings.products_to_show
+    assign more_in_collection = true
+  endif
+-%}
+
+<div class="container">
+  {%- if section.settings.title != blank -%}
+    <header class="py-8">
+      <h2 class="font-serif text-lg mb-1">{{ section.settings.title | escape }}</h2>
+    </header>
+  {%- endif -%}
+
+  <ul class="grid grid-cols-3 gap-px">
+    {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+      <li class="outline-px">
+        {% render 'card-product', product: product %}
+      </li>
+    {%- endfor -%}
+
+    <!--
+      <article class="outline-px">
+        <div class="bg-neutral-200 aspect-[2/3]"></div>
+        <header class="pt-2 pb-8">
+          <h3>Sienna Skirt</h3>
+          <span>$995.00</span>
+        </header>
+      </article>
+      <article class="outline-px">
+        <div class="bg-neutral-200 aspect-[2/3]"></div>
+        <header class="pt-2 pb-8">
+          <h3>Sienna Skirt</h3>
+          <span>$995.00</span>
+        </header>
+      </article>
+      <article class="outline-px">
+        <div class="bg-neutral-200 aspect-[2/3]"></div>
+        <header class="pt-2 pb-8">
+          <h3>Sienna Skirt</h3>
+          <span>$995.00</span>
+        </header>
+      </article>
+      <article class="outline-px">
+        <div class="bg-neutral-200 aspect-[2/3]"></div>
+        <header class="pt-2 pb-8">
+          <h3>Sienna Skirt</h3>
+          <span>$995.00</span>
+        </header>
+      </article>
+      <article class="outline-px">
+        <div class="bg-neutral-200 aspect-[2/3]"></div>
+        <header class="pt-2 pb-8">
+          <h3>Sienna Skirt</h3>
+          <span>$995.00</span>
+        </header>
+      </article>
+      <article class="outline-px">
+        <div class="bg-neutral-200 aspect-[2/3]"></div>
+        <header class="pt-2 pb-8">
+          <h3>Sienna Skirt</h3>
+          <span>$995.00</span>
+        </header>
+      </article>
+      <article class="outline-px">
+        <div class="bg-neutral-200 aspect-[2/3]"></div>
+        <header class="pt-2 pb-8">
+          <h3>Sienna Skirt</h3>
+          <span>$995.00</span>
+        </header>
+      </article>
+      <article class="outline-px">
+        <div class="bg-neutral-200 aspect-[2/3]"></div>
+        <header class="pt-2 pb-8">
+          <h3>Sienna Skirt</h3>
+          <span>$995.00</span>
+        </header>
+      </article>
+    -->
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Featured collection",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.featured-collection.settings.collection.label"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 6,
+      "label": "t:sections.featured-collection.settings.products_to_show.label"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,287 @@
+{%- liquid
+  assign container = section.settings.container
+  assign content_title = section.settings.title
+-%}
+
+{% # prettier-ignore %}
+{%- capture slider_config -%}
+  { 
+    {% if section.settings.show_pagination %}
+      "pagination": {
+        "el": ".swiper-pagination",
+        "clickable": true
+      },
+    {% endif %}
+    {% if section.settings.slide_effect == 'fade' %}
+      "effect": "fade",
+      "fadeEffect": {
+        "crossFade": true
+      },
+    {% endif %}
+    {% if section.settings.show_navigation %}
+      "navigation": {
+        "nextEl": ".swiper-button-next",
+        "prevEl": ".swiper-button-prev"
+      },  
+    {% endif %}
+    "slidesPerView": 1,
+    "spaceBetween": 0,
+    "enabled": true,
+    "breakpoints": {
+      "768": {
+        "enabled": false
+      }
+    }
+    {% if section.settings.enable_autoplay %}
+      ,"autoplay": {
+        "delay": {{ section.settings.autoplay_interval | times: 1000 }},
+        "disableOnInteraction": false
+      }  
+    {% endif %}
+  }
+{%- endcapture -%}
+
+<div class="{{ container }}">
+  <header class="text-center">
+    <h2 class="m-title">{{ content_title }}</h2>
+    <p class="m-desc">{{ section.settings.content }}</p>
+  </header>
+  <swiper-slider
+    slider-config="{{ slider_config | escape }}"
+    modules="Navigation, Pagination, Autoplay, EffectFade, A11y"
+    slides-length="{{ section.blocks.size }}"
+    {%- if section.settings.enable_autoplay and section.settings.show_autoplay_progress -%}
+      show-autoplay-progress
+    {%- endif -%}
+  >
+    <div class="swiper">
+      <ul class="swiper-wrapper md:grid md:grid-cols-3 md:gap-8" aria-label="List - {{ section.settings.title }}">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            if block.settings.image != blank
+              assign article_image = block.settings.image
+            else
+              assign article_image = block.settings.article.image
+            endif
+          -%}
+          <li class="swiper-slide">
+            <a href="{{ block.settings.article.url }}">
+              <article class="relative">
+                {% render 'image',
+                  image: article_image,
+                  width: 500,
+                  sizes: '500, 500, 500',
+                  object_fit: 'cover',
+                  aspect_ratio: 'aspect-[4/3]',
+                  class: 'w-full h-full mb-4'
+                %}
+                <h3 class="text-lg font-semibold leading-tight">{{ block.settings.article.title }}</h3>
+                <p class="text-sm">
+                  {%- if block.settings.article.excerpt.size > 0 -%}
+                    {{ block.settings.article.excerpt | strip_html | truncatewords: 15 }}
+                  {%- else -%}
+                    {{ block.settings.article.content | strip_html | truncatewords: 15 }}
+                  {%- endif -%}
+                </p>
+              </article>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+      {%- if section.blocks.size > 1 -%}
+        {%- if section.settings.show_autoplay_progress -%}
+          {% comment %}
+            <div class="autoplay-progress">
+              <svg viewBox="0 0 48 48">
+                <circle cx="24" cy="24" r="20"></circle>
+              </svg>
+              <span></span>
+            </div>
+          {% endcomment %}
+        {%- endif -%}
+
+        {%- if section.settings.show_pagination -%}
+          <div class="swiper-pagination swiper-pagination--relative"></div>
+        {%- endif -%}
+
+        {%- if section.settings.show_navigation -%}
+          <div class="swiper-button-prev">{% render 'icons' with 'arrow-left' %}</div>
+          <div class="swiper-button-next">{% render 'icons' with 'arrow-right' %}</div>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </swiper-slider>
+</div>
+
+{% schema %}
+{
+  "name": "M | Featured Articles",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Explore our Blogs"
+    },
+    {
+      "type": "textarea",
+      "id": "content",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#fff1eb"
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "Enable autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_interval",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "sec",
+      "label": "Autoplay interval",
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "show_autoplay_progress",
+      "label": "Show autoplay progress",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show pagination",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show navigation",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "slide_effect",
+      "label": "Slide effect",
+      "options": [
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        }
+      ],
+      "default": "slide"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container (width)",
+      "options": [
+        {
+          "value": "",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Default"
+        },
+        {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+        },
+        {
+          "value": "container max-w-screen-md",
+          "label": "md"
+        },
+        {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+        },
+        {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+        },
+        {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+        }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Omit to use article image, if available"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "M | Featured Articles"
+    }
+  ]
+}
+{% endschema %}

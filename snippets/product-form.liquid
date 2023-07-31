@@ -1,0 +1,433 @@
+{%- assign product_form_id = 'product-form-' | append: section.id -%}
+{%- assign color_label_list = 'general.label.color' | t | replace: ', ', ',' | downcase | split: ',' -%}
+
+{%- for block in section.blocks -%}
+  {%- case block.type -%}
+    {%- when '@app' -%}
+      {%- render block -%}
+    {%- when 'product_title' -%}
+      <h1 class="mb-5 text-left text-2xl leading-[1.1] tracking-tight lg:text-[45px] lg:leading-[1.1] lg:tracking-tight font-medium">
+        {{ product.title }}
+      </h1>
+    {%- when 'description' -%}
+      {%- if product.description != blank -%}
+        <div class="text-lighter mb-8 leading-7">{{ product.description }}</div>
+      {%- endif -%}
+    {%- when 'price' -%}
+      <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+        {% render 'price', product: product, use_variant: true, show_badges: false, price_class: 'text-3xl' %}
+      </div>
+    {%- when 'variant_picker' -%}
+      {% unless product.has_only_default_variant %}
+        {% liquid
+          capture variant_images_arr
+            for option in product.options_with_values
+              assign option_name = option.name | handleize
+              if option_name == 'color'
+                for variant in product.variants
+                  echo variant.image | image_url: width: 450 | append: ' | ' | append: variant.available | append: ', '
+                endfor
+              endif
+            endfor
+          endcapture
+
+          assign variant_images_with_available = variant_images_arr | split: ', '
+        %}
+
+        <variant-radios
+          data-section="{{ section.id }}"
+          data-url="{{ product.url }}"
+          {{ block.shopify_attributes }}
+        >
+          <ul class="grid gap-4 mt-8">
+            {%- for option in product.options_with_values -%}
+              {% assign option_name = option.name | handleize %}
+
+              {%- if option_name == 'color' -%}
+                {%- assign color_swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />' -%}
+                <li>
+                  <fieldset class="flex flex-row flex-wrap gap-4" color-variant>
+                    {%- for value in option.values -%}
+                      {% assign variant_image = variant_images_with_available[forloop.index0] | split: ' | ' | first %}
+                      {% assign variant_available = variant_images_with_available[forloop.index0]
+                        | split: ' | '
+                        | last
+                      %}
+                      <label
+                        for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                        class="cursor-pointer"
+                      >
+                        <input
+                          type="radio"
+                          name="{{ option.name }}"
+                          id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                          value="{{ value | escape }}"
+                          title="{{ value | escape }}"
+                          form="{{ product_form_id }}"
+                          class="peer sr-only"
+                          {% if option.selected_value == value %}
+                            checked
+                          {% endif %}
+                          variant-image="{{ variant_image }}"
+                        >
+                        <span
+                          class="relative inline-block h-5 w-5 overflow-hidden rounded-full border border-neutral-500 outline outline-1 outline-offset-4 outline-transparent peer-checked:outline peer-checked:outline-neutral-500 "
+                          style="{%- render 'get-color-swatch-style', color_swatch_config: color_swatch_config, value: value -%}"
+                        >
+                          <span class="sr-only">
+                            {{- value -}}
+                          </span>
+                        </span>
+                      </label>
+                    {%- endfor -%}
+                  </fieldset>
+                </li>
+              {% else %}
+                <li>
+                  <span class="mb-2 block text-sm uppercase tracking-wider"> {{ option.name }}: </span>
+                  <fieldset class="flex flex-row flex-wrap gap-4">
+                    {%- for value in option.values -%}
+                      {% assign variant_image = variant_images_with_available[forloop.index0] | split: ' | ' | first %}
+                      {% assign variant_available = variant_images_with_available[forloop.index0]
+                        | split: ' | '
+                        | last
+                      %}
+                      <label
+                        for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                        class="cursor-pointer"
+                      >
+                        <input
+                          type="radio"
+                          name="{{ option.name }}"
+                          id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                          value="{{ value | escape }}"
+                          title="{{ value | escape }}"
+                          form="{{ product_form_id }}"
+                          class="peer sr-only"
+                          {% if option.selected_value == value %}
+                            checked
+                          {% endif %}
+                        >
+                        <span
+                          class="relative inline-block px-2 py-1 overflow-hidden rounded-lg border border-neutral-500 outline outline-1 outline-offset-4 outline-transparent peer-checked:bg-neutral-800 peer-checked:text-white"
+                        >
+                          <span class="">
+                            {{- value -}}
+                          </span>
+                        </span>
+                      </label>
+                    {%- endfor -%}
+                  </fieldset>
+                </li>
+                {% comment %}
+                  <li>
+                    <span class="mb-2 block text-sm uppercase tracking-wider"> {{ option.name }}: </span>
+                    <custom-select class="">
+                      <details id="Details-{{ block.id }}-{{ section.id }}" class="relative min-w-[18rem]">
+                        <summary class="flex cursor-pointer items-center justify-between border border-black p-4 text-sm uppercase tracking-wider">
+                          <span class="selected-label">{{ option.selected_value }}</span>
+                          {% render 'icons' with 'chevron-down' %}
+                        </summary>
+                        <div class="absolute top-[calc(100%-1px)] z-10 w-full border border-black bg-white">
+                          <fieldset class="grid">
+                            {%- for value in option.values -%}
+                              <label
+                                for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                class="facet-checkbox cursor-pointer py-4"
+                              >
+                                <input
+                                  type="radio"
+                                  id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                  name="{{ option.name }}"
+                                  value="{{ value | escape }}"
+                                  title="{{ value | escape }}"
+                                  form="{{ product_form_id }}"
+                                  class="peer sr-only"
+                                  {% if option.selected_value == value %}
+                                    checked
+                                  {% endif %}
+                                >
+                                <span class="label relative h-full w-full cursor-pointer p-4">
+                                  {{- value -}}
+                                </span>
+                              </label>
+                            {%- endfor -%}
+                          </fieldset>
+                        </div>
+                      </details>
+                    </custom-select>
+                  </li>
+                {% endcomment %}
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+          <script type="application/json">
+            {{ product.variants | json }}
+          </script>
+        </variant-radios>
+      {% endunless %}
+    {%- when 'quantity_selector' -%}
+      <div {{ block.shopify_attributes }} class="flex items-center gap-x-5">
+        <label for="Quantity-{{ section.id }}">
+          {{ 'products.product.quantity.label' | t }}
+        </label>
+
+        <quantity-input class="my-4 inline-flex h-10 gap-x-px">
+          <button name="minus" type="button" class="inline-flex h-10 w-10 items-center justify-center">
+            <span class="sr-only">
+              {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+            </span>
+            {% render 'icons' with 'minus', class: 'pointer-events-none' %}
+          </button>
+
+          <input
+            type="number"
+            name="quantity"
+            id="Quantity-{{ section.id }}"
+            min="1"
+            value="1"
+            form="{{ product_form_id }}"
+            class="no-spinner w-12 border-none bg-transparent text-center"
+            style="-moz-appearance: textfield;"
+          >
+
+          <button name="plus" type="button" class="inline-flex h-10 w-10 items-center justify-center">
+            <span class="sr-only">
+              {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+            </span>
+            {% render 'icons' with 'plus', class: 'pointer-events-none' %}
+          </button>
+        </quantity-input>
+      </div>
+    {%- when 'buy_buttons' -%}
+      <div {{ block.shopify_attributes }} class="mb-4 grid lg:grid-cols-2 gap-8">
+        <div class="flex flex-col gap-4">
+          <product-form form-id="{{ product_form_id }}" {{ block.shopify_attributes }}>
+            <div
+              class="product-form__error-message-wrapper inline-flex hidden items-center gap-x-2"
+              role="alert"
+              hidden
+            >
+              {% render 'icons' with 'alert' %}
+              <span class="product-form__error-message text-sm"></span>
+            </div>
+
+            {%- form 'product',
+              product,
+              id: product_form_id,
+              class: 'form',
+              novalidate: 'novalidate',
+              data-type: 'add-to-cart-form',
+              form-id: product_form_id,
+              class: 'grid gap-3'
+            -%}
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
+
+              <button
+                id="AddToCart"
+                type="submit"
+                name="add"
+                class="btn btn-primary !px-0"
+                {% unless product.selected_or_first_available_variant.available %}
+                  disabled
+                {% endunless %}
+              >
+                <span class="btn__text">
+                  {%- if product.selected_or_first_available_variant.available -%}
+                    {%- if product.template_suffix == 'pre-order' -%}
+                      Pre-order
+                    {%- else -%}
+                      Add to cart
+                    {%- endif -%}
+                  {%- else -%}
+                    Sold out
+                  {%- endif -%}
+                </span>
+
+                <div class="loader-spinner hidden">
+                  {% render 'icons' with 'spinner' %}
+                </div>
+              </button>
+
+              {%- if block.settings.show_dynamic_checkout -%}
+                {{ form | payment_button }}
+              {%- endif -%}
+            {%- endform -%}
+          </product-form>
+
+          <div
+            class="ps-widget"
+            ps-sku="{{ product.selected_or_first_available_variant.sku }}"
+            ps-widget-type="lightbox"
+          ></div>
+          {% comment %} <button class="btn-alternative w-full !px-0">Where to buy </button> {% endcomment %}
+
+          {% comment %} <a class="klaviyo-bis-trigger" href="#">Notify Me When Available</a> {% endcomment %}
+        </div>
+        <div>
+          {% render 'favorites-button',
+            class: 'inline-flex gap-x-2 items-center',
+            icon_class: 'h-8 w-8',
+            label: 'Save for later'
+          %}
+        </div>
+      </div>
+
+    {%- when 'text' -%}
+    {%- when 'liquid' -%}
+    {%- when 'collapsible_tab' -%}
+      <div {{ block.shopify_attributes }}>
+        <details id="Details-{{ block.id }}-{{ section.id }}" class="border-b">
+          <summary class="flex cursor-pointer items-center justify-between py-3">
+            <h2>{{ block.settings.heading }}</h2>
+            {% render 'icons' with 'chevron-down' %}
+          </summary>
+          <div
+            class="prose prose-sm prose-neutral prose-ul:mt-0 pb-3"
+            id="ProductAccordion-{{ block.id }}-{{ section.id }}"
+          >
+            {% if block.settings.add_product_description == true %}
+              {{ product.description }}
+            {%- else -%}
+              {{ block.settings.content }}
+            {% endif %}
+          </div>
+        </details>
+      </div>
+    {%- when 'model_number' -%}
+      <span class="mb-4 inline-block font-semibold uppercase tracking-widest text-neutral-800">
+        {{- product.metafields.pdp.model_number -}}
+      </span>
+    {%- when 'checkmarks' -%}
+      <ul class="flex flex-col gap-2 py-6">
+        {%- for item in product.metafields.pdp.checkmarks.value -%}
+          <li class="inline-flex items-center gap-x-2 text-lg">
+            {% render 'icons' with 'check', height: 20, width: 20 -%}
+            {{- item.title.value }}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- when 'accordions' -%}
+      {%- for accordion in product.metafields.pdp.features.value -%}
+        <details
+          id="Details-{{ block.id }}-{{ section.id }}-{{ accordion.title | handleize }}"
+          class="border-b"
+          rotate-icon
+        >
+          <summary class="flex cursor-pointer items-center justify-between py-3">
+            <h2 class="text-lg font-light">{{ accordion.title }}</h2>
+            {% render 'icons' with 'chevron-down' %}
+          </summary>
+          <div
+            class="prose prose-sm prose-neutral pb-3 prose-ul:mt-0"
+            id="ProductAccordion-{{ block.id }}-{{ section.id }}-{{ accordion.title | handleize }}"
+          >
+            <div class="prose prose-neutral">{{ accordion.description | metafield_tag }}</div>
+          </div>
+        </details>
+      {%- endfor -%}
+
+      {%- assign accordion_product_specs = product.metafields.pdp.specifications.value -%}
+      <details
+        id="Details-{{ block.id }}-{{ section.id }}-{{ accordion_product_specs.title | handleize }}"
+        class="border-b"
+        rotate-icon
+      >
+        <summary class="flex cursor-pointer items-center justify-between py-3">
+          <h2 class="text-lg font-light">Product Specifications</h2>
+          {% render 'icons' with 'chevron-down' %}
+        </summary>
+        <div
+          class=" pb-3"
+          id="ProductAccordion-{{ block.id }}-{{ section.id }}-{{ accordion_product_specs.title | handleize }}"
+        >
+          <ul class="flex flex-col gap-2 pl-6">
+            {%- for item in accordion_product_specs -%}
+              <li>
+                <strong>{{ item.title }}</strong>: {{ item.value }}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </details>
+
+      {%- assign accordion_downloads = product.metafields.pdp.downloads.value -%}
+      <details
+        id="Details-{{ block.id }}-{{ section.id }}-downloads"
+        class="border-b"
+        rotate-icon
+      >
+        <summary class="flex cursor-pointer items-center justify-between py-3">
+          <h2 class="text-lg font-light">User Manuals</h2>
+          {% render 'icons' with 'chevron-down' %}
+        </summary>
+        <div
+          class=" pb-3"
+          id="ProductAccordion-{{ block.id }}-{{ section.id }}-{{ accordion_manuals.title | handleize }}"
+        >
+          <ul class="flex flex-col gap-2 pl-6">
+            {%- for item in accordion_downloads -%}
+              <li>
+                <a href="{{ item.file | file_url }}" target="_blank">{{ item.title }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </details>
+  {%- endcase -%}
+{%- endfor -%}
+
+{% comment %}
+  {% # prettier-ignore %}
+  {%- capture slider_config -%}
+    {
+      "slidesPerView": 2,
+      "spaceBetween": 24,
+      "slidesPerGroup": 2,
+      "breakpoints": {
+        "768": {
+          "slidesPerView": 2.25,
+          "slidesPerGroup": 2.25
+        },
+        "1024": {
+          "slidesPerView": 2.25,
+          "slidesPerGroup": 2.25
+        }
+      }
+    }
+  {%- endcapture -%}
+
+  <details>
+    <summary>Pairs with</summary>
+    <aside>
+      <product-recommendations
+        class=""
+        complementary-products-contains-quick-add
+        data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=3&intent=complementary"
+        slider-config="{{ slider_config | escape }}"
+        load-when-in-view
+      >
+        {%- if recommendations.performed and recommendations.products_count > 0 -%}
+          <h3 class="text-2xl mb-8 mt-8 text-center lg:text-left">Pairs with</h3>
+
+          <div class="swiper">
+            <ul class="swiper-wrapper">
+              {%- for product in recommendations.products limit: 3 -%}
+                <li class="swiper-slide">
+                  {% render 'card-product-quick-add',
+                    product: product,
+                    aspect_ratio: 'aspect-[4/5]',
+                    show_secondary_image: true,
+                    object_fit: 'object-contain',
+                    class: 'text-sm',
+                    btn: 'outline'
+                  %}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      </product-recommendations>
+    </aside>
+  </details>
+{% endcomment %}

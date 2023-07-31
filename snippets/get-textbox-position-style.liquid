@@ -1,0 +1,24 @@
+{%- liquid
+  case get
+    when 'container'
+      if position == 'text_top'
+        echo 'display: grid;'
+      endif
+      if position == 'text_left'
+        echo 'display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));'
+      endif
+      if position == 'text_right'
+        echo 'display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));'
+      endif
+    when 'textbox'
+      if position == 'text_top'
+        echo 'order: 0;'
+      endif
+      if position == 'text_left'
+        echo 'order: 0'
+      endif
+      if position == 'text_right'
+        echo 'order: 2;'
+      endif
+  endcase
+-%}

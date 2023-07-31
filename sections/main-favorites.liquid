@@ -1,0 +1,89 @@
+{% liquid
+  if customer.first_name != blank
+    assign account_avatar = customer.first_name | slice: 0
+  else
+    assign account_avatar = customer.email | slice: 0
+  endif
+%}
+
+<div class="container py-8">
+  <div class="flex flex-col lg:flex-row gap-16">
+    <aside class="max-w-sm w-full">
+      <div class="sticky top-0">
+        {%- if customer -%}
+          <header class="flex flex-col lg:flex-row gap-8 items-center">
+            <div class="bg-primary h-12 w-12 rounded-full text-white inline-flex items-center justify-center font-bold text-2xl">
+              {{ account_avatar }}
+            </div>
+            <div>
+              <h1 class="">
+                {%- if customer.first_name != blank -%}
+                  {{ customer.first_name }}'s Account
+                {%- else -%}
+                  {{ customer.email }}'s Account
+                {%- endif -%}
+              </h1>
+              <p>Thank you so much for shopping with us!</p>
+            </div>
+          </header>
+
+          <nav class="mt-16">
+            <ul class="space-y-4">
+              <li>
+                <a href="{{ routes.account_url }}" class="inline-flex items-center gap-4">
+                  {% render 'icons' with 'cart', width: '25', height: '25' %}
+                  <span>Order History</span>
+                </a>
+              </li>
+              <li>
+                <a href="/pages/favorites" class="inline-flex items-center gap-4">
+                  {% render 'icons' with 'heart', width: '25', height: '25' %}
+                  <span>Favorites</span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ routes.account_addresses_url }}" class="inline-flex items-center gap-4">
+                  {% render 'icons' with 'user', width: '25', height: '25' %}
+                  <span>Personal Information</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        {%- else -%}
+          <div class="">
+            <h2 class="text-2xl mb-2">Don't lose your favorite products!</h2>
+            <p class="mb-6">Create an account to save the product(s) so they don’t get lost.</p>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="{{ routes.account_login_url }}"
+                  class="btn-primary"
+                >
+                  Login / Sign up
+                </a>
+              </li>
+            </ul>
+          </div>
+        {%- endif -%}
+      </div>
+    </aside>
+
+    <section class="flex-1 w-full">
+      <favorites-listing class="block" stylesheet-url="{{ 'product-card-favorites.css' | asset_url }}">
+        <header class="mb-8">
+          <h2 class="text-4xl mb-2">Favorites</h2>
+        </header>
+
+        <ul id="Favorites-Listing" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-1 gap-8"></ul>
+      </favorites-listing>
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Favorites",
+  "tag": "div",
+  "settings": []
+}
+{% endschema %}

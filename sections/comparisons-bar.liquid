@@ -1,0 +1,42 @@
+<comparisons-bar>
+  <aside class="fixed bottom-0 left-0 right-0  z-30 transition-transform duration-300 ease-out-expo">
+    <button type="button" expand-bar-btn class="bg-transparent w-full block h-4">
+      <span class="relative bg-white w-10 h-full rounded-t-lg inline-block mx-auto overflow-hidden">
+        {% render 'icons' with 'chevron-up', width: 25, height: 25, class: 'pointer-events-none absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2' %}
+      </span>
+      
+    </button>
+    <div comparisons-bar-content class="bg-white">
+      <div class="container">
+        <div class="flex flex-col lg:flex-row lg:gap-16 items-center justify-between">
+          <div class="py-4 w-full lg:w-auto h-12 flex items-center justify-center" heading>
+            <h2 class="font-bold">Compare <span compare-count class="inline-flex items-center justify-center bg-primary h-4 w-4 rounded-full text-white text-xs"></span></h2>
+          </div>
+          
+          <div class="overflow-x-auto w-full lg:flex-1 py-4" product-list>
+            <ul class="flex gap-4 flex-row" products-list></ul>
+          </div>
+        
+          
+          <div class="inline-flex gap-8 py-4">
+            <button clear-all class="whitespace-nowrap">Clear All</button>
+            <a
+              href="{{ root.url }}/pages/{%- if settings.compare_page != blank -%}{{- settings.compare_page -}}{%- else -%}compare{%- endif -%}?collection={{ collection.handle }}"
+              class="btn-primary"
+              >Compare
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </aside>
+</comparisons-bar>
+
+{% schema %}
+{
+  "name": "Comparisons bar",
+  "tag": "aside",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,7 @@
+.no-js {
+  @apply hidden;
+}
+
+html.no-js .no-js-hidden {
+  display: none !important;
+}

@@ -1,0 +1,25 @@
+@layer components {
+  .list-plus {
+    li {
+      @apply pl-4;
+      &::marker {
+        content: "+";
+      }
+    }
+  }
+  .list-steps {
+    counter-reset: steps-counter;
+    li {
+      @apply relative pl-10 mb-5;
+      &:before {
+        counter-increment: steps-counter;
+        content: counter(steps-counter);
+        position: absolute;
+        left: 0;
+        top: 0;
+        /* transform: translateY(-50%); */
+        @apply bg-secondary text-white h-8 w-8 rounded-full inline-flex justify-center items-center;
+      }
+    }
+  }
+}

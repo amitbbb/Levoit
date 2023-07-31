@@ -1,0 +1,8 @@
+{%- case position -%}
+  {%- when 'left' -%}
+    margin-left: unset; margin-right: auto;
+  {%- when 'center' -%}
+    margin-left: auto; margin-right: auto;
+  {%- when 'right' -%}
+    margin-left: auto; margin-right: unset;
+{%- endcase -%}

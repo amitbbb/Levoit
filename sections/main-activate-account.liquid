@@ -1,0 +1,132 @@
+<ul class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 my-4">
+  <li id="" class="md:w-1/2 ">
+    {%- if section.settings.image != blank -%}
+      {%-
+        render 'image',
+        image: section.settings.image,
+        aspect_ratio: 'aspect-square',
+        object-fit: 'object-cover',
+      -%}
+    {%- else -%}
+      <div class="bg-neutral-100 aspect-square"></div>
+    {%- endif -%}
+  </li>
+   <li id="" class="md:w-1/2 bg-neutral-100 flex items-center justify-center">
+      <div>
+        <header class="mb-8"> 
+          <h1 class="text-2xl uppercase">
+              {{ 'customer.activate_account.title' | t }}
+            </h1>
+            <p>
+              {{ 'customer.activate_account.subtext' | t }}
+            </p>
+        </header>
+
+        {%- form 'activate_customer_password' -%}
+          {%- if form.errors -%}
+            <h2 class="form__message" tabindex="-1" autofocus>
+              <svg aria-hidden="true" focusable="false">
+                <use href="#icon-error" />
+              </svg>
+              {{ 'templates.contact.form.error_heading' | t }}
+            </h2>
+            <ul>
+              {%- for field in form.errors -%}
+                <li>
+                  {%- if field == 'form' -%}
+                    {{ form.errors.messages[field] }}
+                  {%- else -%}
+                    <a href="#{{ field }}">
+                      {{ form.errors.translated_fields[field] | capitalize }}
+                      {{ form.errors.messages[field] }}
+                    </a>
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+
+          <div class="field mb-4">
+            <label for="password" class="block mb-2">
+              {{ 'customer.activate_account.password' | t }}
+            </label>
+            <input
+              type="password"
+              name="customer[password]"
+              id="password"
+              autocomplete="new-password"
+              placeholder="{{ 'customer.activate_account.password' | t }}"
+              class="block w-full border border-neutral-300 bg-gray-50  p-2.5 text-neutral-900 focus:border-neutral-600 focus:ring-neutral-600 sm:text-sm"
+              {% if form.errors contains 'password' %}
+                aria-invalid="true"
+                aria-describedby="password-error"
+              {% endif %}
+            >
+
+            {%- if form.errors contains 'password' -%}
+              <small id="password-error" class="form__message">
+                <svg aria-hidden="true" focusable="false">
+                  <use href="#icon-error" />
+                </svg>
+                {{ form.errors.translated_fields.password | capitalize }}
+                {{ form.errors.messages.password }}
+              </small>
+            {%- endif -%}
+          </div>
+
+          <div class="field">
+            <label for="password_confirmation" class="block mb-2">
+              {{ 'customer.activate_account.password_confirm' | t }}
+            </label>
+            <input
+              type="password"
+              name="customer[password_confirmation]"
+              id="password_confirmation"
+              autocomplete="new-password"
+              placeholder="{{ 'customer.activate_account.password_confirm' | t }}"
+              class="block w-full border border-neutral-300 bg-gray-50  p-2.5 text-neutral-900 focus:border-neutral-600 focus:ring-neutral-600 sm:text-sm"
+              {% if form.errors contains 'password' %}
+                aria-invalid="true"
+                aria-describedby="password_confirmation-error"
+              {% endif %}
+            >
+            
+            {%- if form.errors contains 'password_confirmation' -%}
+              <small id="password_confirmation-error" class="form__message">
+                <svg aria-hidden="true" focusable="false">
+                  <use href="#icon-error" />
+                </svg>
+                {{ form.errors.translated_fields.password_confirmation | capitalize }}
+                {{ form.errors.messages.password_confirmation }}
+              </small>
+            {%- endif -%}
+          </div>
+
+          <div class="mt-8">
+            <button class="btn-primary">
+              {{ 'customer.activate_account.submit' | t }}
+            </button>
+            <button name="decline" class="btn-alternative">
+              {{ 'customer.activate_account.cancel' | t }}
+            </button>
+          </div>
+          
+        {%- endform -%}
+      </div>
+    
+   </li>
+</li>
+
+{% schema %}
+{
+  "name": "Activate Account",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}

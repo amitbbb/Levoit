@@ -1,0 +1,7 @@
+ /* Cart Notification */
+ .cart-notification {
+  @apply invisible opacity-0;
+}
+.cart-notification.is-active {
+  @apply visible top-full opacity-100;
+}

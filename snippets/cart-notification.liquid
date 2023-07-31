@@ -1,0 +1,35 @@
+<cart-notification
+  id="cart-notification"
+  aria-modal="true"
+  aria-label="{{ 'general.cart.item_added' | t }}"
+  role="dialog"
+  tabindex="-1"
+  aria-label="{{ 'general.cart.item_added' | t }}"
+  class="cart-notification absolute top-0 left-0 right-0 z-10 flex h-10 items-center bg-neutral-200 text-sm text-black transition-all duration-300"
+>
+  <div class="container">
+    <div class="flex items-center justify-center gap-x-8 ">
+      <div class="inline-flex flex-1 items-center gap-x-8">
+        <div class="inline-flex gap-x-2">
+          {% render 'icons' with 'check' %}
+          <h2>{{ 'general.cart.item_added' | t }}</h2>
+        </div>
+
+        <div
+          id="cart-notification-product"
+          class="cart-notification-product inline-flex flex-1 items-center divide-x divide-black"
+        ></div>
+      </div>
+
+      <a href="{{ routes.cart_url }}">View cart</a>
+
+      <button
+        type="button"
+        aria-label="{{ 'accessibility.close' | t }}"
+        class=""
+      >
+        {% render 'icons' with 'close' %}
+      </button>
+    </div>
+  </div>
+</cart-notification>

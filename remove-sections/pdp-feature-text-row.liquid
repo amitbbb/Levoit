@@ -1,0 +1,259 @@
+{% style %}
+  {% if section.settings.bg_color != blank %}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.bg_color }};
+    }
+  {% endif %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  [id^='PDP-FeatureTextRow-Title-{{ section.id }}'], [id^='PDP-FeatureTextRow-SubTitle-{{ section.id }}'] {
+    color: {{ section.settings.title_text_color }};
+  }
+  [id^='PDP-FeatureTextRow-Desc-{{ section.id }}'] {
+    color: {{ section.settings.desc_text_color }};
+  }
+  #PDP-FeatureTextRow-Header-{{ section.id }} {
+    {% render 'get-text-align-style', align: section.settings.text_align, get: 'style' %}
+  }
+
+  [id^='PDP-FeatureTextRow-Icon-{{ section.id }}'] {
+    width: {{ section.settings.icon_width }}rem;
+    height: {{ section.settings.icon_width }}rem;
+  }
+
+  {% if section.settings.mobile_content_first %}
+    #PDP-FeatureTextRow-Header-{{ section.id }} {
+      order: 2;
+    }
+    #PDP-FeatureTextRow-Content-{{ section.id }} {
+      order: 1;
+    }
+  {% endif %}
+  
+
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+  }
+{% endstyle %}
+
+<div class="{{ section.settings.container }}">
+  <div class="grid lg:grid-cols-2 justify-center items-center">
+    {%- if section.settings.title or section.settings.desc != blank -%}
+      <header id="PDP-FeatureTextRow-Header-{{ section.id }}" class="mb-4 lg:mb-12">
+        {%- if section.settings.subtitle != blank -%}
+          <span id="PDP-FeatureTextRow-SubTitle-{{ section.id }}" class="inline-block text-xl mb-3">{{ section.settings.subtitle }}</span>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+          <h2 id="PDP-FeatureTextRow-Title-{{ section.id }}" class="m-title">{{ section.settings.title }}</h2>
+        {%- endif -%}
+        {%- if section.settings.desc != blank -%}
+          <p id="PDP-FeatureTextRow-Desc-{{ section.id }}" class="m-desc">{{ section.settings.desc }}</p>
+        {%- endif -%}
+      </header>  
+    {%- endif -%}
+
+
+    <ul id="PDP-FeatureTextRow-Content-{{ section.id }}" class="flex gap-6 flex-col flex-wrap justify-center text-center my-12">
+      {%- for block in section.blocks -%}
+        <li class="flex-1 flex items-center">
+          {%- if block.settings.icon != blank -%}
+            <div id="PDP-FeatureTextRow-Icon-{{ section.id }}-{{ block.id }}" class="mr-4">
+              {% render 'image',
+                image: block.settings.icon,
+                aspect_ratio: 'aspect-square',
+                object_fit: 'contain',
+                width: 300,
+                sizes: '300, 300, 300'
+              %}
+            </div> 
+          {%- endif -%}
+
+          {%- if block.settings.title -%}
+            <p id="PDP-FeatureTextRow-Title-{{ section.id }}-{{ block.id }}" class="font-bold">{{ block.settings.title }}</p>
+          {%- endif -%}
+          {%- if block.settings.desc -%}
+            <p id="PDP-FeatureTextRow-Desc-{{ section.id }}-{{ block.id }}">{{ block.settings.desc }}</p>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+ 
+</div>
+
+
+{% schema %}
+  {
+    "name": "PDP | Feature/Text Row",
+    "class": "section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "subtitle",
+        "label": "Subtitle"
+      },
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "desc",
+        "label": "Desc"
+      },
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "select",
+        "id": "container",
+        "label": "Container (width)",
+        "options": [
+          {
+          "value": "",
+          "label": "Full width"
+          },
+          {
+          "value": "container",
+          "label": "Default"
+          },
+          {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+          },
+          {
+          "value": "container max-w-screen-md",
+          "label": "md"
+          },
+          {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+          },
+          {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+          },
+          {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+          }
+        ],
+        "default": "container"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "BG color"
+      },
+      {
+        "type": "color",
+        "id": "title_text_color",
+        "label": "Title Text color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "desc_text_color",
+        "label": "Desc text color",
+        "default": "#000000"
+      },
+      {
+        "type": "select",
+        "id": "text_align",
+        "label": "Text align",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center"
+      },
+      {
+        "type": "range",
+        "id": "icon_width",
+        "min": 1,
+        "max": 20,
+        "step": 0.5,
+        "unit": "rem",
+        "label": "Icon width",
+        "default": 6
+      },
+      {
+        "type": "checkbox",
+        "id": "mobile_content_first",
+        "label": "Content first (Mobile)",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Section Padding"
+      },
+      {
+        "type": "range",
+        "id": "desktop_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Desktop Padding (Y)",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "mobile_padding_y",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "rem",
+        "label": "Mobile Padding (Y)",
+        "default": 2
+      }
+    ],
+    "blocks": [
+      {
+        "type": "feature",
+        "name": "Feature",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Smart Control"
+          },
+          {
+            "type": "textarea",
+            "id": "desc",
+            "label": "Desc"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "PDP | Feature/Text Row"
+      }
+    ]
+  }
+{% endschema %}

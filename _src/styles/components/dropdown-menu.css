@@ -1,0 +1,40 @@
+/** DEFAULT STATE */
+/* custom-dropdown {
+  details {
+    aside {
+      @apply invisible opacity-0 duration-300 ease-out-expo transition-all -translate-y-16
+    }
+  }
+}  */
+
+/** OPEN STATE */
+/* custom-dropdown {
+  details.is-opening {
+
+    aside {
+      @apply visible opacity-100 translate-y-0 
+    }
+  }
+} */
+
+/** DEFAULT STATE */
+custom-dropdown {
+  details {
+    aside {
+      @apply invisible opacity-0 duration-300 ease-out-expo transition-all -translate-y-16
+    }
+  }
+
+} 
+
+/** OPEN STATE */
+custom-dropdown {
+  details {
+    /* summary::before {
+      @apply content-[''] fixed inset-0 z-20 bg-black/70;
+    } */
+    aside.is-opening {
+      @apply visible opacity-100 translate-y-0 
+    }
+  }
+}

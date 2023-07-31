@@ -1,0 +1,86 @@
+<ul class="{{ class }}">
+  {%- if settings.socials_instagram != blank -%}
+    <li>
+      <a
+        href="{{ settings.socials_instagram }}"
+        class="bg-white rounded-full h-10 w-10 inline-flex justify-center items-center p-1 group hover:bg-primary transition-colors duration-300 ease-out-expo {{ icon_class }}"
+      >
+        {% render 'icons' with 'instagram',
+          class: 'transition-colors duration-300 ease-out-expo stroke-black group-hover:stroke-white',
+          height: height,
+          width: width
+        %}
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.socials_twitter != blank -%}
+    <li>
+      <a
+        href="{{ settings.socials_twitter }}"
+        class="bg-white rounded-full h-10 w-10 inline-flex justify-center items-center p-1 group hover:bg-primary transition-colors duration-300 ease-out-expo {{ icon_class }}"
+      >
+        {% render 'icons' with 'twitter',
+          class: 'transition-colors duration-300 ease-out-expo stroke-black group-hover:stroke-white',
+          height: height,
+          width: width
+        %}
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.socials_facebook != blank -%}
+    <li>
+      <a
+        href="{{ settings.socials_facebook }}"
+        class="bg-white rounded-full h-10 w-10 inline-flex justify-center items-center p-1 group hover:bg-primary transition-colors duration-300 ease-out-expo {{ icon_class }}"
+      >
+        {% render 'icons' with 'facebook',
+          class: 'transition-colors duration-300 ease-out-expo stroke-black group-hover:stroke-white',
+          height: height,
+          width: width
+        %}
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.socials_youtube != blank -%}
+    <li>
+      <a
+        href="{{ settings.socials_youtube }}"
+        class="bg-white rounded-full h-10 w-10 inline-flex justify-center items-center p-1 group hover:bg-primary transition-colors duration-300 ease-out-expo {{ icon_class }}"
+      >
+        {% render 'icons' with 'youtube',
+          class: 'transition-colors duration-300 ease-out-expo stroke-black group-hover:stroke-white',
+          height: height,
+          width: width
+        %}
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.socials_tiktok != blank -%}
+    <li>
+      <a
+        href="{{ settings.socials_tiktok }}"
+        class="bg-white rounded-full h-10 w-10 inline-flex justify-center items-center p-1 group hover:bg-primary transition-colors duration-300 ease-out-expo {{ icon_class }}"
+      >
+        {% render 'icons' with 'tiktok',
+          class: 'transition-colors duration-300 ease-out-expo stroke-black fill-black group-hover:stroke-white group-hover:fill-white',
+          height: height,
+          width: width
+        %}
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.socials_pinterest != blank -%}
+    <li>
+      <a
+        href="{{ settings.socials_pinterest }}"
+        class="bg-white rounded-full h-10 w-10 inline-flex justify-center items-center p-1 group hover:bg-primary transition-colors duration-300 ease-out-expo {{ icon_class }}"
+      >
+        {% render 'icons' with 'pinterest',
+          class: 'transition-colors duration-300 ease-out-expo stroke-black fill-black group-hover:stroke-white group-hover:fill-white',
+          height: height,
+          width: width
+        %}
+      </a>
+    </li>
+  {%- endif -%}
+</ul>

@@ -1,0 +1,160 @@
+{%- liquid
+  assign container = section.settings.container
+  assign content_title = section.settings.title
+-%}
+
+<div class="{{ container }}">
+  <header class="text-center">
+    <h2 class="m-title">{{ content_title }}</h2>
+  </header>
+  <ul class="flex flex-wrap justify-center gap-10" aria-label="Collection list">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        if block.settings.image != blank
+          assign collection_image = block.settings.image
+        else
+          assign collection_image = block.settings.collection.image
+        endif
+      -%}
+      <li class="w-[calc(50%-2.5rem)] md:w-[calc(50%-2.5rem)] lg:w-[calc(33.33%-2.5rem)] shadow-xl border hover:shadow-none transition-shadow duration-300 ease-in-out">
+        <a href="{{ block.settings.collection.url }}" class="block w-full h-full p-8">
+          <div class="flex flex-col items-center justify-center ">
+            {% render 'image',
+              image: collection_image,
+              aspect_ratio: section.settings.aspect_ratio,
+              object_fit: section.settings.object_fit,
+              width: 150,
+              widths: '320, 425',
+              height: section.settings.image_height
+            %}
+
+            <h3 class="mt-2 font-medium text-center text-gray-900">
+              {{ block.settings.title | default: block.settings.collection.title }}
+            </h3>
+          </div>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "M | Featured Collections",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Shop by Category"
+    },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#fff1eb"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container (width)",
+      "options": [
+        {
+          "value": "",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Default"
+        },
+        {
+          "value": "container max-w-screen-sm",
+          "label": "sm"
+        },
+        {
+          "value": "container max-w-screen-md",
+          "label": "md"
+        },
+        {
+          "value": "container max-w-screen-lg",
+          "label": "lg"
+        },
+        {
+          "value": "container max-w-screen-xl",
+          "label": "xl"
+        },
+        {
+          "value": "container max-w-screen-2xl",
+          "label": "2xl"
+        }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection",
+          "info": "Select a collection to feature"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "Title of the collection, omit to use the collection name"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image, omit to use the featured image of the collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "M | Featured Collections",
+      "category": "M | Collection"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,287 @@
+<style>
+  .prose h3 {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgb(243 244 246);
+
+    /* @apply mb-1 pb-2 border-b border-gray-200; */
+  }
+
+  .prose iframe {
+    width: 100%;
+    margin-top: 1.5rem;
+    aspect-ratio: 16 / 9;
+    border-radius: 0.75rem;
+
+    /* @apply w-full aspect-video mt-6 rounded-xl; */
+  }
+</style>
+
+{%- assign product_form_id = 'product-form-without-ATC-' | append: section.id -%}
+
+{% # prettier-ignore %}
+{%- capture slider_config -%}
+  { 
+    "renderMode": "performance", 
+    "slides": { "perView": 1, "spacing": 10 }, 
+    "breakpoints": { "(min-width: 768px)": {
+      "slides": { "perView": 1, "spacing": 0 }}, "(min-width: 1024px)": { "slides": { "perView": 1, "spacing": 0 }},
+      "(min-width: 1536px)": { "slides": { "perView": 1, "spacing": 0 }} 
+    }
+  }
+{%- endcapture -%}
+
+{% # prettier-ignore %}
+{%- capture thumbnail_config -%}
+  { 
+    "slides": { "disabled": true }, 
+    "breakpoints": { "(min-width: 768px)": { 
+      "slides": { "perView": 4, "spacing": 10 }}
+    }, 
+    "vertical": true 
+  }
+{%- endcapture -%}
+
+<section class="relative py-4 lg:py-12">
+  <div class="relative max-w-screen-xl lg:container">
+    {% render 'breadcrumbs', class: 'px-4 lg:px-0 mb-4' %}
+    <div class="lg:grid  lg:grid-cols-10 lg:items-start">
+      <div class="h-full lg:col-span-6">
+        <div class="">
+          <product-gallery-slider class="flex h-full w-full gap-x-4">
+            <div class="hidden w-[140px] lg:block">
+              <section
+                id="ProductGalleryThumbs-{{ section.id }}"
+                as-nav-for="ProductGalleryMain-{{ section.id }}"
+                slider-config="{{ thumbnail_config | escape }}"
+                class="product-gallery-thumbs relative"
+              >
+                <div class="keen-slider h-[550px] flex-wrap">
+                  {%- for media in product.media -%}
+                    <div
+                      class="keen-slider__slide product__media-grid-item cursor-pointer"
+                      media-id="{{ media.src }}"
+                    >
+                      {%- render 'media',
+                        media: media,
+                        aspect_ratio: 'w-full h-full',
+                        class: 'h-full w-full',
+                        media_size: 200,
+                        padding: 'p-4',
+                        type: 'thumbs',
+                        width: 300,
+                        sizes: '300, 300, 300'
+                      -%}
+                    </div>
+                  {%- endfor -%}
+                </div>
+              </section>
+            </div>
+
+            <div class="relative w-full lg:w-[calc(100%-140px)]">
+              <section
+                id="ProductGalleryMain-{{ section.id }}"
+                slider-config="{{ slider_config | escape }}"
+                navigation="full"
+              >
+                <div class="keen-slider overflow-hidden">
+                  {%- for media in product.media -%}
+                    <div
+                      class="keen-slider__slide product__media-grid-item cursor-pointer"
+                      media-id="{{ media.id }}"
+                      media-index="{{ forloop.index0 }}"
+                    >
+                      {%- render 'media',
+                        media: media,
+                        aspect_ratio: 'aspect-square',
+                        media_size: 1280,
+                        padding: 'p-10 md:p-16 lg:p-24',
+                        type: 'main',
+                        width: 1080,
+                        sizes: '768, 1080, 1080'
+                      -%}
+                    </div>
+                  {%- endfor -%}
+                </div>
+                {%- if product.media.size > 1 -%}
+                  <div id="dots" class="dots my-4"></div>
+                  
+                  <div class="arrow arrow--left arrow--background !hidden lg:!flex">
+                    {%- render 'icons' with 'arrow-left', class: '' -%}
+                  </div>
+                  <div class="arrow arrow--right arrow--background !hidden lg:!flex">
+                    {%- render 'icons' with 'arrow-right', class: '' -%}
+                  </div>
+                {%- endif -%}
+              </section>
+            </div>
+          </product-gallery-slider>
+        </div>
+
+        <div id="MainProduct-ComplementaryProducts-{{ section.id }}" class="hidden lg:block">
+
+          <product-recommendations class="" complementary-products-contains-quick-add data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=3&intent=complementary">
+            {%- if recommendations.performed and recommendations.products_count > 0 -%}
+              <h3 class="text-2xl mb-8 mt-8 text-center lg:text-left">Accessories </h3>
+
+              <ul class='grid grid-cols-3 gap-8'>
+                {%- for product in recommendations.products limit: 3 -%}
+                  <li>
+                    {% render 'card-product-quick-add', product: product, aspect_ratio: 'aspect-[4/5]',
+                      show_secondary_image: true,
+                      object_fit: 'object-contain', %}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </product-recommendations>
+        </div>
+      </div>
+
+      <aside class="main-product__aside col-span-4 h-full lg:pl-12">
+        <div class="sticky top-[calc(var(--announcement-bar-height)+var(--header-height))]">
+          <div class="px-4 lg:px-0">
+            {%- render 'product-form-without-ATC', product: product -%}
+          </div>
+        </div>
+
+        {% comment %} <div id="MainProduct-ComplementaryProducts-{{ section.id }}" class="block lg:hidden">
+          <div class="container">
+            <product-recommendations class="" complementary-products-contains-quick-add data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=3&intent=complementary">
+              {%- if recommendations.performed and recommendations.products_count > 0 -%}
+                <h3 class="text-2xl mb-8 mt-8 lg:text-left">Better together: FIlters + Accessories </h3>
+                <ul class='grid grid-cols-3 gap-8'>
+                  {%- for product in recommendations.products limit: 3 -%}
+                    <li>
+                      {% render 'card-product-quick-add', product: product %}
+                    </li>
+                  {%- endfor -%}
+                </div>
+                
+              {%- endif -%}
+            </product-recommendations>
+          </div> {% endcomment %}
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .main-product__aside {
+    top: calc(var(--announcement-bar-height) + var(--header-height) + var(--top-bar-height));
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Main",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "price",
+      "name": "Price",
+      "limit": 1
+    },
+    {
+      "type": "quantity_selector",
+      "name": "Quantity selector",
+      "limit": 1
+    },
+    {
+      "type": "variant_picker",
+      "name": "Variant picker",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "buy_buttons",
+      "name": "Buy buttons",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_dynamic_checkout",
+          "label": "Show dynamic checkout button",
+          "info": "Each customer will see their preferred payment method from those available on your store, such as PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "product_title",
+      "name": "Product title",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Will automatically populate. Use this block only for arrangement."
+        }
+      ]
+    },
+    {
+      "type": "model_number",
+      "name": "Model number",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Will automatically populate based on metafields. Use this block only for arrangement."
+        }
+      ]
+    },
+    {
+      "type": "checkmarks",
+      "name": "checkmarks",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Will automatically populate based on metafields. Use this block only for arrangement."
+        }
+      ]
+    },
+    {
+      "type": "accordions",
+      "name": "Accordions",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Will automatically populate based on metafields. Use this block only for arrangement."
+        }
+      ]
+    },
+    {
+      "type": "liquid",
+      "name": "Custom Liquid",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "liquid",
+          "label": "Liquid",
+          "info": "Add app snippets or other Liquid code to create advanced customizations."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,8 @@
+quick-add-to-cart-sticky {
+  aside {
+    @apply opacity-0 invisible ease-out-quint duration-300 transition-all -translate-y-full;
+    &.is-active {
+      @apply opacity-100 visible translate-y-0;
+    }
+  }
+}

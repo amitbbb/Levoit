@@ -1,0 +1,180 @@
+{% style %}
+  {% if section.settings.bg_color != blank %}
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.bg_color }};
+    }
+  {% endif %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.mobile_padding_y }}rem;
+    padding-bottom: {{ section.settings.mobile_padding_y }}rem;
+  }
+  #PDP-Html-Title-{{ section.id }} {
+    color: {{ section.settings.text_color_heading }};
+  }
+  #PDP-Html-Desc-{{ section.id }} {
+    color: {{ section.settings.text_color_desc }};
+  }
+  #PDP-Html-Content-{{ section.id }} {
+    {% render 'get-text-align-style', align: section.settings.mobile_text_align, get: 'style' %}
+  }
+  
+
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.desktop_padding_y }}rem;
+      padding-bottom: {{ section.settings.desktop_padding_y }}rem;
+    }
+    #PDP-Html-Content-{{ section.id }} {
+      {% render 'get-text-align-style', align: section.settings.desktop_text_align, get: 'style' %}
+    }
+  }
+{% endstyle %}
+
+<div class="{{ section.settings.container }}">
+   {%- if section.settings.title != blank or section.settings.desc != blank -%}
+    <header id="PDP-Html-Content-{{ section.id }}" class="mb-4 lg:mb-12">
+      {%- if section.settings.title != blank -%}
+        <h2 id="PDP-Html-Title-{{ section.id }}" class="m-title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.desc != blank -%}
+        <p id="PDP-Html-Desc-{{ section.id }}" class="m-desc font-slab">{{ section.settings.desc }}</p>
+      {%- endif -%}
+    </header>  
+  {%- endif -%}
+
+  {%- if section.settings.html != blank -%}
+    {{ section.settings.html }}
+  {%- endif -%}
+</div>
+
+
+{% schema %}
+{
+  "name": "M | HTML",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Desc"
+    },
+    {
+      "type": "html",
+      "id": "html",
+      "label": "html"
+    },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "select",
+      "id": "desktop_text_align",
+      "label": "Text align (Desktop)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container (width)",
+      "options": [
+        {
+        "value": "",
+        "label": "Full width"
+        },
+        {
+        "value": "container",
+        "label": "Default"
+        },
+        {
+        "value": "container max-w-screen-sm",
+        "label": "sm"
+        },
+        {
+        "value": "container max-w-screen-md",
+        "label": "md"
+        },
+        {
+        "value": "container max-w-screen-lg",
+        "label": "lg"
+        },
+        {
+        "value": "container max-w-screen-xl",
+        "label": "xl"
+        },
+        {
+        "value": "container max-w-screen-2xl",
+        "label": "2xl"
+        }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color_heading",
+      "label": "Text color (Heading)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color_desc",
+      "label": "Text color (Desc)",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Desktop Padding (Y)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "rem",
+      "label": "Mobile Padding (Y)",
+      "default": 2
+    }
+  ],
+  "presets": [
+    {
+      "name": "M | HTML"
+    }
+  ]
+}
+{% endschema %}

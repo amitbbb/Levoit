@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-support",
+      "settings": {
+        "support_menu": "support-menu",
+        "title": "We're here to help",
+        "description": "Get advice or help from our experts Monday - Friday 9am to 5pm PST."
+      }
+    },
+    "support_image_icons": {
+      "type": "support-with-image-icons",
+      "settings": {
+        "title": "We're here to help",
+        "description": "Get advice or help from our experts Monday - Friday 9am to 5pm PST.",
+        "image": "shopify:\/\/shop_images\/cosori-support-img.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "support_image_icons"
+  ]
+}

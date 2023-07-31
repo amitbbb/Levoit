@@ -1,0 +1,162 @@
+{%- liquid
+  assign title_class = title_class | default: 'text-lg'
+-%}
+
+<card-product-quick-add class="relative block {{ class }}">
+  <a href="{{ product.url }}" class="block aspect-square bg-neutral-100 p-6 mb-2 {{ img_class }}">
+    <img
+      src="{{ product.featured_image | image_url: width: 500 }}"
+      alt="{{ product.title }}"
+      loading="lazy"
+      width="250"
+      height="250"
+      product-image
+      class="object-contain w-full h-full"
+    >
+  </a>
+
+  <div>
+    {%- if show_reviews -%}
+      <div
+        data-bv-show="inline_rating"
+        data-bv-product-id="{{product.id}}"
+        data-bv-redirect-url="{{ product.url }}"
+        data-bv-seo="false"
+      ></div>
+    {%- endif -%}
+    <a href="{{ product.url }}">
+      <h3 class="{{ title_class }} font-semibold mb-2">{{ product.title }}</h3>
+    </a>
+    {% render 'price', product: product, class: 'mb-2' %}
+
+    {%- if show_description -%}
+      <p class="text-neutral-600 text-sm mb-6">
+        {{ product.description | strip_html }}
+      </p>
+    {%- endif -%}
+
+    {% unless product.has_only_default_variant %}
+      <div class="mb-2 divide-y" variant-picker>
+        {%- for option in product.options_with_values -%}
+          {% assign option_name = option.name | handleize %}
+
+          {%- if option_name == 'color' -%}
+            <fieldset class="flex flex-row flex-wrap gap-4 pb-2" color-fieldset>
+              {%- for value in option.values -%}
+                <label for="CardProductQuickAdd-{{ product.id }}-{{ option.position }}-{{ forloop.index }}">
+                  <input
+                    type="radio"
+                    id="CardProductQuickAdd-{{ product.id }}-{{ option.position }}-{{ forloop.index }}"
+                    name="{{ product.id }}-{{ option.name }}"
+                    value="{{ value | escape }}"
+                    title="{{ value | escape }}"
+                    class="peer sr-only"
+                    {% if option.selected_value == value %}
+                      checked
+                    {% endif %}
+                  >
+                  <span
+                    class="relative inline-block h-3 w-3 overflow-hidden rounded-full border border-neutral-500 outline outline-1 outline-offset-4 outline-transparent peer-checked:outline peer-checked:outline-neutral-500 cursor-pointer"
+                    style="{%- render 'get-color-swatch-style', color_swatch_config: color_swatch_config, value: value -%}"
+                  >
+                    <span class="sr-only">
+                      {{- value -}}
+                    </span>
+                  </span>
+                </label>
+              {%- endfor -%}
+            </fieldset>
+          {%- else -%}
+            <details class="has-popup" aria-haspopup="dialog">
+              <summary class="py-2 cursor-pointer">{{ option.name }} +</summary>
+              <aside class="absolute left-0 right-0 top-1/2 -translate-y-1/2 m-4 bg-white z-20 duration-200 ease-out-quint transition-all border shadow-md p-4 invisible">
+                <button type="button" class="float-right" variant-selector-close>
+                  {% render 'icons' with 'close', width: 20, height: 20 %}
+                </button>
+                <fieldset class="flex flex-col gap-x-4">
+                  <legend class="sr-only">{{ option.name }}</legend>
+                  {%- for value in option.values -%}
+                    <label
+                      for="CardProductQuickAdd-{{ product.id }}-{{ option.position }}-{{ forloop.index }}"
+                      class="py-2 cursor-pointer {% unless forloop.last %}border-b{% endunless %}"
+                    >
+                      <input
+                        type="radio"
+                        id="CardProductQuickAdd-{{ product.id }}-{{ option.position }}-{{ forloop.index }}"
+                        {% comment %} class="peer sr-only" {% endcomment %}
+                        name="{{ product.id }}-{{ option.name }}"
+                        value="{{ value | escape }}"
+                        title="{{ value | escape }}"
+                        {% if option.selected_value == value %}
+                          checked
+                        {% endif %}
+                      >
+                      <span
+                        {% comment %} class="relative inline-block px-2 overflow-hidden rounded-full border border-neutral-500 outline outline-1 outline-offset-4 outline-transparent peer-checked:outline peer-checked:outline-neutral-500 cursor-pointer" {% endcomment %}
+                      >
+                        <span>{{ value }}</span>
+                      </span>
+                    </label>
+                  {%- endfor -%}
+                </fieldset>
+              </aside>
+            </details>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      <script type="application/json">
+        {{ product.variants | json }}
+      </script>
+    {% endunless %}
+
+    <form>
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
+
+      {%- if btn == 'outline' -%}
+        <button
+          type="submit"
+          name="add"
+          {% unless product.selected_or_first_available_variant.available %}
+            disabled
+          {% endunless %}
+          class="btn-outline"
+        >
+          <span class="btn__text flex gap-x-1 justify-center items-center">
+            {%- if product.selected_or_first_available_variant.available -%}
+              {%- if product.template_suffix == 'pre-order' -%}
+                Pre-order
+              {%- else -%}
+                Add to cart
+              {%- endif -%}
+            {%- else -%}
+              Sold out
+            {%- endif -%}
+            {% render 'icons' with 'arrow-right', width: 22, height: 22 -%}
+          </span>
+        </button>
+      {%- else -%}
+        <button
+          type="submit"
+          name="add"
+          class="block text-center w-full bg-primary px-4 py-2 uppercase font-bold text-white text-sm"
+          {% unless product.selected_or_first_available_variant.available %}
+            disabled
+          {% endunless %}
+        >
+          <span class="btn__text">
+            {%- if product.selected_or_first_available_variant.available -%}
+              {%- if product.template_suffix == 'pre-order' -%}
+                Pre-order
+              {%- else -%}
+                Add to cart
+              {%- endif -%}
+            {%- else -%}
+              Sold out
+            {%- endif -%}
+          </span>
+        </button>
+      {%- endif -%}
+    </form>
+  </div>
+</card-product-quick-add>

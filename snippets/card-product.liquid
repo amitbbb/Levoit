@@ -1,0 +1,255 @@
+{% liquid
+  assign image = product.featured_image
+  assign product_title = product.title | handleize
+
+  capture variant_images_arr
+    for option in product.options_with_values
+      assign option_name = option.name | handleize
+      if option_name == 'color'
+        assign color_groups = product.variants | map: 'option1' | uniq
+        for color in color_groups
+          for variant in product.variants
+            if variant.option1 == color
+              echo variant.title | append: ' | ' | append: variant.available | append: ', '
+            endif
+          endfor
+        endfor
+      endif
+    endfor
+  endcapture
+
+  assign variant_images_with_available = variant_images_arr | split: ', '
+
+  comment
+    assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' | sort_natural
+  endcomment
+
+  capture product_media
+    for media in product.media
+      echo media.src | image_url | append: ', '
+    endfor
+  endcapture
+%}
+
+<card-product class="block" data-url="{{ product.url | within: collection }}" product-media="{{ product_media }}">
+  <div class="relative h-full">
+    {% render 'product-card-badge', product: product %}
+    {%- if show_favorite -%}
+      {% render 'favorites-button',
+        variant_id: product.selected_or_first_available_variant.id,
+        product: product,
+        class: 'absolute top-3 right-3 z-20',
+        icon_class: 'h-6 w-6'
+      %}
+    {%- endif -%}
+    <div class="flex h-full flex-col text-sm">
+      {%- if image != blank -%}
+        <div class=" relative {{ aspect_ratio }} group overflow-hidden">
+          {%- if show_compare -%}
+            {%- render 'compare-button', product: product, collection: collection -%}
+          {%- endif -%}
+
+          <a href="{{ product.url | within: collection }}">
+            {%- liquid
+              if width
+                assign img_src = image.src | image_url: width: width
+              else
+                assign img_src = image.src | image_url: width: 768
+              endif
+            -%}
+
+            {%- if sizes -%}
+              {%- assign img_srcset_arr = sizes | split: ', ' -%}
+              {%- capture img_srcset -%}
+                  {{ image.src | image_url: width: img_srcset_arr[0] }} 320w,
+                  {{ image.src | image_url: width: img_srcset_arr[1] }} 640w,
+                  {{ image.src | image_url: width: img_srcset_arr[2] }} 1024w
+                {%- endcapture -%}
+            {%- else -%}
+              {%- capture img_srcset -%}
+                  {{ image.src | image_url: width: 500 }} 320w,
+                  {{ image.src | image_url: width: 500 }} 640w,
+                  {{ image.src | image_url: width: 500 }} 1024w
+                {%- endcapture -%}
+            {%- endif -%}
+
+            <lazy-image
+              id="CardProduct-Image1"
+              class="
+                absolute inset-0 z-10 block h-full w-full overflow-hidden bg-neutral-100
+                opacity-100 duration-150 ease-out-expo
+                {% if product.media[1] != null and show_secondary_image %}group-hover:invisible group-hover:opacity-0 group-hover:duration-150 group-hover:ease-out-expo{% endif %}
+              "
+            >
+              <img
+                src="{{ image | image_url: width: 250 }}"
+                srcset="{{ img_srcset }}"
+                alt="{{ product.title }} - {{ image.alt }}"
+                width="600"
+                height="800"
+                data-src="{{ img_src }}"
+                data-srcset="{{ img_srcset }}"
+                {% comment %} loading="lazy" {% endcomment %}
+                class="
+                  {{ object_fit }}
+                  absolute inset-0
+                    h-full w-full bg-neutral-100 p-4 md:p-8 lg:p-10
+                "
+              >
+            </lazy-image>
+
+            {%- if product.media[1] != null and show_secondary_image -%}
+              {%- liquid
+                if width
+                  assign img_2_src = product.media[1] | image_url: width: width
+                else
+                  assign img_2_src = product.media[1] | image_url: width: 768
+                endif
+              -%}
+
+              {%- if sizes -%}
+                {%- assign img_srcset_arr_2 = sizes | split: ', ' -%}
+                {%- capture img_2_srcset -%}
+                  {{ product.media[1] | image_url: width: img_srcset_arr_2[0] }} 320w,
+                  {{ product.media[1] | image_url: width: img_srcset_arr_2[1] }} 640w,
+                  {{ product.media[1] | image_url: width: img_srcset_arr_2[2] }} 1024w
+                {%- endcapture -%}
+              {%- else -%}
+                {%- capture img_2_srcset -%}
+                  {{ product.media[1] | image_url: width: 500 }} 320w,
+                  {{ product.media[1] | image_url: width: 500 }} 640w,
+                  {{ product.media[1] | image_url: width: 500 }} 1024w
+                {%- endcapture -%}
+              {%- endif -%}
+
+              <lazy-image
+                id="CardProduct-Image2"
+                class="
+                  absolute inset-0 block h-full w-full overflow-hidden bg-neutral-100
+                  duration-500 ease-out-expo
+                  {% comment %} opacity-0 group-hover:opacity-100 {% endcomment %}
+                "
+              >
+                <img
+                  src="{{ product.media[1] | image_url: width: 250 }}"
+                  alt="{{ product.title }} - {{ product.media[1].alt }}"
+                  width="600"
+                  height="800"
+                  data-src="{{ img_2_src }}"
+                  data-srcset="{{ img_2_srcset }}"
+                  {% comment %} loading="lazy" {% endcomment %}
+                  class="
+                    {{ object_fit }}
+                    absolute inset-0
+                      h-full w-full bg-neutral-100 p-4 md:p-8 lg:p-10
+                  "
+                >
+              </lazy-image>
+            {%- endif %}
+          </a>
+        </div>
+      {%- else -%}
+        <div class="{{ aspect_ratio }} bg-neutral-100"></div>
+      {%- endif -%}
+
+      <div class="card-title relative flex-grow py-4 ">
+        {%- if product.metafields.pdp.model_number -%}
+          <small class="mb-2 inline-block uppercase text-neutral-600 "
+            >Model: {{ product.metafields.pdp.model_number -}}
+          </small>
+        {%- endif -%}
+
+        <div class="">
+          <div class="flex-1 flex-grow">
+            <h3 class="mb-2 text-base md:text-base lg:text-lg lg:leading-snug font-semibold transition-colors duration-300">
+              <a href="{{ product.url | within: collection }}">
+                {{ product.title | escape }}
+              </a>
+            </h3>
+          </div>
+          <ul class="mb-2 flex flex-col lg:flex-row lg:justify-between lg:items-center gap-2">
+            <li>
+              <div
+                data-bv-show="inline_rating"
+                data-bv-product-id="{{ product.id }}"
+                data-bv-redirect-url="{{ product.url }}"
+                data-bv-seo="false"
+              ></div>
+            </li>
+            <li>
+              <div class="">
+                {%- for option in product.options_with_values -%}
+                  {% liquid
+                    assign OPTION_NAME = option.name | handleize
+                  %}
+                  {%- if OPTION_NAME == 'color' -%}
+                    {%- assign color_swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />' -%}
+
+                    <fieldset class="flex flex-row flex-wrap gap-3">
+                      {%- for value in option.values -%}
+                        {% comment %}
+                          {% assign variant_image = variant_images_with_available[forloop.index0]
+                            | split: ' | '
+                            | first
+                          %}
+                        {% endcomment %}
+                        {% comment %}
+                          {% assign variant_available = variant_images_with_available[forloop.index0]
+                            | split: ' | '
+                            | last
+                          %}
+                        {% endcomment %}
+
+                        <label
+                          for="ProductCard-{{ product_title }}-{{ option.position }}-{{ forloop.index0 }}"
+                          class="cursor-pointer"
+                        >
+                          <input
+                            type="radio"
+                            name="{{ product_title }}-{{ option.name }}"
+                            id="ProductCard-{{ product_title }}-{{ option.position }}-{{ forloop.index0 }}"
+                            value="{{ value | escape }}"
+                            title="{{ value | escape }}"
+                            form=""
+                            class="peer sr-only"
+                            {% if forloop.first %}
+                              checked
+                            {% endif %}
+                            {% comment %}
+                              {% if option.selected_value == value %}
+                                checked
+                              {% endif %}
+                            {% endcomment %}
+                          >
+                          <span
+                            class="relative inline-block h-3 w-3 overflow-hidden rounded-full border border-neutral-500 outline outline-1 outline-offset-4 outline-transparent peer-checked:outline peer-checked:outline-neutral-500 "
+                            style="{%- render 'get-color-swatch-style', color_swatch_config: color_swatch_config, value: value -%}"
+                          >
+                            <span class="sr-only">
+                              {{- value -}}
+                            </span>
+                          </span>
+                        </label>
+                      {%- endfor -%}
+                    </fieldset>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </li>
+          </ul>
+
+          <span>{% render 'price', product: product, class: 'md:text-base' %}</span>
+        </div>
+      </div>
+
+      {% render 'product-card-tags',
+        product: product,
+        class: 'inline-flex flex-wrap gap-2 uppercase text-neutral-600 text-xs'
+      %}
+    </div>
+  </div>
+
+  <script type="application/json">
+    {{ product.variants | json }}
+  </script>
+</card-product>

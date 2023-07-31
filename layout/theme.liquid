@@ -1,0 +1,106 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    {% comment %}
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5TH7WXB');</script>
+      <!-- End Google Tag Manager -->
+    {% endcomment %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="">
+    <meta name="p:domain_verify" content="0cd26d8451b094e44815d5e8e049087c">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% render 'meta-tags' %}
+
+    <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+
+    {% comment %} <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/a568a306f7c0aaac82f238d5/script.js"></script> <!-- End cookieyes banner --> {% endcomment %}
+
+    {%- if template contains 'product' -%}
+      <meta name="ps-key" content="5064-616f42b48656810020037b0d">
+      <meta name="ps-country" content="US">
+      <meta name="ps-language" content="en">
+      <script src="//cdn.pricespider.com/1/lib/ps-widget.js" async></script>
+    {%- endif -%}
+
+    {% comment %} <script src="https://solve-widget.forethought.ai/embed.js" type="application/javascript" data-api-key="fb4cc9bc-8889-423b-af70-966703f8ac84" data-ft-brand="cosori"></script> {% endcomment %}
+
+    {{ content_for_header }}
+
+    {%- render 'fonts' -%}
+    {%- render 'css-variables' -%}
+
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {{ 'customStyles.css' | asset_url | stylesheet_tag }}
+
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      if (Shopify.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
+      }
+    </script>
+  </head>
+  <body class="subpixel-antialiased">
+    {% comment %}
+      <body class="">
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TH7WXB"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    {% endcomment %}
+
+    <a class="sr-only" href="#MainContent">
+      <!-- {{ "accessibility.skip_to_text" | t }} -->
+    </a>
+
+    {%- sections 'header-group' -%}
+
+    {%- if settings.cart_type == 'drawer' -%}
+      {%- render 'cart-drawer' -%}
+    {%- endif -%}
+
+    {% comment %}
+      {% section 'header-top-bar' %}
+      {% section 'announcement-bar' %}
+      {% section 'header' %}
+    {% endcomment %}
+
+    <main id="MainContent" class="content-for-layout focus-none " role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% comment %} {% section 'footer' %} {% endcomment %}
+    {%- sections 'footer-group' -%}
+
+    {% render 'js-variables' %}
+
+    <!-- Back in Stock helper snippet -->
+    {% render 'back-in-stock-helper' %}
+    <!-- End Back in Stock helper snippet -->
+
+    {% render 'scripts' %}
+  </body>
+</html>
